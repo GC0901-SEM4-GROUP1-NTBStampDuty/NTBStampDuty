@@ -10,5 +10,5 @@ package model;
  * @author SonNguyen
  */
 public class LandManager {
-    
+
 }
