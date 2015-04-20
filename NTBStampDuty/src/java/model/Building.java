@@ -12,114 +12,112 @@ import java.util.Date;
  * @author Phuc
  */
 public class Building {
-    private int buildingID;
-    private int landID;
-    private int buidingTypeID;
-    private String buildingName;
-    private int addressID;
-    private int floors;
-    private int rooms;
-    private int houses;
-    private int shops;
-    private Date dateContructed;
-    private int completedPercent;
-    private String img;
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
+    private int BuildingID;
+    private int LandID;
+    private int BuidingTypeID;
+    private String BuildingName;
+    private int AddressID;
+    private int Floors;
+    private int Rooms;
+    private int Houses;
+    private int Shops;
+    private Date DateContructed;
+    private int CompletedPercent;
+    private String Img;
 
     public int getBuildingID() {
-        return buildingID;
+        return BuildingID;
     }
 
-    public void setBuildingID(int buildingID) {
-        this.buildingID = buildingID;
+    public void setBuildingID(int BuildingID) {
+        this.BuildingID = BuildingID;
     }
 
     public int getLandID() {
-        return landID;
+        return LandID;
     }
 
-    public void setLandID(int landID) {
-        this.landID = landID;
+    public void setLandID(int LandID) {
+        this.LandID = LandID;
     }
 
     public int getBuidingTypeID() {
-        return buidingTypeID;
+        return BuidingTypeID;
     }
 
-    public void setBuidingTypeID(int buidingTypeID) {
-        this.buidingTypeID = buidingTypeID;
+    public void setBuidingTypeID(int BuidingTypeID) {
+        this.BuidingTypeID = BuidingTypeID;
     }
 
     public String getBuildingName() {
-        return buildingName;
+        return BuildingName;
     }
 
-    public void setBuildingName(String buildingName) {
-        this.buildingName = buildingName;
+    public void setBuildingName(String BuildingName) {
+        this.BuildingName = BuildingName;
     }
 
     public int getAddressID() {
-        return addressID;
+        return AddressID;
     }
 
-    public void setAddressID(int addressID) {
-        this.addressID = addressID;
+    public void setAddressID(int AddressID) {
+        this.AddressID = AddressID;
     }
 
     public int getFloors() {
-        return floors;
+        return Floors;
     }
 
-    public void setFloors(int floors) {
-        this.floors = floors;
+    public void setFloors(int Floors) {
+        this.Floors = Floors;
     }
 
     public int getRooms() {
-        return rooms;
+        return Rooms;
     }
 
-    public void setRooms(int rooms) {
-        this.rooms = rooms;
+    public void setRooms(int Rooms) {
+        this.Rooms = Rooms;
     }
 
     public int getHouses() {
-        return houses;
+        return Houses;
     }
 
-    public void setHouses(int houses) {
-        this.houses = houses;
+    public void setHouses(int Houses) {
+        this.Houses = Houses;
     }
 
     public int getShops() {
-        return shops;
+        return Shops;
     }
 
-    public void setShops(int shops) {
-        this.shops = shops;
+    public void setShops(int Shops) {
+        this.Shops = Shops;
     }
 
     public Date getDateContructed() {
-        return dateContructed;
+        return DateContructed;
     }
 
-    public void setDateContructed(Date dateContructed) {
-        this.dateContructed = dateContructed;
+    public void setDateContructed(Date DateContructed) {
+        this.DateContructed = DateContructed;
     }
 
     public int getCompletedPercent() {
-        return completedPercent;
+        return CompletedPercent;
     }
 
-    public void setCompletedPercent(int completedPercent) {
-        this.completedPercent = completedPercent;
+    public void setCompletedPercent(int CompletedPercent) {
+        this.CompletedPercent = CompletedPercent;
     }
-    
-    
+
+    public String getImg() {
+        return Img;
+    }
+
+    public void setImg(String Img) {
+        this.Img = Img;
+    }
 }

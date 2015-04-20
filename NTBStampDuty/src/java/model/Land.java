@@ -10,67 +10,67 @@ package model;
  * @author Phuc
  */
 public class Land {
-    private int landID;
-    private int size;
-    private int addressID;
-    private String buildingTypes;
-    private String buildingPlan;
-    private int buildStatus;
-    private String img;
+    private int LandID;
+    private int Size;
+    private int AddressID;
+    private String BuildingTypes;
+    private String BuildingPlan;
+    private int BuildStatus;
+    private String Img;
 
     public int getLandID() {
-        return landID;
+        return LandID;
     }
 
-    public void setLandID(int landID) {
-        this.landID = landID;
+    public void setLandID(int LandID) {
+        this.LandID = LandID;
     }
 
     public int getSize() {
-        return size;
+        return Size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setSize(int Size) {
+        this.Size = Size;
     }
 
     public int getAddressID() {
-        return addressID;
+        return AddressID;
     }
 
-    public void setAddressID(int addressID) {
-        this.addressID = addressID;
+    public void setAddressID(int AddressID) {
+        this.AddressID = AddressID;
     }
 
     public String getBuildingTypes() {
-        return buildingTypes;
+        return BuildingTypes;
     }
 
-    public void setBuildingTypes(String buildingTypes) {
-        this.buildingTypes = buildingTypes;
+    public void setBuildingTypes(String BuildingTypes) {
+        this.BuildingTypes = BuildingTypes;
     }
 
     public String getBuildingPlan() {
-        return buildingPlan;
+        return BuildingPlan;
     }
 
-    public void setBuildingPlan(String buildingPlan) {
-        this.buildingPlan = buildingPlan;
+    public void setBuildingPlan(String BuildingPlan) {
+        this.BuildingPlan = BuildingPlan;
     }
 
     public int getBuildStatus() {
-        return buildStatus;
+        return BuildStatus;
     }
 
-    public void setBuildStatus(int buildStatus) {
-        this.buildStatus = buildStatus;
+    public void setBuildStatus(int BuildStatus) {
+        this.BuildStatus = BuildStatus;
     }
 
     public String getImg() {
-        return img;
+        return Img;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImg(String Img) {
+        this.Img = Img;
     }
 }
