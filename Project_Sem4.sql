@@ -67,7 +67,8 @@ rooms int,
 houses int,
 shops int,
 date_contructed Datetime,
-completed_percent int
+completed_percent int,
+img nvarchar(100)
 )
 
 create table tblOccupancyPermit
