@@ -12,7 +12,7 @@ package model;
 public class Land {
     private int landID;
     private int size;
-    private int addressID;
+    private String addressID;
     private String buildingTypes;
     private String buildingPlan;
     private int buildStatus;
@@ -34,11 +34,11 @@ public class Land {
         this.size = size;
     }
 
-    public int getAddressID() {
+    public String getAddressID() {
         return addressID;
     }
 
-    public void setAddressID(int addressID) {
+    public void setAddressID(String addressID) {
         this.addressID = addressID;
     }
 
