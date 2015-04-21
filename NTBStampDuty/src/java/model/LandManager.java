@@ -39,7 +39,15 @@ public class LandManager {
                 land.setAddressID(rs.getString("name"));
                 land.setBuildingTypes(rs.getString("building_types"));
                 land.setBuildingPlan(rs.getString("building_plan"));
-                land.setBuildStatus(rs.getInt("built_status"));
+                int status = rs.getInt("built_status");
+                if(status == 0){
+                    land.setBuildStatus("Not Build");
+                }else if(status == 1){
+                    land.setBuildStatus("Building");
+                }else{
+                    land.setBuildStatus("Built");
+                }
+                land.setPrice(rs.getInt("price"));
                 land.setImg(rs.getString("img"));
                 landList.add(land);
             }
