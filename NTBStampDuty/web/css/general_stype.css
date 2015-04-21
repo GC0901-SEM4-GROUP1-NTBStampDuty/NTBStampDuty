@@ -15,6 +15,14 @@ html, body {margin: 0px; padding: 0px; height: 100%; width: 100%; position: rela
 #footer .slogan {float: left; width:190px; height: 40px; padding: 13px 10px; margin-top: 8px; border-right: 1px solid #BEBFC3}
 #footer .dev_team {width: 420px; height: 40px; float: left; margin: 22px 15px;}
 #footer .dev_team a {color: #96989A; font-size: 13px}
+#footer .social {float: right; padding: 10px 0px; display: inline-block; margin: 22px -208px 0 0;}
+#footer .social a {margin-left: 5px;}
+#footer .social .facebook {background: url("../images/ic_facebook.png") no-repeat; padding: 4px 12px}
+#footer .social .twitter {background: url("../images/ic_twitter.png") no-repeat; padding: 4px 12px}
+#footer .social .google-plus {background: url("../images/ic_google_plus.png") no-repeat; padding: 4px 12px}
+#footer .social .youtube {background: url("../images/ic_youtube.png") no-repeat; padding: 4px 12px}
+#footer .social .blogs {background: url("../images/ic_blog.png") no-repeat; padding: 4px 12px}
+
 
 #main_body {height: 100%; width: 100%; float: left; min-height: 650px}
 #main_body .detail_bar{overflow: hidden; height: 625px; background-color: #FAFAFA; border: 1px solid #CFCFCF; border-radius: 3px; box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1); margin: 10px 0px 20px;}
