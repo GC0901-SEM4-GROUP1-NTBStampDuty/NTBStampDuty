@@ -21,7 +21,7 @@
         <div class="login_content">
             <div class="login_auth_dialog">
                 <h3>Sign in with your credentials</h3>
-                <form class="login_auth" action="login" method="post">
+                <form class="login_auth" action="land_page.jsp" method="post">
                     <input id="login_input" name="username" placeholder="Username"/><br/>
                     <input id="login_input" type="password" placeholder="Password" name="password"/><br/>
                     <div class="login_remember_form">

@@ -22,6 +22,9 @@ address_id int primary key,
 name nvarchar(50),
 price int
 )
+insert into tblLocation values(1,'Le Thai To', 5500)
+insert into tblLocation values(2,'Giang Van Minh', 3000)
+insert into tblLocation values(3,'Nhat Tan', 2500)
 
 create table tblLand
 (
@@ -30,8 +33,11 @@ size int,
 address_id int references tblLocation(address_id),
 building_types nvarchar(50),
 building_plan nvarchar(50),
-built_status int
+built_status int,
+img nvarchar(100)
 )
+insert into tblLand values(200, 1, 'Office', '', 0, '')
+insert into tblLand values(300, 3, 'House', '', 1, '')
 
 create table tblBuildingType
 (
