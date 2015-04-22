@@ -1,7 +1,7 @@
 <%-- 
-    Document   : land_page
-    Created on : Apr 20, 2015, 3:55:48 AM
-    Author     : SonNguyen
+    Document   : building_page
+    Created on : Apr 22, 2015, 2:48:56 PM
+    Author     : Phuc
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -30,21 +30,27 @@
                 </div>
                 <table class="land" id="land">
                     <tr>
-                        <th style="width: 6%">Land ID</th>
-                        <th style="width: 10%">Size</th>
-                        <th style="width: 32%">Address</th>
-                        <th style="width: 15%">Building Types</th>
-                        <th style="width: 25%">Price</th>
-                        <th style="width: 12%">Built Status</th>
+                        <th style="width: 6%">Building ID</th>
+                        <th style="width: 10%">Building Type</th>
+                        <th style="width: 32%">Building Name</th>
+                        <th style="width: 15%">Floors</th>
+                        <th style="width: 25%">Rooms</th>
+                        <th style="width: 12%">Houses</th>
+                        <th style="width: 12%">Shops</th>
+                        <th style="width: 12%">Date Constructed</th>
+                        <th style="width: 12%">Completed percent</th>
                     </tr>
-                    <c:forEach items="${landList}" var="land">
+                    <c:forEach items="${buildingList}" var="building">
                         <tr>
-                            <td>${land.landID}</td>
-                            <td>${land.size}</td>
-                            <td>${land.addressID}</td>
-                            <td>${land.buildingTypes}</td>
-                            <td>${land.price}</td>
-                            <td>${land.buildStatus}</td>
+                            <td>${building.buildingID}</td>
+                            <td>${building.buidingTypeID}</td>
+                            <td>${building.buildingName}</td>
+                            <td>${building.floors}</td>
+                            <td>${building.rooms}</td>
+                            <td>${building.houses}</td>
+                            <td>${building.shops}</td>
+                            <td>${building.dateContructed}</td>
+                            <td>${building.completedPercent}</td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -76,10 +82,6 @@
                             </c:forEach>
                     </tr>
                 </table>
-                
-                <form action="buildingDetail" method="post">
-                    <input type ="submit" value="Building detail"/>
-                </form>
 
                 <%--For displaying Previous link except for the 1st page --%>
                 <c:choose>
@@ -94,4 +96,5 @@
         </div>
     </div>
 </tag:MainTag>
+
 

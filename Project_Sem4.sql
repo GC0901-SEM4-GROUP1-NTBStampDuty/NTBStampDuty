@@ -56,6 +56,10 @@ buildingType_id int primary key,
 buildingType_name nvarchar(50)
 )
 
+insert into tblBuildingType values(1, 'Office')
+insert into tblBuildingType values(2, 'House')
+insert into tblBuildingType values(3, 'Garage')
+
 create table tblBuildingPermit
 (
 land_id int references tblLand(land_id),
@@ -72,7 +76,6 @@ building_id int primary key identity,
 land_id int references tblLand(land_id),
 buildingType_id int references tblBuildingType(buildingType_id),
 bulding_name nvarchar(50),
-address_id int references tblLocation(address_id),
 floors int,
 rooms int,
 houses int,
@@ -80,6 +83,11 @@ shops int,
 date_contructed Datetime,
 completed_percent int
 )
+
+drop table tblBuildingDetails
+
+select * from tblBuildingType
+select * from tblLocation
 create table tblOccupancyPermit
 (
 building_id int primary key references tblBuildingDetails(building_id),

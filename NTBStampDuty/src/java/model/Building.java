@@ -12,112 +12,105 @@ import java.util.Date;
  * @author Phuc
  */
 public class Building {
-    private int BuildingID;
-    private int LandID;
-    private int BuidingTypeID;
-    private String BuildingName;
-    private int AddressID;
-    private int Floors;
-    private int Rooms;
-    private int Houses;
-    private int Shops;
-    private Date DateContructed;
-    private int CompletedPercent;
-    private String Img;
+    private int buildingID;
+    private int landID;
+    private int buidingTypeID;
+    private String buildingName;
+    private int floors;
+    private int rooms;
+    private int houses;
+    private int shops;
+    private Date dateContructed;
+    private int completedPercent;
+    private String img;
 
     public int getBuildingID() {
-        return BuildingID;
+        return buildingID;
     }
 
-    public void setBuildingID(int BuildingID) {
-        this.BuildingID = BuildingID;
+    public void setBuildingID(int buildingID) {
+        this.buildingID = buildingID;
     }
 
     public int getLandID() {
-        return LandID;
+        return landID;
     }
 
-    public void setLandID(int LandID) {
-        this.LandID = LandID;
+    public void setLandID(int landID) {
+        this.landID = landID;
     }
 
     public int getBuidingTypeID() {
-        return BuidingTypeID;
+        return buidingTypeID;
     }
 
-    public void setBuidingTypeID(int BuidingTypeID) {
-        this.BuidingTypeID = BuidingTypeID;
+    public void setBuidingTypeID(int buidingTypeID) {
+        this.buidingTypeID = buidingTypeID;
     }
 
     public String getBuildingName() {
-        return BuildingName;
+        return buildingName;
     }
 
-    public void setBuildingName(String BuildingName) {
-        this.BuildingName = BuildingName;
-    }
-
-    public int getAddressID() {
-        return AddressID;
-    }
-
-    public void setAddressID(int AddressID) {
-        this.AddressID = AddressID;
+    public void setBuildingName(String buildingName) {
+        this.buildingName = buildingName;
     }
 
     public int getFloors() {
-        return Floors;
+        return floors;
     }
 
-    public void setFloors(int Floors) {
-        this.Floors = Floors;
+    public void setFloors(int floors) {
+        this.floors = floors;
     }
 
     public int getRooms() {
-        return Rooms;
+        return rooms;
     }
 
-    public void setRooms(int Rooms) {
-        this.Rooms = Rooms;
+    public void setRooms(int rooms) {
+        this.rooms = rooms;
     }
 
     public int getHouses() {
-        return Houses;
+        return houses;
     }
 
-    public void setHouses(int Houses) {
-        this.Houses = Houses;
+    public void setHouses(int houses) {
+        this.houses = houses;
     }
 
     public int getShops() {
-        return Shops;
+        return shops;
     }
 
-    public void setShops(int Shops) {
-        this.Shops = Shops;
+    public void setShops(int shops) {
+        this.shops = shops;
     }
 
     public Date getDateContructed() {
-        return DateContructed;
+        return dateContructed;
     }
 
-    public void setDateContructed(Date DateContructed) {
-        this.DateContructed = DateContructed;
+    public void setDateContructed(Date dateContructed) {
+        this.dateContructed = dateContructed;
     }
 
     public int getCompletedPercent() {
-        return CompletedPercent;
+        return completedPercent;
     }
 
-    public void setCompletedPercent(int CompletedPercent) {
-        this.CompletedPercent = CompletedPercent;
+    public void setCompletedPercent(int completedPercent) {
+        this.completedPercent = completedPercent;
     }
 
     public String getImg() {
-        return Img;
+        return img;
     }
 
-    public void setImg(String Img) {
-        this.Img = Img;
+    public void setImg(String img) {
+        this.img = img;
     }
+
+    
 }
