@@ -19,14 +19,21 @@
         </div>
         <div class="detail_bar">
             <div  class="table_land">
-                <table>
+                <div class="row">
+                    <a></a>
+                    <a></a>
+                    <a></a>
+                    <a></a>
+                    <a></a>
+                </div>
+                <table class="land">
                     <tr>
-                        <th >Land ID</th>
-                        <th>Size</th>
-                        <th>Address</th>
-                        <th>Building Types</th>
-                        <th>Price</th>
-                        <th>Built Status</th>
+                        <th style="width: 6%">Land ID</th>
+                        <th style="width: 10%">Size</th>
+                        <th style="width: 32%">Address</th>
+                        <th style="width: 15%">Building Types</th>
+                        <th style="width: 25%">Price</th>
+                        <th style="width: 12%">Built Status</th>
                     </tr>
                     <c:forEach items="${landList}" var="land">
                         <tr>
@@ -39,20 +46,26 @@
                         </tr>
                     </c:forEach>
                 </table>
-
-                <%--For displaying Previous link except for the 1st page --%>
-                <c:if test="${currentPage != 1}">
-                    <a class="btn_previous" href="login?page=${currentPage - 1}"></a>
-                </c:if>
+            </div>
+            <div class="paging_size">
+                <%--For displaying Next link --%>
+                <c:choose>
+                    <c:when test="${currentPage < noOfPages}">
+                        <a class="btn_next_forcus" href="login?page=${currentPage + 1}"></a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="btn_next" href="login?page=${currentPage + 1}"></a>
+                    </c:otherwise>
+                </c:choose>
 
                 <%--For displaying Page numbers. 
                 The when condition does not display a link for the current page--%>
-                <table border="1" cellpadding="5" cellspacing="5">
+                <table>
                     <tr>
                         <c:forEach begin="1" end="${noOfPages}" var="i">
                             <c:choose>
                                 <c:when test="${currentPage eq i}">
-                                    <td>${i}</td>
+                                    <td class="on_select_page">${i}</td>
                                 </c:when>
                                 <c:otherwise>
                                     <td><a href="login?page=${i}">${i}</a></td>
@@ -62,11 +75,15 @@
                     </tr>
                 </table>
 
-                <%--For displaying Next link --%>
-                <c:if test="${currentPage < noOfPages}">
-                    <td><a href="login?page=${currentPage + 1}">Next</a></td>
-                </c:if>
-
+                <%--For displaying Previous link except for the 1st page --%>
+                <c:choose>
+                    <c:when test="${currentPage != 1}">
+                        <a class="btn_previous_forcus" href="login?page=${currentPage - 1}"></a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="btn_previous" href="login?page=${currentPage - 1}"></a>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>
