@@ -15,7 +15,6 @@ username nvarchar(50) primary key,
 [password] nvarchar(50)
 )
 
-
 create table tblLocation
 (
 address_id int primary key,
@@ -36,8 +35,19 @@ building_plan nvarchar(50),
 built_status int,
 img nvarchar(100)
 )
+WITH limt_land AS
+  ( SELECT land_id,size,address_id,building_types,building_plan,built_status,img, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]
+    FROM tblLand
+  )
+SELECT land_id,size,address_id,building_types,building_plan,built_status,img FROM limt_land WHERE [row_number] >2 AND [row_number] <=4
+
+select round(count(*)/3+0.5) from tblLand
+
 insert into tblLand values(200, 1, 'Office', '', 0, '')
 insert into tblLand values(300, 3, 'House', '', 1, '')
+insert into tblLand values(500, 3, 'Office', '', 0, '')
+insert into tblLand values(100, 2, 'House', '', 1, '')
+insert into tblLand values(1000, 3, 'Garage ', '', 1, '')
 
 create table tblBuildingType
 (
@@ -67,10 +77,8 @@ rooms int,
 houses int,
 shops int,
 date_contructed Datetime,
-completed_percent int,
-img nvarchar(100)
+completed_percent int
 )
-
 create table tblOccupancyPermit
 (
 building_id int primary key references tblBuildingDetails(building_id),
