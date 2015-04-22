@@ -59,10 +59,10 @@
                 <%--For displaying Next link --%>
                 <c:choose>
                     <c:when test="${currentPage < noOfPages}">
-                        <a class="btn_next_forcus" href="login?page=${currentPage + 1}"></a>
+                        <a class="btn_next_forcus" href="buildingDetail?page=${currentPage + 1}"></a>
                     </c:when>
                     <c:otherwise>
-                        <a class="btn_next" href="login?page=${currentPage + 1}"></a>
+                        <a class="btn_next" href="buildingDetail?page=${currentPage + 1}"></a>
                     </c:otherwise>
                 </c:choose>
 
@@ -76,7 +76,7 @@
                                     <td class="on_select_page">${i}</td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td><a href="login?page=${i}">${i}</a></td>
+                                    <td><a href="buildingDetail?page=${i}">${i}</a></td>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
@@ -86,10 +86,10 @@
                 <%--For displaying Previous link except for the 1st page --%>
                 <c:choose>
                     <c:when test="${currentPage != 1}">
-                        <a class="btn_previous_forcus" href="login?page=${currentPage - 1}"></a>
+                        <a class="btn_previous_forcus" href="buildingDetail?page=${currentPage - 1}"></a>
                     </c:when>
                     <c:otherwise>
-                        <a class="btn_previous" href="login?page=${currentPage - 1}"></a>
+                        <a class="btn_previous" href="buildingDetail?page=${currentPage - 1}"></a>
                     </c:otherwise>
                 </c:choose>
             </div>

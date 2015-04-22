@@ -24,6 +24,7 @@ import model.BuildingManager;
  */
 @WebServlet(name = "buildingDetail", urlPatterns = {"/buildingDetail"})
 public class buildingDetail extends HttpServlet {
+
     private List<Building> buildingList = new ArrayList<>();
 
     /**
@@ -43,7 +44,7 @@ public class buildingDetail extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet buildingDetail</title>");            
+            out.println("<title>Servlet buildingDetail</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet buildingDetail at " + request.getContextPath() + "</h1>");
@@ -64,7 +65,20 @@ public class buildingDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int page = 1;
+        int recordsPerPage = 3;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        BuildingManager manager = new BuildingManager();
+        buildingList = manager.getAllBuilding((page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        request.setAttribute("buildingList", buildingList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher rd = request.getRequestDispatcher("building_page.jsp");
+        rd.forward(request, response);
     }
 
     /**
@@ -78,9 +92,18 @@ public class buildingDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int page = 1;
+        int recordsPerPage = 3;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
         BuildingManager manager = new BuildingManager();
-        buildingList = manager.getAllBuilding();
+        buildingList = manager.getAllBuilding((page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         request.setAttribute("buildingList", buildingList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
         RequestDispatcher rd = request.getRequestDispatcher("building_page.jsp");
         rd.forward(request, response);
     }
