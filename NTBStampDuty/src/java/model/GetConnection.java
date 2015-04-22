@@ -19,7 +19,7 @@ public class GetConnection {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             //String url = "jdbc:sqlserver://PHUC-PC:1433;databaseName=StampDuty";
-            String url = "jdbc:sqlserver://PHUC-PC:1433;databaseName=StampDuty";
+            String url = "jdbc:sqlserver://SONNGUYEN\\SQLEXPRESS:1433;databaseName=StampDuty";
             String id = "sa";
             String password = "123456";
             conn = DriverManager.getConnection(url, id, password);

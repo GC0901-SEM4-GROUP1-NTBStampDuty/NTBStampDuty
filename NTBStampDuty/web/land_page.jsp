@@ -21,7 +21,7 @@
             <div  class="table_land">
                 <table>
                     <tr>
-                        <th>Land ID</th>
+                        <th >Land ID</th>
                         <th>Size</th>
                         <th>Address</th>
                         <th>Building Types</th>
@@ -42,7 +42,7 @@
 
                 <%--For displaying Previous link except for the 1st page --%>
                 <c:if test="${currentPage != 1}">
-                    <td><a href="login?page=${currentPage - 1}">Previous</a></td>
+                    <a class="btn_previous" href="login?page=${currentPage - 1}"></a>
                 </c:if>
 
                 <%--For displaying Page numbers. 

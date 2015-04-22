@@ -33,3 +33,4 @@ html, body {margin: 0px; padding: 0px; height: 100%; width: 100%; position: rela
 #main_body .detail_bar .table_land tr {border: 0px solid white;}
 #main_body .detail_bar .table_land td {border-right: 1px solid #A9A9A9; line-height: 20px;}
 #main_body .detail_bar .table_land td:last-child {border-right: 0px}
+#main_body .detail_bar .table_land .btn_previous{background: url("../images/ic_facebook.png") no-repeat; padding: 4px 12px}
