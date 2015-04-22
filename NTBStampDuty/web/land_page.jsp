@@ -25,7 +25,7 @@
                         <th>Size</th>
                         <th>Address</th>
                         <th>Building Types</th>
-                        <th>Building Plan</th>
+                        <th>Price</th>
                         <th>Built Status</th>
                     </tr>
                     <c:forEach items="${landList}" var="land">
@@ -34,7 +34,7 @@
                             <td>${land.size}</td>
                             <td>${land.addressID}</td>
                             <td>${land.buildingTypes}</td>
-                            <td>${land.buildingPlan}</td>
+                            <td>${land.price}</td>
                             <td>${land.buildStatus}</td>
                         </tr>
                     </c:forEach>

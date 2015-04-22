@@ -15,8 +15,17 @@ public class Land {
     private String addressID;
     private String buildingTypes;
     private String buildingPlan;
-    private int buildStatus;
+    private String buildStatus;
     private String img;
+    private int price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
     public int getLandID() {
         return landID;
@@ -58,11 +67,11 @@ public class Land {
         this.buildingPlan = buildingPlan;
     }
 
-    public int getBuildStatus() {
+    public String getBuildStatus() {
         return buildStatus;
     }
 
-    public void setBuildStatus(int buildStatus) {
+    public void setBuildStatus(String buildStatus) {
         this.buildStatus = buildStatus;
     }
 

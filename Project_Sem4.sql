@@ -48,6 +48,7 @@ insert into tblLand values(300, 3, 'House', '', 1, '')
 insert into tblLand values(500, 3, 'Office', '', 0, '')
 insert into tblLand values(100, 2, 'House', '', 1, '')
 insert into tblLand values(1000, 3, 'Garage ', '', 1, '')
+insert into tblLand values(1000, 3, 'Garage ', '', 2, '')
 
 create table tblBuildingType
 (
