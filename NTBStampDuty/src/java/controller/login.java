@@ -22,7 +22,7 @@ import model.LandManager;
  *
  * @author Phuc
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
+@WebServlet("/login")
 public class login extends HttpServlet {
 
     private List<Land> landList = new ArrayList<>();
@@ -64,7 +64,19 @@ public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+                int page = 1;
+        int recordsPerPage = 3;
+        if(request.getParameter("page") != null)
+            page = Integer.parseInt(request.getParameter("page"));
+        LandManager manager = new LandManager();
+        landList = manager.getAllLand((page-1)*recordsPerPage, recordsPerPage*page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        request.setAttribute("landList", landList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        rd.forward(request, response);
     }
 
     /**
@@ -78,9 +90,17 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int page = 1;
+        int recordsPerPage = 3;
+        if(request.getParameter("page") != null)
+            page = Integer.parseInt(request.getParameter("page"));
         LandManager manager = new LandManager();
-        landList = manager.getAllLand();
+        landList = manager.getAllLand((page-1)*recordsPerPage, recordsPerPage*page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         request.setAttribute("landList", landList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
         RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
         rd.forward(request, response);
     }
