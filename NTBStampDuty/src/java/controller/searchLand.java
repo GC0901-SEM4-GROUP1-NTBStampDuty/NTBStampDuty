@@ -65,20 +65,11 @@ public class searchLand extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        int page = 1;
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
         String searchColumn = request.getParameter("searchColumn");
         String searchColumnToUse = null;
         String searchValue = request.getParameter("searchValue");
@@ -94,7 +85,52 @@ public class searchLand extends HttpServlet {
                 break;
         }
         LandManager manager = new LandManager();
-        landList = manager.SearchLand(searchColumnToUse, searchValue);
+        landList = manager.SearchLand(searchColumnToUse, searchValue, (page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        request.setAttribute("landList", landList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("landList", landList);
+        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        rd.forward(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int page = 1;
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        String searchColumn = request.getParameter("searchColumn");
+        String searchColumnToUse = null;
+        String searchValue = request.getParameter("searchValue");
+        switch (searchColumn) {
+            case "LandID":
+                searchColumnToUse = "land_id";
+                break;
+            case "Size":
+                searchColumnToUse = "size";
+                break;
+            case "BuildingType":
+                searchColumnToUse = "building_types";
+                break;
+        }
+        LandManager manager = new LandManager();
+        landList = manager.SearchLand(searchColumnToUse, searchValue, (page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        request.setAttribute("landList", landList);
+        request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("landList", landList);
         RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
         rd.forward(request, response);
