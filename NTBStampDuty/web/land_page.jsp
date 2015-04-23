@@ -11,6 +11,8 @@
 
 <head>
     <title>Land Details</title>
+    <script src="javascript/jquery-1.11.2.min.js"></script>
+    <script src="javascript/table.js" type="text/javascript"></script>
 </head>
 <tag:MainTag>
     <div id="main_body">
@@ -26,7 +28,7 @@
                     <a></a>
                     <a></a>
                 </div>
-                <table class="land">
+                <table class="land" id="land">
                     <tr>
                         <th style="width: 6%">Land ID</th>
                         <th style="width: 10%">Size</th>

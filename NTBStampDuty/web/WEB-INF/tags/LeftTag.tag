@@ -8,7 +8,7 @@
 <%@taglib tagdir="/WEB-INF/tags/" prefix="tag"%>
 <div id="left_bar">
     <div class="logo">
-        <img src="/NTBStampDuty/images/logo_ntb.png" width="160px" height="90px"/>
+        <img src="/NTBStampDuty/images/logo_ntb.png" width="155px" height="95px"/>
     </div>
     <div class="left_menu">
         <ul>

@@ -14,7 +14,7 @@
     </head>
     <body class="main_page">
         <tag:LeftTag></tag:LeftTag>
-        <div class="wrapper">
+            <div class="wrapper">
             <jsp:doBody></jsp:doBody>
             <tag:FooterTag></tag:FooterTag>
         </div>
