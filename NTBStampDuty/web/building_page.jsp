@@ -58,7 +58,7 @@
                         <tr>
                             <td>${building.buildingID}</td>
                             <td>${building.buildingName}</td>
-                            <td>${building.buidingTypeID}</td>
+                            <td>${building.buildingType}</td>
                             <td>${building.floors}</td>
                             <td>${building.dateContructed}</td>
                             <td>${building.completedPercent}</td>

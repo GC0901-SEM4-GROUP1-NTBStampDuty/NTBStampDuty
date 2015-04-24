@@ -34,7 +34,7 @@
                 </form>
             </div>
         </div>
-        
+
         <div class="detail_bar">
             <div class="table_container">
                 <div class="row_land">

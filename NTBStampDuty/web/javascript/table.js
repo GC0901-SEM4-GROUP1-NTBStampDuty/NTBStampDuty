@@ -15,4 +15,16 @@ onload = function () {
         $("#table tr td:last-child").css("background","url(/NTBStampDuty/images/ic_detail.png) no-repeat center");
         $("#table tr:nth-child("+(index+1)+") td:last-child").css("background","url(/NTBStampDuty/images/ic_detail_focus.png) no-repeat center");
     });
+    
+    $('.txt_search').focus(
+    function(){$
+        $('.search_menu form').css("outline","1px solid #CF2525");
+        $('.search_menu form').css("border","1px solid #CF2525");
+    });
+
+    $('.txt_search').blur(
+    function(){
+        $('.search_menu form').css("outline","none");
+        $('.search_menu form').css("border","1px solid #CBCBCB");
+    });
 }

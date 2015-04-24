@@ -34,7 +34,14 @@ public class BuildingManager {
                 Building building = new Building();
                 building.setBuildingID(rs.getInt("building_id"));
                 building.setLandID(rs.getInt("land_id"));
-                building.setBuidingTypeID(rs.getInt("buildingType_id"));
+                int status = rs.getInt("buildingType_id");
+                if (status == 0) {
+                    building.setBuildingType("Not Build");
+                } else if (status == 1) {
+                    building.setBuildingType("Building");
+                } else {
+                    building.setBuildingType("Built");
+                }
                 building.setBuildingName(rs.getString("bulding_name"));
                 building.setFloors(rs.getInt("floors"));
                 building.setRooms(rs.getInt("rooms"));

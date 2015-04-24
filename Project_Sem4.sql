@@ -35,7 +35,6 @@ building_plan nvarchar(50),
 built_status int,
 img nvarchar(100)
 )
-
 WITH limt_land AS
   ( SELECT land_id,size,address_id,building_types,building_plan,built_status,img, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]
     FROM tblLand

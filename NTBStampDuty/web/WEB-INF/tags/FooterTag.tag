@@ -7,7 +7,7 @@
 <%@tag description="Footer tag" pageEncoding="UTF-8"%>
 <div id="footer">
     <div class="slogan">
-        <img src="/NTBStampDuty/images/slogan_ntb.png" width="190px" height="42px"/>
+        <img src="/NTBStampDuty/images/slogan_ntb.png" width="180px" height="40px"/>
     </div>
     <div class="dev_team">
         <a>Powered by Group1-GC0901&COPY;</a><br/>

@@ -12,10 +12,12 @@ import java.util.Date;
  * @author Phuc
  */
 public class Building {
+
     private int buildingID;
     private int landID;
-    private int buidingTypeID;
+    private int buildingTypeID;
     private String buildingName;
+    private String buildingType;
     private int floors;
     private int rooms;
     private int houses;
@@ -40,12 +42,20 @@ public class Building {
         this.landID = landID;
     }
 
-    public int getBuidingTypeID() {
-        return buidingTypeID;
+    public int getBuildingTypeID() {
+        return buildingTypeID;
     }
 
-    public void setBuidingTypeID(int buidingTypeID) {
-        this.buidingTypeID = buidingTypeID;
+    public void setBuildingTypeID(int buidingTypeID) {
+        this.buildingTypeID = buidingTypeID;
+    }
+
+    public String getBuildingType() {
+        return buildingType;
+    }
+
+    public void setBuildingType(String buildingType) {
+        this.buildingType = buildingType;
     }
 
     public String getBuildingName() {
@@ -112,5 +122,4 @@ public class Building {
         this.img = img;
     }
 
-    
 }
