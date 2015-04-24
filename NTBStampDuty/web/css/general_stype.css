@@ -44,7 +44,10 @@ html, body {margin: 0px; padding: 0px; height: 100%; width: 100%; position: rela
 #main_body .header .search_menu form {background: none repeat scroll 0% 0% #FFF; border: 1px solid #CBCBCB; width: 220px; height: 30px;}
 #main_body .header .search_menu form .txt_search {border: 0; width: 180px; height: 30px;margin-left: 10px; color: #2B2B2B;}
 #main_body .header .search_menu form .btn_search {border: 0; background: url("../images/ic_search.png") no-repeat center;}
-
+#main_body .header .search_menu form select {-moz-appearance: none; text-indent: 1px; text-overflow: ""; border: medium none; background: url("../images/ic_select.png") no-repeat center; border-width: 1px; border-style: solid; border-color: #D2D2D2 #C9C8C8 #C3C3C2; 
+                                             box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15); border: 1px solid rgba(0, 0, 0, 0.15); color: transparent; position: absolute; left: -35px; width: 30px; height: 28px; margin-top: 1px;}
+#main_body .header .search_menu form select option {color: #191919}
+#main_body .header .search_menu form select option:hover {background: #CF2525}
 #main_body .detail_bar .table_container {position: relative}
 
 #main_body .detail_bar .paging_size a {float: right}
@@ -60,3 +63,7 @@ html, body {margin: 0px; padding: 0px; height: 100%; width: 100%; position: rela
 #main_body .detail_bar .table_container .selected {background-color: #cf2525; color: #FFF;}
 #main_body .detail_bar .table_container .selected td {border: 0px}
 
+.highlight {
+    background-color:red;
+    cursor:pointer;
+}

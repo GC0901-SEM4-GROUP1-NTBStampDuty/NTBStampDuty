@@ -20,9 +20,9 @@
                 <form class="btn_new">
                     <input type="submit" value="New" />
                 </form>
-                <form class="btn_edit">
+<!--                <form class="btn_edit">
                     <input type="submit" value="Edit" />
-                </form>
+                </form>-->
                 <form class="btn_delete">
                     <input type="submit" value="Delete" />
                 </form>
@@ -38,6 +38,7 @@
         <div class="detail_bar">
             <div  class="table_container">
                 <div class="row_build">
+                    <a></a>
                     <a></a>
                     <a></a>
                     <a></a>

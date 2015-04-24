@@ -27,4 +27,12 @@ onload = function () {
         $('.search_menu form').css("outline","none");
         $('.search_menu form').css("border","1px solid #CBCBCB");
     });
+    
+    $('.search_menu form select option').hover(
+        function() {
+            $(this).addClass('highlight');
+        }, function() {
+            $(this).removeClass('highlight');
+        }
+    );
 }

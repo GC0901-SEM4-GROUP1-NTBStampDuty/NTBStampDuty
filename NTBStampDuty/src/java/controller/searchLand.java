@@ -126,12 +126,16 @@ public class searchLand extends HttpServlet {
                 break;
         }
         LandManager manager = new LandManager();
-        landList = manager.SearchLand(searchColumnToUse, searchValue, (page - 1) * recordsPerPage, recordsPerPage * page);
-        int noOfRecords = manager.getNoOfRecords();
+        if (!searchValue.isEmpty()) {
+            landList = manager.SearchLand(searchColumnToUse, searchValue, (page - 1) * recordsPerPage, recordsPerPage * page);
+        } else {
+            landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
+        }
+            int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         request.setAttribute("landList", landList);
         request.setAttribute("noOfPages", noOfPages);
-        request.setAttribute("landList", landList);
+        request.setAttribute("currentPage", page);
         RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
         rd.forward(request, response);
     }

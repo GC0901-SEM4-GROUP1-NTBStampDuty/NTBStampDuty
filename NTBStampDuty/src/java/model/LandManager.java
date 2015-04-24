@@ -101,6 +101,7 @@ public class LandManager {
                 land.setImg(rs.getString("img"));
                 landList.add(land);
             }
+            this.noOfRecords = landList.size();
         } catch (Exception e) {
             e.printStackTrace();
         }
