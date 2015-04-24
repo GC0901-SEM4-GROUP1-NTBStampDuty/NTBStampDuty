@@ -40,11 +40,11 @@ public class LandManager {
                 land.setBuildingTypes(rs.getString("building_types"));
                 land.setBuildingPlan(rs.getString("building_plan"));
                 int status = rs.getInt("built_status");
-                if(status == 0){
+                if (status == 0) {
                     land.setBuildStatus("Not Build");
-                }else if(status == 1){
+                } else if (status == 1) {
                     land.setBuildStatus("Building");
-                }else{
+                } else {
                     land.setBuildStatus("Built");
                 }
                 land.setPrice(rs.getInt("price"));
@@ -65,5 +65,45 @@ public class LandManager {
 
     public int getNoOfRecords() {
         return noOfRecords;
+    }
+
+    public List<Land> SearchLand(String searchColumn, String searchValue, int startIndex, int endIndex) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement(
+                    "WITH limt_land AS\n"
+                    + "  ( select land_id, size, name, building_types, building_plan, built_status, img, price, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
+                    + "    from tblLand\n"
+                    + "inner join tblLocation\n"
+                    + "on tblLand.address_id = tblLocation.address_id\n"
+                    + "where " + searchColumn + "= ?"
+                    + "  )\n"
+                    + "select land_id, size, name, building_types, building_plan, built_status, img, price FROM limt_land WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
+            );
+            ps.setString(1, searchValue);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Land land = new Land();
+                land.setLandID(rs.getInt("land_id"));
+                land.setSize(rs.getInt("size"));
+                land.setAddressID(rs.getString("name"));
+                land.setBuildingTypes(rs.getString("building_types"));
+                land.setBuildingPlan(rs.getString("building_plan"));
+                int status = rs.getInt("built_status");
+                if (status == 0) {
+                    land.setBuildStatus("Not Build");
+                } else if (status == 1) {
+                    land.setBuildStatus("Building");
+                } else {
+                    land.setBuildStatus("Built");
+                }
+                land.setPrice(rs.getInt("price"));
+                land.setImg(rs.getString("img"));
+                landList.add(land);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return landList;
     }
 }

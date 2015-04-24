@@ -28,9 +28,14 @@
                 </form>
             </div>
             <div class="search_menu">
-                <form class="form_search">
-                    <input class="txt_search" type="text" />
-                    <input class="btn_search" type="submit" value="" />
+                <form class="form_search" action="searchLand" method="post">
+                    <select name="searchColumn">
+                        <option value="LandID">Land ID</option>
+                        <option value="Size">Size</option>
+                        <option value="BuildingType">Building Type</option>
+                    </select>
+                    <input class="txt_search" type="text" name="searchValue"/>
+                    <input class="btn_search" type="submit" value=""/>
                 </form>
             </div>
         </div>
