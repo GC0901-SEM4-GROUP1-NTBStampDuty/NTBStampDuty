@@ -11,8 +11,7 @@
 
 <head>
     <title>Land Details</title>
-    <script src="javascript/jquery-1.11.2.min.js"></script>
-    <script src="javascript/table.js" type="text/javascript"></script>
+    <link href="css/build_page_styple.css" rel="stylesheet" type="text/css"/>
 </head>
 <tag:MainTag>
     <div id="main_body">
@@ -20,37 +19,33 @@
 
         </div>
         <div class="detail_bar">
-            <div  class="table_land">
-                <div class="row">
+            <div  class="table_container">
+                <div class="row_build">
                     <a></a>
                     <a></a>
                     <a></a>
                     <a></a>
                     <a></a>
                 </div>
-                <table class="land" id="land">
+                <table class="table_build" id="table">
                     <tr>
-                        <th style="width: 6%">Building ID</th>
-                        <th style="width: 10%">Building Type</th>
-                        <th style="width: 32%">Building Name</th>
-                        <th style="width: 15%">Floors</th>
-                        <th style="width: 25%">Rooms</th>
-                        <th style="width: 12%">Houses</th>
-                        <th style="width: 12%">Shops</th>
-                        <th style="width: 12%">Date Constructed</th>
-                        <th style="width: 12%">Completed percent</th>
+                        <th style="width: 8%">Building Id</th>
+                        <th style="width: 30%">Building Name</th>
+                        <th style="width: 14%">Building Type</th>
+                        <th style="width: 10%">Floors</th>
+                        <th style="width: 14%">Date Constructed</th>
+                        <th style="width: 10%">Completed</th>
+                        <th style="width: 14%">Detail</th>
                     </tr>
                     <c:forEach items="${buildingList}" var="building">
                         <tr>
                             <td>${building.buildingID}</td>
-                            <td>${building.buidingTypeID}</td>
                             <td>${building.buildingName}</td>
+                            <td>${building.buidingTypeID}</td>
                             <td>${building.floors}</td>
-                            <td>${building.rooms}</td>
-                            <td>${building.houses}</td>
-                            <td>${building.shops}</td>
                             <td>${building.dateContructed}</td>
                             <td>${building.completedPercent}</td>
+                            <td></td>
                         </tr>
                     </c:forEach>
                 </table>

@@ -11,8 +11,7 @@
 
 <head>
     <title>Land Details</title>
-    <script src="javascript/jquery-1.11.2.min.js"></script>
-    <script src="javascript/table.js" type="text/javascript"></script>
+    <link href="css/land_page_styple.css" rel="stylesheet" type="text/css"/>
 </head>
 <tag:MainTag>
     <div id="main_body">
@@ -20,22 +19,24 @@
 
         </div>
         <div class="detail_bar">
-            <div  class="table_land">
-                <div class="row">
+            <div class="table_container">
+                <div class="row_land">
+                    <a></a>
                     <a></a>
                     <a></a>
                     <a></a>
                     <a></a>
                     <a></a>
                 </div>
-                <table class="land" id="land">
+                <table class="table_land" id="table">
                     <tr>
                         <th style="width: 6%">Land ID</th>
-                        <th style="width: 10%">Size</th>
+                        <th style="width: 6%">Size</th>
                         <th style="width: 32%">Address</th>
-                        <th style="width: 15%">Building Types</th>
-                        <th style="width: 25%">Price</th>
-                        <th style="width: 12%">Built Status</th>
+                        <th style="width: 14%">Building Types</th>
+                        <th style="width: 14%">Price</th>
+                        <th style="width: 14%">Built Status</th>
+                        <th style="width: 14%">Detail</th>
                     </tr>
                     <c:forEach items="${landList}" var="land">
                         <tr>
@@ -45,6 +46,7 @@
                             <td>${land.buildingTypes}</td>
                             <td>${land.price}</td>
                             <td>${land.buildStatus}</td>
+                            <td></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -76,10 +78,6 @@
                             </c:forEach>
                     </tr>
                 </table>
-                
-                <form action="buildingDetail" method="post">
-                    <input type ="submit" value="Building detail"/>
-                </form>
 
                 <%--For displaying Previous link except for the 1st page --%>
                 <c:choose>

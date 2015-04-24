@@ -35,6 +35,7 @@ building_plan nvarchar(50),
 built_status int,
 img nvarchar(100)
 )
+
 WITH limt_land AS
   ( SELECT land_id,size,address_id,building_types,building_plan,built_status,img, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]
     FROM tblLand
@@ -81,20 +82,22 @@ rooms int,
 houses int,
 shops int,
 date_contructed Datetime,
-completed_percent int
+completed_percent int,
+img nvarchar(100)
 )
 
-insert into tblBuildingDetails values (1, 1, 'New Buidling', 10, 0, 60, 0, null, 10)
-insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0, null, 10)
-insert into tblBuildingDetails values (3, 3, 'New Shop Buidling', 10, 0, 0, 60, null, 10)
-insert into tblBuildingDetails values (4, 2, 'House Buidling', 10, 60, 0, 0, null, 10)
-insert into tblBuildingDetails values (5, 1, 'Office Buidling', 10, 0, 60, 0, null, 10)
-insert into tblBuildingDetails values (6, 1, 'New Office Buidling', 10, 0, 60, 0, null, 10)
+insert into tblBuildingDetails values (1, 1, 'New Buidling', 10, 0, 60, 0, null, 10,'')
+insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0, null, 10,'')
+insert into tblBuildingDetails values (3, 3, 'New Shop Buidling', 10, 0, 0, 60, null, 10,'')
+insert into tblBuildingDetails values (4, 2, 'House Buidling', 10, 60, 0, 0, null, 10,'')
+insert into tblBuildingDetails values (5, 1, 'Office Buidling', 10, 0, 60, 0, null, 10,'')
+insert into tblBuildingDetails values (6, 1, 'New Office Buidling', 10, 0, 60, 0, null, 10,'')
 
 select * from tblBuildingDetails
 
 select * from tblBuildingType
 select * from tblLand
+
 create table tblOccupancyPermit
 (
 building_id int primary key references tblBuildingDetails(building_id),

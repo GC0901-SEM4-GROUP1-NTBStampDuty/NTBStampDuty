@@ -11,6 +11,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/general_stype.css" rel="stylesheet" type="text/css"/>
+        <script src="javascript/jquery-1.11.2.min.js"></script>
+        <script src="javascript/table.js" type="text/javascript"></script>
     </head>
     <body class="main_page">
         <tag:LeftTag></tag:LeftTag>

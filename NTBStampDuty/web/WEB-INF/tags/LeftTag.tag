@@ -10,13 +10,13 @@
     <div class="logo">
         <img src="/NTBStampDuty/images/logo_ntb.png" width="155px" height="95px"/>
     </div>
-    <div class="left_menu">
+    <div class="left_menu" id="bar">
         <ul>
-            <li style="background: #cecfd0;">
-                <a href="#">LAND DETAILS</a>
+            <li>
+                <a href="/NTBStampDuty/login">LAND DETAILS</a>
             </li>
             <li>
-                <a href="#">BUILDING DETAILS</a>
+                <a href="/NTBStampDuty/buildingDetail">BUILDING DETAILS</a>
             </li>
             <li>
                 <a href="#">ROOM DETAILS</a>

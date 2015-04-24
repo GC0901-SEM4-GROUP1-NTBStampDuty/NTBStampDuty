@@ -1,0 +1,16 @@
+#main_body .detail_bar .table_container .table_land {position: absolute; color: black; border-collapse: collapse; border-spacing: 0px; width: 100%}
+#main_body .detail_bar .table_container .table_land th {padding: 8px; border-right: 1px solid #D3D3D3; border-bottom: 1px solid #D3D3D3; color: #777777; font: 14px "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif; pointer-events: none}
+#main_body .detail_bar .table_container .table_land th:last-child {border-right: 0px;}
+#main_body .detail_bar .table_container .table_land tr {border: 0px solid white; cursor: pointer;}
+#main_body .detail_bar .table_container .table_land tr:first-child {pointer-events: none}
+#main_body .detail_bar .table_container .table_land td {border-right: 1px solid #D3D3D3; line-height: 33px; text-align: center}
+#main_body .detail_bar .table_container .table_land td:nth-child(3) {text-align: left; padding-left: 10px}
+#main_body .detail_bar .table_container .table_land td:last-child {border-right: 0px; background: url("../images/ic_detail.png") no-repeat center;}
+
+#main_body .detail_bar .table_container .row_land a {position: absolute; height: 450px; top: 0px;border-right: 1px solid #D3D3D3; margin-left: -1px;}
+#main_body .detail_bar .table_container .row_land a:first-child {left: 6%;}
+#main_body .detail_bar .table_container .row_land a:nth-child(2) {left: 12%;}
+#main_body .detail_bar .table_container .row_land a:nth-child(3) {left: 44%;}
+#main_body .detail_bar .table_container .row_land a:nth-child(4) {left: 58%;}
+#main_body .detail_bar .table_container .row_land a:nth-child(5) {left: 72%;}
+#main_body .detail_bar .table_container .row_land a:nth-child(6) {left: 86%;}

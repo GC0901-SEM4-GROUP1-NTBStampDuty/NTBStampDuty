@@ -27,14 +27,8 @@ html, body {margin: 0px; padding: 0px; height: 100%; width: 100%; position: rela
 #main_body {height: 100%; width: 100%; float: left; min-height: 700px}
 #main_body .detail_bar {position: relative; overflow: hidden; height: 625px; background-color: #FAFAFA; border: 1px solid #CFCFCF; border-radius: 3px; box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1); margin: 10px 0px 20px; font: 14px "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;}
 #main_body .edit_menu {width: 100%; height: 50px}
-#main_body .detail_bar .table_land {position: relative}
-#main_body .detail_bar .table_land .land{color: black; border-collapse: collapse; border-spacing: 0px; width: 100%}
-#main_body .detail_bar .table_land th {padding: 8px; border-right: 1px solid #D3D3D3; border-bottom: 1px solid #D3D3D3; color: #777777; font: 14px "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif; pointer-events: none}
-#main_body .detail_bar .table_land th:last-child {border-right: 0px;}
-#main_body .detail_bar .table_land tr {border: 0px solid white; cursor: pointer}
-#main_body .detail_bar .table_land td {border-right: 1px solid #D3D3D3; line-height: 33px; text-align: center}
-#main_body .detail_bar .table_land td:nth-child(3) {text-align: left; padding-left: 10px}
-#main_body .detail_bar .table_land td:last-child {border-right: 0px}
+#main_body .detail_bar .table_container {position: relative}
+
 
 #main_body .detail_bar .paging_size .btn_previous {background: url("../images/ic_back.png") no-repeat; padding: 9px 4px; pointer-events: none; margin-top: 18px}
 #main_body .detail_bar .paging_size .btn_previous_forcus {background: url("../images/ic_back_focus.png") no-repeat; padding: 9px 4px; margin-top: 18px}
@@ -46,12 +40,6 @@ html, body {margin: 0px; padding: 0px; height: 100%; width: 100%; position: rela
 #main_body .detail_bar .paging_size table td a {color: black; padding: 5px 9px; text-decoration: none}
 #main_body .detail_bar .paging_size table .on_select_page {background: #CF2525; padding: 6px 11px; color: white; text-decoration: none;}
 
-#main_body .detail_bar .table_land .row a {position: absolute; height: 450px; top: 0px;border-right: 1px solid #D3D3D3; margin-left: -1px;}
-#main_body .detail_bar .table_land .row a:first-child {left: 6%;}
-#main_body .detail_bar .table_land .row a:nth-child(2) {left: 16%;}
-#main_body .detail_bar .table_land .row a:nth-child(3) {left: 48%;}
-#main_body .detail_bar .table_land .row a:nth-child(4) {left: 63%;}
-#main_body .detail_bar .table_land .row a:nth-child(5) {left: 88%;}
+#main_body .detail_bar .table_container .selected {background-color: #cf2525; color: #FFF;}
+#main_body .detail_bar .table_container .selected td {border: 0px}
 
-#main_body .detail_bar .table_land .selected {background-color: #cf2525; color: #FFF;}
-#main_body .detail_bar .table_land .selected td {border: 0px}
