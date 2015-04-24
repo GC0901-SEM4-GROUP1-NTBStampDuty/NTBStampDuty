@@ -26,6 +26,7 @@ import model.LandManager;
 public class login extends HttpServlet {
 
     private List<Land> landList = new ArrayList<>();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,7 +44,7 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");            
+            out.println("<title>Servlet login</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
@@ -64,12 +65,13 @@ public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                int page = 1;
-        int recordsPerPage = 3;
-        if(request.getParameter("page") != null)
+        int page = 1;
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
+        }
         LandManager manager = new LandManager();
-        landList = manager.getAllLand((page-1)*recordsPerPage, recordsPerPage*page);
+        landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         request.setAttribute("landList", landList);
@@ -91,11 +93,12 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int page = 1;
-        int recordsPerPage = 3;
-        if(request.getParameter("page") != null)
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
+        }
         LandManager manager = new LandManager();
-        landList = manager.getAllLand((page-1)*recordsPerPage, recordsPerPage*page);
+        landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         request.setAttribute("landList", landList);
