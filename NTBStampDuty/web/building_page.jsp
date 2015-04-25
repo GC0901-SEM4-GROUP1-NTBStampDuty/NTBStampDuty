@@ -20,21 +20,26 @@
                 <form class="btn_new">
                     <input type="submit" value="New" />
                 </form>
-<!--                <form class="btn_edit">
-                    <input type="submit" value="Edit" />
-                </form>-->
+                <!--                <form class="btn_edit">
+                                    <input type="submit" value="Edit" />
+                                </form>-->
                 <form class="btn_delete">
                     <input type="submit" value="Delete" />
                 </form>
             </div>
             <div class="search_menu">
-                <form class="form_search">
-                    <input class="txt_search" type="text" />
+                <form class="form_search" action="searchBuilding" method="post">
+                    <select name="searchColumn">
+                        <option value="BuildID">Building ID</option>
+                        <option value="BuildName">Building Name</option>
+<!--                        <option value="BuildType">Building Type</option>-->
+                    </select>
+                    <input class="txt_search" type="text" name="searchValue"/>
                     <input class="btn_search" type="submit" value="" />
                 </form>
             </div>
         </div>
-        
+
         <div class="detail_bar">
             <div  class="table_container">
                 <div class="row_build">

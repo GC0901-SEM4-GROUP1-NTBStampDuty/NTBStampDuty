@@ -1,9 +1,9 @@
 onload = function () {
     var path = window.location.pathname;
 
-    if(path.match('login')){
+    if(path.match('login') || path.match('searchLand')){
         $("#bar ul li:first-child").css("background","#cecfd0");
-    }else if(path.match('buildingDetail')){
+    }else if(path.match('buildingDetail') || path.match('searchBuilding')){
         $("#bar ul li:nth-child(2)").css("background","#cecfd0");
     }
     
@@ -27,12 +27,4 @@ onload = function () {
         $('.search_menu form').css("outline","none");
         $('.search_menu form').css("border","1px solid #CBCBCB");
     });
-    
-    $('.search_menu form select option').hover(
-        function() {
-            $(this).addClass('highlight');
-        }, function() {
-            $(this).removeClass('highlight');
-        }
-    );
 }

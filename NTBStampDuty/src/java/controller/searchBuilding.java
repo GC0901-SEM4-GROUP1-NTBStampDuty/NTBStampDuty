@@ -11,21 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Land;
-import model.LandManager;
+import model.Building;
+import model.BuildingManager;
 
 /**
  *
- * @author Phuc
+ * @author SonNguyen
  */
-@WebServlet(name = "searchLand", urlPatterns = {"/searchLand"})
-public class searchLand extends HttpServlet {
+public class searchBuilding extends HttpServlet {
 
-    private List<Land> landList = new ArrayList<>();
+    private List<Building> buildingList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +42,10 @@ public class searchLand extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet searchLand</title>");
+            out.println("<title>Servlet searchBuilding</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet searchLand at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet searchBuilding at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -74,24 +72,24 @@ public class searchLand extends HttpServlet {
         String searchColumnToUse = null;
         String searchValue = request.getParameter("searchValue");
         switch (searchColumn) {
-            case "LandID":
-                searchColumnToUse = "land_id";
+            case "BuildID":
+                searchColumnToUse = "building_id";
                 break;
-            case "Size":
-                searchColumnToUse = "size";
+            case "BuildName":
+                searchColumnToUse = "bulding_name";
                 break;
-            case "BuildingType":
-                searchColumnToUse = "building_types";
-                break;
+//            case "BuildingType":
+//                searchColumnToUse = "building_types";
+//                break;
         }
-        LandManager manager = new LandManager();
-        landList = manager.SearchLand(searchColumnToUse, searchValue, (page - 1) * recordsPerPage, recordsPerPage * page);
+        BuildingManager manager = new BuildingManager();
+        buildingList = manager.SearchBuild(searchColumnToUse, searchValue, (page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        request.setAttribute("landList", landList);
+        request.setAttribute("buildingList", buildingList);
         request.setAttribute("noOfPages", noOfPages);
-        request.setAttribute("landList", landList);
-        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        request.setAttribute("currentPage", page);
+        RequestDispatcher rd = request.getRequestDispatcher("building_page.jsp");
         rd.forward(request, response);
     }
 
@@ -115,28 +113,28 @@ public class searchLand extends HttpServlet {
         String searchColumnToUse = null;
         String searchValue = request.getParameter("searchValue");
         switch (searchColumn) {
-            case "LandID":
-                searchColumnToUse = "land_id";
+            case "BuildID":
+                searchColumnToUse = "building_id";
                 break;
-            case "Size":
-                searchColumnToUse = "size";
+            case "BuildName":
+                searchColumnToUse = "building_name";
                 break;
-            case "BuildingType":
-                searchColumnToUse = "building_types";
-                break;
+//            case "BuildingType":
+//                searchColumnToUse = "building_types";
+//                break;
         }
-        LandManager manager = new LandManager();
-        if (!searchValue.isEmpty()) {
-            landList = manager.SearchLand(searchColumnToUse, searchValue, (page - 1) * recordsPerPage, recordsPerPage * page);
+        BuildingManager manager = new BuildingManager();
+                if (!searchValue.isEmpty()) {
+            buildingList = manager.SearchBuild(searchColumnToUse, searchValue, (page - 1) * recordsPerPage, recordsPerPage * page);
         } else {
-            landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
+            buildingList = manager.getAllBuilding((page - 1) * recordsPerPage, recordsPerPage * page);
         }
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        request.setAttribute("landList", landList);
+        request.setAttribute("buildingList", buildingList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
-        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("building_page.jsp");
         rd.forward(request, response);
     }
 

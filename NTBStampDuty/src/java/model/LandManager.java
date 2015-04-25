@@ -18,6 +18,10 @@ public class LandManager {
 
     private List<Land> landList = new ArrayList<>();
     private int noOfRecords;
+    
+    public int getNoOfRecords() {
+        return noOfRecords;
+    }
 
     public List<Land> getAllLand(int startIndex, int endIndex) {
         try {
@@ -61,10 +65,6 @@ public class LandManager {
             e.printStackTrace();
         }
         return landList;
-    }
-
-    public int getNoOfRecords() {
-        return noOfRecords;
     }
 
     public List<Land> SearchLand(String searchColumn, String searchValue, int startIndex, int endIndex) {

@@ -35,13 +35,15 @@ building_plan nvarchar(50),
 built_status int,
 img nvarchar(100)
 )
-WITH limt_land AS
-  ( SELECT land_id,size,address_id,building_types,building_plan,built_status,img, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]
-    FROM tblLand
-  )
-SELECT land_id,size,address_id,building_types,building_plan,built_status,img FROM limt_land WHERE [row_number] >2 AND [row_number] <=4
 
-select round(count(*)/3+0.5) from tblLand
+WITH limt_land AS
+  ( SELECT land_id, size, name, building_types, building_plan, built_status, img, price, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]
+    FROM tblLand
+	inner join tblLocation
+    on tblLand.address_id = tblLocation.address_id
+	where building_types like '%Off%'
+  )
+SELECT land_id, size, name, building_types, building_plan, built_status, img, price FROM limt_land WHERE [row_number] >0 AND [row_number] <=15
 
 insert into tblLand values(200, 1, 'Office', '', 0, '')
 insert into tblLand values(300, 3, 'House', '', 1, '')
@@ -87,7 +89,7 @@ create table tblBuildingDetails
 building_id int primary key identity,
 land_id int references tblLand(land_id),
 buildingType_id int references tblBuildingType(buildingType_id),
-bulding_name nvarchar(50),
+building_name nvarchar(50),
 floors int,
 rooms int,
 houses int,
