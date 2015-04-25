@@ -11,7 +11,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/general_stype.css" rel="stylesheet" type="text/css"/>
-        <script src="javascript/jquery-1.11.2.min.js"></script>
+        <script src = "javascript/jquery.js" type="text/javascript"></script>
+        <script src = "javascript/jquery-ui.js" type="text/javascript"></script>
         <script src="javascript/js.js" type="text/javascript"></script>
     </head>
     <body class="main_page">

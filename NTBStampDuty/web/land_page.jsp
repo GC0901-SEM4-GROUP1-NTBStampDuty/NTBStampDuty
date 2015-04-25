@@ -12,6 +12,12 @@
 <head>
     <title>Land Details</title>
     <link href="css/land_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script>
+        function submitter(btn) {
+            $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
+        }
+    </script>
 </head>
 <tag:MainTag>
     <div id="main_body">
@@ -20,9 +26,9 @@
                 <form class="btn_new">
                     <input type="submit" value="New" />
                 </form>
-<!--                <form class="btn_edit">
-                    <input type="submit" value="Edit" />
-                </form>-->
+                <!--                <form class="btn_edit">
+                                    <input type="submit" value="Edit" />
+                                </form>-->
                 <form class="btn_delete">
                     <input type="submit" value="Delete" />
                 </form>
@@ -68,8 +74,17 @@
                             <td>${land.buildingTypes}</td>
                             <td>${land.price}</td>
                             <td>${land.buildStatus}</td>
-                            <td></td>
+                            <td><input type="submit" value="Show detail" onclick="submitter(${land.landID})"/></td>
                         </tr>
+                        <div class="${land.landID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
+                            <p>Land size: ${land.size}</p></br>
+                            <p>Land Address: ${land.addressID}</p></br>
+                            <p>Building Type: ${land.buildingTypes}</p></br>
+                            <p>Building plan: ${land.buildingPlan}</p></br>
+                            <p>Build status: ${land.buildStatus}</p></br>
+                            <p>Price: ${land.price}</p></br>
+                            <p>Image: ${land.img}</p></br>
+                        </div>
                     </c:forEach>
                 </table>
             </div>
