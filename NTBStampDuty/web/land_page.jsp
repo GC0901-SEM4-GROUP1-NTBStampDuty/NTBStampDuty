@@ -23,15 +23,15 @@
     <div id="main_body">
         <div class="header">
             <div class="edit_menu">
-                <form class="btn_new">
-                    <input type="submit" value="New" />
-                </form>
+                <div class="btn_new">
+                    <input type="submit" value="New" onclick="submitter('addNewLand')"/>
+                </div>
                 <!--                <form class="btn_edit">
                                     <input type="submit" value="Edit" />
                                 </form>-->
-                <form class="btn_delete">
+                <div class="btn_delete">
                     <input type="submit" value="Delete" />
-                </form>
+                </div>
             </div>
             <div class="search_menu">
                 <form class="form_search" action="searchLand" method="post">
@@ -87,6 +87,18 @@
                         </div>
                     </c:forEach>
                 </table>
+                <div class="addNewLand" title="Add New Land" style="display:none">
+                    <form>
+                        <p>Land size: <input name="landSize"/></p></br>
+                        <p>Land Address: <input name="landAddress"/></p></br>
+                        <p>Building Type: <input name="buildingType"/></p></br>
+                        <p>Building plan: <input name="buildingPlan"/></p></br>
+                        <p>Build status: <input name="buildingStatus"/></p></br>
+                        <p>Price: <input name="landPrice"/></p></br>
+                        <p>Image: <input name="landImage"/></p></br>
+                        <input type="submit" value="Add New Land"/>
+                    </form>
+                </div>
             </div>
             <div class="paging_size">
                 <%--For displaying Next link --%>
