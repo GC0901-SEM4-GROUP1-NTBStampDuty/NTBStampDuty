@@ -15,7 +15,7 @@
     </head>
     <body class="login">
         <div class="login_splash">
-            <img id="login_logo" src="images/ic_ntb.png">
+            <img id="login_logo" src="images/ic_ntb.gif">
         </div>
         <div class="login_content">
             <div class="login_auth_dialog">

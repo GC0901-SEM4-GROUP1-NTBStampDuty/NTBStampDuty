@@ -1,5 +1,5 @@
 .login_splash #login_logo {position: absolute; width: 280px; height:253px; top: 35%; left: 45%;}
-.login_splash {background: url("../images/splash-background.png") ;pointer-events: none; position: absolute; bottom: 319px; left: 0px; right: 0px; top: 0px; text-align: center; margin-top: -128px; margin-left: -128px;}
+.login_splash {background: url("../images/splash-background.png") ;pointer-events: none; position: absolute; bottom: 319px; left: 0px; right: 0px; top: 0px; text-align: center; margin-top: -125px; margin-left: -132px;}
 
 .login_content {position: absolute; text-align: center; right: 0px; left: 0px; top: 50%; bottom: 0px; background: url("../images/ct-separator.png") no-repeat scroll center top transparent}
 .login_content .login_auth_dialog h3{color: #69695D; font-weight: bold; font-size: 13px; text-shadow: 0px 1px 0px #FFF; letter-spacing: 0.4px; margin-bottom: 15px; margin-top: 45px;}

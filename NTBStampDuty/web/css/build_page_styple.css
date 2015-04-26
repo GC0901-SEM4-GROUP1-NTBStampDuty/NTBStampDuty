@@ -6,6 +6,7 @@
 #main_body .detail_bar .table_container .table_build td {border-right: 1px solid #D3D3D3; line-height: 32px; text-align: center; font-size: 15px;}
 #main_body .detail_bar .table_container .table_build td:nth-child(2) {text-align: left; padding-left: 10px}
 #main_body .detail_bar .table_container .table_build td:last-child {border-right: 0px; background: url("../images/ic_detail.png") no-repeat center; cursor: pointer;}
+#main_body .detail_bar .table_container .table_build td:last-child input {border: 0; background: transparent; color: transparent; width: 150px; height: 30px; cursor: pointer;}
 
 #main_body .detail_bar .table_container .row_build a {position: absolute; height: 547px; top: 0px;border-right: 1px solid #D3D3D3; margin-left: -1px;}
 #main_body .detail_bar .table_container .row_build a:first-child {left: 8%;}
