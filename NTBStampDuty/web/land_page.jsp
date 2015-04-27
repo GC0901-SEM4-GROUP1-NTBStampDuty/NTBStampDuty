@@ -17,6 +17,11 @@
         function submitter(btn) {
             $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
         }
+
+        function getName(btn) {
+            var category = btn.parentElement.parentElement.id;
+            return category;
+        }
     </script>
 </head>
 <tag:MainTag>
@@ -67,14 +72,14 @@
                         <th style="width: 14%">Detail</th>
                     </tr>
                     <c:forEach items="${landList}" var="land">
-                        <tr>
+                        <tr id="land">
                             <td>${land.landID}</td>
                             <td>${land.size}</td>
                             <td>${land.addressID}</td>
                             <td>${land.buildingTypes}</td>
                             <td>${land.price}</td>
                             <td>${land.buildStatus}</td>
-                            <td><input type="submit" value="Show detail" onclick="submitter(${land.landID})"/></td>
+                            <td><input type="submit" value="Show detail" onclick="submitter(${land.landID}); getName(this)"/></td>
                         </tr>
                         <div class="${land.landID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
                             <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${land.size}"/></div>
