@@ -27,4 +27,5 @@ onload = function () {
         $('.search_menu form').css("outline","none");
         $('.search_menu form').css("border","1px solid #CBCBCB");
     });
+    
 }
