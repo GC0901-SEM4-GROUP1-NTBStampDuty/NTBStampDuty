@@ -77,13 +77,19 @@
                             <td><input type="submit" value="Show detail" onclick="submitter(${land.landID})"/></td>
                         </tr>
                         <div class="${land.landID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
-                            <p>Land size: ${land.size}</p></br>
-                            <p>Land Address: ${land.addressID}</p></br>
-                            <p>Building Type: ${land.buildingTypes}</p></br>
-                            <p>Building plan: ${land.buildingPlan}</p></br>
-                            <p>Build status: ${land.buildStatus}</p></br>
-                            <p>Price: ${land.price}</p></br>
-                            <p>Image: ${land.img}</p></br>
+                            <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${land.size}"/></div>
+                            <div><a>Land Address:</a> <input name="land_address" class="land_address" value="${land.addressID}"/></div>
+                            <div><a>Build Status:</a> <input name="land_status" class="land_status" value="${land.buildStatus}"/></div> 
+                            <div><a>Building Type:</a> <input name="land_type" class="land_type" value="${land.buildingTypes}"/></div> 
+                            <div><a>Price:</a> <input name="land_price" class="land_price" value="${land.price}"/></div>
+                            <div><a>Building Plan:</a> <input name="land_plan" class="land_plan" value="${land.buildingPlan}"/></div>                          
+                            <div><a>Image:</a> <input name="land_image" class="land_image" value="${land.img}"/></div>
+                            <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                            <div class="edit_menu">
+                                <div class="btn_edit">
+                                    <input type="submit" value="Save" />
+                                </div>
+                            </div>
                         </div>
                     </c:forEach>
                 </table>

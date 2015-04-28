@@ -8109,7 +8109,7 @@ var dialog = $.widget( "ui.dialog", {
 		autoOpen: true,
 		buttons: [],
 		closeOnEscape: true,
-		closeText: "Close",
+		closeText: "Cancel",
 		dialogClass: "",
 		draggable: true,
 		hide: null,
@@ -8117,7 +8117,7 @@ var dialog = $.widget( "ui.dialog", {
 		maxHeight: null,
 		maxWidth: null,
 		minHeight: 150,
-		minWidth: 150,
+		minWidth:620,
 		modal: false,
 		position: {
 			my: "center",
@@ -8135,7 +8135,7 @@ var dialog = $.widget( "ui.dialog", {
 		resizable: true,
 		show: null,
 		title: null,
-		width: 300,
+		width: 620,
 
 		// callbacks
 		beforeClose: null,
