@@ -22,10 +22,12 @@
 .ui-widget div:nth-child(6) {margin-left: 31px; margin-bottom: 20px;}
 .ui-widget div:nth-child(8) {padding: 0 0 0 100px;}
 
-.ui-widget div .land_size {margin-left: 36px;}
+.ui-widget div .land_size {margin-left: 36px; margin-top: 1px;}
 .ui-widget div .land_address {margin-left: 10px; width: 470px;}
 .ui-widget div .land_status {margin-left: 21px;}
 .ui-widget div .land_type {margin-left: 10px;}
 .ui-widget div .land_price {margin-left: 64px;}
 .ui-widget div .land_plan {margin-left: 13px}
 .ui-widget div .land_image {margin-left: 55px; width: 470px;}
+.ui-widget div input:focus {outline: 1px solid #CF2525; border: 1px solid #CF2525;}
+

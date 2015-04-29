@@ -70,7 +70,6 @@
 .ui-widget {
     color: #828282;
     padding-top: 5px;
-    padding-bottom: 6px;
     font-size: 14px;
     font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
 }
@@ -119,10 +118,14 @@
     width: 90px;
     height: 30px;
     font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
-    top: 488px;
-    right: 24px;
     z-index: 200;
 }
+
+.ui-dialog .land_detail, .ui-dialog .add_new_land {
+    top: 488px;
+    right: 24px;
+}
+
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited {

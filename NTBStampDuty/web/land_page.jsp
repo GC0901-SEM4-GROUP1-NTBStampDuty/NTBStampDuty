@@ -40,7 +40,7 @@
             </div>
             <div class="search_menu">
                 <form class="form_search" action="searchLand" method="post">
-                    <select name="searchColumn">
+                    <select name="searchColumn" id="searchColumn">
                         <option value="LandID">Land ID</option>
                         <option value="Size">Size</option>
                         <option value="BuildingType">Building Type</option>
@@ -79,7 +79,8 @@
                             <td>${land.buildingTypes}</td>
                             <td>${land.price}</td>
                             <td>${land.buildStatus}</td>
-                            <td><input type="submit" value="Show detail" onclick="submitter(${land.landID}); getName(this)"/></td>
+                            <td><input type="submit" value="Show detail" onclick="submitter(${land.landID});
+                                    getName(this)"/></td>
                         </tr>
                         <div class="${land.landID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
                             <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${land.size}"/></div>
@@ -100,14 +101,19 @@
                 </table>
                 <div class="addNewLand" title="Add New Land" style="display:none">
                     <form>
-                        <p>Land size: <input name="landSize"/></p></br>
-                        <p>Land Address: <input name="landAddress"/></p></br>
-                        <p>Building Type: <input name="buildingType"/></p></br>
-                        <p>Building plan: <input name="buildingPlan"/></p></br>
-                        <p>Build status: <input name="buildingStatus"/></p></br>
-                        <p>Price: <input name="landPrice"/></p></br>
-                        <p>Image: <input name="landImage"/></p></br>
-                        <input type="submit" value="Add New Land"/>
+                        <div><a>Land Size:</a> <input name="landSize" class="land_size" value="${land.size}"/></div>
+                        <div><a>Land Address:</a> <input name="landAddress" class="land_address" value="${land.addressID}"/></div>
+                        <div><a>Build Status:</a> <input name="buildingStatus" class="land_status" value="${land.buildStatus}"/></div> 
+                        <div><a>Building Type:</a> <input name="buildingType" class="land_type" value="${land.buildingTypes}"/></div> 
+                        <div><a>Price:</a> <input name="landPrice" class="land_price" value="${land.price}"/></div>
+                        <div><a>Building Plan:</a> <input name="buildingPlan" class="land_plan" value="${land.buildingPlan}"/></div>                          
+                        <div><a>Image:</a> <input name="landImage" class="land_image" value="${land.img}"/></div>
+                        <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div class="edit_menu">
+                            <div class="btn_edit">
+                                <input type="submit" value="Add"/>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -8459,6 +8459,7 @@ var dialog = $.widget( "ui.dialog", {
 
 	_createTitlebar: function() {
 		var uiDialogTitle;
+                var page = (this.options.title).replace(/\s/g, '_').toLowerCase();
 
 		this.uiDialogTitlebar = $( "<div>" )
 			.addClass( "ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" )
@@ -8486,7 +8487,7 @@ var dialog = $.widget( "ui.dialog", {
 				},
 				text: false
 			})
-			.addClass( "ui-dialog-titlebar-close" )
+			.addClass( "ui-dialog-titlebar-close "+ page)
 			.appendTo( this.uiDialogTitlebar );
 		this._on( this.uiDialogTitlebarClose, {
 			click: function( event ) {
