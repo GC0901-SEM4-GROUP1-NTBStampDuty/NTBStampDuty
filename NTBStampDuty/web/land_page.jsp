@@ -102,7 +102,11 @@
                 <div class="addNewLand" title="Add New Land" style="display:none">
                     <form>
                         <div><a>Land Size:</a> <input name="landSize" class="land_size" value="${land.size}"/></div>
-                        <div><a>Land Address:</a> <input name="landAddress" class="land_address" value="${land.addressID}"/></div>
+                        <div><a>Land Address:</a> <select name="searchColumn" id="landLocation" class="land_address">
+                                <c:forEach items="${locationList}" var="location">
+                                <option value="${location.addressID}">${location.addressName}</option>
+                                </c:forEach>
+                            </select></div>
                         <div><a>Build Status:</a> <input name="buildingStatus" class="land_status" value="${land.buildStatus}"/></div> 
                         <div><a>Building Type:</a> <input name="buildingType" class="land_type" value="${land.buildingTypes}"/></div> 
                         <div><a>Price:</a> <input name="landPrice" class="land_price" value="${land.price}"/></div>

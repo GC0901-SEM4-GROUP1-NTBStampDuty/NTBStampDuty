@@ -17,8 +17,9 @@ import java.util.List;
 public class LandManager {
 
     private List<Land> landList = new ArrayList<>();
+    private List<Location> locationList = new ArrayList<>();
     private int noOfRecords;
-    
+
     public int getNoOfRecords() {
         return noOfRecords;
     }
@@ -106,5 +107,23 @@ public class LandManager {
             e.printStackTrace();
         }
         return landList;
+    }
+
+    public List<Location> getLocation() {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblLocation");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                Location location = new Location();
+                location.setAddressID(rs.getInt("address_id"));
+                location.setAddressName(rs.getString("name"));
+                location.setPrice(rs.getInt("price"));
+                locationList.add(location);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return locationList;
     }
 }
