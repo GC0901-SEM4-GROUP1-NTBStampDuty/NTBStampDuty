@@ -13,6 +13,7 @@
     <title>Land Details</title>
     <link href="css/land_page_styple.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src = "javascript/jquery.js" type="text/javascript"></script>
     <script>
         function submitter(btn) {
             $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
@@ -22,6 +23,22 @@
             var category = btn.parentElement.parentElement.id;
             return category;
         }
+
+        function getLocationPrice() {
+            var location = document.getElementById("landLocation").value;
+            var size = document.getElementById("landSize").value;
+            var price = document.getElementById(location).value;
+            document.getElementById("unitPrice").value = price;
+            document.getElementById("totalPrice").value = size * price;
+        }
+        
+        $(document).ready(function () {
+            $("#landSize").keyup(function () {
+                var size = $("#landSize").val();
+                var price = $("#unitPrice").val();
+                $("#totalPrice").val(size * price);
+            });
+        });
     </script>
 </head>
 <tag:MainTag>
@@ -101,15 +118,19 @@
                 </table>
                 <div class="addNewLand" title="Add New Land" style="display:none">
                     <form>
-                        <div><a>Land Size:</a> <input name="landSize" class="land_size" value="${land.size}"/></div>
-                        <div><a>Land Address:</a> <select name="searchColumn" id="landLocation" class="land_address">
+                        <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
+                        <div><a>Land Address:</a> <select name="searchColumn" id="landLocation" class="land_address" onchange="getLocationPrice()">
                                 <c:forEach items="${locationList}" var="location">
-                                <option value="${location.addressID}">${location.addressName}</option>
+                                    <option value="${location.addressID}">${location.addressName}</option>
                                 </c:forEach>
                             </select></div>
+                            <c:forEach items="${locationList}" var="location">
+                            <input type="hidden" id="${location.addressID}" value="${location.price}"/>
+                        </c:forEach>
                         <div><a>Build Status:</a> <input name="buildingStatus" class="land_status" value="${land.buildStatus}"/></div> 
                         <div><a>Building Type:</a> <input name="buildingType" class="land_type" value="${land.buildingTypes}"/></div> 
-                        <div><a>Price:</a> <input name="landPrice" class="land_price" value="${land.price}"/></div>
+                        <div><a>Price:</a> <input name="landPrice" disabled="disabled" id="unitPrice" class="land_price"/></div>
+                        <div><a>Total price:</a> <input name="totalPrice" disabled="disabled" id="totalPrice" class="land_price"/></div>
                         <div><a>Building Plan:</a> <input name="buildingPlan" class="land_plan" value="${land.buildingPlan}"/></div>                          
                         <div><a>Image:</a> <input name="landImage" class="land_image" value="${land.img}"/></div>
                         <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
