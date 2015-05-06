@@ -20,7 +20,7 @@ create table tblUserDetail
 	age int,
 	gender int,
 	phone nvarchar(15),
-		 datetime,
+	day_of_birth datetime,
 	[address] nvarchar(50)
 )
 
