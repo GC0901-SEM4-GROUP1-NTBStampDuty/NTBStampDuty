@@ -88,13 +88,18 @@ insert into tblBuildingType values(3, 'Shopping')
 
 create table tblBuildingPermit
 (
-land_id int references tblLand(land_id),
+land_id int primary key references tblLand(land_id),
 applied_status int,
 applied_date nvarchar(50),
 received_status int,
 received_date nvarchar(50),
 fee int
 )
+
+drop table tblOccupancyPermit
+drop table tblBuildingDetails
+drop table tblRoomDetails
+drop table tblInvoice
 
 create table tblBuildingDetails
 (
