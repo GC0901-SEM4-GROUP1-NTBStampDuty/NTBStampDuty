@@ -20,9 +20,20 @@ create table tblUserDetail
 	age int,
 	gender int,
 	phone nvarchar(15),
-		 datetime,
+         datetime,
 	[address] nvarchar(50)
 )
+
+insert into tblUserDetail values('admin','Tao La Admin',100,0,0696969,null,'19/23 Giang Van Minh')
+insert into tblUserDetail values('employee','Tao La Employee',20,0,01234567,null,'123 Giang Vo')
+insert into tblUserDetail values('customer','Tao La Customer',10,1,0869968,null,'321 Mam non Hoa Sen')
+
+WITH limt_user AS
+( select tblUser.username, [password], [role], fullname, age, gender, phone, day_of_birth, [address], ROW_NUMBER() OVER (ORDER BY tblUser.username ASC) AS [row_number]
+from tblUser
+inner join tblUserDetail
+on tblUser.username = tblUserDetail.username)
+select  username, [password], [role], fullname, age, gender, phone, day_of_birth, [address] FROM limt_user WHERE [row_number]> 0 AND [row_number]<= 5
 
 create table tblLocation
 (
