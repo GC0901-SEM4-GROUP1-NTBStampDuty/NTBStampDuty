@@ -35,7 +35,7 @@
                                     <input type="submit" value="Edit" />
                                 </form>-->
                 <div class="btn_delete">
-                    <input type="submit" value="Delete" />
+                    <input type="submit" value="Delete"  onclick="submitter('deleteLand')"/>
                 </div>
             </div>
             <div class="search_menu">
@@ -80,7 +80,8 @@
                             <td>${land.price}</td>
                             <td>${land.buildStatus}</td>
                             <td><input type="submit" value="Show detail" onclick="submitter(${land.landID});
-                                    getName(this)"/></td>
+                                    getName(this)"/>
+                            </td>
                         </tr>
                         <div class="${land.landID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
                             <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${land.size}"/></div>
@@ -112,6 +113,16 @@
                         <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Add"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="deleteLand" title="Delete Land" style="display:none">
+                    <form>
+                        <div>Are you sure to delete this land ?</div>
+                        <div class="edit_menu">
+                            <div class="btn_delete">
+                                <input type="submit" value="Yes"/>
                             </div>
                         </div>
                     </form>

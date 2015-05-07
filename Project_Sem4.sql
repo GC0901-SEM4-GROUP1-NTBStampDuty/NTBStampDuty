@@ -2,17 +2,26 @@ create database StampDuty
 go
 use StampDuty
 go
-create table tblEmp
+create table tblUser
 (
 username nvarchar(50) primary key,
 [password] nvarchar(50),
 [role] int
 )
 
-create table tblCustomer
+insert into tblUser values('admin','admin',0)
+insert into tblUser values('employee','employee',1)
+insert into tblUser values('customer','customer', 2)
+
+create table tblUserDetail
 (
-username nvarchar(50) primary key,
-[password] nvarchar(50)
+	username nvarchar(50) primary key references tblUser(username),
+	fullname nvarchar(50),
+	age int,
+	gender int,
+	phone nvarchar(15)
+	day_of_birth datetime,
+	[address] nvarchar(50)
 )
 
 create table tblLocation
@@ -36,14 +45,6 @@ built_status int,
 img nvarchar(100)
 )
 
-WITH limt_land AS
-  ( SELECT land_id, size, name, building_types, building_plan, built_status, img, price, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]
-    FROM tblLand
-	inner join tblLocation
-    on tblLand.address_id = tblLocation.address_id
-	where building_types like '%Off%'
-  )
-SELECT land_id, size, name, building_types, building_plan, built_status, img, price FROM limt_land WHERE [row_number] >0 AND [row_number] <=15
 
 insert into tblLand values(200, 1, 'Office', '', 0, '')
 insert into tblLand values(300, 3, 'House', '', 1, '')
@@ -148,7 +149,7 @@ interest int
 create table tblInvoice
 (
 bill_id int primary key identity,
-username nvarchar(50) references tblCustomer(username),
+username nvarchar(50) references tblUser(username),
 room_id int references tblRoomDetails(room_id),
 payment_id int references tblPaymentType(payment_id),
 first_paid_date Datetime,

@@ -71,6 +71,6 @@ html, body {margin: 0px; padding: 0px; height: 100%; width: 100%; position: rela
 .ui-widget .edit_menu .btn_edit input {width: 90px; height: 30px;}
 .ui-widget .edit_menu .btn_edit input:hover {box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}
 .ui-widget .edit_menu .btn_edit input:active {padding-left: -10px; padding-top: 2px; color: #666}
-.ui-widget .edit_menu .btn_delete input {width: 70px; height: 30px;}
+.ui-widget .edit_menu .btn_delete input {width: 90px; height: 30px; margin-left: 383px;}
 .ui-widget .edit_menu .btn_delete input:hover {box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}
 .ui-widget .edit_menu .btn_delete input:active {padding-left: -10px; padding-top: 2px; color: #666}

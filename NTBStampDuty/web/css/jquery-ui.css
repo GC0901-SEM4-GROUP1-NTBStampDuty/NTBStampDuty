@@ -122,7 +122,12 @@
 }
 
 .ui-dialog .land_detail, .ui-dialog .add_new_land {
-    top: 488px;
+    top: 489px;
+    right: 24px;
+}
+
+.ui-dialog .land_detail, .ui-dialog .delete_land {
+    top: 115px;
     right: 24px;
 }
 
