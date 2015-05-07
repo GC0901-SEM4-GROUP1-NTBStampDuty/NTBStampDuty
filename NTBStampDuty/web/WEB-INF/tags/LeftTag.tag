@@ -21,6 +21,9 @@
             <li>
                 <a href="#">ROOM DETAILS</a>
             </li>
+            <li>
+                <a href="/NTBStampDuty/userDetail">ACCOUNT DETAILS</a>
+            </li>
         </ul>
     </div>
 </div>

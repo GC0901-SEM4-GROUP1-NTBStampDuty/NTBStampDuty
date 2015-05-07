@@ -4,9 +4,17 @@
         <servlet-name>searchBuilding</servlet-name>
         <servlet-class>controller.searchBuilding</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>userDetail</servlet-name>
+        <servlet-class>controller.userDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>searchBuilding</servlet-name>
         <url-pattern>/searchBuilding</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>userDetail</servlet-name>
+        <url-pattern>/userDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

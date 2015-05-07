@@ -19,8 +19,8 @@ create table tblUserDetail
 	fullname nvarchar(50),
 	age int,
 	gender int,
-	phone nvarchar(15)
-	day_of_birth datetime,
+	phone nvarchar(15),
+		 datetime,
 	[address] nvarchar(50)
 )
 

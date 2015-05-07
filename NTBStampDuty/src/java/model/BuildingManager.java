@@ -27,11 +27,11 @@ public class BuildingManager {
         try {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
-                    "WITH limt_land AS\n"
+                    "WITH limt_built AS\n"
                     + "  ( SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed,completed_percent, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
                     + "    FROM tblBuildingDetails\n"
                     + "  )\n"
-                    + "SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed,completed_percent FROM limt_land WHERE [row_number] >" + startIndex + " AND [row_number]<=" + endIndex
+                    + "SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed,completed_percent FROM limt_built WHERE [row_number] >" + startIndex + " AND [row_number]<=" + endIndex
             );
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
