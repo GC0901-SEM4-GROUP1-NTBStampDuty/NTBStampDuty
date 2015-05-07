@@ -11,7 +11,7 @@
 
 <head>
     <title>Land Details</title>
-    <link href="css/land_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/user_page_styple.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script>
         function submitter(btn) {
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="search_menu">
-                <form class="form_search" action="searchLand" method="post">
+                <form class="form_search" action="" method="post">
                     <select name="searchColumn" id="searchColumn">
                         <option value="Username">Username</option>
                         <option value="Role">Role</option>
@@ -52,17 +52,19 @@
 
         <div class="detail_bar">
             <div class="table_container">
-                <div class="row_land">
+                <div class="row_user">
+                    <a></a>
+                    <a></a>
                     <a></a>
                     <a></a>
                     <a></a>
                 </div>
-                <table class="table_land" id="table">
+                <table class="table_user" id="table">
                     <tr>
                         <th style="width: 6%">No.</th>
-                        <th style="width: 6%">Role</th>
-                        <th style="width: 32%">Username</th>
-                        <th style="width: 32%">Full Name</th>
+                        <th style="width: 22%">Role</th>
+                        <th style="width: 22%">Username</th>
+                        <th style="width: 22%">Full Name</th>
                         <th style="width: 14%">Phone Number</th>
                         <th style="width: 14%">Detail</th>
                     </tr>

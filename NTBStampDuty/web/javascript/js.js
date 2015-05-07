@@ -8,7 +8,6 @@ onload = function () {
     } else if (path.match('userDetail') || path.match('searchUser')) {
         $("#bar ul li:nth-child(4)").css("background", "#cecfd0");
     }
-    
 
     $("#table").find('tr:nth-child(2)').addClass('selected');
     $("#table tr:nth-child(2) td:last-child").css("background", "url(/NTBStampDuty/images/ic_detail_focus.png) no-repeat center");
