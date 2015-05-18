@@ -31,7 +31,7 @@
             document.getElementById("unitPrice").value = price;
             document.getElementById("totalPrice").value = size * price;
         }
-        
+
         $(document).ready(function () {
             $("#landSize").keyup(function () {
                 var size = $("#landSize").val();
@@ -109,6 +109,7 @@
                             <div><a>Building Plan:</a> <input name="land_plan" class="land_plan" value="${land.buildingPlan}"/></div>                          
                             <div><a>Image:</a> <input name="land_image" class="land_image" value="${land.img}"/></div>
                             <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                            <div></div>
                             <div class="edit_menu">
                                 <div class="btn_edit">
                                     <input type="submit" value="Save" />
@@ -124,17 +125,18 @@
                                 <c:forEach items="${locationList}" var="location">
                                     <option value="${location.addressID}">${location.addressName}</option>
                                 </c:forEach>
-                            </select></div>
-                            <c:forEach items="${locationList}" var="location">
+                            </select>
+                        </div>
+                        <!--<c:forEach items="${locationList}" var="location">
                             <input type="hidden" id="${location.addressID}" value="${location.price}"/>
-                        </c:forEach>
+                        </c:forEach>-->
                         <div><a>Build Status:</a> <input name="buildingStatus" class="land_status" value="${land.buildStatus}"/></div> 
                         <div><a>Building Type:</a> <input name="buildingType" class="land_type" value="${land.buildingTypes}"/></div> 
                         <div><a>Price:</a> <input name="landPrice" disabled="disabled" id="unitPrice" class="land_price"/></div>
-                        <div><a>Total price:</a> <input name="totalPrice" disabled="disabled" id="totalPrice" class="land_price"/></div>
-                        <div><a>Building Plan:</a> <input name="buildingPlan" class="land_plan" value="${land.buildingPlan}"/></div>                          
+                        <div><a>Building Plan:</a> <input name="buildingPlan" class="land_plan" value="${land.buildingPlan}"/></div>
                         <div><a>Image:</a> <input name="landImage" class="land_image" value="${land.img}"/></div>
                         <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div><a>Total price:</a> <input name="totalPrice" disabled="disabled" id="totalPrice" class="total_price"/></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Add"/>
