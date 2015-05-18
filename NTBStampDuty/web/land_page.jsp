@@ -19,11 +19,6 @@
             $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
         }
 
-        function getName(btn) {
-            var category = btn.parentElement.parentElement.id;
-            return category;
-        }
-
         function getLocationPrice() {
             var location = document.getElementById("landLocation").value;
             var size = document.getElementById("landSize").value;
@@ -122,6 +117,7 @@
                     <form>
                         <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
                         <div><a>Land Address:</a> <select name="searchColumn" id="landLocation" class="land_address" onchange="getLocationPrice()">
+                                <option value="0">Choose an address</option>
                                 <c:forEach items="${locationList}" var="location">
                                     <option value="${location.addressID}">${location.addressName}</option>
                                 </c:forEach>
