@@ -43,12 +43,12 @@
         <div class="detail_bar">
             <div  class="table_container">
                 <div class="row_build">
+<!--                    <a></a>
                     <a></a>
                     <a></a>
                     <a></a>
                     <a></a>
-                    <a></a>
-                    <a></a>
+                    <a></a>-->
                 </div>
                 <table class="table_build" id="table">
                     <tr>
