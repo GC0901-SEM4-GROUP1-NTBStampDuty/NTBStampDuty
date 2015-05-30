@@ -135,12 +135,19 @@ finish_date Datetime,
 period int,
 )
 
+insert into tblProjects values('Project1', 1, 0, 2015-30-5, 2015-30-6, 1)
+
+select * from tblProjects
+
 Create table tblPeriod(
 proj_id int references tblProjects(proj_id),
 period_1 datetime,
 period_2 datetime,
 period_3 datetime,
 )
+
+drop table tblPeriod
+drop table tblProjects
 
 
 select * from tblBuildingType
