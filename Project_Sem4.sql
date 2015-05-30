@@ -112,18 +112,36 @@ rooms int,
 houses int,
 shops int,
 date_contructed Datetime,
-completed_percent int,
 img nvarchar(100)
 )
 
-insert into tblBuildingDetails values (1, 1, 'New Buidling', 10, 0, 60, 0, null, 10,'')
-insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0, null, 10,'')
-insert into tblBuildingDetails values (3, 3, 'New Shop Buidling', 10, 0, 0, 60, null, 10,'')
-insert into tblBuildingDetails values (4, 2, 'House Buidling', 10, 60, 0, 0, null, 10,'')
-insert into tblBuildingDetails values (5, 1, 'Office Buidling', 10, 0, 60, 0, null, 10,'')
-insert into tblBuildingDetails values (6, 1, 'New Office Buidling', 10, 0, 60, 0, null, 10,'')
+
+insert into tblBuildingDetails values (1, 1, 'New Buidling', 10, 0, 60, 0, null,'')
+insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0, null,'')
+insert into tblBuildingDetails values (3, 3, 'New Shop Buidling', 10, 0, 0, 60, null,'')
+insert into tblBuildingDetails values (4, 2, 'House Buidling', 10, 60, 0, 0, null,'')
+insert into tblBuildingDetails values (5, 1, 'Office Buidling', 10, 0, 60, 0, null,'')
+insert into tblBuildingDetails values (6, 1, 'New Office Buidling', 10, 0, 60, 0, null,'')
 
 select * from tblBuildingDetails
+
+Create table tblProjects(
+proj_id int primary key identity(1,1),
+proj_name nvarchar(50),
+building_id int references tblBuildingDetails(building_id),
+complete_percent int,
+created_date Datetime,
+finish_date Datetime,
+period int,
+)
+
+Create table tblPeriod(
+proj_id int references tblProjects(proj_id),
+period_1 datetime,
+period_2 datetime,
+period_3 datetime,
+)
+
 
 select * from tblBuildingType
 select * from tblLand
@@ -162,14 +180,14 @@ payment_time int,
 interest int
 )
 
-create table tblInvoice
+create table tblContract
 (
-bill_id int primary key identity,
+con_id int primary key identity,
 username nvarchar(50) references tblUser(username),
 room_id int references tblRoomDetails(room_id),
 payment_id int references tblPaymentType(payment_id),
-first_paid_date Datetime,
 created_date Datetime,
+total_payment int,
 total_paid int,
 total_due int,
 invoice_status int
