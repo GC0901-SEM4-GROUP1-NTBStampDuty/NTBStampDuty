@@ -8,7 +8,10 @@ package model;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,8 +36,11 @@ public class ProjectManager {
                 project.setProjectName(rs.getString("proj_name"));
                 project.setBuildingName(rs.getString("building_name"));
                 project.setCompletePercent(rs.getInt("complete_percent"));
-                project.setCreatedDate(rs.getDate("created_date"));
-                project.setFinishDate(rs.getDate("finish_date"));
+                Date createdDate = rs.getDate("created_date");
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                project.setCreatedDate(dateFormat.format(createdDate));
+                Date finishedDate = rs.getDate("finish_date");
+                project.setFinishDate(dateFormat.format(finishedDate));
                 project.setPeriod(rs.getInt("period"));
                 projectList.add(project);
             }

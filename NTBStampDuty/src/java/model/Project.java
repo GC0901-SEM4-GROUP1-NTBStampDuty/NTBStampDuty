@@ -16,8 +16,8 @@ public class Project {
     private String projectName;
     private String buildingName;
     private int completePercent;
-    private Date createdDate;
-    private Date finishDate;
+    private String createdDate;
+    private String finishDate;
     private int period;
 
     public int getProjectID() {
@@ -52,19 +52,19 @@ public class Project {
         this.completePercent = completePercent;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Date getFinishDate() {
+    public String getFinishDate() {
         return finishDate;
     }
 
-    public void setFinishDate(Date finishDate) {
+    public void setFinishDate(String finishDate) {
         this.finishDate = finishDate;
     }
 
