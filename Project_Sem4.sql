@@ -35,6 +35,13 @@ inner join tblUserDetail
 on tblUser.username = tblUserDetail.username)
 select  username, [password], [role], fullname, age, gender, phone, day_of_birth, [address] FROM limt_user WHERE [row_number]> 0 AND [row_number]<= 5
 
+create table tblProject
+(
+project_id int primary key,
+project_name nvarchar(50)
+
+)
+
 create table tblLocation
 (
 address_id int primary key,
