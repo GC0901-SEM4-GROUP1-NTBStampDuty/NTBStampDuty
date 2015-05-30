@@ -142,7 +142,7 @@ finish_date Datetime,
 period int,
 )
 
-insert into tblProjects values('Project1', 1, 0, 2015-30-5, 2015-30-6, 1)
+insert into tblProjects values('Project1', 1, 0, '2015-05-30', '2015-06-30', 1)
 
 select * from tblProjects
 

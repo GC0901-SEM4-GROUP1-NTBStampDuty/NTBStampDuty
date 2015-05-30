@@ -14,7 +14,7 @@ import java.sql.Date;
 public class Project {
     private int projectID;
     private String projectName;
-    private int buildingID;
+    private String buildingName;
     private int completePercent;
     private Date createdDate;
     private Date finishDate;
@@ -36,12 +36,12 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public int getBuildingID() {
-        return buildingID;
+    public String getBuildingName() {
+        return buildingName;
     }
 
-    public void setBuildingID(int buildingID) {
-        this.buildingID = buildingID;
+    public void setBuildingName(String buildingName) {
+        this.buildingName = buildingName;
     }
 
     public int getCompletePercent() {
