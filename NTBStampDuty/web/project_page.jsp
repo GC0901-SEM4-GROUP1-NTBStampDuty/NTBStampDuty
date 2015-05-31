@@ -68,7 +68,7 @@
                             <a>${pro.buildingName}</a><br/>
                             <a>
                                 <div align="left" id="progress-bar-container">
-                                    <div id="progress-bar">
+                                    <div style="width:${pro.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:10px;">
                                     </div>
                                 </div>
                             </a>
