@@ -2,6 +2,7 @@ create database StampDuty
 go
 use StampDuty
 go
+
 create table tblUser
 (
 username nvarchar(50) primary key,
@@ -39,7 +40,6 @@ create table tblProject
 (
 project_id int primary key,
 project_name nvarchar(50)
-
 )
 
 create table tblLocation
@@ -103,11 +103,6 @@ received_date nvarchar(50),
 fee int
 )
 
-drop table tblOccupancyPermit
-drop table tblBuildingDetails
-drop table tblRoomDetails
-drop table tblInvoice
-
 create table tblBuildingDetails
 (
 building_id int primary key identity,
@@ -121,7 +116,6 @@ shops int,
 date_contructed Datetime,
 img nvarchar(100)
 )
-
 
 insert into tblBuildingDetails values (1, 1, 'New Buidling', 10, 0, 60, 0, null,'')
 insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0, null,'')
@@ -143,6 +137,11 @@ period int,
 )
 
 insert into tblProjects values('Project1', 1, 0, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project2', 2, 0, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project3', 3, 0, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project4', 4, 0, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project5', 5, 0, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project6', 6, 0, '2015-05-30', '2015-06-30', 1)
 
 select * from tblProjects
 
@@ -152,10 +151,6 @@ period_1 datetime,
 period_2 datetime,
 period_3 datetime,
 )
-
-drop table tblPeriod
-drop table tblProjects
-
 
 select * from tblBuildingType
 select * from tblLand

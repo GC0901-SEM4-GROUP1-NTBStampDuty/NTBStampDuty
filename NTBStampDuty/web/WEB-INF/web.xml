@@ -8,6 +8,10 @@
         <servlet-name>userDetail</servlet-name>
         <servlet-class>controller.userDetail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>projectDetail</servlet-name>
+        <servlet-class>controller.projectDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>searchBuilding</servlet-name>
         <url-pattern>/searchBuilding</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>userDetail</servlet-name>
         <url-pattern>/userDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>projectDetail</servlet-name>
+        <url-pattern>/projectDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -25,7 +33,7 @@
         <welcome-file>login_page.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>login</servlet-name>
-        <servlet-class>controller.login</servlet-class>
+        <servlet-name>landDetail</servlet-name>
+        <servlet-class>controller.landDetail</servlet-class>
     </servlet>
 </web-app>

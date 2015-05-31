@@ -9,31 +9,26 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Land;
-import model.Project;
-import model.ProjectManager;
+import model.LandManager;
+import model.Location;
 
 /**
  *
  * @author Phuc
  */
-@WebServlet(name = "getAllProject", urlPatterns = {"/getAllProject"})
-public class getAllProject extends HttpServlet {
+@WebServlet("/landDetail")
+public class landDetail extends HttpServlet {
 
-    private List<Project> landList = new ArrayList<>();
+    private List<Land> landList = new ArrayList<>();
+    private List<Location> locationList = new ArrayList<>();
 
-    public List<Project> getLandList() {
-        return landList;
-    }
-
-    public void setLandList(List<Project> landList) {
-        this.landList = landList;
-    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -51,10 +46,10 @@ public class getAllProject extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet getAllProject</title>");            
+            out.println("<title>Servlet login</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet getAllProject at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,7 +67,22 @@ public class getAllProject extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int page = 1;
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        LandManager manager = new LandManager();
+        landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        locationList = manager.getLocation();
+        request.setAttribute("landList", landList);
+        request.setAttribute("locationList", locationList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        rd.forward(request, response);
     }
 
     /**
@@ -86,8 +96,22 @@ public class getAllProject extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProjectManager manager = new ProjectManager();
-        landList = manager.getAlllProject();
+        int page = 1;
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        LandManager manager = new LandManager();
+        landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        locationList = manager.getLocation();
+        request.setAttribute("landList", landList);
+        request.setAttribute("locationList", locationList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        rd.forward(request, response);
     }
 
     /**

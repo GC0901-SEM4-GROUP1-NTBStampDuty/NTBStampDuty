@@ -12,11 +12,11 @@
     </div>
     <div class="left_menu" id="bar">
         <ul>
-            <li>
-                <a href="/NTBStampDuty/login">LAND DETAILS</a>
+             <li>
+                <a href="/NTBStampDuty/projectDetail">PROJECT DETAILS</a>
             </li>
             <li>
-                <a href="/NTBStampDuty/buildingDetail">BUILDING DETAILS</a>
+                <a href="/NTBStampDuty/landDetail">LAND DETAILS</a>
             </li>
             <li>
                 <a href="#">ROOM DETAILS</a>

@@ -1,9 +1,9 @@
 onload = function () {
     var path = window.location.pathname;
 
-    if (path.match('login') || path.match('searchLand')) {
+    if (path.match('projectDetail')) {
         $("#bar ul li:first-child").css("background", "#cecfd0");
-    } else if (path.match('buildingDetail') || path.match('searchBuilding')) {
+    } else if (path.match('landDetail') || path.match('searchLand')) {
         $("#bar ul li:nth-child(2)").css("background", "#cecfd0");
     } else if (path.match('userDetail') || path.match('searchUser')) {
         $("#bar ul li:nth-child(4)").css("background", "#cecfd0");

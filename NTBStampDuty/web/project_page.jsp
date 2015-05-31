@@ -11,7 +11,7 @@
 
 <head>
     <title>Land Details</title>
-    <link href="css/user_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/project_page_styple.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script>
         function submitter(btn) {
@@ -53,41 +53,38 @@
         <div class="detail_bar">
             <div class="table_container">
                 <div class="row_user">
-                    <a></a>
-                    <a></a>
-                    <a></a>
-                    <a></a>
-                    <a></a>
                 </div>
-                <table class="table_user" id="table">
+                <table class="table_project" id="table">
                     <tr>
-                        <th style="width: 6%">No.</th>
-                        <th style="width: 22%">Role</th>
-                        <th style="width: 22%">Username</th>
-                        <th style="width: 22%">Full Name</th>
-                        <th style="width: 14%">Phone Number</th>
-                        <th style="width: 14%">Detail</th>
-                    </tr>
-                    <c:forEach items="${userList}" var="user" varStatus="row">
-                        <tr id="land">
-                            <td>${row.count}</td>
-                            <td>${user.role}</td>
-                            <td>${user.username}</td>
-                            <td>${user.fullname}</td>
-                            <td>${user.phone}</td>
-                            <td></td>
-                        </tr>
-                    </c:forEach>
+                        <th style="width: 100%">List Project</th>
+                    </tr> 
                 </table>
+
+                <div class="project_container" >
+                    <c:forEach items="${projectList}" var="pro">
+                        <div id="project" align="center">
+                            <a><img id="pro_img" src="images/ic_none_image.png"/></a><br/>
+                            <a style="font-weight: bold">${pro.projectName}</a><br/>
+                            <a>${pro.buildingName}</a><br/>
+                            <a>
+                                <div align="left" id="progress-bar-container">
+                                    <div id="progress-bar">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
+                </div>
+
             </div>
             <div class="paging_size">
                 <%--For displaying Next link --%>
                 <c:choose>
                     <c:when test="${currentPage < noOfPages}">
-                        <a class="btn_next_forcus" href="userDretail?page=${currentPage + 1}"></a>
+                        <a class="btn_next_forcus" href="projectDetail?page=${currentPage + 1}"></a>
                     </c:when>
                     <c:otherwise>
-                        <a class="btn_next" href="userDetail?page=${currentPage + 1}"></a>
+                        <a class="btn_next" href="projectDetail?page=${currentPage + 1}"></a>
                     </c:otherwise>
                 </c:choose>
 
@@ -101,7 +98,7 @@
                                     <td class="on_select_page">${i}</td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td><a href="userDetail?page=${i}">${i}</a></td>
+                                    <td><a href="projectDetail?page=${i}">${i}</a></td>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
@@ -111,10 +108,10 @@
                 <%--For displaying Previous link except for the 1st page --%>
                 <c:choose>
                     <c:when test="${currentPage != 1}">
-                        <a class="btn_previous_forcus" href="userDetail?page=${currentPage - 1}"></a>
+                        <a class="btn_previous_forcus" href="projectDetail?page=${currentPage - 1}"></a>
                     </c:when>
                     <c:otherwise>
-                        <a class="btn_previous" href="userDetail?page=${currentPage - 1}"></a>
+                        <a class="btn_previous" href="projectDetail?page=${currentPage - 1}"></a>
                     </c:otherwise>
                 </c:choose>
             </div>

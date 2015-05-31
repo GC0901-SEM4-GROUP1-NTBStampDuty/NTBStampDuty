@@ -21,14 +21,24 @@ import java.util.List;
 public class ProjectManager {
 
     private List<Project> projectList = new ArrayList<>();
+    private int noOfRecords;
 
-    public List<Project> getAlllProject() {
+    public int getNoOfRecords() {
+        return noOfRecords;
+    }
+
+    public List<Project> getAllProject(int startIndex, int endIndex) {
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("select proj_id, proj_name, building_name, complete_percent, created_date, finish_date, period\n"
-                    + "from tblProjects \n"
+            PreparedStatement ps = conn.getConnection().prepareStatement(
+                    "WITH limt_project AS\n"
+                    + "(select proj_id, proj_name, building_name, complete_percent, created_date, finish_date, period, ROW_NUMBER() OVER (ORDER BY proj_id ASC) AS [row_number]\n"
+                    + "from tblProjects\n"
                     + "inner join tblBuildingDetails\n"
-                    + "on tblProjects.building_id = tblBuildingDetails.building_id");
+                    + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
+                    + ")\n"
+                    + "select proj_id, proj_name, building_name, complete_percent, created_date, finish_date, period FROM limt_project WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
+            );
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Project project = new Project();
@@ -45,7 +55,11 @@ public class ProjectManager {
                 projectList.add(project);
             }
             rs.close();
-
+            ps = conn.getConnection().prepareStatement("select count(*) from tblProject");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                this.noOfRecords = rs.getInt(1);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

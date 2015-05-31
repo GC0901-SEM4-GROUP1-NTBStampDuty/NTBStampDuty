@@ -11,23 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Land;
 import model.LandManager;
-import model.Location;
+import model.Project;
+import model.ProjectManager;
+import model.User;
+import model.UserManager;
 
 /**
  *
- * @author Phuc
+ * @author SonNguyen
  */
-@WebServlet("/login")
-public class login extends HttpServlet {
+public class projectDetail extends HttpServlet {
 
-    private List<Land> landList = new ArrayList<>();
-    private List<Location> locationList = new ArrayList<>();
+    private List<Project> projectList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,10 +46,10 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");
+            out.println("<title>Servlet projectDetail</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet projectDetail at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -68,20 +68,18 @@ public class login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int page = 1;
-        int recordsPerPage = 15;
+        int recordsPerPage = 12;
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
-        LandManager manager = new LandManager();
-        landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
+        ProjectManager manager = new ProjectManager();
+        projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        locationList = manager.getLocation();
-        request.setAttribute("landList", landList);
-        request.setAttribute("locationList", locationList);
+        request.setAttribute("projectList", projectList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
-        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("project_page.jsp");
         rd.forward(request, response);
     }
 
@@ -97,20 +95,18 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int page = 1;
-        int recordsPerPage = 15;
+        int recordsPerPage = 12;
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
-        LandManager manager = new LandManager();
-        landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
+        ProjectManager manager = new ProjectManager();
+        projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        locationList = manager.getLocation();
-        request.setAttribute("landList", landList);
-        request.setAttribute("locationList", locationList);
+        request.setAttribute("projectList", projectList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
-        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("project_page.jsp");
         rd.forward(request, response);
     }
 
