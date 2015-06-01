@@ -67,7 +67,7 @@ html, body {margin: 0px; padding: 0px; height: 100%; width: 1345px; position: re
 .ui-widget .edit_menu {}
 .ui-widget .edit_menu div {float: left; margin-right: 5px;}
 .ui-widget .edit_menu input {background-image: linear-gradient(to top, #F1F1F1, #FFF); border-width: 1px; border-style: solid; border-color: #D2D2D2 #C9C8C8 #C3C3C2; box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15); color: #3E3E3E; border-radius: 3px; background-color: #EAE9E9; background-repeat: no-repeat; border: 1px solid rgba(0, 0, 0, 0.15); font-size: 12px;}
-.ui-widget .edit_menu .btn_edit {width: auto; margin: 19px 0px 0px 385px;}
+.ui-widget .edit_menu .btn_edit {width: auto; margin: 19px 0px 0px 375px;}
 .ui-widget .edit_menu .btn_edit input {width: 90px; height: 30px;}
 .ui-widget .edit_menu .btn_edit input:hover {box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}
 .ui-widget .edit_menu .btn_edit input:active {padding-left: -10px; padding-top: 2px; color: #666}

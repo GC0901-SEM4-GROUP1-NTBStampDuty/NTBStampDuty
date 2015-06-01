@@ -129,12 +129,8 @@ insert into tblProjects values('Project4', 4, 50, '2015-05-30', '2015-06-30', 1,
 insert into tblProjects values('Project5', 5, 60, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project6', 6, 80, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project7', 1, 10, '2015-05-30', '2015-06-30', 1, 0)
-<<<<<<< HEAD
-=======
 
->>>>>>> b1366a5d963fe83970a01d8f5eaa5739b8f5c8ee
-
-select proj_name, building_name
+select 
 from tblProjects
 inner join tblBuildingDetails
 on tblProjects.building_id = tblBuildingDetails.building_id
