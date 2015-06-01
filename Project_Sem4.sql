@@ -130,7 +130,7 @@ insert into tblProjects values('Project5', 5, 60, '2015-05-30', '2015-06-30', 1,
 insert into tblProjects values('Project6', 6, 80, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project7', 1, 10, '2015-05-30', '2015-06-30', 1, 0)
 
-select 
+select proj_name, building_name
 from tblProjects
 inner join tblBuildingDetails
 on tblProjects.building_id = tblBuildingDetails.building_id

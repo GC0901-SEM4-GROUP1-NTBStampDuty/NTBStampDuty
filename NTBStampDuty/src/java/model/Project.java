@@ -12,13 +12,23 @@ import java.sql.Date;
  * @author Phuc
  */
 public class Project {
+
     private int projectID;
     private String projectName;
+    private int buildingId;
     private String buildingName;
     private int completePercent;
     private String createdDate;
     private String finishDate;
     private int period;
+
+    public int getBuildingId() {
+        return buildingId;
+    }
+
+    public void setBuildingId(int buildingId) {
+        this.buildingId = buildingId;
+    }
 
     public int getProjectID() {
         return projectID;
