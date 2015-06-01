@@ -22,6 +22,11 @@
             var category = btn.parentElement.parentElement.id;
             return category;
         }
+        
+        function getProjectID(btn) {
+            var getID = btn;
+            return getID;
+        }
     </script>
 </head>
 <tag:MainTag>
@@ -62,7 +67,7 @@
 
                 <div class="project_container" >
                     <c:forEach items="${projectList}" var="pro">
-                        <div id="project" align="center">
+                        <div id="project" align="center" onclick="getProjectID(${pro.projectID})">
                             <a><img id="pro_img" src="images/ic_none_image.png"/></a><br/>
                             <a style="font-weight: bold">${pro.projectName}</a><br/>
                             <a>${pro.buildingName}</a><br/>
