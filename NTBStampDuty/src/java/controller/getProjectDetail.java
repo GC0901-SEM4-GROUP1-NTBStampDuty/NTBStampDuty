@@ -7,11 +7,14 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Project;
+import model.ProjectManager;
 
 /**
  *
@@ -73,6 +76,12 @@ public class getProjectDetail extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String projectId = request.getParameter("projectID");
+        int id = Integer.parseInt(projectId);
+        ProjectManager pm = new ProjectManager();
+        Project proj = pm.getProjectDetails(id);
+        request.setAttribute("project", proj);
+        RequestDispatcher rd = request.getRequestDispatcher("project_detail.jsp");
+        rd.forward(request, response);
     }
 
     /**

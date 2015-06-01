@@ -143,8 +143,7 @@ insert into tblProjects values('Project4', 4, 50, '2015-05-30', '2015-06-30', 1)
 insert into tblProjects values('Project5', 5, 60, '2015-05-30', '2015-06-30', 1)
 insert into tblProjects values('Project6', 6, 80, '2015-05-30', '2015-06-30', 1)
 
-
-select * from tblProjects
+select * from tblProjects where proj_id = 7
 
 Create table tblPeriod(
 proj_id int references tblProjects(proj_id),

@@ -16,13 +16,14 @@ import java.util.List;
  */
 public class BuildingManager {
 
+    private Building buildingDetails = new Building();
     private List<Building> buidingList = new ArrayList<>();
     private int noOfRecords;
-    
+
     public int getNoOfRecords() {
         return noOfRecords;
     }
-    
+
     public List<Building> getAllBuilding(int startIndex, int endIndex) {
         try {
             GetConnection conn = new GetConnection();
@@ -73,7 +74,47 @@ public class BuildingManager {
         }
         return buidingList;
     }
-    
+
+    public Building getBuildingDetails(int id) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("Select * from tblBuildingDetails");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Building building = new Building();
+                building.setBuildingID(rs.getInt("building_id"));
+                building.setLandID(rs.getInt("land_id"));
+                int status = rs.getInt("buildingType_id");
+                switch (status) {
+                    case 1:
+                        building.setBuildingType("Official");
+                        break;
+                    case 2:
+                        building.setBuildingType("Residental");
+                        break;
+                    case 3:
+                        building.setBuildingType("Shopping");
+                        break;
+                    default:
+                        building.setBuildingType("");
+                        break;
+                }
+                building.setBuildingName(rs.getString("building_name"));
+                building.setFloors(rs.getInt("floors"));
+                building.setRooms(rs.getInt("rooms"));
+                building.setHouses(rs.getInt("houses"));
+                building.setShops(rs.getInt("shops"));
+                building.setDateContructed(rs.getDate("date_contructed"));
+                building.setCompletedPercent(rs.getInt("completed_percent"));
+                buildingDetails = building;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return buildingDetails;
+    }
+
     public List<Building> SearchBuild(String searchColumn, String searchValue, int startIndex, int endIndex) {
         try {
             GetConnection conn = new GetConnection();
@@ -81,14 +122,14 @@ public class BuildingManager {
                     "WITH limt_land AS\n"
                     + "  ( SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed,completed_percent, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
                     + "    FROM tblBuildingDetails\n"
-                    + "    where "+ searchColumn + "= ?"
+                    + "    where " + searchColumn + "= ?"
                     + "  )\n"
                     + "SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed,completed_percent FROM limt_land WHERE [row_number] >" + startIndex + " AND [row_number]<=" + endIndex
             );
             ps.setString(1, searchValue);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-               Building building = new Building();
+                Building building = new Building();
                 building.setBuildingID(rs.getInt("building_id"));
                 building.setLandID(rs.getInt("land_id"));
                 int status = rs.getInt("buildingType_id");
