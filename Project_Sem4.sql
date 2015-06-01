@@ -136,12 +136,13 @@ finish_date Datetime,
 period int,
 )
 
-insert into tblProjects values('Project1', 1, 0, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project2', 2, 0, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project3', 3, 0, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project4', 4, 0, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project5', 5, 0, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project6', 6, 0, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project1', 1, 10, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project2', 2, 20, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project3', 3, 40, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project4', 4, 50, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project5', 5, 60, '2015-05-30', '2015-06-30', 1)
+insert into tblProjects values('Project6', 6, 80, '2015-05-30', '2015-06-30', 1)
+
 
 select * from tblProjects
 
