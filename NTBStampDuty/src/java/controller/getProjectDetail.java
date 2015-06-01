@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Building;
+import model.BuildingManager;
 import model.Project;
 import model.ProjectManager;
 
@@ -79,6 +81,8 @@ public class getProjectDetail extends HttpServlet {
         int id = Integer.parseInt(projectId);
         ProjectManager pm = new ProjectManager();
         Project proj = pm.getProjectDetails(id);
+        BuildingManager bm = new BuildingManager();
+        Building building = bm.getBuildingDetails(proj.getBuildingId());
         request.setAttribute("project", proj);
         RequestDispatcher rd = request.getRequestDispatcher("project_detail.jsp");
         rd.forward(request, response);

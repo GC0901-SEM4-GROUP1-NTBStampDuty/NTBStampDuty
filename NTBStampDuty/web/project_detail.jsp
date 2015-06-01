@@ -50,13 +50,14 @@
                 </table>
 
                 <div class="project_container" >
-                    <p>Project ID : ${project.getProjectID()}</p>                    
-                    <p>Project Name : ${project.getProjectName()}</p>                    
-                    <p>Building Name : ${project.getBuildingName()}</p>
-                    <p>Complete percent : ${project.getCompletePercent()}</p>                    
-                    <p>Created Date :  ${project.getCreatedDate()}</p>
-                    <p>Finish Date :  ${project.getFinishDate()}</p>  
-                    <p>Period :  ${project.getPeriod()}</p>
+                    <p>Project ID : ${project.projectID}</p>                    
+                    <p>Project Name : ${project.projectName}</p>     
+                    <p>Building ID: ${project.buildingId}</p>
+                    <p>Building Name : ${project.buildingName}</p>
+                    <p>Complete percent : ${project.completePercent}</p>                    
+                    <p>Created Date :  ${project.createdDate}</p>
+                    <p>Finish Date :  ${project.finishDate}</p>  
+                    <p>Period :  ${project.period}</p>
                 </div>                
 
             </div>
