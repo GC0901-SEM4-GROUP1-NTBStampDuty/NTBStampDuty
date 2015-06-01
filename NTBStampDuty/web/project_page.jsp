@@ -22,10 +22,12 @@
             var category = btn.parentElement.parentElement.id;
             return category;
         }
-        
+
         function getProjectID(btn) {
             var getID = btn;
-            return getID;
+            var myForm = document.forms["myForm"];
+            myForm.elements["projectID"].value = getID;
+            myForm.submit();
         }
     </script>
 </head>
@@ -65,21 +67,24 @@
                     </tr> 
                 </table>
 
-                <div class="project_container" >
-                    <c:forEach items="${projectList}" var="pro">
-                        <div id="project" align="center" onclick="getProjectID(${pro.projectID})">
-                            <a><img id="pro_img" src="images/ic_none_image.png"/></a><br/>
-                            <a style="font-weight: bold">${pro.projectName}</a><br/>
-                            <a>${pro.buildingName}</a><br/>
-                            <a>
-                                <div align="left" id="progress-bar-container">
-                                    <div style="width:${pro.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:10px;">
+                <form id="myForm" action="getProjectDetail" method="post">
+                    <input type="hidden" name="projectID"/>
+                    <div class="project_container" >
+                        <c:forEach items="${projectList}" var="pro">
+                            <div id="project" align="center" onclick="getProjectID(${pro.projectID})">
+                                <a><img id="pro_img" src="images/ic_none_image.png"/></a><br/>
+                                <a style="font-weight: bold">${pro.projectName}</a><br/>
+                                <a>${pro.buildingName}</a><br/>
+                                <a>
+                                    <div align="left" id="progress-bar-container">
+                                        <div style="width:${pro.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:10px;">
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    </c:forEach>
-                </div>
+                                </a>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </form>
 
             </div>
             <div class="paging_size">
