@@ -15,4 +15,4 @@
 #main_body .detail_bar .table_container  .project_container #project:hover {box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}
 #main_body .detail_bar .table_container  .project_container #project #pro_img {width: 100px; height: 125px; margin: 10px 0 5px 0;}
 #main_body .detail_bar .table_container  .project_container #project #progress-bar-container {width:80%; height:10px; border:1px solid gray; border-radius: 8px; overflow: hidden; margin-top: 2px;}
-/*#main_body .detail_bar .table_container  .project_container #project #progress-bar-container #progress-bar {width:35%;background-image: linear-gradient(to op, #9ACD00, #9ACD00); height:10px;}*/
+/*#main_body .detail_bar .table_container  .project_container #project #progress-bar-container #progress-bar {width:35%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:10px;}*/
