@@ -39,7 +39,7 @@
     outline: 0;
 }
 .ui-dialog .ui-dialog-titlebar {
-    padding: 12px 25px;
+    padding: 12px 20px;
     position: relative;
 }
 
@@ -58,7 +58,7 @@
     width:"500 px";
     background: none;
     overflow: auto;
-    padding: 0 25px;
+    padding: 0 20px;
 }
 
 .ui-draggable .ui-dialog-titlebar {
