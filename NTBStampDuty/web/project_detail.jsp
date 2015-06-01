@@ -58,6 +58,17 @@
                     <p>Created Date :  ${project.createdDate}</p>
                     <p>Finish Date :  ${project.finishDate}</p>  
                     <p>Period :  ${project.period}</p>
+                    <br>
+                    <br>
+                    <p>Building Id : ${building.buildingID}</p>
+                    <p>Land Id : ${building.landID}</p>
+                    <p>Building Name : ${building.buildingName}</p>
+                    <p>Building Type : ${building.buildingType}</p>
+                    <p>Floors number : ${building.floors}</p>
+                    <p>Rooms number : ${building.rooms}</p>
+                    <p>Houses number : ${building.houses}</p>
+                    <p>Shops number : ${building.shops}</p>
+                    <p>Date constructed : ${building.dateContructed}</p>
                 </div>                
 
             </div>

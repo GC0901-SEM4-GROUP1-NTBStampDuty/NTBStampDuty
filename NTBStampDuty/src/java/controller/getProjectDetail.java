@@ -84,6 +84,7 @@ public class getProjectDetail extends HttpServlet {
         BuildingManager bm = new BuildingManager();
         Building building = bm.getBuildingDetails(proj.getBuildingId());
         request.setAttribute("project", proj);
+        request.setAttribute("building", building);
         RequestDispatcher rd = request.getRequestDispatcher("project_detail.jsp");
         rd.forward(request, response);
     }

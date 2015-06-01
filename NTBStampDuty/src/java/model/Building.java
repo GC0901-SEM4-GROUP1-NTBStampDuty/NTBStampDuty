@@ -23,7 +23,6 @@ public class Building {
     private int houses;
     private int shops;
     private Date dateContructed;
-    private int completedPercent;
     private String img;
 
     public int getBuildingID() {
@@ -104,14 +103,6 @@ public class Building {
 
     public void setDateContructed(Date dateContructed) {
         this.dateContructed = dateContructed;
-    }
-
-    public int getCompletedPercent() {
-        return completedPercent;
-    }
-
-    public void setCompletedPercent(int completedPercent) {
-        this.completedPercent = completedPercent;
     }
 
     public String getImg() {
