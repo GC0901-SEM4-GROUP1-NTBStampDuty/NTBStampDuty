@@ -37,6 +37,7 @@ public class ProjectManager {
                     + "from tblProjects\n"
                     + "inner join tblBuildingDetails\n"
                     + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
+                    + "where available_status = 1"
                     + ")\n"
                     + "select proj_id, proj_name, building_name, complete_percent, created_date, finish_date, period FROM limt_project WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
             );
