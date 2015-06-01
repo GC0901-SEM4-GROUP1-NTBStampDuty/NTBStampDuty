@@ -2,7 +2,6 @@ create database StampDuty
 go
 use StampDuty
 go
-
 create table tblUser
 (
 username nvarchar(50) primary key,
@@ -29,13 +28,6 @@ insert into tblUserDetail values('admin','Tao La Admin',100,0,0696969,null,'19/2
 insert into tblUserDetail values('employee','Tao La Employee',20,0,01234567,null,'123 Giang Vo')
 insert into tblUserDetail values('customer','Tao La Customer',10,1,0869968,null,'321 Mam non Hoa Sen')
 
-WITH limt_user AS
-( select tblUser.username, [password], [role], fullname, age, gender, phone, day_of_birth, [address], ROW_NUMBER() OVER (ORDER BY tblUser.username ASC) AS [row_number]
-from tblUser
-inner join tblUserDetail
-on tblUser.username = tblUserDetail.username)
-select  username, [password], [role], fullname, age, gender, phone, day_of_birth, [address] FROM limt_user WHERE [row_number]> 0 AND [row_number]<= 5
-
 create table tblLocation
 (
 address_id int primary key,
@@ -56,7 +48,6 @@ building_plan nvarchar(50),
 built_status int,
 img nvarchar(100)
 )
-
 
 insert into tblLand values(200, 1, 'Office', '', 0, '')
 insert into tblLand values(300, 3, 'House', '', 1, '')
@@ -131,14 +122,6 @@ period int,
 available_status int
 )
 
-<<<<<<< HEAD
-insert into tblProjects values('Project1', 1, 20, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project2', 2, 50, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project3', 3, 0, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project4', 4, 0, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project5', 5, 80, '2015-05-30', '2015-06-30', 1)
-insert into tblProjects values('Project6', 6, 0, '2015-05-30', '2015-06-30', 1)
-=======
 insert into tblProjects values('Project1', 1, 10, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project2', 2, 20, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project3', 3, 40, '2015-05-30', '2015-06-30', 1, 1)
@@ -146,7 +129,6 @@ insert into tblProjects values('Project4', 4, 50, '2015-05-30', '2015-06-30', 1,
 insert into tblProjects values('Project5', 5, 60, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project6', 6, 80, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project7', 1, 10, '2015-05-30', '2015-06-30', 1, 0)
->>>>>>> e30e1d54d62d0a405dc9b0b4ce845218a18ca259
 
 select proj_name, building_name
 from tblProjects
