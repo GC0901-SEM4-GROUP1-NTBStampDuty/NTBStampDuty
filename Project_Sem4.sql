@@ -36,12 +36,6 @@ inner join tblUserDetail
 on tblUser.username = tblUserDetail.username)
 select  username, [password], [role], fullname, age, gender, phone, day_of_birth, [address] FROM limt_user WHERE [row_number]> 0 AND [row_number]<= 5
 
-create table tblProject
-(
-project_id int primary key,
-project_name nvarchar(50)
-)
-
 create table tblLocation
 (
 address_id int primary key,
@@ -134,16 +128,33 @@ complete_percent int,
 created_date Datetime,
 finish_date Datetime,
 period int,
+available_status int
 )
 
+<<<<<<< HEAD
 insert into tblProjects values('Project1', 1, 20, '2015-05-30', '2015-06-30', 1)
 insert into tblProjects values('Project2', 2, 50, '2015-05-30', '2015-06-30', 1)
 insert into tblProjects values('Project3', 3, 0, '2015-05-30', '2015-06-30', 1)
 insert into tblProjects values('Project4', 4, 0, '2015-05-30', '2015-06-30', 1)
 insert into tblProjects values('Project5', 5, 80, '2015-05-30', '2015-06-30', 1)
 insert into tblProjects values('Project6', 6, 0, '2015-05-30', '2015-06-30', 1)
+=======
+insert into tblProjects values('Project1', 1, 10, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project2', 2, 20, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project3', 3, 40, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project4', 4, 50, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project5', 5, 60, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project6', 6, 80, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project7', 1, 10, '2015-05-30', '2015-06-30', 1, 0)
+>>>>>>> e30e1d54d62d0a405dc9b0b4ce845218a18ca259
 
-select * from tblProjects
+select proj_name, building_name
+from tblProjects
+inner join tblBuildingDetails
+on tblProjects.building_id = tblBuildingDetails.building_id
+where available_status = 1
+
+select * from tblProjects where proj_id = 7
 
 Create table tblPeriod(
 proj_id int references tblProjects(proj_id),
@@ -151,6 +162,9 @@ period_1 datetime,
 period_2 datetime,
 period_3 datetime,
 )
+
+drop table tblPeriod
+drop table tblProjects
 
 select * from tblBuildingType
 select * from tblLand

@@ -10,26 +10,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>
-    <title>Land Details</title>
+    <title>Project Details</title>
     <link href="css/project_page_styple.css" rel="stylesheet" type="text/css"/>
-    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
-    <script>
-        function submitter(btn) {
-            $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
-        }
-
-        function getName(btn) {
-            var category = btn.parentElement.parentElement.id;
-            return category;
-        }
-
-        function getProjectID(btn) {
-            var getID = btn;
-            var myForm = document.forms["myForm"];
-            myForm.elements["projectID"].value = getID;
-            myForm.submit();
-        }
-    </script>
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
 </head>
 <tag:MainTag>
     <div id="main_body">
@@ -56,35 +39,25 @@
                 </form>
             </div>
         </div>
-
         <div class="detail_bar">
             <div class="table_container">
                 <div class="row_user">
                 </div>
                 <table class="table_project" id="table">
                     <tr>
-                        <th style="width: 100%">List Project</th>
+                        <th style="width: 100%"> Project Details</th>
                     </tr> 
                 </table>
 
-                <form id="myForm" action="getProjectDetail" method="post">
-                    <input type="hidden" name="projectID"/>
-                    <div class="project_container" >
-                        <c:forEach items="${projectList}" var="pro">
-                            <div id="project" align="center" onclick="getProjectID(${pro.projectID})">
-                                <a><img id="pro_img" src="images/ic_none_image.png"/></a><br/>
-                                <a style="font-weight: bold">${pro.projectName}</a><br/>
-                                <a>${pro.buildingName}</a><br/>
-                                <a>
-                                    <div align="left" id="progress-bar-container">
-                                        <div style="width:${pro.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:10px;">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </form>
+                <div class="project_container" >
+                    <p>Project ID : ${project.getProjectID()}</p>                    
+                    <p>Project Name : ${project.getProjectName()}</p>                    
+                    <p>Building Name : ${project.getBuildingName()}</p>
+                    <p>Complete percent : ${project.getCompletePercent()}</p>                    
+                    <p>Created Date :  ${project.getCreatedDate()}</p>
+                    <p>Finish Date :  ${project.getFinishDate()}</p>  
+                    <p>Period :  ${project.getPeriod()}</p>
+                </div>                
 
             </div>
             <div class="paging_size">
@@ -126,6 +99,8 @@
                 </c:choose>
             </div>
         </div>
-    </div>
-</tag:MainTag>
+
+
+
+    </tag:MainTag>
 

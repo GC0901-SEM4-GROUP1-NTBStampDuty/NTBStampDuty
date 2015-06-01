@@ -20,6 +20,7 @@ import java.util.List;
  */
 public class ProjectManager {
 
+    private Project projectDetails = new Project();
     private List<Project> projectList = new ArrayList<>();
     private int noOfRecords;
 
@@ -36,6 +37,7 @@ public class ProjectManager {
                     + "from tblProjects\n"
                     + "inner join tblBuildingDetails\n"
                     + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
+                    + "where available_status = 1"
                     + ")\n"
                     + "select proj_id, proj_name, building_name, complete_percent, created_date, finish_date, period FROM limt_project WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
             );
@@ -55,7 +57,7 @@ public class ProjectManager {
                 projectList.add(project);
             }
             rs.close();
-            ps = conn.getConnection().prepareStatement("select count(*) from tblProject");
+            ps = conn.getConnection().prepareStatement("select count(*) from tblProjects");
             rs = ps.executeQuery();
             if (rs.next()) {
                 this.noOfRecords = rs.getInt(1);
@@ -64,6 +66,40 @@ public class ProjectManager {
             e.printStackTrace();
         }
         return projectList;
+    }
+
+    public Project getProjectDetails(int id) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement(
+                    "WITH limt_project AS\n"
+                    + "(select proj_id, proj_name, building_name, complete_percent, created_date, finish_date, period \n"
+                    + "from tblProjects\n"
+                    + "inner join tblBuildingDetails\n"
+                    + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
+                    + ")\n"
+                    + "select proj_id, proj_name, building_name, complete_percent, created_date, finish_date, period FROM limt_project WHERE proj_id = ?"
+            );
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Project project = new Project();
+                project.setProjectID(rs.getInt("proj_id"));
+                project.setProjectName(rs.getString("proj_name"));
+                project.setBuildingName(rs.getString("building_name"));
+                project.setCompletePercent(rs.getInt("complete_percent"));
+                Date createdDate = rs.getDate("created_date");
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                project.setCreatedDate(dateFormat.format(createdDate));
+                Date finishedDate = rs.getDate("finish_date");
+                project.setFinishDate(dateFormat.format(finishedDate));
+                project.setPeriod(rs.getInt("period"));
+                projectDetails = project;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return projectDetails;
     }
 
     public void insertProject(String projectName, int buildingID, int completePercent, Timestamp createdDate, Timestamp finishedDate, int period) {
