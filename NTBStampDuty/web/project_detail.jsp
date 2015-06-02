@@ -25,7 +25,10 @@
                                     <input type="submit" value="Edit" />
                                 </form>-->
                 <div class="btn_delete">
-                    <input type="submit" value="Delete"  onclick="submitter('deleteLand')"/>
+                    <form action="deleteProject" method="post">
+                        <input type="hidden" value="${project.projectID}" name="deleteID"/>
+                        <input type="submit" value="Delete"/>
+                    </form>
                 </div>
             </div>
             <div class="search_menu">
