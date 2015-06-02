@@ -11,7 +11,7 @@
 
 <head>
     <title>Project Details</title>
-    <link href="css/project_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/project_detail_styple.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
 </head>
 <tag:MainTag>
@@ -50,68 +50,68 @@
                     <tr>
                         <th style="width: 100%"> Project Details</th>
                     </tr> 
+                    <div class="project_container" >
+                        <div class="projectImage">
+                            <img src="images/ic_none_image.png" width="195px" height="250px"/>
+                        </div>
+                        <div class="projectDetail">
+                            <p>Project ID:</p>                   
+                            <p>Project Name:</p>     
+                            <p>Building ID:</p>
+                            <p>Building Name:</p>
+                            <p>Created Date:</p>
+                            <p>Finish Date:</p>  
+                            <p>Date constructed:</p>
+                        </div>
+                        <div class="proDetail">
+                            <p>${project.projectID}</p>
+                            <p>${project.projectName}</p>
+                            <p>${project.buildingId}</p>
+                            <p>${project.buildingName}</p>
+                            <p>${project.createdDate}</p>
+                            <p>${project.finishDate}</p>
+                            <p>${project.period}</p>
+                            <p> ${building.dateContructed}</p>
+                        </div>
+                        <div class="buildingDetail">
+                            <div class="buildingDetailLeft">
+                                <p>Building Id:</p>
+                                <p>Land Id:</p>
+                                <p>Building Name:</p>
+                                <p>Building Type:</p>
+                            </div>
+                            <div class="buildDetailLeft">
+                                <p>${building.buildingID}</p>
+                                <p>${building.landID}</p>
+                                <p>${building.buildingName}</p>
+                                <p>${building.buildingType}</p>
+                            </div>
+                            <div class="buildingDetailRight">
+                                <p>Floors number:</p>
+                                <p>Rooms number:</p>
+                                <p>Houses number:</p>
+                                <p>Shops number:</p>                  
+                            </div>
+                            <div class="buildDetailRight">
+                                <p>${building.floors}</p>
+                                <p>${building.rooms}</p>
+                                <p>${building.houses}</p>
+                                <p>${building.shops}</p>                  
+                            </div>
+                        </div>
+                        <div id="progress-bar-container">
+                            <div align="center" class="percent">${project.completePercent}%</div>
+                            <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
+                            </div>
+                        </div>
+                    </div>          
                 </table>
 
-                <div class="project_container" >
-                    <p>Project ID : ${project.projectID}</p>                    
-                    <p>Project Name : ${project.projectName}</p>     
-                    <p>Building ID: ${project.buildingId}</p>
-                    <p>Building Name : ${project.buildingName}</p>
-                    <p>Complete percent : ${project.completePercent}</p>                    
-                    <p>Created Date :  ${project.createdDate}</p>
-                    <p>Finish Date :  ${project.finishDate}</p>  
-                    <p>Period :  ${project.period}</p>
-                    <br>
-                    <br>
-                    <p>Building Id : ${building.buildingID}</p>
-                    <p>Land Id : ${building.landID}</p>
-                    <p>Building Name : ${building.buildingName}</p>
-                    <p>Building Type : ${building.buildingType}</p>
-                    <p>Floors number : ${building.floors}</p>
-                    <p>Rooms number : ${building.rooms}</p>
-                    <p>Houses number : ${building.houses}</p>
-                    <p>Shops number : ${building.shops}</p>
-                    <p>Date constructed : ${building.dateContructed}</p>
-                </div>                
+
 
             </div>
             <div class="paging_size">
-                <%--For displaying Next link --%>
-                <c:choose>
-                    <c:when test="${currentPage < noOfPages}">
-                        <a class="btn_next_forcus" href="projectDetail?page=${currentPage + 1}"></a>
-                    </c:when>
-                    <c:otherwise>
-                        <a class="btn_next" href="projectDetail?page=${currentPage + 1}"></a>
-                    </c:otherwise>
-                </c:choose>
 
-                <%--For displaying Page numbers. 
-                The when condition does not display a link for the current page--%>
-                <table>
-                    <tr>
-                        <c:forEach begin="1" end="${noOfPages}" var="i">
-                            <c:choose>
-                                <c:when test="${currentPage eq i}">
-                                    <td class="on_select_page">${i}</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td><a href="projectDetail?page=${i}">${i}</a></td>
-                                    </c:otherwise>
-                                </c:choose>
-                            </c:forEach>
-                    </tr>
-                </table>
-
-                <%--For displaying Previous link except for the 1st page --%>
-                <c:choose>
-                    <c:when test="${currentPage != 1}">
-                        <a class="btn_previous_forcus" href="projectDetail?page=${currentPage - 1}"></a>
-                    </c:when>
-                    <c:otherwise>
-                        <a class="btn_previous" href="projectDetail?page=${currentPage - 1}"></a>
-                    </c:otherwise>
-                </c:choose>
             </div>
         </div>
 
