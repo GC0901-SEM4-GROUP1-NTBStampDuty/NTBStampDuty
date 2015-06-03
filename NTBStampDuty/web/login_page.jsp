@@ -23,6 +23,7 @@
                 <form class="login_auth" action="projectDetail" method="post">
                     <input id="login_input" name="username" placeholder="Username"/><br/>
                     <input id="login_input" type="password" placeholder="Password" name="password"/><br/>
+                    <a href="#" class="login_signup">Register an account</a>
                     <div class="login_remember_form">
                         <input id="login_remember" name="remember" value="checked" type="checkbox"><span> Remember me</span>
                     </div>
@@ -32,7 +33,6 @@
             </div>
         </div>
         <div class="login_footer">
-            <a href="#" class="login_signup">Register Here</a>
             <a href="#" class="login_forgot">Forgot password?</a>
         </div>
     </body>
