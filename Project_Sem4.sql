@@ -119,7 +119,8 @@ complete_percent int,
 created_date Datetime,
 finish_date Datetime,
 period int,
-available_status int
+available_status int,
+chosen_status int
 )
 
 insert into tblProjects values('Project1', 1, 10, '2015-05-30', '2015-06-30', 1, 1)
