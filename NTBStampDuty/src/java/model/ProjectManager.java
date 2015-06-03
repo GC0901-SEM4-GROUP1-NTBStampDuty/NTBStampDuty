@@ -119,6 +119,23 @@ public class ProjectManager {
             e.printStackTrace();
         }
     }
+    
+    public void editProject(int projectId, String projectName, int buildingID, int completePercent, String createdDate, String finishedDate, int period) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("Update tblProjects Set proj_name=?,building_id=?,complete_percent=?,created_date=CONVERT(datetime, ?, 103),finish_date=CONVERT(datetime, ?, 103),period=? where proj_id=? ");
+            ps.setString(1, projectName);
+            ps.setInt(2, buildingID);
+            ps.setInt(3, completePercent);
+            ps.setString(4, createdDate);
+            ps.setString(5, finishedDate);
+            ps.setInt(6, period);
+             ps.setInt(7, projectId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void deleteProject(String id) {
         try {

@@ -122,7 +122,7 @@ period int,
 available_status int,
 chosen_status int
 )
-
+Select * from tblProjects
 insert into tblProjects values('Project1', 1, 10, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project2', 2, 20, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project3', 3, 40, '2015-05-30', '2015-06-30', 1, 1)

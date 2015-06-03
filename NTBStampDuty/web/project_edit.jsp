@@ -62,21 +62,23 @@
                         </div>
                         <div class="projectDetail">
                             <p>Project ID:</p>                   
-                            <p>Project Name:</p>     
-                            <p>Building ID:</p>
-                            <p>Building Name:</p>
+                            <p>Project Name:</p> 
                             <p>Created Date:</p>
                             <p>Finish Date:</p>
                             <p>Period: </p>
+                            <p>Complete Percent: </p>
                         </div>
                         <div class="proDetail">
-                            <p>${project.projectID}</p>
-                            <p>${project.projectName}</p>
-                            <p>${project.buildingId}</p>
-                            <p>${project.buildingName}</p>
-                            <p>${project.createdDate}</p>
-                            <p>${project.finishDate}</p>
-                            <p>${project.period}</p>
+                            <form action="editProject" method="post">
+                                <input type="hidden" value="${project.projectID}" name="editID"/>
+                                <p>${project.projectID}</p>
+                                <p><input type="text" value="${project.projectName}" name="projName"/></p>                                
+                                <p><input type="text" value="${project.createdDate}" name="createdDate"/></p>
+                                <p><input type="text" value="${project.finishDate}" name="finishDate"/></p>
+                                <p><input type="text" value="${project.period}" name="period"/></p>
+                                <p><input type="text" value="${project.completePercent}" name="completePercent"/></p>
+                                <p><input type="submit" value="Save"/></p>
+                            </form>
                         </div>
                         <div class="buildingDetail">
                             <div class="buildingDetailLeft">
@@ -86,10 +88,10 @@
                                 <p>Building Type:</p>
                             </div>
                             <div class="buildDetailLeft">
-                                <p>${building.buildingID}</p>
-                                <p>${building.landID}</p>
-                                <p>${building.buildingName}</p>
-                                <p>${building.buildingType}</p>
+                                <p><input type="text" value="${building.buildingID}" /></p>
+                                <p><input type="text" value="${building.landID}" /></p>
+                                <p><input type="text" value="${building.buildingName}" /></p>
+                                <p><input type="text" value="${building.buildingType}" /></p>
                             </div>
                             <div class="buildingDetailRight">
                                 <p>Floors number:</p>
@@ -98,10 +100,10 @@
                                 <p>Shops number:</p>                  
                             </div>
                             <div class="buildDetailRight">
-                                <p>${building.floors}</p>
-                                <p>${building.rooms}</p>
-                                <p>${building.houses}</p>
-                                <p>${building.shops}</p>                  
+                                <p><input type="text" value="${building.floors}" /></p>
+                                <p><input type="text" value="${building.rooms}" /></p>
+                                <p><input type="text" value="${building.houses}" /></p>
+                                <p><input type="text" value="${building.shops}" /></p>                  
                             </div>
                         </div>
                         <div id="progress-bar-container">

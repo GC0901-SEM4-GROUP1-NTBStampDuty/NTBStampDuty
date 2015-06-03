@@ -12,6 +12,10 @@
         <servlet-name>projectDetail</servlet-name>
         <servlet-class>controller.projectDetail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editProject</servlet-name>
+        <servlet-class>controller.editProject</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>searchBuilding</servlet-name>
         <url-pattern>/searchBuilding</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>projectDetail</servlet-name>
         <url-pattern>/projectDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editProject</servlet-name>
+        <url-pattern>/editProject</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
