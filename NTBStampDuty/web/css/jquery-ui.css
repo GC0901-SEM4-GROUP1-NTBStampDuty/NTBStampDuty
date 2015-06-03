@@ -126,6 +126,11 @@
     right: 24px;
 }
 
+.ui-dialog .land_detail, .ui-dialog .add_new_building {
+    top: 480px;
+    right: 24px;
+}
+
 .ui-dialog .delete_land {
     top: 87px;
     right: 24px;

@@ -1,12 +1,13 @@
 onload = function () {
     var path = window.location.pathname;
-
     if (path.match('projectDetail')) {
         $("#bar ul li:first-child").css("background", "#cecfd0");
-    } else if (path.match('landDetail') || path.match('searchLand')) {
+    } else if (path.match('buildingDetail') || path.match('searchBuild')) {
         $("#bar ul li:nth-child(2)").css("background", "#cecfd0");
+    } else if (path.match('landDetail') || path.match('searchLand')) {
+        $("#bar ul li:nth-child(3)").css("background", "#cecfd0");
     } else if (path.match('userDetail') || path.match('searchUser')) {
-        $("#bar ul li:nth-child(4)").css("background", "#cecfd0");
+        $("#bar ul li:nth-child(5)").css("background", "#cecfd0");
     }
 
     $("#table").find('tr:nth-child(2)').addClass('selected');
@@ -30,7 +31,7 @@ onload = function () {
                 $('.search_menu form').css("outline", "none");
                 $('.search_menu form').css("border", "1px solid #CBCBCB");
             });
-            
+
     $('.txt_search').attr("placeholder", $('#searchColumn option:selected').text());
     $("#searchColumn").change(function () {
         var option = $('#searchColumn option:selected').text();

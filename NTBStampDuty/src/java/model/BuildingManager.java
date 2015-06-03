@@ -118,11 +118,11 @@ public class BuildingManager {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_land AS\n"
-                    + "  ( SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed,completed_percent, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
+                    + "  ( SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
                     + "    FROM tblBuildingDetails\n"
                     + "    where " + searchColumn + "= ?"
                     + "  )\n"
-                    + "SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed,completed_percent FROM limt_land WHERE [row_number] >" + startIndex + " AND [row_number]<=" + endIndex
+                    + "SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed FROM limt_land WHERE [row_number] >" + startIndex + " AND [row_number]<=" + endIndex
             );
             ps.setString(1, searchValue);
             ResultSet rs = ps.executeQuery();

@@ -12,20 +12,43 @@
 <head>
     <title>Land Details</title>
     <link href="css/build_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src = "javascript/jquery.js" type="text/javascript"></script>
+    <script>
+        function submitter(btn) {
+            $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
+        }
+
+        function getLocationPrice() {
+            var location = document.getElementById("landLocation").value;
+            var size = document.getElementById("landSize").value;
+            var price = document.getElementById(location).value;
+            document.getElementById("unitPrice").value = price;
+            document.getElementById("totalPrice").value = size * price;
+        }
+
+        $(document).ready(function () {
+            $("#landSize").keyup(function () {
+                var size = $("#landSize").val();
+                var price = $("#unitPrice").val();
+                $("#totalPrice").val(size * price);
+            });
+        });
+    </script>
 </head>
 <tag:MainTag>
     <div id="main_body">
         <div class="header">
             <div class="edit_menu">
-                <form class="btn_new">
-                    <input type="submit" value="New" />
-                </form>
+                 <div class="btn_new">
+                    <input type="submit" value="New" onclick="submitter('addNewBuilding')"/>
+                </div>
                 <!--                <form class="btn_edit">
                                     <input type="submit" value="Edit" />
                                 </form>-->
-                <form class="btn_delete">
-                    <input type="submit" value="Delete" />
-                </form>
+                <div class="btn_delete">
+                    <input type="submit" value="Delete"  onclick="submitter('deleteBuilding')"/>
+                </div>
             </div>
             <div class="search_menu">
                 <form class="form_search" action="searchBuilding" method="post">
@@ -67,11 +90,41 @@
                             <td>${building.buildingType}</td>
                             <td>${building.floors}</td>
                             <td>${building.dateContructed}</td>
-                            <td>${building.completedPercent}</td>
                             <td></td>
                         </tr>
                     </c:forEach>
                 </table>
+                <div class="addNewBuilding" title="Add New Building" style="display:none">
+                    <form>
+                        <div><a>Building:</a> <input name="build_name" id="buildName" class="build_name"/></div>
+                        <div><a>Land:</a> <select name="searchColumn" id="landLocation" class="land_name" onchange="getLocationPrice()">
+                                <option value="0">Choose a land</option>
+                                <c:forEach items="${locationList}" var="location">
+                                    <option value="${location.addressID}">${location.addressName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div><a>Type:</a> <select name="searchColumn" id="landLocation" class="build_type" onchange="getLocationPrice()">
+                                <option value="0">Choose a type</option>
+                                <c:forEach items="${locationList}" var="location">
+                                    <option value="${location.addressID}">${location.addressName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div><a>Floors:</a> <input name="floors" class="floors" value="${land.buildStatus}"/></div> 
+                        <div><a>Houses:</a> <input name="houses" class="houses" value="${land.buildingTypes}"/></div> 
+                        <div><a>Rooms:</a> <input name="rooms" class="rooms"/></div>
+                        <div><a>Shops:</a> <input name="shops" class="shops" value="${land.buildingPlan}"/></div>
+                        <div><a>Image:</a> <input name="buildImage" class="build_image" value="${land.img}"/></div>
+                        <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div><a>Date Contruct:</a> <input name="totalPrice" class="date_contracted"/></div>
+                        <div class="edit_menu">
+                            <div class="btn_edit">
+                                <input type="submit" value="Add"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="paging_size">
                 <%--For displaying Next link --%>

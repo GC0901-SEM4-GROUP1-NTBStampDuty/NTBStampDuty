@@ -16,6 +16,9 @@
                 <a href="/NTBStampDuty/projectDetail">PROJECT DETAILS</a>
             </li>
             <li>
+                <a href="/NTBStampDuty/buildingDetail">BUILDING DETAILS</a>
+            </li>
+            <li>
                 <a href="/NTBStampDuty/landDetail">LAND DETAILS</a>
             </li>
             <li>
