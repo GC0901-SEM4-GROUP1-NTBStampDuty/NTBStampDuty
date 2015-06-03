@@ -26,11 +26,13 @@
                     <div class="login_remember_form">
                         <input id="login_remember" name="remember" value="checked" type="checkbox"><span> Remember me</span>
                     </div>
+
                     <input id="login_submit" type="submit" value="Sign In"/>
                 </form>
             </div>
         </div>
         <div class="login_footer">
+            <a href="#" class="login_signup">Register Here</a>
             <a href="#" class="login_forgot">Forgot password?</a>
         </div>
     </body>

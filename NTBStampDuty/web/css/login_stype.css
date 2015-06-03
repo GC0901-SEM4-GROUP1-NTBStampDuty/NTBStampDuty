@@ -14,4 +14,5 @@
 .login_footer {position: absolute; bottom: 0px; height: 68px; text-align: center; width: 100%; line-height: 68px; color: #A7A69F; background: url("../images/footer-background.png"); text-align: center}
 .login_footer a {color: #7E7E7E; text-decoration: none; cursor: pointer; font-size: 11px;}
 .login_footer a:hover {text-decoration: underline}
+.login_footer .login_signup {float: right; margin-right: 8px; color: #FFF !important; background: url("../images/bt_login.png") repeat-x scroll left bottom #CA341B; text-shadow: 0px 1px 0px #904429 !important; border-bottom: 1px solid #662C16; border-top: 1px solid #D57654; font-weight: bold; border-radius: 15px; box-shadow: 0px 0px 3px #DDD; border-width: 1px 0px 1px medium; border-style: solid none; border-color: #CCC -moz-use-text-color #818181; padding: 3px 20px; cursor: pointer;}
 
