@@ -17,6 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Building;
 import model.BuildingManager;
+import model.BuildingType;
+import model.BuildingTypeManager;
+import model.Land;
+import model.LandManager;
 
 /**
  *
@@ -26,6 +30,8 @@ import model.BuildingManager;
 public class buildingDetail extends HttpServlet {
 
     private List<Building> buildingList = new ArrayList<>();
+    private List<Land> landList = new ArrayList<>();
+    private List<BuildingType> typeList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -74,6 +80,12 @@ public class buildingDetail extends HttpServlet {
         buildingList = manager.getAllBuilding((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        LandManager landManger = new LandManager();
+        landList = landManger.getAllLandToAdd();
+        BuildingTypeManager typeManager = new BuildingTypeManager();
+        typeList = typeManager.getAllBuildingType();
+        request.setAttribute("landList", landList);
+        request.setAttribute("typeList", typeList);
         request.setAttribute("buildingList", buildingList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
@@ -101,6 +113,12 @@ public class buildingDetail extends HttpServlet {
         buildingList = manager.getAllBuilding((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        LandManager landManger = new LandManager();
+        landList = landManger.getAllLandToAdd();
+        BuildingTypeManager typeManager = new BuildingTypeManager();
+        typeList = typeManager.getAllBuildingType();
+        request.setAttribute("landList", landList);
+        request.setAttribute("typeList", typeList);
         request.setAttribute("buildingList", buildingList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);

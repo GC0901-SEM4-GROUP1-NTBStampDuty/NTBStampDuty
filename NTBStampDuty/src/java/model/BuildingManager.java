@@ -29,10 +29,10 @@ public class BuildingManager {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_built AS\n"
-                    + "  ( SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
+                    + "  ( SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
                     + "    FROM tblBuildingDetails\n"
                     + "  )\n"
-                    + "SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops,date_contructed FROM limt_built WHERE [row_number] >" + startIndex + " AND [row_number]<=" + endIndex
+                    + "SELECT building_id,land_id,buildingType_id,building_name,floors,rooms,houses,shops FROM limt_built WHERE [row_number] >" + startIndex + " AND [row_number]<=" + endIndex
             );
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -59,7 +59,6 @@ public class BuildingManager {
                 building.setRooms(rs.getInt("rooms"));
                 building.setHouses(rs.getInt("houses"));
                 building.setShops(rs.getInt("shops"));
-                building.setDateContructed(rs.getDate("date_contructed"));
                 buidingList.add(building);
             }
             rs.close();
@@ -104,7 +103,6 @@ public class BuildingManager {
                 building.setRooms(rs.getInt("rooms"));
                 building.setHouses(rs.getInt("houses"));
                 building.setShops(rs.getInt("shops"));
-                building.setDateContructed(rs.getDate("date_contructed"));
                 buildingDetails = building;
             }
         } catch (Exception e) {
@@ -150,7 +148,6 @@ public class BuildingManager {
                 building.setRooms(rs.getInt("rooms"));
                 building.setHouses(rs.getInt("houses"));
                 building.setShops(rs.getInt("shops"));
-                building.setDateContructed(rs.getDate("date_contructed"));
                 buidingList.add(building);
             }
             this.noOfRecords = buidingList.size();

@@ -32,41 +32,18 @@ create table tblLocation
 (
 address_id int primary key,
 name nvarchar(50),
-price int
+price int,
+available_status int
 )
-insert into tblLocation values(1,'Le Thai To', 5500)
-insert into tblLocation values(2,'Giang Van Minh', 3000)
-insert into tblLocation values(3,'Nhat Tan', 2500)
-
-create table tblLand
-(
-land_id int IDENTITY(1,1) primary key,
-size int,
-address_id int references tblLocation(address_id),
-building_types nvarchar(50),
-building_plan nvarchar(50),
-built_status int,
-img nvarchar(100)
-)
-
-insert into tblLand values(200, 1, 'Office', '', 0, '')
-insert into tblLand values(300, 3, 'House', '', 1, '')
-insert into tblLand values(500, 3, 'Office', '', 0, '')
-insert into tblLand values(100, 2, 'House', '', 1, '')
-insert into tblLand values(1000, 3, 'Garage ', '', 1, '')
-insert into tblLand values(1000, 3, 'Garage ', '', 2, '')
-insert into tblLand values(200, 1, 'Office', '', 0, '')
-insert into tblLand values(300, 3, 'House', '', 1, '')
-insert into tblLand values(500, 3, 'Office', '', 0, '')
-insert into tblLand values(100, 2, 'House', '', 1, '')
-insert into tblLand values(1000, 3, 'Garage ', '', 1, '')
-insert into tblLand values(1000, 3, 'Garage ', '', 2, '')
-insert into tblLand values(200, 1, 'Office', '', 0, '')
-insert into tblLand values(300, 3, 'House', '', 1, '')
-insert into tblLand values(500, 3, 'Office', '', 0, '')
-insert into tblLand values(100, 2, 'House', '', 1, '')
-insert into tblLand values(1000, 3, 'Garage ', '', 1, '')
-insert into tblLand values(1000, 3, 'Garage ', '', 2, '')
+insert into tblLocation values(1,'Le Thai To', 5500, 0)
+insert into tblLocation values(2,'Giang Van Minh', 3000, 0)
+insert into tblLocation values(3,'Nhat Tan', 2500, 0)
+insert into tblLocation values(4,'Pham Van Dong', 2500, 0)
+insert into tblLocation values(5,'Ly Thai To', 2500, 0)
+insert into tblLocation values(6,'Pham Hung', 2500, 1)
+insert into tblLocation values(7,'Ton Duc Thang', 2500, 1)
+insert into tblLocation values(8,'Le Van Luong', 2500, 1)
+insert into tblLocation values(9,'Nguyen Trai', 2500, 1)
 
 create table tblBuildingType
 (
@@ -77,6 +54,23 @@ buildingType_name nvarchar(50)
 insert into tblBuildingType values(1, 'Official')
 insert into tblBuildingType values(2, 'Residental')
 insert into tblBuildingType values(3, 'Shopping')
+
+create table tblLand
+(
+land_id int IDENTITY(1,1) primary key,
+size int,
+address_id int references tblLocation(address_id),
+building_types int references tblBuildingType(buildingType_id),
+building_plan nvarchar(50),
+built_status int,
+img nvarchar(100)
+)
+
+insert into tblLand values(200, 1, 1, '', 0, '')
+insert into tblLand values(300, 2, 2, '', 1, '')
+insert into tblLand values(500, 3, 3, '', 0, '')
+insert into tblLand values(100, 4, 1, '', 1, '')
+insert into tblLand values(1000, 5, 2, '', 1, '')
 
 create table tblBuildingPermit
 (
