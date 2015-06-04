@@ -156,4 +156,23 @@ public class BuildingManager {
         }
         return buidingList;
     }
+
+    public void addNewBuilding(int landID, int buildingType, String buildingName, int floors, int rooms, int houses, int shops, String img) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("insert into tblBuildingDetails values (?,?,?,?,?,?,?,?,?)");
+            ps.setInt(1, landID);
+            ps.setInt(2, buildingType);
+            ps.setString(3, buildingName);
+            ps.setInt(4, floors);
+            ps.setInt(5, rooms);
+            ps.setInt(6, houses);
+            ps.setInt(7, shops);
+            ps.setString(8, img);
+            ps.setInt(9, 1);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
