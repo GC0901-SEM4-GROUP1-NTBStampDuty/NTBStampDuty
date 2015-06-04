@@ -44,12 +44,21 @@
                 <div class="btn_delete">
                     <input type="submit" value="Delete"  onclick="submitter('deleteLand')"/>
                 </div>
+                <div class="filter_menu">
+                <form class="form_filter" action="" method="post">
+                    <select name="FilterColumn" id="filterColumn">
+                        <option value="ProjectName">Project Name</option>
+                        <option value="DateContructed">Date Contructed</option>
+                    </select>
+                </form>
             </div>
+            </div>
+            
             <div class="search_menu">
                 <form class="form_search" action="" method="post">
                     <select name="searchColumn" id="searchColumn">
-                        <option value="Username">Username</option>
-                        <option value="Role">Role</option>
+                        <option value="ProjectName">Project Name</option>
+                        <option value="BuildingName">Building Name</option>
                     </select>
                     <input class="txt_search" type="text" name="searchValue"/>
                     <input class="btn_search" type="submit" value=""/>
