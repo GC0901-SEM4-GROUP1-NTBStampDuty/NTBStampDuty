@@ -57,19 +57,20 @@
                         <th style="width: 100%"> Project Details</th>
                     </tr> 
                     <div class="project_container" >
-                        <div class="projectImage">
-                            <img src="images/ic_none_image.png" width="195px" height="250px"/>
-                        </div>
-                        <div class="projectDetail">
-                            <p>Project ID:</p>                   
-                            <p>Project Name:</p> 
-                            <p>Created Date:</p>
-                            <p>Finish Date:</p>
-                            <p>Period: </p>
-                            <p>Complete Percent: </p>
-                        </div>
-                        <div class="proDetail">
-                            <form action="editProject" method="post">
+                        <form action="editProject" class="editForm" method="post">
+                            <div class="projectImage">
+                                <img src="images/ic_none_image.png" width="195px" height="250px"/>
+                            </div>
+                            <div class="projectDetail">
+                                <p>Project ID:</p>                   
+                                <p>Project Name:</p> 
+                                <p>Created Date:</p>
+                                <p>Finish Date:</p>
+                                <p>Period: </p>
+                                <p>Complete Percent: </p>
+                            </div>
+
+                            <div class="proDetail">
                                 <input type="hidden" value="${project.projectID}" name="editID"/>
                                 <p>${project.projectID}</p>
                                 <p><input type="text" value="${project.projectName}" name="projName"/></p>                                
@@ -77,40 +78,40 @@
                                 <p><input type="text" value="${project.finishDate}" name="finishDate"/></p>
                                 <p><input type="text" value="${project.period}" name="period"/></p>
                                 <p><input type="text" value="${project.completePercent}" name="completePercent"/></p>
-                                <p><input type="submit" value="Save"/></p>
-                            </form>
-                        </div>
-                        <div class="buildingDetail">
-                            <div class="buildingDetailLeft">
-                                <p>Building Id:</p>
-                                <p>Land Id:</p>
-                                <p>Building Name:</p>
-                                <p>Building Type:</p>
                             </div>
-                            <div class="buildDetailLeft">
-                                <p><input type="text" value="${building.buildingID}" /></p>
-                                <p><input type="text" value="${building.landID}" /></p>
-                                <p><input type="text" value="${building.buildingName}" /></p>
-                                <p><input type="text" value="${building.buildingType}" /></p>
+                            <div class="buildingDetail">
+                                <div class="buildingDetailLeft">
+                                    <p>Building Id:</p>
+                                    <p>Land Id:</p>
+                                    <p>Building Name:</p>
+                                    <p>Building Type:</p>
+                                </div>
+                                <div class="buildDetailLeft">
+                                    <p><input type="text" value="${building.buildingID}" /></p>
+                                    <p><input type="text" value="${building.landID}" /></p>
+                                    <p><input type="text" value="${building.buildingName}" /></p>
+                                    <p><input type="text" value="${building.buildingType}" /></p>
+                                </div>
+                                <div class="buildingDetailRight">
+                                    <p>Floors number:</p>
+                                    <p>Rooms number:</p>
+                                    <p>Houses number:</p>
+                                    <p>Shops number:</p>                  
+                                </div>
+                                <div class="buildDetailRight">
+                                    <p><input type="text" value="${building.floors}" /></p>
+                                    <p><input type="text" value="${building.rooms}" /></p>
+                                    <p><input type="text" value="${building.houses}" /></p>
+                                    <p><input type="text" value="${building.shops}" /></p>                  
+                                </div>
                             </div>
-                            <div class="buildingDetailRight">
-                                <p>Floors number:</p>
-                                <p>Rooms number:</p>
-                                <p>Houses number:</p>
-                                <p>Shops number:</p>                  
+                            <div id="progress-bar-container">
+                                <div align="center" class="percent">${project.completePercent}%</div>
+                                <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
+                                </div>
                             </div>
-                            <div class="buildDetailRight">
-                                <p><input type="text" value="${building.floors}" /></p>
-                                <p><input type="text" value="${building.rooms}" /></p>
-                                <p><input type="text" value="${building.houses}" /></p>
-                                <p><input type="text" value="${building.shops}" /></p>                  
-                            </div>
-                        </div>
-                        <div id="progress-bar-container">
-                            <div align="center" class="percent">${project.completePercent}%</div>
-                            <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
-                            </div>
-                        </div>
+                                <p><input type="submit" class="saveEdit" value="Save"/></p>
+                        </form>
                     </div>          
                 </table>
 

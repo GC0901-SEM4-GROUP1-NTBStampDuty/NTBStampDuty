@@ -1,6 +1,6 @@
 onload = function () {
     var path = window.location.pathname;
-    if (path.match('projectDetail')) {
+    if (path.match('projectDetail') || path.match('editProject') || path.match('getProjectDetail')) {
         $("#bar ul li:first-child").css("background", "#cecfd0");
     } else if (path.match('buildingDetail') || path.match('searchBuild')) {
         $("#bar ul li:nth-child(2)").css("background", "#cecfd0");

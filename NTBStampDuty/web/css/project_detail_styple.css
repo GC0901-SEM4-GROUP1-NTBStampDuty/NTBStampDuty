@@ -5,6 +5,9 @@
 #main_body .detail_bar .table_container  .project_container {color: #191919; margin-top: 36px; position: absolute; padding: 28px 13px;}
 
 
+#main_body .detail_bar .table_container  .project_container .editForm {margin-bottom: 0; }
+#main_body .detail_bar .table_container  .project_container .saveEdit {right: 10px; bottom: -40px; background-image: linear-gradient(to top, #F1F1F1, #FFF); border-width: 1px; border-style: solid; border-color: #D2D2D2 #C9C8C8 #C3C3C2; box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15); position: absolute; 
+                                                                      color: #3E3E3E; border-radius: 6px; background-color: #EAE9E9; background-repeat: no-repeat; border: 1px solid rgba(0, 0, 0, 0.15); font-size: 12px; width: 70px; height: 30px; margin: 15px 12px; z-index: 10;}
 #main_body .detail_bar .table_container  .project_container .projectImage {float: left; }
 #main_body .detail_bar .table_container  .project_container .projectImage img {margin-left: 145px; margin-bottom: 10px; }
 
