@@ -98,16 +98,16 @@ floors int,
 rooms int,
 houses int,
 shops int,
-date_contructed Datetime,
-img nvarchar(100)
+img nvarchar(100),
+chosen_status int
 )
 
-insert into tblBuildingDetails values (1, 1, 'New Buidling', 10, 0, 60, 0, null,'')
-insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0, null,'')
-insert into tblBuildingDetails values (3, 3, 'New Shop Buidling', 10, 0, 0, 60, null,'')
-insert into tblBuildingDetails values (4, 2, 'House Buidling', 10, 60, 0, 0, null,'')
-insert into tblBuildingDetails values (5, 1, 'Office Buidling', 10, 0, 60, 0, null,'')
-insert into tblBuildingDetails values (6, 1, 'New Office Buidling', 10, 0, 60, 0, null,'')
+insert into tblBuildingDetails values (1, 1, 'New Buidling', 10, 0, 60, 0,'', 0)
+insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0,'', 0)
+insert into tblBuildingDetails values (3, 3, 'New Shop Buidling', 10, 0, 0, 60,'', 0)
+insert into tblBuildingDetails values (4, 2, 'House Buidling', 10, 60, 0, 0,'', 1)
+insert into tblBuildingDetails values (5, 1, 'Office Buidling', 10, 0, 60, 0,'', 1)
+insert into tblBuildingDetails values (6, 1, 'New Office Buidling', 10, 0, 60, 0,'', 1)
 
 select * from tblBuildingDetails
 
@@ -120,16 +120,12 @@ created_date Datetime,
 finish_date Datetime,
 period int,
 available_status int,
-chosen_status int
 )
 Select * from tblProjects
 insert into tblProjects values('Project1', 1, 10, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project2', 2, 20, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project3', 3, 40, '2015-05-30', '2015-06-30', 1, 1)
-insert into tblProjects values('Project4', 4, 50, '2015-05-30', '2015-06-30', 1, 1)
-insert into tblProjects values('Project5', 5, 60, '2015-05-30', '2015-06-30', 1, 1)
-insert into tblProjects values('Project6', 6, 80, '2015-05-30', '2015-06-30', 1, 1)
-insert into tblProjects values('Project7', 1, 10, '2015-05-30', '2015-06-30', 1, 0)
+
 
 select proj_name, building_name
 from tblProjects
