@@ -5,16 +5,21 @@
  */
 package controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import model.Building;
 import model.BuildingManager;
 import model.BuildingType;
@@ -26,8 +31,9 @@ import model.LandManager;
  *
  * @author Phuc
  */
-@WebServlet(name = "buildingDetail", urlPatterns = {"/buildingDetail"})
-public class buildingDetail extends HttpServlet {
+@WebServlet(name = "addBuilding", urlPatterns = {"/addBuilding"})
+@MultipartConfig
+public class addBuilding extends HttpServlet {
 
     private List<Building> buildingList = new ArrayList<>();
     private List<Land> landList = new ArrayList<>();
@@ -50,10 +56,10 @@ public class buildingDetail extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet buildingDetail</title>");
+            out.println("<title>Servlet addBuilding</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet buildingDetail at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet addBuilding at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -104,12 +110,26 @@ public class buildingDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String buildingName = request.getParameter("build_name");
+        int land = Integer.valueOf(request.getParameter("landColumn"));
+        int type = Integer.valueOf(request.getParameter("typeColumn"));
+        int floors = Integer.valueOf(request.getParameter("floors"));
+        int rooms = Integer.valueOf(request.getParameter("rooms"));
+        int houses = Integer.valueOf(request.getParameter("houses"));
+        int shops = Integer.valueOf(request.getParameter("shops"));
+        Part part = request.getPart("buildImage");
+        InputStream stream = part.getInputStream();
+        String fileName = part.getSubmittedFileName();
+        String ImagePath = "C:\\Users\\Phuc\\Desktop\\pictures\\" + fileName;
+        File uploadLocation = new File(ImagePath);
+        Files.copy(stream, uploadLocation.toPath());
+        BuildingManager manager = new BuildingManager();
+        manager.addNewBuilding(land, type, buildingName, floors, rooms, houses, shops, ImagePath);
         int page = 1;
         int recordsPerPage = 15;
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
-        BuildingManager manager = new BuildingManager();
         buildingList = manager.getAllBuilding((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);

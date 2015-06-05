@@ -18,22 +18,6 @@
         function submitter(btn) {
             $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
         }
-
-        function getLocationPrice() {
-            var location = document.getElementById("landLocation").value;
-            var size = document.getElementById("landSize").value;
-            var price = document.getElementById(location).value;
-            document.getElementById("unitPrice").value = price;
-            document.getElementById("totalPrice").value = size * price;
-        }
-
-        $(document).ready(function () {
-            $("#landSize").keyup(function () {
-                var size = $("#landSize").val();
-                var price = $("#unitPrice").val();
-                $("#totalPrice").val(size * price);
-            });
-        });
     </script>
 </head>
 <tag:MainTag>
@@ -95,27 +79,25 @@
                     </c:forEach>
                 </table>
                 <div class="addNewBuilding" title="Add New Building" style="display:none">
-                    <form>
+                    <form action="addBuilding" method="post" enctype="multipart/form-data">
                         <div><a>Building:</a> <input name="build_name" id="buildName" class="build_name"/></div>
-                        <div><a>Land:</a> <select name="searchColumn" id="landLocation" class="land_name" onchange="getLocationPrice()">
-                                <option value="0">Choose a land</option>
-                                <c:forEach items="${locationList}" var="location">
-                                    <option value="${location.addressID}">${location.addressName}</option>
+                        <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
+                                <c:forEach items="${landList}" var="land">
+                                    <option value="${land.landID}">${land.addressID}</option>
                                 </c:forEach>
                             </select>
                         </div>
-                        <div><a>Type:</a> <select name="searchColumn" id="landLocation" class="build_type" onchange="getLocationPrice()">
-                                <option value="0">Choose a type</option>
-                                <c:forEach items="${locationList}" var="location">
-                                    <option value="${location.addressID}">${location.addressName}</option>
+                        <div><a>Type:</a> <select name="typeColumn" id="landLocation" class="build_type">
+                                <c:forEach items="${typeList}" var="type">
+                                    <option value="${type.id}">${type.typeName}</option>
                                 </c:forEach>
                             </select>
                         </div>
-                        <div><a>Floors:</a> <input name="floors" class="floors" value="${land.buildStatus}"/></div> 
-                        <div><a>Houses:</a> <input name="houses" class="houses" value="${land.buildingTypes}"/></div> 
+                        <div><a>Floors:</a> <input name="floors" class="floors"/></div> 
+                        <div><a>Houses:</a> <input name="houses" class="houses"/></div> 
                         <div><a>Rooms:</a> <input name="rooms" class="rooms"/></div>
-                        <div><a>Shops:</a> <input name="shops" class="shops" value="${land.buildingPlan}"/></div>
-                        <div><a>Image:</a> <input name="buildImage" class="build_image" value="${land.img}"/></div>
+                        <div><a>Shops:</a> <input name="shops" class="shops"/></div>
+                        <div><a>Image:</a> <input type="file" name="buildImage" class="build_image"/></div>
                         <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                         <div><a>Date Contruct:</a> <input name="totalPrice" class="date_contracted"/></div>
                         <div class="edit_menu">
