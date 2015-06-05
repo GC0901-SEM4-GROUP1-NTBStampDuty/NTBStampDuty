@@ -142,9 +142,6 @@ period_2 datetime,
 period_3 datetime,
 )
 
-drop table tblPeriod
-drop table tblProjects
-
 select * from tblBuildingType
 select * from tblLand
 
