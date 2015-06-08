@@ -14,6 +14,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Building;
+import model.BuildingManager;
 import model.Land;
 import model.LandManager;
 import model.Project;
@@ -28,6 +30,7 @@ import model.UserManager;
 public class projectDetail extends HttpServlet {
 
     private List<Project> projectList = new ArrayList<>();
+    private List<Building> buildingList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -103,6 +106,9 @@ public class projectDetail extends HttpServlet {
         projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        BuildingManager buildingManager = new BuildingManager();
+        buildingList = buildingManager.getBuildingToAdd();
+        request.setAttribute("buildingList", buildingList);
         request.setAttribute("projectList", projectList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);

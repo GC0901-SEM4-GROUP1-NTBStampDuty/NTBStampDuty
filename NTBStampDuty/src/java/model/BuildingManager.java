@@ -72,6 +72,24 @@ public class BuildingManager {
         }
         return buidingList;
     }
+    
+    public List<Building> getBuildingToAdd() {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblBuildingDetails where chosen_status = 0");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Building building = new Building();
+                building.setBuildingID(rs.getInt("building_id"));
+                building.setBuildingName(rs.getString("building_name"));
+                buidingList.add(building);
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return buidingList;
+    }
 
     public Building getBuildingDetails(int id) {
         try {

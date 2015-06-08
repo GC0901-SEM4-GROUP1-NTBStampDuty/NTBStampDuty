@@ -120,17 +120,16 @@
                 <div class="addNewProject" title="Add New Project" style="display:none">
                     <form>
                         <div><a>Project Name:</a> <input name="proName" id="proName" class="pro_name"/></div>
-                        <div><a>Building:</a> <select name="searchColumn" id="buildingID" class="building_id" onchange="getLocationPrice()">
-                                <option value="0">Choose a building</option>
-                                <c:forEach items="${locationList}" var="location">
-                                    <option value="${location.addressID}">${location.addressName}</option>
+                        <div><a>Building:</a> <select name="builidingID" id="buildingID" class="building_id">
+                                <c:forEach items="${buildingList}" var="building">
+                                    <option value="${building.buildingID}">${building.buildingName}</option>
                                 </c:forEach>
                             </select>
                         </div>
-                        <div><a>Complete:</a> <input name="completePercent" class="complete_percent" value="${land.buildStatus}"/></div> 
-                        <div><a>Create Date:</a> <input name="createData"  disabled="disabled" class="create_data" value="${land.buildingTypes}"/></div> 
+                        <div><a>Complete:</a> <input name="completePercent" class="complete_percent"/></div> 
+                        <div><a>Create Date:</a> <input name="createData"  disabled="disabled" class="create_data"/></div> 
                         <div><a>Period:</a> <input name="period" id="building_period" class="building_period"/></div>
-                        <div><a>Finish Date:</a> <input name="finishData" class="finish_data" value="${land.buildingPlan}"/></div>
+                        <div><a>Finish Date:</a> <input name="finishData" class="finish_data"/></div>
                          <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Add"/>
