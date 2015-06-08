@@ -75,6 +75,7 @@
                             <td>${building.floors}</td>
                             <td>${building.dateContructed}</td>
                             <td></td>
+                            <td></td>
                         </tr>
                     </c:forEach>
                 </table>
