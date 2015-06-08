@@ -18,22 +18,16 @@
     <div id="main_body">
         <div class="header">
             <div class="edit_menu">
-                <div class="btn_new">
-                    <input type="submit" value="New" onclick="submitter('addNewLand')"/>
-                </div>
-                <!--                <form class="btn_edit">
-                                    <input type="submit" value="Edit" />
-                                </form>-->
-                <div class="btn_delete">
-                    <form action="deleteProject" method="post">
-                        <input type="hidden" value="${project.projectID}" name="deleteID"/>
-                        <input type="submit" value="Delete"/>
-                    </form>
-                </div>
                 <div class="btn_edit">
                     <form action="editProject">
                         <input type="hidden" value="${project.projectID}" name="editID"/>
                         <input type="submit" value="Edit"/>
+                    </form>
+                </div>
+                <div class="btn_delete">
+                    <form action="deleteProject" method="post">
+                        <input type="hidden" value="${project.projectID}" name="deleteID"/>
+                        <input type="submit" value="Delete"/>
                     </form>
                 </div>
             </div>
