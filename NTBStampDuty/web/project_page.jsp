@@ -36,24 +36,18 @@
         <div class="header">
             <div class="edit_menu">
                 <div class="btn_new">
-                    <input type="submit" value="New" onclick="submitter('addNewLand')"/>
-                </div>
-                <!--                <form class="btn_edit">
-                                    <input type="submit" value="Edit" />
-                                </form>-->
-                <div class="btn_delete">
-                    <input type="submit" value="Delete"  onclick="submitter('deleteLand')"/>
+                    <input type="submit" value="New" onclick="submitter('addNewProject')"/>
                 </div>
                 <div class="filter_menu">
-                <form class="form_filter" action="" method="post">
-                    <select name="FilterColumn" id="filterColumn">
-                        <option value="ProjectName">Project Name</option>
-                        <option value="DateContructed">Date Contructed</option>
-                    </select>
-                </form>
+                    <form class="form_filter" action="" method="post">
+                        <select name="FilterColumn" id="filterColumn">
+                            <option value="ProjectName">Project Name</option>
+                            <option value="DateContructed">Date Contructed</option>
+                        </select>
+                    </form>
+                </div>
             </div>
-            </div>
-            
+
             <div class="search_menu">
                 <form class="form_search" action="" method="post">
                     <select name="searchColumn" id="searchColumn">
@@ -123,7 +117,27 @@
                             </c:forEach>
                     </tr>
                 </table>
-
+                <div class="addNewProject" title="Add New Project" style="display:none">
+                    <form>
+                        <div><a>Project Name:</a> <input name="proName" id="proName" class="pro_name"/></div>
+                        <div><a>Building:</a> <select name="searchColumn" id="buildingID" class="building_id" onchange="getLocationPrice()">
+                                <option value="0">Choose a building</option>
+                                <c:forEach items="${locationList}" var="location">
+                                    <option value="${location.addressID}">${location.addressName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div><a>Complete:</a> <input name="completePercent" class="complete_percent" value="${land.buildStatus}"/></div> 
+                        <div><a>Create Date:</a> <input name="createData"  disabled="disabled" class="create_data" value="${land.buildingTypes}"/></div> 
+                        <div><a>Period:</a> <input name="period" id="building_period" class="building_period"/></div>
+                        <div><a>Finish Date:</a> <input name="finishData" class="finish_data" value="${land.buildingPlan}"/></div>
+                         <div class="edit_menu">
+                            <div class="btn_edit">
+                                <input type="submit" value="Add"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <%--For displaying Previous link except for the 1st page --%>
                 <c:choose>
                     <c:when test="${currentPage != 1}">

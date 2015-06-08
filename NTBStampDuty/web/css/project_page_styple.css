@@ -16,3 +16,23 @@
 #main_body .detail_bar .table_container  .project_container #project #pro_img {width: 100px; height: 125px; margin: 10px 0 5px 0;}
 #main_body .detail_bar .table_container  .project_container #project #progress-bar-container {width:80%; height:10px; border:1px solid gray; border-radius: 8px; overflow: hidden; margin-top: 2px;}
 /*#main_body .detail_bar .table_container  .project_container #project #progress-bar-container #progress-bar {width:35%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:10px;}*/
+
+
+.ui-widget div input {width: 170px;}
+.ui-widget div:first-child {width: 570px;}
+.ui-widget div:nth-child(2) {margin-bottom: 20px;}
+.ui-widget div:nth-child(4) {margin-left: 40px;}
+.ui-widget div:nth-child(6) {margin-left: 40px; margin-bottom: 20px;}
+.ui-widget div:nth-child(7) {}
+.ui-widget div:nth-child(8) {margin-left: 100px;}
+.ui-widget div:nth-child(9) {float: left; margin-left: 55px;}
+
+.ui-widget div .pro_name {margin-left: 8px; margin-top: 1px;}
+.ui-widget div .building_id {margin-left: 41px; width: 470px;}
+.ui-widget div .complete_percent {margin-left: 31px;}
+.ui-widget div .create_data {margin-left: 10px;}
+.ui-widget div .building_period {margin-left: 51px;}
+.ui-widget div .finish_data {margin-left: 15px;}
+.ui-widget div .land_image {margin-left: 55px; width: 470px;}
+.ui-widget div input:focus {outline: 1px solid #CF2525; border: 1px solid #CF2525;}
+.ui-widget .edit_menu input:focus {outline: 0px; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}

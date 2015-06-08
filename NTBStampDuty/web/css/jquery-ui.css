@@ -131,6 +131,11 @@
     right: 24px;
 }
 
+.ui-dialog .land_detail, .ui-dialog .add_new_project{
+    top: 259px;
+    right: 24px;
+}
+
 .ui-dialog .delete_land {
     top: 87px;
     right: 24px;
