@@ -137,19 +137,6 @@ public class ProjectManager {
         }
     }
 
-    public void deleteProject(String id) {
-        try {
-            GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("update tblProjects\n"
-                    + "set available_status = 0\n"
-                    + "where proj_id = ?");
-            ps.setString(1, id);
-            ps.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public List<Project> getProjectByDate(String fileterType, int startIndex, int endIndex) {
         try {
             GetConnection conn = new GetConnection();
