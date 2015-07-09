@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>
-    <title>Land Details</title>
+    <title>Building Details</title>
     <link href="css/build_page_styple.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script src = "javascript/jquery.js" type="text/javascript"></script>
@@ -75,8 +75,24 @@
                             <td>${building.floors}</td>
                             <td>${building.dateContructed}</td>
                             <td></td>
-                            <td></td>
+                            <td><input type="submit" value="Show detail" onclick="submitter(${building.buildingID}); getName(this)"/></td>
                         </tr>
+                        <div class="${building.buildingID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
+                            <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${building.buildingName}"/></div>
+                            <div><a>Land Address:</a> <input name="land_address" class="land_address" value="${building.buildingType}"/></div>
+                            <div><a>Build Status:</a> <input name="land_status" class="land_status" value="${building.floors}"/></div> 
+                            <div><a>Building Type:</a> <input name="land_type" class="land_type" value="${building.dateContructed}"/></div> 
+                            <div><a>Price:</a> <input name="land_price" class="land_price" value=""/></div>
+                            <div><a>Building Plan:</a> <input name="land_plan" class="land_plan" value=""/></div>                          
+                            <div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>
+                            <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                            <div></div>
+                            <div class="edit_menu">
+                                <div class="btn_edit">
+                                    <input type="submit" value="Save" />
+                                </div>
+                            </div>
+                        </div>
                     </c:forEach>
                 </table>
                 <div class="addNewBuilding" title="Add New Building" style="display:none">

@@ -55,7 +55,7 @@
 .ui-dialog .ui-dialog-content {
     position: relative;
     border: 0;
-    width:"500 px";
+    width: 500px;
     background: none;
     overflow: auto;
     padding: 0 20px;
@@ -122,17 +122,17 @@
 }
 
 .ui-dialog .land_detail, .ui-dialog .add_new_land {
-    top: 480px;
+    top: 474px;
     right: 24px;
 }
 
-.ui-dialog .land_detail, .ui-dialog .add_new_building {
-    top: 484px;
+.ui-dialog .add_new_building {
+    top: 476px;
     right: 24px;
 }
 
-.ui-dialog .land_detail, .ui-dialog .add_new_project{
-    top: 259px;
+.ui-dialog .add_new_project{
+    top: 256px;
     right: 24px;
 }
 
