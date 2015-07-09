@@ -19,8 +19,8 @@
 .ui-widget div input {width: 170px;}
 .ui-widget div:first-child {width: 570px;}
 .ui-widget div:nth-child(2) {margin-bottom: 20px;}
-.ui-widget div:nth-child(4) {margin-left: 40px;}
-.ui-widget div:nth-child(6) {margin-left: 40px; margin-bottom: 20px;}
+.ui-widget div:nth-child(4) {margin-left: 31px;}
+.ui-widget div:nth-child(6) {margin-left: 31px; margin-bottom: 20px;}
 .ui-widget div:nth-child(7) {}
 .ui-widget div:nth-child(8) {margin-left: 100px;}
 .ui-widget div:nth-child(9) {float: left; margin-left: 55px;}
@@ -31,6 +31,9 @@
 .ui-widget div .land_type {margin-left: 10px;}
 .ui-widget div .land_price {margin-left: 64px;}
 .ui-widget div .land_plan {margin-left: 13px}
+.ui-widget div .total_price {margin-left: 30px}
+.ui-widget div .land_image {margin-left: 55px; width: 470px;}
+
 .ui-widget div input:focus {outline: 1px solid #CF2525; border: 1px solid #CF2525;}
 .ui-widget .edit_menu input:focus {outline: 0px; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}
 
