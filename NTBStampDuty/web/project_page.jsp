@@ -29,6 +29,11 @@
             myForm.elements["projectID"].value = getID;
             myForm.submit();
         }
+
+        function getFilter() {
+            var myForm1 = document.forms["myForm1"];
+            myForm1.submit();
+        }
     </script>
 </head>
 <tag:MainTag>
@@ -39,10 +44,11 @@
                     <input type="submit" value="New" onclick="submitter('addNewProject')"/>
                 </div>
                 <div class="filter_menu">
-                    <form class="form_filter" action="" method="post">
-                        <select name="FilterColumn" id="filterColumn">
+                    <form class="form_filter" id="myForm1" action="projectFilter" method="post">
+                        <select name="FilterColumn" id="filterColumn" onchange="getFilter()">
+                            <option value="0">Select an option</option>
                             <option value="ProjectName">Project Name</option>
-                            <option value="DateContructed">Date Contructed</option>
+                            <option value="DateCreated">Date Created</option>
                         </select>
                     </form>
                 </div>
@@ -118,7 +124,7 @@
                     </tr>
                 </table>
                 <div class="addNewProject" title="Add New Project" style="display:none">
-                    <form>
+                    <form action="addProject">
                         <div><a>Project Name:</a> <input name="proName" id="proName" class="pro_name"/></div>
                         <div><a>Building:</a> <select name="builidingID" id="buildingID" class="building_id">
                                 <c:forEach items="${buildingList}" var="building">
@@ -129,8 +135,8 @@
                         <div><a>Complete:</a> <input name="completePercent" class="complete_percent"/></div> 
                         <div><a>Create Date:</a> <input name="createData"  disabled="disabled" class="create_data"/></div> 
                         <div><a>Period:</a> <input name="period" id="building_period" class="building_period"/></div>
-                        <div><a>Finish Date:</a> <input name="finishData" class="finish_data"/></div>
-                         <div class="edit_menu">
+                        <div><a>Finish Date:</a> <input type="date" name="finishDate" class="finish_data"/></div>
+                        <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Add"/>
                             </div>

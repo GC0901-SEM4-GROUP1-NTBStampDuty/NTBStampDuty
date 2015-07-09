@@ -22,8 +22,8 @@ import model.ProjectManager;
  *
  * @author Phuc
  */
-@WebServlet(name = "deleteProject", urlPatterns = {"/deleteProject"})
-public class deleteProject extends HttpServlet {
+@WebServlet(name = "projectFilter", urlPatterns = {"/projectFilter"})
+public class projectFilter extends HttpServlet {
 
     private List<Project> projectList = new ArrayList<>();
 
@@ -44,10 +44,10 @@ public class deleteProject extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet deleteProject</title>");
+            out.println("<title>Servlet projectFilter</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet deleteProject at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet projectFilter at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,22 +79,32 @@ public class deleteProject extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String deleteID = request.getParameter("deleteID");
+        String filterType = request.getParameter("FilterColumn");
         ProjectManager manager = new ProjectManager();
-        manager.deleteProject(deleteID);
         int page = 1;
         int recordsPerPage = 12;
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
-        projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
-        int noOfRecords = manager.getNoOfRecords();
-        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        request.setAttribute("projectList", projectList);
-        request.setAttribute("noOfPages", noOfPages);
-        request.setAttribute("currentPage", page);
-        RequestDispatcher rd = request.getRequestDispatcher("project_page.jsp");
-        rd.forward(request, response);
+        if (filterType.equals("ProjectName")) {
+            projectList = manager.getProjectByName((page - 1) * recordsPerPage, recordsPerPage * page);
+            int noOfRecords = manager.getNoOfRecords();
+            int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+            request.setAttribute("projectList", projectList);
+            request.setAttribute("noOfPages", noOfPages);
+            request.setAttribute("currentPage", page);
+            RequestDispatcher rd = request.getRequestDispatcher("project_page.jsp");
+            rd.forward(request, response);
+        } else if (filterType.equals("DateCreated")) {
+            projectList = manager.getProjectByDate((page - 1) * recordsPerPage, recordsPerPage * page);
+            int noOfRecords = manager.getNoOfRecords();
+            int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+            request.setAttribute("projectList", projectList);
+            request.setAttribute("noOfPages", noOfPages);
+            request.setAttribute("currentPage", page);
+            RequestDispatcher rd = request.getRequestDispatcher("project_page.jsp");
+            rd.forward(request, response);
+        }
     }
 
     /**

@@ -24,12 +24,6 @@
                         <input type="submit" value="Edit"/>
                     </form>
                 </div>
-                <div class="btn_delete">
-                    <form action="deleteProject" method="post">
-                        <input type="hidden" value="${project.projectID}" name="deleteID"/>
-                        <input type="submit" value="Delete"/>
-                    </form>
-                </div>
             </div>
             <div class="search_menu">
                 <form class="form_search" action="" method="post">
