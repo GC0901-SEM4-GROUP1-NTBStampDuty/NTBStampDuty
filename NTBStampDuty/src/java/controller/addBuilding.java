@@ -5,6 +5,9 @@
  */
 package controller;
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +15,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -116,8 +120,16 @@ public class addBuilding extends HttpServlet {
         int floors = Integer.valueOf(request.getParameter("floors"));
         int rooms = Integer.valueOf(request.getParameter("rooms"));
         int houses = Integer.valueOf(request.getParameter("houses"));
+        
         int shops = Integer.valueOf(request.getParameter("shops"));
         Part part = request.getPart("buildImage");
+        
+//        String url = request.get("buildImage");
+//        BufferedImage image = ImageIO.read(new File("favicon.png"));
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ImageIO.write(image, "png", baos);
+//        String encodedImage = Base64.encode(baos.toByteArray());
+        
         InputStream stream = part.getInputStream();
         String fileName = part.getSubmittedFileName();
         String ImagePath = "C:\\Users\\Phuc\\Desktop\\pictures\\" + fileName;

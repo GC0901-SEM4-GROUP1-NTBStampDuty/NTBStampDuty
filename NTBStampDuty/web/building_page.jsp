@@ -114,7 +114,7 @@
                         <div><a>Houses:</a> <input name="houses" class="houses"/></div> 
                         <div><a>Rooms:</a> <input name="rooms" class="rooms"/></div>
                         <div><a>Shops:</a> <input name="shops" class="shops"/></div>
-                        <div><a>Image:</a> <input type="file" name="buildImage" class="build_image"/></div>
+                        <div><a>Image:</a> <input type="file" name="buildImage" class="build_image" accept="image/gif, image/jpeg, image/png"/></div>
                         <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                         <div><a>Date Contruct:</a> <input name="totalPrice" class="date_contracted"/></div>
                         <div class="edit_menu">
