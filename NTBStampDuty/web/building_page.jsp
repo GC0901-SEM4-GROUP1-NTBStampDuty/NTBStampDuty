@@ -18,13 +18,34 @@
         function submitter(btn) {
             $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
         }
+
+        function getBuildingDetail(id) {
+            $.ajax({
+                type: 'POST',
+                url: "getBuildingDetail",
+                data: {"buildingID": id},
+                success: function (data) {
+                    $.each(data, function (index, building) {
+                        document.getElementById("landAddress").value = building.landName;
+                        document.getElementById("buildingType").value = building.buildingType;
+                        document.getElementById("buildingName").value = building.buildingName;
+                        document.getElementById("floors").value = building.floors;
+                        document.getElementById("rooms").value = building.rooms;
+                        document.getElementById("houses").value = building.houses;
+                        document.getElementById("shops").value = building.shops;
+                    });
+                }
+            });
+            $('.buildingDetail').dialog({modal: true, show: 'fade', hide: 'drop'});
+        }
+        ;
     </script>
 </head>
 <tag:MainTag>
     <div id="main_body">
         <div class="header">
             <div class="edit_menu">
-                 <div class="btn_new">
+                <div class="btn_new">
                     <input type="submit" value="New" onclick="submitter('addNewBuilding')"/>
                 </div>
                 <!--                <form class="btn_edit">
@@ -39,7 +60,7 @@
                     <select name="searchColumn">
                         <option value="BuildID">Building ID</option>
                         <option value="BuildName">Building Name</option>
-<!--                        <option value="BuildType">Building Type</option>-->
+                        <!--                        <option value="BuildType">Building Type</option>-->
                     </select>
                     <input class="txt_search" type="text" name="searchValue"/>
                     <input class="btn_search" type="submit" value="" />
@@ -75,25 +96,27 @@
                             <td>${building.floors}</td>
                             <td>${building.dateContructed}</td>
                             <td></td>
-                            <td><input type="submit" value="Show detail" onclick="submitter(${building.buildingID}); getName(this)"/></td>
+                            <td><input type="submit" value="Show detail" onclick="getBuildingDetail(${building.buildingID});
+                                    getName(this)"/></td>
                         </tr>
-                        <div class="${building.buildingID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
-                            <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${building.buildingName}"/></div>
-                            <div><a>Land Address:</a> <input name="land_address" class="land_address" value="${building.buildingType}"/></div>
-                            <div><a>Build Status:</a> <input name="land_status" class="land_status" value="${building.floors}"/></div> 
-                            <div><a>Building Type:</a> <input name="land_type" class="land_type" value="${building.dateContructed}"/></div> 
-                            <div><a>Price:</a> <input name="land_price" class="land_price" value=""/></div>
-                            <div><a>Building Plan:</a> <input name="land_plan" class="land_plan" value=""/></div>                          
-                            <div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>
-                            <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
-                            <div></div>
-                            <div class="edit_menu">
-                                <div class="btn_edit">
-                                    <input type="submit" value="Save" />
-                                </div>
+                    </c:forEach>
+                    <div class="buildingDetail" class="ui-dialog" title="Building Detail" class="ui-dialog-content" style="display:none;">
+                        <div><a>Land Location:</a> <input id="landAddress" class="land_address"/></div>
+                        <div><a>Building Type:</a> <input id="buildingType" class="land_address"/></div>
+                        <div><a>Building Name:</a> <input id="buildingName" class="land_status"/></div> 
+                        <div><a>Floors: </a> <input id="floors" class="land_type"/></div> 
+                        <div><a>Rooms: </a> <input id="rooms" class="land_price"/></div>
+                        <div><a>Houses: </a> <input id="houses" class="land_plan"/></div>  
+                        <div><a>Shops: </a> <input id="shops" class="land_plan"/></div>  
+                        <div><a>Image:</a> <input name="land_image" class="land_image"/></div>
+                        <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div></div>
+                        <div class="edit_menu">
+                            <div class="btn_edit">
+                                <input type="submit" value="Save" />
                             </div>
                         </div>
-                    </c:forEach>
+                    </div>
                 </table>
                 <div class="addNewBuilding" title="Add New Building" style="display:none">
                     <form action="addBuilding" method="post" enctype="multipart/form-data">
