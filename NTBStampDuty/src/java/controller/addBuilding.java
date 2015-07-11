@@ -5,6 +5,9 @@
  */
 package controller;
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +15,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -26,6 +30,7 @@ import model.BuildingType;
 import model.BuildingTypeManager;
 import model.Land;
 import model.LandManager;
+import sun.misc.BASE64Encoder;
 
 /**
  *
@@ -116,15 +121,20 @@ public class addBuilding extends HttpServlet {
         int floors = Integer.valueOf(request.getParameter("floors"));
         int rooms = Integer.valueOf(request.getParameter("rooms"));
         int houses = Integer.valueOf(request.getParameter("houses"));
+        
         int shops = Integer.valueOf(request.getParameter("shops"));
         Part part = request.getPart("buildImage");
         InputStream stream = part.getInputStream();
-        String fileName = part.getSubmittedFileName();
-        String ImagePath = "C:\\Users\\Phuc\\Desktop\\pictures\\" + fileName;
-        File uploadLocation = new File(ImagePath);
-        Files.copy(stream, uploadLocation.toPath());
+        BufferedImage imageBuffer = ImageIO.read(stream);
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        ImageIO.write(imageBuffer, "jpg", output);
+        byte[] imageBytes = output.toByteArray();
+        BASE64Encoder encoder = new BASE64Encoder();
+        String imageString = encoder.encode(imageBytes);
+        output.close();
+        
         BuildingManager manager = new BuildingManager();
-        manager.addNewBuilding(land, type, buildingName, floors, rooms, houses, shops, ImagePath);
+        manager.addNewBuilding(land, type, buildingName, floors, rooms, houses, shops, imageString);
         int page = 1;
         int recordsPerPage = 15;
         if (request.getParameter("page") != null) {

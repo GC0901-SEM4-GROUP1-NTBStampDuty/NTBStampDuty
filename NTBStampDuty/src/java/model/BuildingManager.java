@@ -18,6 +18,7 @@ public class BuildingManager {
 
     private Building buildingDetails = new Building();
     private List<Building> buidingList = new ArrayList<>();
+    private List<BuildingDetail> buildingDetailList = new ArrayList<>();
     private int noOfRecords;
 
     public int getNoOfRecords() {
@@ -187,10 +188,38 @@ public class BuildingManager {
             ps.setInt(6, houses);
             ps.setInt(7, shops);
             ps.setString(8, img);
-            ps.setInt(9, 1);
+            ps.setInt(9, 0);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+     public List<BuildingDetail> getBuildingDetailDialog(int id) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select (select name from tblLand inner join tblLocation on tblLand.address_id = tblLocation.address_id where tblLand.land_id = tblBuildingDetails.land_id) as land, buildingType_name, building_name, floors, rooms, houses, shops, img, chosen_status from tblBuildingDetails\n"
+                    + "inner join tblBuildingType\n"
+                    + "on tblBuildingDetails.buildingType_id = tblBuildingType.buildingType_id\n"
+                    + "where tblBuildingDetails.building_id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String landName = rs.getString("land");
+                String buildingType = rs.getString("buildingType_name");
+                String buildingName = rs.getString("building_name");
+                int floors = rs.getInt("floors");
+                int rooms = rs.getInt("rooms");
+                int houses = rs.getInt("houses");
+                int shops = rs.getInt("shops");
+                String img = rs.getString("img");
+                int chosen_status = rs.getInt("chosen_status");
+                BuildingDetail buildingDetail = new BuildingDetail(landName, buildingType, buildingName, floors, rooms, houses, shops, id, chosen_status);
+                buildingDetailList.add(buildingDetail);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return buildingDetailList;
     }
 }

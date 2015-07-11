@@ -94,7 +94,7 @@ floors int,
 rooms int,
 houses int,
 shops int,
-img nvarchar(100),
+img nvarchar(max),
 chosen_status int
 )
 
@@ -103,7 +103,6 @@ insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0,'', 
 insert into tblBuildingDetails values (3, 3, 'New Shop Buidling', 10, 0, 0, 60,'', 0)
 insert into tblBuildingDetails values (4, 2, 'House Buidling', 10, 60, 0, 0,'', 1)
 insert into tblBuildingDetails values (5, 1, 'Office Buidling', 10, 0, 60, 0,'', 1)
-insert into tblBuildingDetails values (6, 1, 'New Office Buidling', 10, 0, 60, 0,'', 1)
 
 select * from tblBuildingDetails
 
