@@ -12,7 +12,7 @@
     </div>
     <div class="left_menu" id="bar">
         <ul>
-             <li>
+            <li>
                 <a href="/NTBStampDuty/projectDetail">PROJECT DETAILS</a>
             </li>
             <li>

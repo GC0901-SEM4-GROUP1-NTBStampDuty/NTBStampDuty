@@ -30,6 +30,7 @@ import model.BuildingType;
 import model.BuildingTypeManager;
 import model.Land;
 import model.LandManager;
+import sun.misc.BASE64Encoder;
 
 /**
  *
@@ -123,20 +124,17 @@ public class addBuilding extends HttpServlet {
         
         int shops = Integer.valueOf(request.getParameter("shops"));
         Part part = request.getPart("buildImage");
-        
-//        String url = request.get("buildImage");
-//        BufferedImage image = ImageIO.read(new File("favicon.png"));
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        ImageIO.write(image, "png", baos);
-//        String encodedImage = Base64.encode(baos.toByteArray());
-        
         InputStream stream = part.getInputStream();
-        String fileName = part.getSubmittedFileName();
-        String ImagePath = "C:\\Users\\Phuc\\Desktop\\pictures\\" + fileName;
-        File uploadLocation = new File(ImagePath);
-        Files.copy(stream, uploadLocation.toPath());
+        BufferedImage imageBuffer = ImageIO.read(stream);
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        ImageIO.write(imageBuffer, "jpg", output);
+        byte[] imageBytes = output.toByteArray();
+        BASE64Encoder encoder = new BASE64Encoder();
+        String imageString = encoder.encode(imageBytes);
+        output.close();
+        
         BuildingManager manager = new BuildingManager();
-        manager.addNewBuilding(land, type, buildingName, floors, rooms, houses, shops, ImagePath);
+        manager.addNewBuilding(land, type, buildingName, floors, rooms, houses, shops, imageString);
         int page = 1;
         int recordsPerPage = 15;
         if (request.getParameter("page") != null) {

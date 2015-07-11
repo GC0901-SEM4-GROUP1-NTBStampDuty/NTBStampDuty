@@ -188,7 +188,7 @@ public class BuildingManager {
             ps.setInt(6, houses);
             ps.setInt(7, shops);
             ps.setString(8, img);
-            ps.setInt(9, 1);
+            ps.setInt(9, 0);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

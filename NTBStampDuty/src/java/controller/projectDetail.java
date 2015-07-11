@@ -49,7 +49,7 @@ public class projectDetail extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet projectDetail</title>");            
+            out.println("<title>Servlet projectDetail</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet projectDetail at " + request.getContextPath() + "</h1>");
@@ -79,6 +79,9 @@ public class projectDetail extends HttpServlet {
         projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        BuildingManager buildingManager = new BuildingManager();
+        buildingList = buildingManager.getBuildingToAdd();
+        request.setAttribute("buildingList", buildingList);
         request.setAttribute("projectList", projectList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
