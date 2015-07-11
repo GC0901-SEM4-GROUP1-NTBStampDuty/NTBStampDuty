@@ -72,6 +72,8 @@ insert into tblLand values(500, 3, 3, '', 0, '')
 insert into tblLand values(100, 4, 1, '', 1, '')
 insert into tblLand values(1000, 5, 2, '', 1, '')
 
+select * from tblLand
+
 create table tblBuildingPermit
 (
 land_id int primary key references tblLand(land_id),
