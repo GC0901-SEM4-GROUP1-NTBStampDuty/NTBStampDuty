@@ -84,7 +84,7 @@
                         <th style="width: 30%">Building Name</th>
                         <th style="width: 14%">Building Type</th>
                         <th style="width: 10%">Floors</th>
-                        <th style="width: 14%">Date Constructed</th>
+                        <th style="width: 14%">Total Room</th>
                         <th style="width: 10%">Completed</th>
                         <th style="width: 14%">Detail</th>
                     </tr>
@@ -94,7 +94,7 @@
                             <td>${building.buildingName}</td>
                             <td>${building.buildingType}</td>
                             <td>${building.floors}</td>
-                            <td>${building.dateContructed}</td>
+                            <td>${building.totalRoom}</td>
                             <td></td>
                             <td><input type="submit" value="Show detail" onclick="getBuildingDetail(${building.buildingID});
                                     getName(this)"/></td>

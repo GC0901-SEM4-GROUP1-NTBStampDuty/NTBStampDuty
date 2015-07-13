@@ -60,6 +60,7 @@ public class BuildingManager {
                 building.setRooms(rs.getInt("rooms"));
                 building.setHouses(rs.getInt("houses"));
                 building.setShops(rs.getInt("shops"));
+                building.setTotalRoom(rs.getInt("rooms") + rs.getInt("houses") + rs.getInt("shops"));
                 buidingList.add(building);
             }
             rs.close();

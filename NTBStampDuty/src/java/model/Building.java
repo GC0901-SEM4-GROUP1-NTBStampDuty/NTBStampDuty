@@ -22,6 +22,7 @@ public class Building {
     private int rooms;
     private int houses;
     private int shops;
+    private int totalRoom;
     private Date dateContructed;
     private String img;
 
@@ -97,6 +98,14 @@ public class Building {
         this.shops = shops;
     }
 
+    public int getTotalRoom() {
+        return totalRoom;
+    }
+
+    public void setTotalRoom(int totalRoom) {
+        this.totalRoom = totalRoom;
+    }
+    
     public Date getDateContructed() {
         return dateContructed;
     }

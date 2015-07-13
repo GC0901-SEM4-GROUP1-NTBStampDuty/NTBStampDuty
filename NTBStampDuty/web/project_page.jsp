@@ -76,7 +76,7 @@
                     </tr> 
                 </table>
 
-                <form id="myForm" action="getProjectDetail" method="post">
+                <form id="myForm" style="margin-bottom: 0px" action="getProjectDetail" method="post">
                     <input type="hidden" name="projectID"/>
                     <div class="project_container" >
                         <c:forEach items="${projectList}" var="pro">
@@ -86,7 +86,7 @@
                                 <a>${pro.buildingName}</a><br/>
                                 <a>
                                     <div align="left" id="progress-bar-container">
-                                        <div style="font-size: 9px; margin-top: -1px;  width: 35%; position: absolute;" align="center" class="percent">${pro.completePercent}%</div>
+                                        <div align="center" class="percent">${pro.completePercent}%</div>
                                         <div style="width:${pro.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:10px;">
                                         </div>
                                     </div>
