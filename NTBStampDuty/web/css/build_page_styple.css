@@ -20,15 +20,16 @@
 .ui-widget div input {width: 170px;}
 .ui-widget div:first-child {width: 570px;}
 .ui-widget div:nth-child(2) {margin-bottom: 20px;}
-.ui-widget div:nth-child(3) {margin-left: 60px;  margin-bottom: 20px;}
+.ui-widget div:nth-child(3) {margin-left: 32px;  margin-bottom: 20px;}
 .ui-widget div:nth-child(4) {}
-.ui-widget div:nth-child(5) {margin-left: 60px;}
+.ui-widget div:nth-child(5) {margin-left: 61px;}
 .ui-widget div:nth-child(6) {}
 .ui-widget div:nth-child(7) {margin-left: 60px; margin-bottom: 20px}
 .ui-widget div:nth-child(8) {}
 .ui-widget div:nth-child(9) {float: left; margin-left: 71px;}
 .ui-widget div:nth-child(10) {float: left;}
 
+.ui-widget div .plus_navigation{width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 5px;}
 .ui-widget div .build_name {margin-left: 15px; margin-top: 1px;}
 .ui-widget div .land_name {margin-left: 34px; width: 170px;}
 .ui-widget div .build_type {margin-left: 61px; width: 170px;}

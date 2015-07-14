@@ -25,8 +25,9 @@
 .ui-widget div:nth-child(8) {margin-left: 100px;}
 .ui-widget div:nth-child(9) {float: left; margin-left: 55px;}
 
+.ui-widget div .plus_navigation{width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 5px;}
 .ui-widget div .land_size {margin-left: 36px; margin-top: 1px;}
-.ui-widget div .land_address {margin-left: 10px; width: 470px;}
+.ui-widget div .land_address {margin-left: 10px; width: 435px;}
 .ui-widget div .land_status {margin-left: 21px;}
 .ui-widget div .land_type {margin-left: 10px;}
 .ui-widget div .land_price {margin-left: 64px;}

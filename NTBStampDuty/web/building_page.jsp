@@ -126,6 +126,7 @@
                                     <option value="${land.landID}">${land.addressID}</option>
                                 </c:forEach>
                             </select>
+                            <img class="plus_navigation" src="images/ic_plus.png"/>
                         </div>
                         <div><a>Type:</a> <select name="typeColumn" id="landLocation" class="build_type">
                                 <c:forEach items="${typeList}" var="type">

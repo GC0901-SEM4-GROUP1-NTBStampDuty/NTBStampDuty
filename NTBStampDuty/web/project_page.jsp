@@ -132,6 +132,7 @@
                                     <option value="${building.buildingID}">${building.buildingName}</option>
                                 </c:forEach>
                             </select>
+                            <img class="plus_navigation" src="images/ic_plus.png"/>
                         </div>
                         <div><a>Complete:</a> <input name="completePercent" class="complete_percent"/></div> 
                         <div><a>Create Date:</a> <input name="createData"  disabled="disabled" class="create_data"/></div> 

@@ -121,6 +121,7 @@
                                     <option value="${location.addressID}">${location.addressName}</option>
                                 </c:forEach>
                             </select>
+                            <img class="plus_navigation" src="images/ic_plus.png"/>                            
                         </div>
                         <!--<c:forEach items="${locationList}" var="location">
                             <input type="hidden" id="${location.addressID}" value="${location.price}"/>

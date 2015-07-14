@@ -27,8 +27,9 @@
 .ui-widget div:nth-child(8) {margin-left: 100px;}
 .ui-widget div:nth-child(9) {float: left; margin-left: 55px;}
 
+.ui-widget div .plus_navigation {width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 5px;}
 .ui-widget div .pro_name {margin-left: 8px; margin-top: 1px;}
-.ui-widget div .building_id {margin-left: 41px; width: 470px;}
+.ui-widget div .building_id {margin-left: 41px; width: 435px;}
 .ui-widget div .complete_percent {margin-left: 31px;}
 .ui-widget div .create_data {margin-left: 10px;}
 .ui-widget div .building_period {margin-left: 51px;}
