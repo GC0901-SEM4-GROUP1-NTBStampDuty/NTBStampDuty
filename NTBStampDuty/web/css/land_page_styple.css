@@ -19,21 +19,21 @@
 .ui-widget div input {width: 170px;}
 .ui-widget div:first-child {width: 570px;}
 .ui-widget div:nth-child(2) {margin-bottom: 20px;}
-.ui-widget div:nth-child(4) {margin-left: 31px;}
-.ui-widget div:nth-child(6) {margin-left: 31px; margin-bottom: 20px;}
+.ui-widget div:nth-child(4) {margin-left: 30px;}
+.ui-widget div:nth-child(6) {margin-left: 30px; margin-bottom: 20px;}
 .ui-widget div:nth-child(7) {}
 .ui-widget div:nth-child(8) {margin-left: 100px;}
 .ui-widget div:nth-child(9) {float: left; margin-left: 55px;}
 
-.ui-widget div .plus_navigation{width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 5px;}
-.ui-widget div .land_size {margin-left: 36px; margin-top: 1px;}
-.ui-widget div .land_address {margin-left: 10px; width: 435px;}
-.ui-widget div .land_status {margin-left: 21px;}
-.ui-widget div .land_type {margin-left: 10px;}
-.ui-widget div .land_price {margin-left: 64px;}
-.ui-widget div .land_plan {margin-left: 13px}
-.ui-widget div .total_price {margin-left: 30px}
-.ui-widget div .land_image {margin-left: 55px; width: 470px;}
+.ui-widget div .plus_navigation{width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 3px;}
+.ui-widget div .land_size {margin-left: 35px; margin-top: 1px;}
+.ui-widget div .land_address {margin-left: 10px; width: 470px;}
+.ui-widget div .land_status {margin-left: 20px;}
+.ui-widget div .land_type {margin-left: 9px;}
+.ui-widget div .land_price {margin-left: 63px;}
+.ui-widget div .land_plan {margin-left: 12px}
+.ui-widget div .total_price {margin-left: 28px}
+.ui-widget div .land_image {margin-left: 54px; width: 470px;}
 
 .ui-widget div input:focus {outline: 1px solid #CF2525; border: 1px solid #CF2525;}
 .ui-widget .edit_menu input:focus {outline: 0px; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}

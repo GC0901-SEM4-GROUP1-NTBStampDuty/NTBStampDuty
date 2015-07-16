@@ -58,7 +58,7 @@
     width: 500px;
     background: none;
     overflow: auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 .ui-draggable .ui-dialog-titlebar {
@@ -122,12 +122,12 @@
 }
 
 .ui-dialog .land_detail, .ui-dialog .add_new_land {
-    top: 474px;
+    top: 476px;
     right: 24px;
 }
 
-.ui-dialog .add_new_building {
-    top: 476px;
+.ui-dialog .building_detail, .add_new_building {
+    top: 477px;
     right: 24px;
 }
 

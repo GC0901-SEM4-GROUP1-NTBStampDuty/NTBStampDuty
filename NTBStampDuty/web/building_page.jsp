@@ -101,15 +101,26 @@
                         </tr>
                     </c:forEach>
                     <div class="buildingDetail" class="ui-dialog" title="Building Detail" class="ui-dialog-content" style="display:none;">
-                        <div><a>Land Location:</a> <input id="landAddress" class="land_address"/></div>
-                        <div><a>Building Type:</a> <input id="buildingType" class="land_address"/></div>
-                        <div><a>Building Name:</a> <input id="buildingName" class="land_status"/></div> 
-                        <div><a>Floors: </a> <input id="floors" class="land_type"/></div> 
-                        <div><a>Rooms: </a> <input id="rooms" class="land_price"/></div>
-                        <div><a>Houses: </a> <input id="houses" class="land_plan"/></div>  
-                        <div><a>Shops: </a> <input id="shops" class="land_plan"/></div>  
-                        <div><a>Image:</a> <input name="land_image" class="land_image"/></div>
-                        <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div><a>Building:</a> <input id="buildingName" class="build_name"/></div> 
+                        <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
+                                <c:forEach items="${landList}" var="land">
+                                    <option value="${land.landID}">${land.addressID}</option>
+                                </c:forEach>
+                            </select>
+                            <img class="plus_navigation" src="images/ic_plus.png"/>
+                        </div>
+                        <div><a>Building Type:</a> <select name="typeColumn" id="landLocation" class="build_type">
+                                <c:forEach items="${typeList}" var="type">
+                                    <option value="${type.id}">${type.typeName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div><a>Floors: </a> <input id="floors" class="floors"/><img class="next_navigation" src="images/ic_show.png"/></div> 
+                        <div><a>Houses: </a> <input id="houses" class="houses"/><img class="next_navigation" src="images/ic_show.png"/></div>  
+                        <div><a>Rooms: </a> <input id="rooms" class="rooms"/><img class="next_navigation" src="images/ic_show.png"/></div>
+                        <div><a>Shops: </a> <input id="shops" class="shops"/><img class="next_navigation" src="images/ic_show.png"/></div>  
+                        <div><a>Image:</a> <input type="file" name="buildImage" class="build_image" accept="image/gif, image/jpeg, image/png"/></div>
+                        <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                         <div></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
@@ -128,16 +139,16 @@
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png"/>
                         </div>
-                        <div><a>Type:</a> <select name="typeColumn" id="landLocation" class="build_type">
+                        <div><a>Building Type:</a> <select name="typeColumn" id="landLocation" class="build_type">
                                 <c:forEach items="${typeList}" var="type">
                                     <option value="${type.id}">${type.typeName}</option>
                                 </c:forEach>
                             </select>
                         </div>
-                        <div><a>Floors:</a> <input name="floors" class="floors"/></div> 
-                        <div><a>Houses:</a> <input name="houses" class="houses"/></div> 
-                        <div><a>Rooms:</a> <input name="rooms" class="rooms"/></div>
-                        <div><a>Shops:</a> <input name="shops" class="shops"/></div>
+                        <div><a>Floors:</a> <input name="floors" class="floors"/><img class="next_navigation" style="visibility: hidden" src="images/ic_show.png"/></div> 
+                        <div><a>Houses:</a> <input name="houses" class="houses"/><img class="next_navigation" style="visibility: hidden" src="images/ic_show.png"/></div> 
+                        <div><a>Rooms:</a> <input name="rooms" class="rooms"/><img class="next_navigation" style="visibility: hidden" src="images/ic_show.png"/></div>
+                        <div><a>Shops:</a> <input name="shops" class="shops"/><img class="next_navigation" style="visibility: hidden" src="images/ic_show.png"/></div>
                         <div><a>Image:</a> <input type="file" name="buildImage" class="build_image" accept="image/gif, image/jpeg, image/png"/></div>
                         <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                         <div class="edit_menu">

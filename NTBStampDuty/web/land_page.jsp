@@ -96,7 +96,7 @@
                         </tr>
                         <div class="${land.landID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
                             <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${land.size}"/></div>
-                            <div><a>Land Address:</a> <input name="land_address" class="land_address" value="${land.addressID}"/></div>
+                            <div><a>Land Address:</a> <input name="land_address" class="land_address" value="${land.img}"/></div>                                                      
                             <div><a>Build Status:</a> <input name="land_status" class="land_status" value="${land.buildStatus}"/></div> 
                             <div><a>Building Type:</a> <input name="land_type" class="land_type" value="${land.buildingTypes}"/></div> 
                             <div><a>Price:</a> <input name="land_price" class="land_price" value="${land.price}"/></div>
@@ -123,15 +123,12 @@
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png"/>                            
                         </div>
-                        <!--<c:forEach items="${locationList}" var="location">
-                            <input type="hidden" id="${location.addressID}" value="${location.price}"/>
-                        </c:forEach>-->
                         <div><a>Build Status:</a> <input name="buildingStatus" class="land_status" value="${land.buildStatus}"/></div> 
                         <div><a>Building Type:</a> <input name="buildingType" class="land_type" value="${land.buildingTypes}"/></div> 
                         <div><a>Price:</a> <input name="landPrice" disabled="disabled" id="unitPrice" class="land_price"/></div>
                         <div><a>Building Plan:</a> <input name="buildingPlan" class="land_plan" value="${land.buildingPlan}"/></div>
                         <div><a>Image:</a> <input name="landImage" class="land_image" value="${land.img}"/></div>
-                        <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                         <div><a>Total price:</a> <input name="totalPrice" disabled="disabled" id="totalPrice" class="total_price"/></div>
                         <div class="edit_menu">
                             <div class="btn_edit">

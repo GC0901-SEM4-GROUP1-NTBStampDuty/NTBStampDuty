@@ -94,6 +94,9 @@
                         </div>
                         <div id="progress-bar-container">
                             <div align="center" class="percent">${project.completePercent}%</div>
+                            <div class="period1"></div>
+                            <div class="period2"></div>
+                            <div class="period3"></div>
                             <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
                             </div>
                         </div>
