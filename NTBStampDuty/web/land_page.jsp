@@ -128,7 +128,7 @@
                         <div><a>Price:</a> <input name="landPrice" disabled="disabled" id="unitPrice" class="land_price"/></div>
                         <div><a>Building Plan:</a> <input name="buildingPlan" class="land_plan" value="${land.buildingPlan}"/></div>
                         <div><a>Image:</a> <input name="landImage" class="land_image" value="${land.img}"/></div>
-                        <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                         <div><a>Total price:</a> <input name="totalPrice" disabled="disabled" id="totalPrice" class="total_price"/></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
