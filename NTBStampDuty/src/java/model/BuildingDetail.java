@@ -10,8 +10,8 @@ package model;
  * @author Phuc
  */
 public class BuildingDetail {
-    public String landName;
-    public String buildingType;
+    public int landID;
+    public int buildingTypeID;
     public String buildingName;
     public int floors;
     public int rooms;
@@ -20,9 +20,9 @@ public class BuildingDetail {
     public int img;
     public int chosen_status;
 
-    public BuildingDetail(String landName, String buildingType, String buildingName, int floors, int rooms, int houses, int shops, int img, int chosen_status) {
-        this.landName = landName;
-        this.buildingType = buildingType;
+    public BuildingDetail(int landID, int buildingTypeID, String buildingName, int floors, int rooms, int houses, int shops, int img, int chosen_status) {
+        this.landID = landID;
+        this.buildingTypeID = buildingTypeID;
         this.buildingName = buildingName;
         this.floors = floors;
         this.rooms = rooms;
@@ -32,20 +32,20 @@ public class BuildingDetail {
         this.chosen_status = chosen_status;
     }
 
-    public String getLandName() {
-        return landName;
+    public int getLandID() {
+        return landID;
     }
 
-    public void setLandName(String landName) {
-        this.landName = landName;
+    public void setLandID(int landID) {
+        this.landID = landID;
     }
 
-    public String getBuildingType() {
-        return buildingType;
+    public int getBuildingTypeID() {
+        return buildingTypeID;
     }
 
-    public void setBuildingType(String buildingType) {
-        this.buildingType = buildingType;
+    public void setBuildingTypeID(int buildingTypeID) {
+        this.buildingTypeID = buildingTypeID;
     }
 
     public String getBuildingName() {

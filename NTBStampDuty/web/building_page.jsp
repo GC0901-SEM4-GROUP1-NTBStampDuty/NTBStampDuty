@@ -26,8 +26,8 @@
                 data: {"buildingID": id},
                 success: function (data) {
                     $.each(data, function (index, building) {
-                        //document.getElementById("landAddress").value = building.landName;
-                        //document.getElementById("buildingType").value = building.buildingType;
+                        $('.land_name').val(building.landID);
+                        $('.build_type').val(building.buildingTypeID);
                         document.getElementById("buildingName").value = building.buildingName;
                         document.getElementById("floors").value = building.floors;
                         document.getElementById("rooms").value = building.rooms;

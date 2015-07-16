@@ -199,15 +199,12 @@ public class BuildingManager {
     public List<BuildingDetail> getBuildingDetailDialog(int id) {
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("select (select name from tblLand inner join tblLocation on tblLand.address_id = tblLocation.address_id where tblLand.land_id = tblBuildingDetails.land_id) as land, buildingType_name, building_name, floors, rooms, houses, shops, img, chosen_status from tblBuildingDetails\n"
-                    + "inner join tblBuildingType\n"
-                    + "on tblBuildingDetails.buildingType_id = tblBuildingType.buildingType_id\n"
-                    + "where tblBuildingDetails.building_id = ?");
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblBuildingDetails where building_id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                String landName = rs.getString("land");
-                String buildingType = rs.getString("buildingType_name");
+                int landId = rs.getInt("land_id");
+                int buildingTypeID = rs.getInt("buildingType_id");
                 String buildingName = rs.getString("building_name");
                 int floors = rs.getInt("floors");
                 int rooms = rs.getInt("rooms");
@@ -215,7 +212,7 @@ public class BuildingManager {
                 int shops = rs.getInt("shops");
                 String img = rs.getString("img");
                 int chosen_status = rs.getInt("chosen_status");
-                BuildingDetail buildingDetail = new BuildingDetail(landName, buildingType, buildingName, floors, rooms, houses, shops, id, chosen_status);
+                BuildingDetail buildingDetail = new BuildingDetail(landId, buildingTypeID, buildingName, floors, rooms, houses, shops, id, chosen_status);
                 buildingDetailList.add(buildingDetail);
             }
         } catch (Exception e) {
