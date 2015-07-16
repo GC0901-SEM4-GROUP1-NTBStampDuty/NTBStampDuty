@@ -110,16 +110,15 @@ Create table tblProjects(
 proj_id int primary key identity(1,1),
 proj_name nvarchar(50),
 building_id int references tblBuildingDetails(building_id),
-complete_percent int,
 created_date Datetime,
 finish_date Datetime,
 period int,
 available_status int,
 )
 Select * from tblProjects
-insert into tblProjects values('Project1', 1, 10, '2015-05-30', '2015-06-30', 1, 1)
-insert into tblProjects values('Project2', 2, 20, '2015-05-30', '2015-06-30', 1, 1)
-insert into tblProjects values('Project3', 3, 40, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project1', 1, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project2', 2, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project3', 3, '2015-05-30', '2015-06-30', 1, 1)
 
 
 select proj_name, building_name
@@ -135,6 +134,7 @@ proj_id int references tblProjects(proj_id),
 period_1 datetime,
 period_2 datetime,
 period_3 datetime,
+complete_percent int
 )
 
 select * from tblBuildingType
