@@ -62,7 +62,7 @@
                         <option value="BuildName">Building Name</option>
                         <!--                        <option value="BuildType">Building Type</option>-->
                     </select>
-                    <input class="txt_search" type="text" name="searchValue"/>
+                    <input class="txt_search" type="text" name="searchValue" maxlength="20"/>
                     <input class="btn_search" type="submit" value="" />
                 </form>
             </div>

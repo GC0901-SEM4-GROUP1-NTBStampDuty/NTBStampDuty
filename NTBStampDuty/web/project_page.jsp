@@ -60,7 +60,7 @@
                         <option value="ProjectName">Project Name</option>
                         <option value="BuildingName">Building Name</option>
                     </select>
-                    <input class="txt_search" type="text" name="searchValue"/>
+                    <input class="txt_search" type="text" name="searchValue" maxlength="20"/>
                     <input class="btn_search" type="submit" value=""/>
                 </form>
             </div>

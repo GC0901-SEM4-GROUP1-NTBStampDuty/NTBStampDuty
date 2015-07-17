@@ -64,11 +64,11 @@
                             <div class="proDetail">
                                 <input type="hidden" value="${project.projectID}" name="editID"/>
                                 <p>${project.projectID}</p>
-                                <p><input type="text" value="${project.projectName}" name="projName"/></p>                                
-                                <p><input type="text" value="${project.createdDate}" name="createdDate"/></p>
-                                <p><input type="text" value="${project.finishDate}" name="finishDate"/></p>
+                                <p><input type="text" value="${project.projectName}" name="projName"  maxlength="30"/></p>                                
+                                <p><input type="text" value="${project.createdDate}" name="createdDate" maxlength="10"/></p>
+                                <p><input type="text" value="${project.finishDate}" name="finishDate"  maxlength="10"/></p>
                                 <p><input type="text" value="${project.period}" name="period"/></p>
-                                <p><input type="text" value="${project.completePercent}" name="completePercent"/></p>
+                                <p><input type="text" value="${project.completePercent}" name="completePercent"  maxlength="4"/></p>
                             </div>
                             <div class="buildingDetail">
                                 <div class="buildingDetailLeft">
