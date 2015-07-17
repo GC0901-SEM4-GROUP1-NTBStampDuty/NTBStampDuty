@@ -224,9 +224,7 @@ public class BuildingManager {
     public void editBuilding(int landID, int buildingType, String buildingName, int floors, int rooms, int houses, int shops, String img, int id){
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("Update tblBuildingDetails Set"
-                    + "land_id=?, buildingType_id=?, building_name=?, floors=?, rooms=?, houses=?, shops=?, img=?, chosen_status=?"
-                    + "where building_id=?");
+            PreparedStatement ps = conn.getConnection().prepareStatement("Update tblBuildingDetails Set land_id=?, buildingType_id=?, building_name=?, floors=?, rooms=?, houses=?, shops=?, img=?, chosen_status=? where building_id=?");
             ps.setInt(1, landID);
             ps.setInt(2, buildingType);
             ps.setString(3, buildingName);

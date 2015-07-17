@@ -61,16 +61,14 @@ land_id int IDENTITY(1,1) primary key,
 size int,
 address_id int references tblLocation(address_id),
 building_types int references tblBuildingType(buildingType_id),
-building_plan nvarchar(50),
-built_status int,
 img nvarchar(100)
 )
 
-insert into tblLand values(200, 1, 1, '', 0, '')
-insert into tblLand values(300, 2, 2, '', 1, '')
-insert into tblLand values(500, 3, 3, '', 0, '')
-insert into tblLand values(100, 4, 1, '', 1, '')
-insert into tblLand values(1000, 5, 2, '', 1, '')
+insert into tblLand values(200, 1, 1, '')
+insert into tblLand values(300, 2, 2, '')
+insert into tblLand values(500, 3, 3, '')
+insert into tblLand values(100, 4, 1, '')
+insert into tblLand values(1000, 5, 2, '')
 
 select * from tblLand
 

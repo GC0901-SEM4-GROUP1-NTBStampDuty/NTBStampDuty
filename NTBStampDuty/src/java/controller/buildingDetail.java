@@ -21,6 +21,7 @@ import model.BuildingType;
 import model.BuildingTypeManager;
 import model.Land;
 import model.LandManager;
+import model.Location;
 
 /**
  *
@@ -32,6 +33,7 @@ public class buildingDetail extends HttpServlet {
     private List<Building> buildingList = new ArrayList<>();
     private List<Land> landList = new ArrayList<>();
     private List<BuildingType> typeList = new ArrayList<>();
+    private List<Location> locationList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -80,11 +82,13 @@ public class buildingDetail extends HttpServlet {
         buildingList = manager.getAllBuilding((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        LandManager landManger = new LandManager();
-        landList = landManger.getAllLandToAdd();
+        LandManager landManager = new LandManager();
+        landList = landManager.getAllLandToAdd();
         BuildingTypeManager typeManager = new BuildingTypeManager();
         typeList = typeManager.getAllBuildingType();
+        locationList = landManager.getLocation();
         request.setAttribute("landList", landList);
+        request.setAttribute("locationList", locationList);
         request.setAttribute("typeList", typeList);
         request.setAttribute("buildingList", buildingList);
         request.setAttribute("noOfPages", noOfPages);

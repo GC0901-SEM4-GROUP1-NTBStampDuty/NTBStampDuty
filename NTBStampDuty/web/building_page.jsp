@@ -1,4 +1,4 @@
-<%-- 
+f<%-- 
     Document   : building_page
     Created on : Apr 22, 2015, 2:48:56 PM
     Author     : Phuc
@@ -12,7 +12,7 @@
 <head>
     <title>Building Details</title>
     <link href="css/build_page_styple.css" rel="stylesheet" type="text/css"/>
-    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
     <script src = "javascript/jquery.js" type="text/javascript"></script>
     <script>
         function submitter(btn) {
@@ -28,6 +28,7 @@
                     $.each(data, function (index, building) {
                         $('.land_name').val(building.landID);
                         $('.build_type').val(building.buildingTypeID);
+                        document.getElementById("buildID").value = id;
                         document.getElementById("buildingName").value = building.buildingName;
                         document.getElementById("floors").value = building.floors;
                         document.getElementById("rooms").value = building.rooms;
@@ -38,10 +39,11 @@
             });
             $('.buildingDetail').dialog({modal: true, show: 'fade', hide: 'drop'});
         }
-        ;
+
+
     </script>
 </head>
-<tag:MainTag>
+<tag:MainTag >
     <div id="main_body">
         <div class="header">
             <div class="edit_menu">
@@ -100,8 +102,35 @@
                                     getName(this)"/></td>
                         </tr>
                     </c:forEach>
-                    <div class="buildingDetail" class="ui-dialog" title="Building Detail" class="ui-dialog-content" style="display:none;">
-                        <div><a>Building:</a> <input id="buildingName" class="build_name"/></div> 
+                </table>
+                <div class="addNewLand" title="Add New Land" style="display:none">
+                    <form>
+                        <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
+                        <div><a>Land Address:</a> <select name="searchColumn" id="landLocation" class="land_address" onchange="getLocationPrice()">
+                                <option value="0">Choose an address</option>
+                                <c:forEach items="${locationList}" var="location">
+                                    <option value="${location.addressID}">${location.addressName}</option>
+                                </c:forEach>
+                            </select>
+                            <img class="plus_navigation" src="images/ic_plus.png"/>                            
+                        </div>
+                        <div><a>Build Status:</a> <input name="buildingStatus" class="land_status" value="${land.buildStatus}"/></div> 
+                        <div><a>Building Type:</a> <input name="buildingType" class="land_type" value="${land.buildingTypes}"/></div> 
+                        <div><a>Price:</a> <input name="landPrice" disabled="disabled" id="unitPrice" class="land_price"/></div>
+                        <div><a>Building Plan:</a> <input name="buildingPlan" class="land_plan" value="${land.buildingPlan}"/></div>
+                        <div><a>Image:</a> <input name="landImage" class="land_image" value="${land.img}"/></div>
+                        <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div><a>Total price:</a> <input name="totalPrice" disabled="disabled" id="totalPrice" class="total_price"/></div>
+                        <div class="edit_menu">
+                            <div class="btn_edit">
+                                <input type="submit" value="Add"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="buildingDetail" class="ui-dialog" title="Building Detail" class="ui-dialog-content" style="display:none;">
+                    <form action="editBuilding" method="POST" enctype="multipart/form-data">    
+                        <div><a>Building:</a> <input id="buildingName" class="build_name" name="buildingName"/></div> 
                         <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
                                 <c:forEach items="${landList}" var="land">
                                     <option value="${land.landID}">${land.addressID}</option>
@@ -115,20 +144,20 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div><a>Floors: </a> <input id="floors" class="floors"/><img class="next_navigation" src="images/ic_show.png"/></div> 
-                        <div><a>Houses: </a> <input id="houses" class="houses"/><img class="next_navigation" src="images/ic_show.png"/></div>  
-                        <div><a>Rooms: </a> <input id="rooms" class="rooms"/><img class="next_navigation" src="images/ic_show.png"/></div>
-                        <div><a>Shops: </a> <input id="shops" class="shops"/><img class="next_navigation" src="images/ic_show.png"/></div>  
+                        <div><a>Floors: </a> <input id="floors" class="floors" name="floors"/><img class="next_navigation" src="images/ic_show.png"/></div> 
+                        <div><a>Houses: </a> <input id="houses" class="houses" name="houses"/><img class="next_navigation" src="images/ic_show.png"/></div>  
+                        <div><a>Rooms: </a> <input id="rooms" class="rooms" name="rooms"/><img class="next_navigation" src="images/ic_show.png"/></div>
+                        <div><a>Shops: </a> <input id="shops" class="shops" name="shops"/><img class="next_navigation" src="images/ic_show.png"/></div>  
                         <div><a>Image:</a> <input type="file" name="buildImage" class="build_image" accept="image/gif, image/jpeg, image/png"/></div>
                         <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
-                        <div></div>
+                        <div><input type="hidden" name="buildingID" id="buildID" /></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Save" />
                             </div>
                         </div>
-                    </div>
-                </table>
+                    </form>
+                </div>
                 <div class="addNewBuilding" title="Add New Building" style="display:none">
                     <form action="addBuilding" method="post" enctype="multipart/form-data">
                         <div><a>Building:</a> <input name="build_name" id="buildName" class="build_name"/></div>
@@ -157,6 +186,7 @@
                             </div>
                         </div>
                     </form>
+                    <input type="submit" value="New" onclick="submitter('addNewLand')"/>
                 </div>
             </div>
             <div class="paging_size">
