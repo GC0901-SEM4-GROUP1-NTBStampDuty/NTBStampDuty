@@ -151,20 +151,16 @@ public class LandManager {
         }
         return landList;
     }
-    
-    public void addNewLand(int landID, int buildingType, String buildingName, int floors, int rooms, int houses, int shops, String img) {
+
+    public void addNewLand(String name, int size, int addressId, int buildingType, String img) {
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("insert into tblBuildingDetails values (?,?,?,?,?,?,?,?,?)");
-            ps.setInt(1, landID);
-            ps.setInt(2, buildingType);
-            ps.setString(3, buildingName);
-            ps.setInt(4, floors);
-            ps.setInt(5, rooms);
-            ps.setInt(6, houses);
-            ps.setInt(7, shops);
-            ps.setString(8, img);
-            ps.setInt(9, 0);
+            PreparedStatement ps = conn.getConnection().prepareStatement("insert into tblLand values(?,?,?,?,?)");
+            ps.setString(1, name);
+            ps.setInt(2, size);
+            ps.setInt(3, addressId);
+            ps.setInt(4, buildingType);
+            ps.setString(5, img);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

@@ -39,8 +39,24 @@ f<%--
             });
             $('.buildingDetail').dialog({modal: true, show: 'fade', hide: 'drop'});
         }
-
-
+        function sendAjax() {
+            var land = new Object();
+            land.name = $('#landName').val();
+            land.size = $('#landSize').val();
+            land.locationId = $('#landLocation').val();
+            land.type = $('#landType').val();
+            land.img = $('#img').val();
+            $.ajax({
+                url: "addLandAjax",
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(land),
+                contentType: 'application/json',
+                mimeType: 'application/json',
+                success: function (data) {
+                }
+            });
+        }
     </script>
 </head>
 <tag:MainTag >
@@ -104,29 +120,26 @@ f<%--
                     </c:forEach>
                 </table>
                 <div class="addNewLand" title="Add New Land" style="display:none">
-                    <form>
-                        <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
-                        <div><a>Land Address:</a> <select name="searchColumn" id="landLocation" class="land_address" onchange="getLocationPrice()">
-                                <option value="0">Choose an address</option>
-                                <c:forEach items="${locationList}" var="location">
-                                    <option value="${location.addressID}">${location.addressName}</option>
-                                </c:forEach>
-                            </select>
-                            <img class="plus_navigation" src="images/ic_plus.png"/>                            
+
+                    <div><a>Land Name:</a> <input name="landName" id="landName" class="land_size"/></div>
+                    <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
+                    <div><a>Land Address:</a> <select name="landAddress" id="landLocation" class="land_address" onchange="getLocationPrice()">
+                            <option value="0">Choose an address</option>
+                            <c:forEach items="${locationList}" var="location">
+                                <option value="${location.addressID}">${location.addressName}</option>
+                            </c:forEach>
+                        </select>
+                        <img class="plus_navigation" src="images/ic_plus.png"/>                            
+                    </div>                        
+                    <div><a>Building Type:</a> <input name="buildingType" id="landType" class="land_type" value="${land.buildingTypes}"/></div> 
+                    <div><a>Image:</a> <input name="landImage" id="img" class="land_image" value="${land.img}"/></div>
+                    <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                    <div class="edit_menu">
+                        <div class="btn_edit">
+                            <input type="submit" value="Add" onclick="addLand()"/>
                         </div>
-                        <div><a>Build Status:</a> <input name="buildingStatus" class="land_status" value="${land.buildStatus}"/></div> 
-                        <div><a>Building Type:</a> <input name="buildingType" class="land_type" value="${land.buildingTypes}"/></div> 
-                        <div><a>Price:</a> <input name="landPrice" disabled="disabled" id="unitPrice" class="land_price"/></div>
-                        <div><a>Building Plan:</a> <input name="buildingPlan" class="land_plan" value="${land.buildingPlan}"/></div>
-                        <div><a>Image:</a> <input name="landImage" class="land_image" value="${land.img}"/></div>
-                        <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
-                        <div><a>Total price:</a> <input name="totalPrice" disabled="disabled" id="totalPrice" class="total_price"/></div>
-                        <div class="edit_menu">
-                            <div class="btn_edit">
-                                <input type="submit" value="Add"/>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
+
                 </div>
                 <div class="buildingDetail" class="ui-dialog" title="Building Detail" class="ui-dialog-content" style="display:none;">
                     <form action="editBuilding" method="POST" enctype="multipart/form-data">    

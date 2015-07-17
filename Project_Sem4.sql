@@ -58,17 +58,18 @@ insert into tblBuildingType values(3, 'Shopping')
 create table tblLand
 (
 land_id int IDENTITY(1,1) primary key,
+land_name nvarchar(30),
 size int,
 address_id int references tblLocation(address_id),
 building_types int references tblBuildingType(buildingType_id),
-img nvarchar(100)
+img varchar(max)
 )
 
-insert into tblLand values(200, 1, 1, '')
-insert into tblLand values(300, 2, 2, '')
-insert into tblLand values(500, 3, 3, '')
-insert into tblLand values(100, 4, 1, '')
-insert into tblLand values(1000, 5, 2, '')
+insert into tblLand values('Land 1',200, 1, 1, '')
+insert into tblLand values('Land 2',300, 2, 2, '')
+insert into tblLand values('Land 3',500, 3, 3, '')
+insert into tblLand values('Land 4',100, 4, 1, '')
+insert into tblLand values('Land 6',1000, 5, 2, 'asdkjaskdjasl')
 
 select * from tblLand
 
@@ -113,10 +114,10 @@ finish_date Datetime,
 period int,
 available_status int,
 )
-Select * from tblProjects
 insert into tblProjects values('Project1', 1, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project2', 2, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project3', 3, '2015-05-30', '2015-06-30', 1, 1)
+Select * from tblProjects
 
 
 select proj_name, building_name
