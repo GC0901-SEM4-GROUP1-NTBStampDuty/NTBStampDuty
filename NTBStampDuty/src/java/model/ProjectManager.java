@@ -48,8 +48,8 @@ public class ProjectManager {
                 project.setProjectName(rs.getString("proj_name"));
                 project.setBuildingId(rs.getInt("buildingid"));
                 project.setBuildingName(rs.getString("building_name"));
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 Date createdDate = rs.getDate("created_date");
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 project.setCreatedDate(dateFormat.format(createdDate));
                 Date finishedDate = rs.getDate("finish_date");
                 project.setFinishDate(dateFormat.format(finishedDate));
@@ -90,7 +90,7 @@ public class ProjectManager {
                 project.setBuildingName(rs.getString("building_name"));
                 project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 project.setCreatedDate(dateFormat.format(createdDate));
                 Date finishedDate = rs.getDate("finish_date");
                 project.setFinishDate(dateFormat.format(finishedDate));
@@ -118,7 +118,7 @@ public class ProjectManager {
             e.printStackTrace();
         }
     }
-    
+
     public void editProject(int projectId, String projectName, int buildingID, int completePercent, String createdDate, String finishedDate, int period) {
         try {
             GetConnection conn = new GetConnection();
@@ -129,7 +129,7 @@ public class ProjectManager {
             ps.setString(4, createdDate);
             ps.setString(5, finishedDate);
             ps.setInt(6, period);
-             ps.setInt(7, projectId);
+            ps.setInt(7, projectId);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -158,7 +158,7 @@ public class ProjectManager {
                 project.setBuildingName(rs.getString("building_name"));
                 project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 project.setCreatedDate(dateFormat.format(createdDate));
                 Date finishedDate = rs.getDate("finish_date");
                 project.setFinishDate(dateFormat.format(finishedDate));
@@ -176,7 +176,7 @@ public class ProjectManager {
         }
         return projectList;
     }
-    
+
     public List<Project> getProjectByName(int startIndex, int endIndex) {
         try {
             GetConnection conn = new GetConnection();
@@ -199,7 +199,7 @@ public class ProjectManager {
                 project.setBuildingName(rs.getString("building_name"));
                 project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 project.setCreatedDate(dateFormat.format(createdDate));
                 Date finishedDate = rs.getDate("finish_date");
                 project.setFinishDate(dateFormat.format(finishedDate));
@@ -217,7 +217,7 @@ public class ProjectManager {
         }
         return projectList;
     }
-    
+
     public List<Project> getProjectByStatus(String fileterType, int startIndex, int endIndex) {
         try {
             GetConnection conn = new GetConnection();
@@ -254,7 +254,7 @@ public class ProjectManager {
                 project.setBuildingName(rs.getString("building_name"));
                 project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 project.setCreatedDate(dateFormat.format(createdDate));
                 Date finishedDate = rs.getDate("finish_date");
                 project.setFinishDate(dateFormat.format(finishedDate));
@@ -272,7 +272,7 @@ public class ProjectManager {
         }
         return projectList;
     }
-    
+
     public void addProject(String proName, int buildingID, Timestamp createdDate, Timestamp finishDate) {
         try {
             GetConnection conn = new GetConnection();
