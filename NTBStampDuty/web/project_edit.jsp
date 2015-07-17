@@ -64,11 +64,11 @@
                             <div class="proDetail">
                                 <input type="hidden" value="${project.projectID}" name="editID"/>
                                 <p>${project.projectID}</p>
-                                <p><input type="text" value="${project.projectName}" name="projName"  maxlength="30"/></p>                                
-                                <p><input type="text" value="${project.createdDate}" name="createdDate" maxlength="10"/></p>
-                                <p><input type="text" value="${project.finishDate}" name="finishDate"  maxlength="10"/></p>
-                                <p><input type="text" value="${project.period}" name="period"/></p>
-                                <p><input type="text" value="${project.completePercent}" name="completePercent"  maxlength="4"/></p>
+                                <p><input type="text" value="${project.projectName}" name="projName"  maxlength="30" required="true"/></p>                                
+                                <p><input type="text" value="${project.createdDate}" name="createdDate" maxlength="10" required="true"/></p>
+                                <p><input type="text" value="${project.finishDate}" name="finishDate"  maxlength="10" required="true"/></p>
+                                <p><input type="text" value="${project.period}" name="period" required="true"/></p>
+                                <p><input type="number" value="${project.completePercent}" name="completePercent"  maxlength="4" required="true"/></p>
                             </div>
                             <div class="buildingDetail">
                                 <div class="buildingDetailLeft">
@@ -78,10 +78,10 @@
                                     <p>Building Type:</p>
                                 </div>
                                 <div class="buildDetailLeft">
-                                    <p><input type="text" value="${building.buildingID}" /></p>
-                                    <p><input type="text" value="${building.landID}" /></p>
-                                    <p><input type="text" value="${building.buildingName}" /></p>
-                                    <p><input type="text" value="${building.buildingType}" /></p>
+                                    <p><input type="number" value="${building.buildingID}" required="true" /></p>
+                                    <p><input type="number" value="${building.landID}" required="true" /></p>
+                                    <p><input type="text" value="${building.buildingName}" required="true" /></p>
+                                    <p><input type="text" value="${building.buildingType}" required="true" /></p>
                                 </div>
                                 <div class="buildingDetailRight">
                                     <p>Floors number:</p>
@@ -90,8 +90,8 @@
                                     <p>Shops number:</p>                  
                                 </div>
                                 <div class="buildDetailRight">
-                                    <p><input type="text" value="${building.floors}" /></p>
-                                    <p><input type="text" value="${building.rooms}" /></p>
+                                    <p><input type="number" value="${building.floors}" /></p>
+                                    <p><input type="number" value="${building.rooms}" /></p>
                                     <p><input type="text" value="${building.houses}" /></p>
                                     <p><input type="text" value="${building.shops}" /></p>                  
                                 </div>
