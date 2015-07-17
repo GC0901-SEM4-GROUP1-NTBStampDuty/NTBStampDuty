@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.UserManager;
 
 /**
  *
@@ -70,7 +71,15 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String user = request.getParameter("username");
+        String pass = request.getParameter("password");
+        UserManager um = new UserManager();
+        if (um.checkUser(user, pass)){
+            request.setAttribute("message", user);
+            request.getRequestDispatcher("project_page.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("login_page.jsp").forward(request, response);
+        }
     }
 
     /**

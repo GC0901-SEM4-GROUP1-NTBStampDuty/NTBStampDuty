@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -82,5 +84,20 @@ public class UserManager {
             e.printStackTrace();
         }
         return userList;
+    }
+    
+    public static boolean checkUser(String user, String password) {
+        boolean status = false;
+        try{
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("Select * from [tblUser] where username =? and password = ?");
+            ps.setString(1, user);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            status = rs.next();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return status;
     }
 }
