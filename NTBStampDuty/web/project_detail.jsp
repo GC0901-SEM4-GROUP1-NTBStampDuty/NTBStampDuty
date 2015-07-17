@@ -31,7 +31,7 @@
                         <option value="Username">Username</option>
                         <option value="Role">Role</option>
                     </select>
-                    <input class="txt_search" type="text" name="searchValue"/>
+                    <input class="txt_search" type="text" name="searchValue"  maxlength="20"/>
                     <input class="btn_search" type="submit" value=""/>
                 </form>
             </div>

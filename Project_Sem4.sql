@@ -154,6 +154,11 @@ create table tblRoomType
 [type_name] nvarchar(50) 
 )
 
+insert into tblRoomType values('Low Cost')
+insert into tblRoomType values('Regular')
+insert into tblRoomType values('Expensive')
+insert into tblRoomType values('VIP')
+
 create table tblRoomDetails
 (
 room_id int primary key identity,
@@ -163,6 +168,15 @@ room_size int,
 [floor] int,
 room_price int
 )
+
+insert into tblRoomDetails values(1, 1, '50', '1', '1500')
+insert into tblRoomDetails values(1, 2, '50', '1', '4000')
+insert into tblRoomDetails values(1, 1, '50', '1', '1500')
+insert into tblRoomDetails values(1, 4, '50', '1', '10000')
+insert into tblRoomDetails values(1, 1, '50', '2', '1500')
+insert into tblRoomDetails values(1, 3, '50', '1', '7500')
+insert into tblRoomDetails values(1, 2, '50', '1', '4000')
+insert into tblRoomDetails values(1, 1, '50', '1', '1500')
 
 create table tblPaymentType
 (

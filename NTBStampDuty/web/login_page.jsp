@@ -20,9 +20,9 @@
         <div class="login_content">
             <div class="login_auth_dialog">
                 <h3>Sign in with your credentials</h3>
-                <form class="login_auth" action="projectDetail" method="post">
-                    <input id="login_input" name="username" placeholder="Username"/><br/>
-                    <input id="login_input" type="password" placeholder="Password" name="password"/><br/>
+                <form class="login_auth" action="login" method="post">
+                    <input id="login_input" type="text" name="username" placeholder="Username"  maxlength="15"/><br/>
+                    <input id="login_input" type="password" name="password" placeholder="Password"  maxlength="20"/><br/>
                     <a href="#" class="login_signup">Register an account</a>
                     <div class="login_remember_form">
                         <input id="login_remember" name="remember" value="checked" type="checkbox"><span> Remember me</span>
