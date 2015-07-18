@@ -136,6 +136,11 @@ period_3 datetime,
 complete_percent int
 )
 
+Insert into tblPeriod values (1,'2015-05-30','2015-06-15','2015-06-30',60)
+Insert into tblPeriod values (2,'2015-05-30','2015-06-15','2015-06-30',40)
+Insert into tblPeriod values (3,'2015-05-30','2015-06-15','2015-06-30',90)
+
+Select * from tblPeriod
 select * from tblBuildingType
 select * from tblLand
 
