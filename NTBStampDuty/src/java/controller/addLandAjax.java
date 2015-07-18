@@ -8,15 +8,19 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.LandManager;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 /**
  *
  * @author Administrator
  */
+@WebServlet(name = "addLandAjax", urlPatterns = {"/addLandAjax"})
 public class addLandAjax extends HttpServlet {
 
     /**
@@ -72,11 +76,16 @@ public class addLandAjax extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String landName = request.getParameter("landName");
-            int size = Integer.valueOf(request.getParameter("landSize"));
-            int addressId = Integer.valueOf(request.getParameter("landAddress"));
-            int buildingType = Integer.valueOf(request.getParameter("buildingType"));
-            String img = request.getParameter("landImage");
+            String jsonLand = request.getParameter("land");
+            JSONParser jsonParser = new JSONParser();
+            Object object = jsonParser.parse(jsonLand);
+            JSONObject jsonObject = (JSONObject) object;
+
+            String landName = jsonObject.get("name").toString();
+            int size = Integer.valueOf(jsonObject.get("size").toString());
+            int addressId = Integer.valueOf(jsonObject.get("locationId").toString());
+            int buildingType = Integer.valueOf(jsonObject.get("type").toString());
+            String img = jsonObject.get("img").toString();
             LandManager lm = new LandManager();
             lm.addNewLand(landName, size, addressId, buildingType, img);
         } catch (Exception e) {

@@ -19,6 +19,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+<<<<<<< HEAD
                     <file>${file.reference.joda-time-2.4-javadoc.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
@@ -28,6 +29,9 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.joda-time-2.4.jar}</file>
+=======
+                    <file>${file.reference.json-simple-1.1.1.jar}</file>
+>>>>>>> 507a6414625f9cffdcfadc359adbd9a06f00d109
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
