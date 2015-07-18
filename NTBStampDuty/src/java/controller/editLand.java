@@ -9,10 +9,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.BuildingType;
+import model.BuildingTypeManager;
 import model.Land;
 import model.LandManager;
 
@@ -23,6 +26,7 @@ import model.LandManager;
 public class editLand extends HttpServlet {
 
     private List<Land> landList = new ArrayList<>();
+    private List<BuildingType> typeList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -76,17 +80,34 @@ public class editLand extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        int landId = Integer.valueOf(request.getParameter("landID"));
-        int size = Integer.valueOf(request.getParameter("size"));
-        String address = request.getParameter("address");
-        int buildingType = Integer.valueOf(request.getParameter("buildingTypes"));
-        int price = Integer.valueOf(request.getParameter("price"));
-        String img = request.getParameter("img");
+
+        int landId = Integer.parseInt(request.getParameter("landID"));
+        int size = Integer.valueOf(request.getParameter("land_size"));
+        String address = request.getParameter("land_address");
+        int buildingType = Integer.valueOf(request.getParameter("typeColumn"));
+        int price = Integer.valueOf(request.getParameter("land_price"));
+        String img = request.getParameter("land_img");
         int available = 0;
         LandManager lm = new LandManager();
         lm.editLand(landId, size, address, price, buildingType, img, available);
-        
+
+        int page = 1;
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        LandManager manager = new LandManager();
+        landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        BuildingTypeManager typeManager = new BuildingTypeManager();
+        typeList = typeManager.getAllBuildingType();
+        request.setAttribute("landList", landList);
+        request.setAttribute("typeList", typeList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
+        rd.forward(request, response);
     }
 
     /**

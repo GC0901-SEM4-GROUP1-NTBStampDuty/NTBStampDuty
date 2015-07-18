@@ -35,6 +35,7 @@
                 success: function (data) {
                     $.each(data, function (index, land) {
                         $('.build_type').val(land.buildingTypes);
+                        document.getElementById("landID").value = id;
                         document.getElementById("land_size").value = land.size;
                         document.getElementById("land_address").value = land.address;
                         document.getElementById("price").value = land.price;
@@ -127,12 +128,12 @@
                                     <option value="${type.id}">${type.typeName}</option>
                                 </c:forEach>
                             </select></div> 
-                        <div><a>Price:</a> <input id="price" name="land_type" class="land_type" value="${land.price}"/></div> 
-                        <div><a>Image:</a> <input id="img" name="land_price" class="land_price" value="${land.img}"/></div>
-                        <div><a>Available Status:</a> <input id="status" name="land_plan" class="land_plan" value="${land.available_status}"/></div>                          
-                        <div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>
+                        <div><a>Price:</a> <input id="price" name="land_price" class="land_type" value="${land.price}"/></div> 
+                        <div><a>Image:</a> <input id="img" name="land_img" class="land_price" value="${land.img}"/></div>
+                        <div><a>Available Status:</a> <input id="status" name="land_stt" class="land_plan" value="${land.available_status}"/></div>                          
+                        <div><a>Image:</a> <input  class="land_image" value=""/></div>
                         <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
-                        <div></div>
+                        <div><input type="hidden" name="landID" id="landID" /></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Save" />

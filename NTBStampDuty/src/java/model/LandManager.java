@@ -131,7 +131,7 @@ public class LandManager {
     public void editLand(int landID,int size, String address, int price, int buildingTypesID, String img, int available_status) {
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("Update tblLand Set size=?,address=?,price=?,building_types,img=?,available_status=? Where land_id=?");
+            PreparedStatement ps = conn.getConnection().prepareStatement("Update tblLand Set size=?,address=?,price=?,building_types=?,img=?,available_status=? Where land_id=?");
             ps.setInt(1, size);
             ps.setString(2, address);
             ps.setInt(3, price);
