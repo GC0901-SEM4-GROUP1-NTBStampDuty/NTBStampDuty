@@ -42,26 +42,23 @@
                 </div>
                 <table class="table_project" id="table">
                     <tr>
-                        <th style="width: 100%"> Project Details</th>
+                        <th style="width: 100%" > Project Details</th>
                     </tr> 
                     <div class="project_container" >
                         <div class="projectImage">
-                            <img src="images/ic_none_image.png" width="195px" height="250px"/>
+                            <img src="images/ic_none_image.png" width="170px" height="230px"/>
                         </div>
                         <div class="projectDetail">
                             <p>Project ID:</p>                   
                             <p>Project Name:</p>     
-                            <p>Building ID:</p>
-                            <p>Building Name:</p>
                             <p>Created Date:</p>
                             <p>Finish Date:</p>
                             <p>Period: </p>
+                            <p>Complete Percent:</p>
                         </div>
                         <div class="proDetail">
                             <p>${project.projectID}</p>
                             <p>${project.projectName}</p>
-                            <p>${project.buildingId}</p>
-                            <p>${project.buildingName}</p>
                             <p>${project.createdDate}</p>
                             <p>${project.finishDate}</p>
                             <p>${project.period}</p>
@@ -92,12 +89,29 @@
                                 <p>${building.shops}</p>                  
                             </div>
                         </div>
+
                         <div id="progress-bar-container">
-                            <div align="center" class="percent">${project.completePercent}%</div>
-                            <div class="period1"></div>
-                            <div class="period2"></div>
-                            <div class="period3"></div>
-                            <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
+                            <a class="date_start">${project.createdDate}</a>
+                            <a class="date_period1">${period.period1}</a>
+                            <a class="date_period2">${period.period2}</a>
+                            <a class="date_period3">${period.period3}</a>
+                            <div class="progress-bar">
+                                <!--<div align="center" class="percent">${project.completePercent}%</div>-->
+                                <div class="period1">
+                                    <img class="warning_yellow" src="images/ic_warning_yellow.png">
+                                    <img class="warning_red" src="images/ic_warning_red.png">   
+                                </div>
+                                <div class="period2">
+                                    <img class="warning_yellow" src="images/ic_warning_yellow.png">
+                                    <img class="warning_red" src="images/ic_warning_red.png">
+
+                                </div>
+                                <div class="period3">
+                                    <img class="warning_yellow" src="images/ic_warning_yellow.png">
+                                    <img class="warning_red" src="images/ic_warning_red.png">
+                                </div>
+                                <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
+                                </div>
                             </div>
                         </div>
                     </div>          

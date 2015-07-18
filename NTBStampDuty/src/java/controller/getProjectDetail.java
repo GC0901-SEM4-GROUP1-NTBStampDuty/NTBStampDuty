@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Building;
 import model.BuildingManager;
+import model.Period;
+import model.PeriodManager;
 import model.Project;
 import model.ProjectManager;
 
@@ -81,9 +83,12 @@ public class getProjectDetail extends HttpServlet {
         int id = Integer.parseInt(projectId);
         ProjectManager pm = new ProjectManager();
         Project proj = pm.getProjectDetails(id);
+        PeriodManager pem = new PeriodManager();
+        Period  period = pem.getPeriod(id);
         BuildingManager bm = new BuildingManager();
         Building building = bm.getBuildingDetails(proj.getBuildingId());
         request.setAttribute("project", proj);
+        request.setAttribute("period", period);
         request.setAttribute("building", building);
         RequestDispatcher rd = request.getRequestDispatcher("project_detail.jsp");
         rd.forward(request, response);
