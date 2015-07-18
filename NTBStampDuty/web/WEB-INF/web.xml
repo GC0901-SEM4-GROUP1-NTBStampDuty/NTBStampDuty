@@ -28,6 +28,10 @@
         <servlet-name>addLand</servlet-name>
         <servlet-class>controller.addLand</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>checkPeriod</servlet-name>
+        <servlet-class>controller.checkPeriod</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>searchBuilding</servlet-name>
         <url-pattern>/searchBuilding</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>addLand</servlet-name>
         <url-pattern>/addLand</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkPeriod</servlet-name>
+        <url-pattern>/checkPeriod</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
