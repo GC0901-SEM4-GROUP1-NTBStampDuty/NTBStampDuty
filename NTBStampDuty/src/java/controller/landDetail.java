@@ -15,9 +15,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.BuildingType;
+import model.BuildingTypeManager;
 import model.Land;
 import model.LandManager;
-import model.Location;
 
 /**
  *
@@ -27,7 +28,7 @@ import model.Location;
 public class landDetail extends HttpServlet {
 
     private List<Land> landList = new ArrayList<>();
-    private List<Location> locationList = new ArrayList<>();
+    private List<BuildingType> typeList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -67,6 +68,7 @@ public class landDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         int page = 1;
         int recordsPerPage = 15;
         if (request.getParameter("page") != null) {
@@ -76,9 +78,10 @@ public class landDetail extends HttpServlet {
         landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        locationList = manager.getLocation();
+        BuildingTypeManager typeManager = new BuildingTypeManager();
+        typeList = typeManager.getAllBuildingType();
         request.setAttribute("landList", landList);
-        request.setAttribute("locationList", locationList);
+        request.setAttribute("typeList", typeList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
         RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
@@ -105,9 +108,10 @@ public class landDetail extends HttpServlet {
         landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        locationList = manager.getLocation();
+        BuildingTypeManager typeManager = new BuildingTypeManager();
+        typeList = typeManager.getAllBuildingType();
         request.setAttribute("landList", landList);
-        request.setAttribute("locationList", locationList);
+        request.setAttribute("typeList", typeList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
         RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");

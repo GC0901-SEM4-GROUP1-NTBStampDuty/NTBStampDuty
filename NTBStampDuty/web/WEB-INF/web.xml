@@ -32,6 +32,14 @@
         <servlet-name>checkPeriod</servlet-name>
         <servlet-class>controller.checkPeriod</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editLand</servlet-name>
+        <servlet-class>controller.editLand</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getLandDetail</servlet-name>
+        <servlet-class>controller.getLandDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>searchBuilding</servlet-name>
         <url-pattern>/searchBuilding</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>checkPeriod</servlet-name>
         <url-pattern>/checkPeriod</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editLand</servlet-name>
+        <url-pattern>/editLand</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getLandDetail</servlet-name>
+        <url-pattern>/getLandDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

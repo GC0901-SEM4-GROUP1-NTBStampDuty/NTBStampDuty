@@ -119,7 +119,6 @@
                     </c:forEach>
                 </table>
                 <div class="addNewLand" title="Add New Land" style="display:none">
-
                     <div><a>Land Name:</a> <input name="landName" id="landName" class="land_size"/></div>
                     <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
                     <div><a>Land Address:</a> <select name="landAddress" id="landLocationID" class="land_address" onchange="getLocationPrice()">
@@ -145,7 +144,7 @@
                         <div><a>Building:</a> <input id="buildingName" class="build_name" name="buildingName"/></div> 
                         <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
                                 <c:forEach items="${landList}" var="land">
-                                    <option value="${land.landID}">${land.addressID}</option>
+                                    <option value="${land.landID}">${land.address}</option>
                                 </c:forEach>
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png"/>
@@ -175,7 +174,7 @@
                         <div><a>Building:</a> <input name="build_name" id="buildName" class="build_name"/></div>
                         <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
                                 <c:forEach items="${landList}" var="land">
-                                    <option value="${land.landID}">${land.addressID}</option>
+                                    <option value="${land.landID}">${land.address}</option>
                                 </c:forEach>
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png"/>
