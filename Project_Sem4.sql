@@ -28,13 +28,6 @@ insert into tblUserDetail values('admin','Tao La Admin',100,0,0696969,null,'19/2
 insert into tblUserDetail values('employee','Tao La Employee',20,0,01234567,null,'123 Giang Vo')
 insert into tblUserDetail values('customer','Tao La Customer',10,1,0869968,null,'321 Mam non Hoa Sen')
 
-create table tblLocation
-(
-address_id int primary key,
-name nvarchar(50),
-price int,
-available_status int
-)
 insert into tblLocation values(1,'Le Thai To', 5500, 0)
 insert into tblLocation values(2,'Giang Van Minh', 3000, 0)
 insert into tblLocation values(3,'Nhat Tan', 2500, 0)
@@ -58,18 +51,20 @@ insert into tblBuildingType values(3, 'Shopping')
 create table tblLand
 (
 land_id int IDENTITY(1,1) primary key,
-land_name nvarchar(30),
 size int,
-address_id int references tblLocation(address_id),
+[address] nvarchar(100),
+price int,
 building_types int references tblBuildingType(buildingType_id),
-img varchar(max)
+img varchar(max),
+available_status int
 )
 
-insert into tblLand values('Land 1',200, 1, 1, '')
-insert into tblLand values('Land 2',300, 2, 2, '')
-insert into tblLand values('Land 3',500, 3, 3, '')
-insert into tblLand values('Land 4',100, 4, 1, '')
-insert into tblLand values('Land 6',1000, 5, 2, 'asdkjaskdjasl')
+insert into tblLand values(200,'101 Quat Lam', 9900000, 1, '',1)
+insert into tblLand values(500,'99 Giang Van Minh', 5000000, 1, '',1)
+insert into tblLand values(600,'105A Giang Vo', 4000000, 1, '',0)
+insert into tblLand values(800,'5 Ngo 69 Yen Phu', 3000000, 1, '',0)
+insert into tblLand values(900,'6 Ngo 69 Yen Phu', 9000000, 1, '',0)
+
 
 select * from tblLand
 
@@ -99,9 +94,9 @@ chosen_status int
 
 insert into tblBuildingDetails values (1, 1, 'New Buidling', 10, 0, 60, 0,'', 0)
 insert into tblBuildingDetails values (2, 2, 'Newer Buidling', 10, 60, 0, 0,'', 0)
-insert into tblBuildingDetails values (3, 3, 'New Shop Buidling', 10, 0, 0, 60,'', 0)
+insert into tblBuildingDetails values (3, 1, 'New Shop Buidling', 10, 0, 0, 60,'', 0)
 insert into tblBuildingDetails values (4, 2, 'House Buidling', 10, 60, 0, 0,'', 1)
-insert into tblBuildingDetails values (5, 1, 'Office Buidling', 10, 0, 60, 0,'', 1)
+insert into tblBuildingDetails values (5, 2, 'Office Buidling', 10, 0, 60, 0,'', 1)
 
 select * from tblBuildingDetails
 
@@ -118,15 +113,6 @@ insert into tblProjects values('Project1', 1, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project2', 2, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project3', 3, '2015-05-30', '2015-06-30', 1, 1)
 Select * from tblProjects
-
-
-select proj_name, building_name
-from tblProjects
-inner join tblBuildingDetails
-on tblProjects.building_id = tblBuildingDetails.building_id
-where available_status = 1
-
-select * from tblProjects where proj_id = 7
 
 Create table tblPeriod(
 proj_id int references tblProjects(proj_id),
@@ -154,8 +140,9 @@ create table tblRoomType
 [type_id] int primary key identity,
 [type_name] nvarchar(50) 
 )
+select*from tblRoomType
 
-insert into tblRoomType values('Low Cost')
+insert into tblRoomType values('')
 insert into tblRoomType values('Regular')
 insert into tblRoomType values('Expensive')
 insert into tblRoomType values('VIP')
@@ -169,6 +156,7 @@ room_size int,
 [floor] int,
 room_price int
 )
+select*from tblRoomDetails
 
 insert into tblRoomDetails values(1, 1, '50', '1', '1500')
 insert into tblRoomDetails values(1, 2, '50', '1', '4000')

@@ -115,7 +115,7 @@
                 </table>
                 <div class="addNewLand" title="Add New Land" style="display:none">
                     <form action="addLand" method="POST">
-                        <div><a>Land Name:</a> <input name="landName" id="landName" class="land_size"/></div>
+                        <!--<div><a>Land Name:</a> <input name="landName" id="landName" class="land_name"/></div>-->
                         <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
                         <div><a>Land Address:</a> <select name="landAddress" id="landLocation" class="land_address" onchange="getLocationPrice()">
                                 <option value="0">Choose an address</option>

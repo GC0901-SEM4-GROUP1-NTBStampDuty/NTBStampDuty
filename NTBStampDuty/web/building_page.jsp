@@ -1,4 +1,4 @@
-f<%-- 
+<%-- 
     Document   : building_page
     Created on : Apr 22, 2015, 2:48:56 PM
     Author     : Phuc
@@ -134,7 +134,7 @@ f<%--
                     <div><a>Image:</a> <input name="landImage" id="img" class="land_image" value="${land.img}"/></div>
                     <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                     <div class="edit_menu">
-                        <div class="btn_edit">
+                        <div class="btn_edit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close">
                             <input type="submit" value="Add" onclick="addLand()"/>
                         </div>
                     </div>
