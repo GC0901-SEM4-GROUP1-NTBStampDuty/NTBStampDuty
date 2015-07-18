@@ -34,18 +34,21 @@ public class addLandAjax extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet addLand</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet addLand at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        try {
+            String jsonLand = request.getParameter("land");
+            JSONParser jsonParser = new JSONParser();
+            Object object = jsonParser.parse(jsonLand);
+            JSONObject jsonObject = (JSONObject) object;
+            
+            int landSize = Integer.valueOf(jsonObject.get("size").toString());
+            String landAddress = jsonObject.get("landAddress").toString();
+            int buildingType = Integer.valueOf(jsonObject.get("buildingType").toString());
+            int landPrice = Integer.valueOf(jsonObject.get("landPrice").toString());
+            
+            LandManager lm = new LandManager();
+            lm.addNewLand(landSize, landAddress, landPrice, buildingType, "", 0);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -75,23 +78,7 @@ public class addLandAjax extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            String jsonLand = request.getParameter("land");
-            JSONParser jsonParser = new JSONParser();
-            Object object = jsonParser.parse(jsonLand);
-            JSONObject jsonObject = (JSONObject) object;
-//
-//            String landName = jsonObject.get("name").toString();
-//            int size = Integer.valueOf(jsonObject.get("size").toString());
-//            int addressId = Integer.valueOf(jsonObject.get("locationId").toString());
-//            int buildingType = Integer.valueOf(jsonObject.get("type").toString());
-//            String img = jsonObject.get("img").toString();
-//            LandManager lm = new LandManager();
-//            lm.addNewLand(landName, size, addressId, buildingType, img);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        processRequest(request, response);
     }
 
     /**
