@@ -121,7 +121,7 @@
                             <div><a>Build Status:</a> <input name="land_status" class="land_status" value="${land.buildStatus}"/></div> 
                             <div><a>Building Type:</a> <input name="land_type" class="land_type" value="${land.buildingTypes}"/></div> 
                             <div><a>Price:</a> <input name="land_price" class="land_price" value="${land.price}"/></div>
-                            <div><a>Building Plan:</a> <input name="land_plan" class="land_plan" value="${land.buildingPlan}"/></div>                          
+                            <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          
                             <div><a>Image:</a> <input name="land_image" class="land_image" value="${land.img}"/></div>
                             <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                             <div></div>

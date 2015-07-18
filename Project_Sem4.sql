@@ -28,16 +28,6 @@ insert into tblUserDetail values('admin','Tao La Admin',100,0,0696969,null,'19/2
 insert into tblUserDetail values('employee','Tao La Employee',20,0,01234567,null,'123 Giang Vo')
 insert into tblUserDetail values('customer','Tao La Customer',10,1,0869968,null,'321 Mam non Hoa Sen')
 
-insert into tblLocation values(1,'Le Thai To', 5500, 0)
-insert into tblLocation values(2,'Giang Van Minh', 3000, 0)
-insert into tblLocation values(3,'Nhat Tan', 2500, 0)
-insert into tblLocation values(4,'Pham Van Dong', 2500, 0)
-insert into tblLocation values(5,'Ly Thai To', 2500, 0)
-insert into tblLocation values(6,'Pham Hung', 2500, 1)
-insert into tblLocation values(7,'Ton Duc Thang', 2500, 1)
-insert into tblLocation values(8,'Le Van Luong', 2500, 1)
-insert into tblLocation values(9,'Nguyen Trai', 2500, 1)
-
 create table tblBuildingType
 (
 buildingType_id int primary key,
@@ -143,14 +133,13 @@ fee int
 create table tblRoomType
 (
 [type_id] int primary key identity,
-[type_name] nvarchar(50) 
+[type_name] nvarchar(10) 
 )
 select*from tblRoomType
 
-insert into tblRoomType values('')
-insert into tblRoomType values('Regular')
-insert into tblRoomType values('Expensive')
-insert into tblRoomType values('VIP')
+insert into tblRoomType values('House')
+insert into tblRoomType values('Shop')
+insert into tblRoomType values('Office')
 
 create table tblRoomDetails
 (
@@ -166,7 +155,7 @@ select*from tblRoomDetails
 insert into tblRoomDetails values(1, 1, '50', '1', '1500')
 insert into tblRoomDetails values(1, 2, '50', '1', '4000')
 insert into tblRoomDetails values(1, 1, '50', '1', '1500')
-insert into tblRoomDetails values(1, 4, '50', '1', '10000')
+insert into tblRoomDetails values(1, 2, '50', '1', '10000')
 insert into tblRoomDetails values(1, 1, '50', '2', '1500')
 insert into tblRoomDetails values(1, 3, '50', '1', '7500')
 insert into tblRoomDetails values(1, 2, '50', '1', '4000')
