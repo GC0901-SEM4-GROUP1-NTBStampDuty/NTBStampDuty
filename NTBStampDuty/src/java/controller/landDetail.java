@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Land;
 import model.LandManager;
+import model.Location;
 
 /**
  *
@@ -26,6 +27,7 @@ import model.LandManager;
 public class landDetail extends HttpServlet {
 
     private List<Land> landList = new ArrayList<>();
+    private List<Location> locationList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -74,7 +76,9 @@ public class landDetail extends HttpServlet {
         landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        locationList = manager.getLocation();
         request.setAttribute("landList", landList);
+        request.setAttribute("locationList", locationList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
         RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");
@@ -101,7 +105,9 @@ public class landDetail extends HttpServlet {
         landList = manager.getAllLand((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        locationList = manager.getLocation();
         request.setAttribute("landList", landList);
+        request.setAttribute("locationList", locationList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
         RequestDispatcher rd = request.getRequestDispatcher("land_page.jsp");

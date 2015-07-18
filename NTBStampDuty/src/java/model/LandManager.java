@@ -17,6 +17,7 @@ import java.util.List;
 public class LandManager {
 
     private List<Land> landList = new ArrayList<>();
+    private List<Location> locationList = new ArrayList<>();
     private int noOfRecords;
 
     public int getNoOfRecords() {
@@ -28,21 +29,31 @@ public class LandManager {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_land AS\n"
-                    + "  ( select land_id, size, address, price, building_types, img, available_status, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
+                    + "  ( select land_id, size, name, buildingType_name, building_plan, built_status, img, price, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
                     + "    from tblLand\n"
+                    + "inner join tblLocation\n"
+                    + "on tblLand.address_id = tblLocation.address_id\n"
                     + "inner join tblBuildingType\n"
                     + "on tblLand.building_types = tblBuildingType.buildingType_id\n"
                     + "  )\n"
-                    + "select land_id, size, address, price, building_types, img, available_status FROM limt_land WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
+                    + "select land_id, size, name, buildingType_name, building_plan, built_status, img, price FROM limt_land WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
             );
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Land land = new Land();
                 land.setLandID(rs.getInt("land_id"));
                 land.setSize(rs.getInt("size"));
-                land.setAddress(rs.getString("address"));
-                land.setBuildingTypes(rs.getInt("building_types"));
-                land.setAvailable_status(rs.getInt("available_status"));
+                land.setAddressID(rs.getString("name"));
+                land.setBuildingTypes(rs.getString("buildingType_name"));
+                land.setBuildingPlan(rs.getString("building_plan"));
+                int status = rs.getInt("built_status");
+                if (status == 0) {
+                    land.setBuildStatus("Not Build");
+                } else if (status == 1) {
+                    land.setBuildStatus("Building");
+                } else {
+                    land.setBuildStatus("Built");
+                }
                 land.setPrice(rs.getInt("price"));
                 land.setImg(rs.getString("img"));
                 landList.add(land);
@@ -64,11 +75,13 @@ public class LandManager {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_land AS\n"
-                    + "  ( select land_id, size, address, price, building_types, img, available_status, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
+                    + "  ( select land_id, size, name, building_types, building_plan, built_status, img, price, ROW_NUMBER() OVER (ORDER BY land_id ASC) AS [row_number]\n"
                     + "    from tblLand\n"
+                    + "inner join tblLocation\n"
+                    + "on tblLand.address_id = tblLocation.address_id\n"
                     + "where " + searchColumn + "= ?"
                     + "  )\n"
-                    + "select land_id, size, address, price, building_types, img, available_status FROM limt_land WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
+                    + "select land_id, size, name, building_types, building_plan, built_status, img, price FROM limt_land WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
             );
             ps.setString(1, searchValue);
             ResultSet rs = ps.executeQuery();
@@ -76,9 +89,17 @@ public class LandManager {
                 Land land = new Land();
                 land.setLandID(rs.getInt("land_id"));
                 land.setSize(rs.getInt("size"));
-                land.setAddress(rs.getString("address"));
-                land.setBuildingTypes(rs.getInt("building_types"));
-                land.setAvailable_status(rs.getInt("available_status"));
+                land.setAddressID(rs.getString("name"));
+                land.setBuildingTypes(rs.getString("building_types"));
+                land.setBuildingPlan(rs.getString("building_plan"));
+                int status = rs.getInt("built_status");
+                if (status == 0) {
+                    land.setBuildStatus("Not Build");
+                } else if (status == 1) {
+                    land.setBuildStatus("Building");
+                } else {
+                    land.setBuildStatus("Built");
+                }
                 land.setPrice(rs.getInt("price"));
                 land.setImg(rs.getString("img"));
                 landList.add(land);
@@ -90,18 +111,38 @@ public class LandManager {
         return landList;
     }
 
+    public List<Location> getLocation() {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblLocation");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Location location = new Location();
+                location.setAddressID(rs.getInt("address_id"));
+                location.setAddressName(rs.getString("name"));
+                location.setPrice(rs.getInt("price"));
+                locationList.add(location);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return locationList;
+    }
+
     public List<Land> getAllLandToAdd() {
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("select land_id, address\n"
+            PreparedStatement ps = conn.getConnection().prepareStatement("select land_id, name\n"
                     + "from tblLand \n"
+                    + "inner join tblLocation\n"
+                    + "on tblLand.address_id = tblLocation.address_id\n"
                     + "inner join tblBuildingType\n"
                     + "on tblLand.building_types = tblBuildingType.buildingType_id");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Land land = new Land();
                 land.setLandID(rs.getInt("land_id"));
-                land.setAddress(rs.getString("address"));
+                land.setAddressID(rs.getString("name"));
                 landList.add(land);
             }
             rs.close();
@@ -111,16 +152,15 @@ public class LandManager {
         return landList;
     }
 
-    public void addNewLand(int size, String address, int price, int buildingTypesID, String img, int available_status) {
+    public void addNewLand(String name, int size, int addressId, int buildingType, String img) {
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("insert into tblLand values(?,?,?,?,?,?)");
-            ps.setInt(1, size);
-            ps.setString(2, address);
-            ps.setInt(3, price);
-            ps.setInt(4, buildingTypesID);
+            PreparedStatement ps = conn.getConnection().prepareStatement("insert into tblLand values(?,?,?,?,?)");
+            ps.setString(1, name);
+            ps.setInt(2, size);
+            ps.setInt(3, addressId);
+            ps.setInt(4, buildingType);
             ps.setString(5, img);
-            ps.setInt(6, available_status);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

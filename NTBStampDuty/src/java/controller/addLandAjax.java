@@ -80,14 +80,14 @@ public class addLandAjax extends HttpServlet {
             JSONParser jsonParser = new JSONParser();
             Object object = jsonParser.parse(jsonLand);
             JSONObject jsonObject = (JSONObject) object;
-//
-//            String landName = jsonObject.get("name").toString();
-//            int size = Integer.valueOf(jsonObject.get("size").toString());
-//            int addressId = Integer.valueOf(jsonObject.get("locationId").toString());
-//            int buildingType = Integer.valueOf(jsonObject.get("type").toString());
-//            String img = jsonObject.get("img").toString();
-//            LandManager lm = new LandManager();
-//            lm.addNewLand(landName, size, addressId, buildingType, img);
+
+            String landName = jsonObject.get("name").toString();
+            int size = Integer.valueOf(jsonObject.get("size").toString());
+            int addressId = Integer.valueOf(jsonObject.get("locationId").toString());
+            int buildingType = Integer.valueOf(jsonObject.get("type").toString());
+            String img = jsonObject.get("img").toString();
+            LandManager lm = new LandManager();
+            lm.addNewLand(landName, size, addressId, buildingType, img);
         } catch (Exception e) {
             e.printStackTrace();
         }
