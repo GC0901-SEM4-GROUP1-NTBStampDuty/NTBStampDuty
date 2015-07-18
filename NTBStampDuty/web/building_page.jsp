@@ -39,22 +39,22 @@
             });
             $('.buildingDetail').dialog({modal: true, show: 'fade', hide: 'drop'});
         }
-        
+
         function addLand() {
             var land = new Object();
-            land.name = $('#landName').val();
             land.size = $('#landSize').val();
-            land.locationId = $('#landLocationID').val();
-            land.type = $('#landType').val();
-            land.img = $('#img').val();
+            land.landAddress = $('#landAddress').val();
+            land.buildingType = $('#buildingType').val();
+            land.landPrice = $('#landPrice').val();
             $.ajax({
                 url: "addLandAjax",
                 type: 'POST',
                 data: {"land": JSON.stringify(land)},
                 success: function (data) {
-                    
+
                 }
             });
+            $('.addNewLand').dialog('close');
         }
     </script>
 </head>
@@ -119,26 +119,22 @@
                     </c:forEach>
                 </table>
                 <div class="addNewLand" title="Add New Land" style="display:none">
-                    <div><a>Land Name:</a> <input name="landName" id="landName" class="land_size"/></div>
-                    <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
-                    <div><a>Land Address:</a> <select name="landAddress" id="landLocationID" class="land_address" onchange="getLocationPrice()">
-                            <option value="0">Choose an address</option>
-                            <c:forEach items="${locationList}" var="location">
-                                <option value="${location.addressID}">${location.addressName}</option>
-                            </c:forEach>
-                        </select>
-                        <img class="plus_navigation" src="images/ic_plus.png"/>                            
-                    </div>                        
-                    <div><a>Building Type:</a> <input name="buildingType" id="landType" class="land_type" value="${land.buildingTypes}"/></div> 
-                    <div><a>Image:</a> <input name="landImage" id="img" class="land_image" value="${land.img}"/></div>
-                    <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                    <!--<div><a>Land Name:</a> <input name="landName" id="landName" class="land_name"/></div>-->
+                    <div><a>Land Size:</a> <input id="landSize" type="text" name="size" class="land_size" /></div>
+                    <div><a>Land Address:</a> <input id="landAddress" type="text" name="address" class="land_address" /></div>                                                      
+                    <div><a>Building Types:</a> <input id="buildingType" type="text" name="buildingTypes" class="land_status" /></div> 
+                    <div><a>Price:</a> <input id="landPrice" type="number" name="price" class="land_type" /></div> 
+                    <!--<div><a>Image:</a> <input type="text" name="img" class="land_price" /></div>-->
+                    <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          
+                    <!--<div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>-->
+                    <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                    <div></div>
                     <div class="edit_menu">
-                        <div class="btn_edit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close">
+                        <div class="btn_edit">
                             <input type="submit" value="Add" onclick="addLand()"/>
                         </div>
                     </div>
-
-                </div>
+                </div>     
                 <div class="buildingDetail" class="ui-dialog" title="Building Detail" class="ui-dialog-content" style="display:none;">
                     <form action="editBuilding" method="POST" enctype="multipart/form-data">    
                         <div><a>Building:</a> <input id="buildingName" class="build_name" name="buildingName"/></div> 
