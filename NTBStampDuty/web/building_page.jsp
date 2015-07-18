@@ -145,7 +145,7 @@
                         <div><a>Building:</a> <input id="buildingName" class="build_name" name="buildingName"/></div> 
                         <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
                                 <c:forEach items="${landList}" var="land">
-                                    <option value="${land.landID}">${land.addressID}</option>
+                                    <option value="${land.landID}">${land.address}</option>
                                 </c:forEach>
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png"/>
@@ -175,7 +175,7 @@
                         <div><a>Building:</a> <input name="build_name" id="buildName" class="build_name"/></div>
                         <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
                                 <c:forEach items="${landList}" var="land">
-                                    <option value="${land.landID}">${land.addressID}</option>
+                                    <option value="${land.landID}">${land.address}</option>
                                 </c:forEach>
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png"/>

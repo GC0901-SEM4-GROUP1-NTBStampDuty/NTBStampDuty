@@ -87,22 +87,23 @@
                         <tr id="land">
                             <td>${land.landID}</td>
                             <td>${land.size}</td>
-                            <td>${land.addressID}</td>
-                            <td>${land.buildingTypes}</td>
+                            <td>${land.address}</td>
                             <td>${land.price}</td>
-                            <td>${land.buildStatus}</td>
+                            <td>${land.buildingTypes}</td>
+                            <td>${land.img}</td>
+                            <td>${land.available_status}</td>
                             <td><input type="submit" value="Show detail" onclick="submitter(${land.landID});
                                     getName(this)"/>
                             </td>
                         </tr>
                         <div class="${land.landID}" class="ui-dialog" title="Land Detail" class="ui-dialog-content" style="display:none;">
                             <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${land.size}"/></div>
-                            <div><a>Land Address:</a> <input name="land_address" class="land_address" value="${land.img}"/></div>                                                      
-                            <div><a>Build Status:</a> <input name="land_status" class="land_status" value="${land.buildStatus}"/></div> 
-                            <div><a>Building Type:</a> <input name="land_type" class="land_type" value="${land.buildingTypes}"/></div> 
-                            <div><a>Price:</a> <input name="land_price" class="land_price" value="${land.price}"/></div>
-                            <div><a>Building Plan:</a> <input name="land_plan" class="land_plan" value="${land.buildingPlan}"/></div>                          
-                            <div><a>Image:</a> <input name="land_image" class="land_image" value="${land.img}"/></div>
+                            <div><a>Land Address:</a> <input name="land_address" class="land_address" value="${land.address}"/></div>                                                      
+                            <div><a>Build Status:</a> <input name="land_status" class="land_status" value="${land.buildingTypes}"/></div> 
+                            <div><a>Building Type:</a> <input name="land_type" class="land_type" value="${land.price}"/></div> 
+                            <div><a>Price:</a> <input name="land_price" class="land_price" value="${land.img}"/></div>
+                            <div><a>Building Plan:</a> <input name="land_plan" class="land_plan" value="${land.available_status}"/></div>                          
+                            <div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>
                             <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                             <div></div>
                             <div class="edit_menu">
@@ -116,32 +117,22 @@
                 <div class="addNewLand" title="Add New Land" style="display:none">
                     <form action="addLand" method="POST">
                         <!--<div><a>Land Name:</a> <input name="landName" id="landName" class="land_name"/></div>-->
-                        <div><a>Land Size:</a> <input name="land_size" class="land_size" value="${land.size}"/></div>
-                            <div><a>Land Address:</a> <input name="land_address" class="land_address" value="${land.img}"/></div>                                                      
-                            <div><a>Build Status:</a> <input name="land_status" class="land_status" value="${land.buildStatus}"/></div> 
-                            <div><a>Building Type:</a> <input name="land_type" class="land_type" value="${land.buildingTypes}"/></div> 
-                            <div><a>Price:</a> <input name="land_price" class="land_price" value="${land.price}"/></div>
-                            <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          
-                            <div><a>Image:</a> <input name="land_image" class="land_image" value="${land.img}"/></div>
-                            <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
-                            <div></div>
+                        <div><a>Land Size:</a> <input type="text" name="size" class="land_size" /></div>
+                        <div><a>Land Address:</a> <input type="text" name="address" class="land_address" /></div>                                                      
+                        <div><a>Building Types:</a> <input type="text" name="buildingTypes" class="land_status" /></div> 
+                        <div><a>Price:</a> <input type="number" name="price" class="land_type" /></div> 
+                        <div><a>Image:</a> <input type="text" name="img" class="land_price" /></div>
+                        <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          
+                        <div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>
+                        <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Add"/>
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="deleteLand" title="Delete Land" style="display:none">
-                    <form>
-                        <div>Are you sure to delete this land ?</div>
-                        <div class="edit_menu">
-                            <div class="btn_delete">
-                                <input type="submit" value="Yes"/>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                </div>                
             </div>
             <div class="paging_size">
                 <%--For displaying Next link --%>

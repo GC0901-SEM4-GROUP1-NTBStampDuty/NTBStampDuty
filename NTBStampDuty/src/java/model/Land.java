@@ -10,14 +10,27 @@ package model;
  * @author Phuc
  */
 public class Land {
+
     private int landID;
     private int size;
-    private String addressID;
-    private String buildingTypes;
-    private String buildingPlan;
-    private String buildStatus;
+    private String address;
+    private int buildingTypes;
     private String img;
     private int price;
+    private int available_status;
+
+    public Land() {
+    }
+
+    public Land(int landID, int size, String address, int price, int buildingTypes, String img, int available_status) {
+        this.landID = landID;
+        this.size = size;
+        this.address = address;
+        this.buildingTypes = buildingTypes;
+        this.img = img;
+        this.price = price;
+        this.available_status = available_status;
+    }
 
     public int getPrice() {
         return price;
@@ -43,36 +56,28 @@ public class Land {
         this.size = size;
     }
 
-    public String getAddressID() {
-        return addressID;
-    }
-
-    public void setAddressID(String addressID) {
-        this.addressID = addressID;
-    }
-
-    public String getBuildingTypes() {
+    public int getBuildingTypes() {
         return buildingTypes;
     }
 
-    public void setBuildingTypes(String buildingTypes) {
+    public void setBuildingTypes(int buildingTypes) {
         this.buildingTypes = buildingTypes;
     }
 
-    public String getBuildingPlan() {
-        return buildingPlan;
+    public String getAddress() {
+        return address;
     }
 
-    public void setBuildingPlan(String buildingPlan) {
-        this.buildingPlan = buildingPlan;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getBuildStatus() {
-        return buildStatus;
+    public int getAvailable_status() {
+        return available_status;
     }
 
-    public void setBuildStatus(String buildStatus) {
-        this.buildStatus = buildStatus;
+    public void setAvailable_status(int available_status) {
+        this.available_status = available_status;
     }
 
     public String getImg() {
@@ -83,5 +88,4 @@ public class Land {
         this.img = img;
     }
 
-   
 }

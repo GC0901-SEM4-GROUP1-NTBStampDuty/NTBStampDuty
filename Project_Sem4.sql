@@ -38,6 +38,7 @@ insert into tblBuildingType values(1, 'Official')
 insert into tblBuildingType values(2, 'Residental')
 insert into tblBuildingType values(3, 'Shopping')
 
+select * from tblBuildingType
 create table tblLand
 (
 land_id int IDENTITY(1,1) primary key,
