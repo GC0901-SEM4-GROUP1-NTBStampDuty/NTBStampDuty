@@ -18,6 +18,7 @@ public class LandManager {
 
     private List<Land> landList = new ArrayList<>();
     private int noOfRecords;
+    private List<Land> landDetailList = new ArrayList<>();
 
     public int getNoOfRecords() {
         return noOfRecords;
@@ -125,5 +126,44 @@ public class LandManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void editLand(int landID,int size, String address, int price, int buildingTypesID, String img, int available_status) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("Update tblLand Set size=?,address=?,price=?,building_types,img=?,available_status=? Where land_id=?");
+            ps.setInt(1, size);
+            ps.setString(2, address);
+            ps.setInt(3, price);
+            ps.setInt(4, buildingTypesID);
+            ps.setString(5, img);
+            ps.setInt(6, available_status);
+            ps.setInt(7, landID);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public List<Land> getLandDetailDialog(int id) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblLand where land_id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int size = rs.getInt("size");
+                int buildingTypeID = rs.getInt("building_types");
+                String address = rs.getString("address");
+                int price = rs.getInt("price");
+                String img = rs.getString("img");
+                int available_status = rs.getInt("available_status");
+                Land land = new Land(id, size, address, price, buildingTypeID, img, available_status);
+                landDetailList.add(land);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return landDetailList;
     }
 }

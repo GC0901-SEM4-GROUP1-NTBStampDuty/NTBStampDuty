@@ -119,7 +119,6 @@
                     </c:forEach>
                 </table>
                 <div class="addNewLand" title="Add New Land" style="display:none">
-
                     <div><a>Land Name:</a> <input name="landName" id="landName" class="land_size"/></div>
                     <div><a>Land Size:</a> <input name="landSize" id="landSize" class="land_size"/></div>
                     <div><a>Land Address:</a> <select name="landAddress" id="landLocationID" class="land_address" onchange="getLocationPrice()">
