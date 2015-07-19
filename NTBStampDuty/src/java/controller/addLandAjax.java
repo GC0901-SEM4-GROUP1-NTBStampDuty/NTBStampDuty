@@ -5,13 +5,17 @@
  */
 package controller;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Land;
 import model.LandManager;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -22,6 +26,8 @@ import org.json.simple.parser.JSONParser;
  */
 @WebServlet(name = "addLandAjax", urlPatterns = {"/addLandAjax"})
 public class addLandAjax extends HttpServlet {
+
+    private List<Land> landList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,14 +45,20 @@ public class addLandAjax extends HttpServlet {
             JSONParser jsonParser = new JSONParser();
             Object object = jsonParser.parse(jsonLand);
             JSONObject jsonObject = (JSONObject) object;
-            
+
             int landSize = Integer.valueOf(jsonObject.get("size").toString());
             String landAddress = jsonObject.get("landAddress").toString();
             int buildingType = Integer.valueOf(jsonObject.get("buildingType").toString());
             int landPrice = Integer.valueOf(jsonObject.get("landPrice").toString());
-            
+
             LandManager lm = new LandManager();
             lm.addNewLand(landSize, landAddress, landPrice, buildingType, "", 0);
+
+            landList = lm.getAllLandToAdd();
+            String json = new Gson().toJson(landList);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
         } catch (Exception e) {
             e.printStackTrace();
         }

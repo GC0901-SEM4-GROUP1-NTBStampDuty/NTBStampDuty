@@ -51,10 +51,23 @@
                 type: 'POST',
                 data: {"land": JSON.stringify(land)},
                 success: function (data) {
-
+                    document.getElementById("landLocationDetail").innerHTML = "";
+                    document.getElementById("landLocationAddNew").innerHTML = "";
+                    var selectListDetail = document.getElementById("landLocationDetail");
+                    var selectListAddNew = document.getElementById("landLocationAddNew");
+                    $.each(data, function (index, land) {
+                        var option = document.createElement("option");
+                        option.text = land.address;
+                        option.value = land.landID;
+                        var option2 = document.createElement("option");
+                        option2.text = land.address;
+                        option2.value = land.landID;
+                        selectListDetail.add(option);
+                        selectListAddNew.add(option2);
+                    });
+                    $('.addNewLand').dialog('close');
                 }
             });
-            $('.addNewLand').dialog('close');
         }
     </script>
 </head>
@@ -138,7 +151,7 @@
                 <div class="buildingDetail" class="ui-dialog" title="Building Detail" class="ui-dialog-content" style="display:none;">
                     <form action="editBuilding" method="POST" enctype="multipart/form-data">    
                         <div><a>Building:</a> <input id="buildingName" class="build_name" name="buildingName"/></div> 
-                        <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
+                        <div><a>Land:</a> <select name="landColumn" id="landLocationDetail" class="land_name">
                                 <c:forEach items="${landList}" var="land">
                                     <option value="${land.landID}">${land.address}</option>
                                 </c:forEach>
@@ -168,12 +181,12 @@
                 <div class="addNewBuilding" title="Add New Building" style="display:none">
                     <form action="addBuilding" method="post" enctype="multipart/form-data">
                         <div><a>Building:</a> <input name="build_name" id="buildName" class="build_name"/></div>
-                        <div><a>Land:</a> <select name="landColumn" id="landLocation" class="land_name">
+                        <div><a>Land:</a> <select name="landColumn" id="landLocationAddNew" class="land_name">
                                 <c:forEach items="${landList}" var="land">
                                     <option value="${land.landID}">${land.address}</option>
                                 </c:forEach>
                             </select>
-                            <img class="plus_navigation" src="images/ic_plus.png"/>
+                            <img class="plus_navigation" src="images/ic_plus.png" onclick="submitter('addNewLand')"/>
                         </div>
                         <div><a>Building Type:</a> <select name="typeColumn" id="landLocation" class="build_type">
                                 <c:forEach items="${typeList}" var="type">
@@ -193,7 +206,6 @@
                             </div>
                         </div>
                     </form>
-                    <input type="submit" value="New" onclick="submitter('addNewLand')"/>
                 </div>
             </div>
             <div class="paging_size">
