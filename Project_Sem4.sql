@@ -13,6 +13,8 @@ insert into tblUser values('admin','admin',0)
 insert into tblUser values('employee','employee',1)
 insert into tblUser values('customer','customer', 2)
 
+select * from tblUser
+
 create table tblUserDetail
 (
 	username nvarchar(50) primary key references tblUser(username),
