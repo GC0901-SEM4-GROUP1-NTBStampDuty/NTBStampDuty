@@ -100,4 +100,20 @@ public class UserManager {
         }
         return status;
     }
+    
+    public static boolean addUser(String un, String pw, int role) {
+        boolean status = false;
+        try{
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("Insert into [tblUser] values(?, ?, ?)");
+            ps.setString(1, un);
+            ps.setString(2, pw);
+            ps.setInt(3, role);
+            ResultSet rs = ps.executeQuery();
+            status = rs.next();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return status;
+    }
 }

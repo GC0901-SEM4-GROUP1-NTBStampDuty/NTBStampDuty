@@ -17,7 +17,7 @@ import model.UserManager;
  *
  * @author admin
  */
-public class login extends HttpServlet {
+public class signup extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +36,10 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");            
+            out.println("<title>Servlet signup</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet signup at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -73,10 +73,11 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
+        int role = Integer.valueOf(request.getParameter("role"));
         UserManager um = new UserManager();
-        if (um.checkUser(user, pass)){
+        if (um.addUser(user, pass, role)){
             request.setAttribute("message", user);
-            request.getRequestDispatcher("project_detail.jsp").forward(request, response);
+            request.getRequestDispatcher("login_page.jsp").forward(request, response);
         }else{
             request.getRequestDispatcher("login_page.jsp").forward(request, response);
         }
