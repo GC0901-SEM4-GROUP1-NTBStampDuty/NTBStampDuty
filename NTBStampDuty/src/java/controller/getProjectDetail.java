@@ -85,8 +85,21 @@ public class getProjectDetail extends HttpServlet {
         Project proj = pm.getProjectDetails(id);
         PeriodManager pem = new PeriodManager();
         Period  period = pem.getPeriod(id);
+        int total_percent = 0;
+        switch(proj.getPeriod()){
+            case 1:
+                total_percent = period.getPercent()/3;
+                break;
+            case 2:
+                total_percent = 34+period.getPercent()/3;
+                break;
+            case 3:
+                total_percent = 67+period.getPercent()/3;
+                break;
+        }
         BuildingManager bm = new BuildingManager();
         Building building = bm.getBuildingDetails(proj.getBuildingId());
+        request.setAttribute("total_percent", total_percent);
         request.setAttribute("project", proj);
         request.setAttribute("period", period);
         request.setAttribute("building", building);

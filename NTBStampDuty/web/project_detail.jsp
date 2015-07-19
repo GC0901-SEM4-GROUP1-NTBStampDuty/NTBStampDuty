@@ -13,9 +13,20 @@
     <title>Project Details</title>
     <link href="css/project_detail_styple.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
+    <script>
+        function setWarning(period, percent, date) {
+            var today = new Date();
+            var endday = new Date(date);
+            if (today.getYear() === endday.getYear()) {
+                if(endday.getMonth() - today.getMonth() <= 1 && percent < 100){
+                    $('.period' + period + ' .warning_yellow').css('visibility', 'visible');
+                }
+            }
+        }
+    </script>
 </head>
 <tag:MainTag>
-    <div id="main_body">
+    <div id="main_body" onload="setWarning(${project.period},${period.percent},${period.period1})">
         <div class="header">
             <div class="edit_menu">
                 <div class="btn_edit">
@@ -96,7 +107,7 @@
                             <a class="date_period2">${period.period2}</a>
                             <a class="date_period3">${period.period3}</a>
                             <div class="progress-bar">
-                                <!--<div align="center" class="percent">${project.completePercent}%</div>-->
+                                <div align="center" class="percent">${total_percent}%</div>
                                 <div class="period1">
                                     <img class="warning_yellow" src="images/ic_warning_yellow.png">
                                     <img class="warning_red" src="images/ic_warning_red.png">   
@@ -110,7 +121,7 @@
                                     <img class="warning_yellow" src="images/ic_warning_yellow.png">
                                     <img class="warning_red" src="images/ic_warning_red.png">
                                 </div>
-                                <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
+                                <div style="width:${total_percent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
                                 </div>
                             </div>
                         </div>

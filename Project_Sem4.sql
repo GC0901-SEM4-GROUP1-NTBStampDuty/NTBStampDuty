@@ -100,7 +100,7 @@ finish_date Datetime,
 period int,
 available_status int,
 )
-insert into tblProjects values('Project1', 1, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project1', 1, '2015-07-19', '2016-07-19', 1, 1)
 insert into tblProjects values('Project2', 2, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project3', 3, '2015-05-30', '2015-06-30', 1, 1)
 Select * from tblProjects
@@ -112,8 +112,11 @@ period_2 datetime,
 period_3 datetime,
 complete_percent int
 )
+Update tblPeriod
+Set period_1 = '2015-07-30'
+where proj_id = 1
 
-Insert into tblPeriod values (1,'2015-05-30','2015-06-15','2015-06-30',60)
+Insert into tblPeriod values (1,'2015-11-19','2016-03-19','2015-06-19',60)
 Insert into tblPeriod values (2,'2015-05-30','2015-06-15','2015-06-30',40)
 Insert into tblPeriod values (3,'2015-05-30','2015-06-15','2015-06-30',90)
 
