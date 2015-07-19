@@ -21,6 +21,23 @@ public class Project {
     private String createdDate;
     private String finishDate;
     private int period;
+    private Date cData, fDate;
+
+    public Date getcData() {
+        return cData;
+    }
+
+    public void setcData(Date cData) {
+        this.cData = cData;
+    }
+
+    public Date getfDate() {
+        return fDate;
+    }
+
+    public void setfDate(Date fDate) {
+        this.fDate = fDate;
+    }
 
     public int getBuildingId() {
         return buildingId;

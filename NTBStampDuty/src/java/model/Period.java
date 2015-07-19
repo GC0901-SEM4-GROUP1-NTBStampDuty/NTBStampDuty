@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author SonNguyen
@@ -15,6 +17,31 @@ public class Period {
     private String period2;
     private String period3;
     private int percent;
+    private Date p1,p2,p3;  
+
+    public Date getP1() {
+        return p1;
+    }
+
+    public void setP1(Date p1) {
+        this.p1 = p1;
+    }
+
+    public Date getP2() {
+        return p2;
+    }
+
+    public void setP2(Date p2) {
+        this.p2 = p2;
+    }
+
+    public Date getP3() {
+        return p3;
+    }
+
+    public void setP3(Date p3) {
+        this.p3 = p3;
+    }
 
     public int getProject_id() {
         return project_id;

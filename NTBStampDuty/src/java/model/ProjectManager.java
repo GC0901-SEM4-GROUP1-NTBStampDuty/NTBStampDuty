@@ -48,12 +48,14 @@ public class ProjectManager {
                 project.setProjectName(rs.getString("proj_name"));
                 project.setBuildingId(rs.getInt("buildingid"));
                 project.setBuildingName(rs.getString("building_name"));
-                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 Date createdDate = rs.getDate("created_date");
-                project.setCreatedDate(dateFormat.format(createdDate));
                 Date finishedDate = rs.getDate("finish_date");
+                project.setCreatedDate(dateFormat.format(createdDate));
                 project.setFinishDate(dateFormat.format(finishedDate));
                 project.setPeriod(rs.getInt("period"));
+                project.setcData(rs.getDate("created_date"));
+                project.setfDate(rs.getDate("finish_date"));
                 projectList.add(project);
             }
             rs.close();
@@ -90,7 +92,7 @@ public class ProjectManager {
                 project.setBuildingName(rs.getString("building_name"));
                 //project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
-                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 project.setCreatedDate(dateFormat.format(createdDate));
                 Date finishedDate = rs.getDate("finish_date");
                 project.setFinishDate(dateFormat.format(finishedDate));

@@ -27,7 +27,7 @@ p {height: 21px;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .date_period2{ position: absolute; top: 0; left: 59%; font-weight: bold; font-size: 13px; visibility: hidden;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .date_period3{ position: absolute;  top: 25px; left: 89%; font-weight: bold; font-size: 13px; visibility: hidden;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar {width: 80%; height: 29px; border:1px solid gray; border-radius: 20px; overflow: hidden; margin-left: 94px;margin-top: 18px;}
-#main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .percent {position: absolute; width: 80%; padding-top: 4px;}
+#main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .percent {position: absolute; width: 81%; padding-top: 4px;font-weight: bold;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .period1 {position: relative; float: left; width: 33%; height: 30px;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .period2 {position: relative; float: left; width: 34%; height: 30px; outline: 1px solid #C7C9CC;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .period3 {position: relative; float: left;  width: 33%;height: 30px;}

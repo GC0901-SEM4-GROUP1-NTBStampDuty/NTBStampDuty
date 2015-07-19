@@ -36,6 +36,9 @@ public class PeriodManager {
                 p.setPeriod2(dateFormat.format(period2));
                 p.setPeriod3(dateFormat.format(period3));
                 p.setPercent(rs.getInt("complete_percent"));
+                p.setP1(rs.getDate("period_1"));
+                p.setP2(rs.getDate("period_2"));
+                p.setP3(rs.getDate("period_3"));
                 period = p;
             }
         } catch (Exception e) {

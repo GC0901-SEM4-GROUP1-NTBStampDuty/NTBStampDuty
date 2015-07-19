@@ -7,6 +7,9 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Building;
 import model.BuildingManager;
+import model.CompareDate;
 import model.Period;
 import model.PeriodManager;
 import model.Project;
@@ -85,20 +89,30 @@ public class getProjectDetail extends HttpServlet {
         Project proj = pm.getProjectDetails(id);
         PeriodManager pem = new PeriodManager();
         Period  period = pem.getPeriod(id);
+        CompareDate cd = new CompareDate();
+        Date date = new Date();
         int total_percent = 0;
+        int status = 0, flat = 0;
         switch(proj.getPeriod()){
             case 1:
                 total_percent = period.getPercent()/3;
+                flat = cd.compareDate(proj.getPeriod(), date, period.getP1());
+                status = cd.compareDataPercent(flat, period.getPercent());
                 break;
             case 2:
                 total_percent = 34+period.getPercent()/3;
+                flat = cd.compareDate(proj.getPeriod(), date, period.getP2());
+                status = cd.compareDataPercent(flat, period.getPercent());
                 break;
             case 3:
                 total_percent = 67+period.getPercent()/3;
+                flat = cd.compareDate(proj.getPeriod(), date, period.getP3());
+                status = cd.compareDataPercent(flat, period.getPercent());
                 break;
         }
         BuildingManager bm = new BuildingManager();
         Building building = bm.getBuildingDetails(proj.getBuildingId());
+        request.setAttribute("status", status);
         request.setAttribute("total_percent", total_percent);
         request.setAttribute("project", proj);
         request.setAttribute("period", period);

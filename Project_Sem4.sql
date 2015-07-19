@@ -113,7 +113,7 @@ period_3 datetime,
 complete_percent int
 )
 Update tblPeriod
-Set period_1 = '2015-07-30'
+Set period_1 = '2015-08-19'
 where proj_id = 1
 
 Insert into tblPeriod values (1,'2015-11-19','2016-03-19','2015-06-19',60)
