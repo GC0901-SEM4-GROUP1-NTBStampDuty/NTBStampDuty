@@ -17,7 +17,7 @@
         function setWarning(period, status) {
             if (status == 1) {
                 $(".period" + period + ' .warning_yellow').css("visibility", "visible");
-            }else if(status == - 1){
+            } else if (status == -1) {
                 $(".period" + period + ' .warning_red').css("visibility", "visible");
             }
         }
@@ -72,6 +72,7 @@
                                 <p>${project.createdDate}</p>
                                 <p>${project.finishDate}</p>
                                 <p>${project.period}</p>
+                                <p>${project.completePercent}</p>
                             </div>
                             <div class="buildingDetail">
                                 <div class="buildingDetailLeft">

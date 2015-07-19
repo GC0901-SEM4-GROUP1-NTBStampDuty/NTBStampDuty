@@ -74,13 +74,13 @@ public class ProjectManager {
         try {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
-                    "WITH limt_project AS\n"
-                    + "(select proj_id, proj_name,tblProjects.building_id as buildingid, building_name, created_date, finish_date, period \n"
+                     "select tblProjects.proj_id, proj_name,tblProjects.building_id as buildingid, building_name, created_date, finish_date, period, complete_percent\n"
                     + "from tblProjects\n"
                     + "inner join tblBuildingDetails\n"
                     + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
-                    + ")\n"
-                    + "select proj_id, proj_name,buildingid, building_name, created_date, finish_date, period FROM limt_project WHERE proj_id = ?"
+                    + "inner join tblPeriod\n"
+                    + "on tblPeriod.proj_id = tblProjects.proj_id "
+                    + "where tblProjects.proj_id = ?"
             );
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -90,7 +90,7 @@ public class ProjectManager {
                 project.setProjectName(rs.getString("proj_name"));
                 project.setBuildingId(rs.getInt("buildingid"));
                 project.setBuildingName(rs.getString("building_name"));
-                //project.setCompletePercent(rs.getInt("complete_percent"));
+                project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
                 DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 project.setCreatedDate(dateFormat.format(createdDate));

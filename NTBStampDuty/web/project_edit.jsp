@@ -21,12 +21,6 @@
                 <div class="btn_new">
                     <input type="submit" value="New" onclick="submitter('addNewLand')"/>
                 </div>
-                <div class="btn_delete">
-                    <form action="deleteProject" method="post">
-                        <input type="hidden" value="${project.projectID}" name="deleteID"/>
-                        <input type="submit" value="Delete"/>
-                    </form>
-                </div>
             </div>
             <div class="search_menu">
                 <form class="form_search" action="" method="post">
@@ -55,19 +49,19 @@
                             <div class="projectDetail">
                                 <p>Project ID:</p>                   
                                 <p>Project Name:</p> 
+                                <p>Period: </p>
                                 <p>Created Date:</p>
                                 <p>Finish Date:</p>
-                                <p>Period: </p>
                                 <p>Complete Percent: </p>
                             </div>
 
                             <div class="proDetail">
                                 <input type="hidden" value="${project.projectID}" name="editID"/>
                                 <p>${project.projectID}</p>
-                                <p><input type="text" value="${project.projectName}" name="projName"  maxlength="30" required="true"/></p>                                
+                                <p><input type="text" value="${project.projectName}" name="projName"  maxlength="30" required="true"/></p> 
+                                <p><input type="text" value="${project.period}" name="period" required="true"/></p>
                                 <p><input type="text" value="${project.createdDate}" name="createdDate" maxlength="10" required="true"/></p>
                                 <p><input type="text" value="${project.finishDate}" name="finishDate"  maxlength="10" required="true"/></p>
-                                <p><input type="text" value="${project.period}" name="period" required="true"/></p>
                                 <p><input type="number" value="${project.completePercent}" name="completePercent"  maxlength="4" required="true"/></p>
                             </div>
                             <div class="buildingDetail">
@@ -101,7 +95,7 @@
                                 <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
                                 </div>
                             </div>
-                                <p><input type="submit" class="saveEdit" value="Save"/></p>
+                            <p><input type="submit" class="saveEdit" value="Save"/></p>
                         </form>
                     </div>          
                 </table>
