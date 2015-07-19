@@ -44,7 +44,7 @@
             var land = new Object();
             land.size = $('#landSize').val();
             land.landAddress = $('#landAddress').val();
-            land.buildingType = $('#buildingType').val();
+            land.buildingType = $('#buildingTypes').val();
             land.landPrice = $('#landPrice').val();
             $.ajax({
                 url: "addLandAjax",
@@ -135,7 +135,11 @@
                     <!--<div><a>Land Name:</a> <input name="landName" id="landName" class="land_name"/></div>-->
                     <div><a>Land Size:</a> <input id="landSize" type="text" name="size" class="land_size" /></div>
                     <div><a>Land Address:</a> <input id="landAddress" type="text" name="address" class="land_address" /></div>                                                      
-                    <div><a>Building Types:</a> <input id="buildingType" type="text" name="buildingTypes" class="land_status" /></div> 
+                    <div><a>Building Types:</a> </a> <select name="typeColumn" id="buildingTypes" class="build_type">
+                            <c:forEach items="${typeList}" var="type">
+                                <option value="${type.id}">${type.typeName}</option>
+                            </c:forEach>
+                        </select></div> 
                     <div><a>Price:</a> <input id="landPrice" type="number" name="price" class="land_type" /></div> 
                     <!--<div><a>Image:</a> <input type="text" name="img" class="land_price" /></div>-->
                     <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          

@@ -72,10 +72,10 @@
                                     <p>Building Type:</p>
                                 </div>
                                 <div class="buildDetailLeft">
-                                    <p><input type="number" value="${building.buildingID}" required="true" /></p>
-                                    <p><input type="number" value="${building.landID}" required="true" /></p>
-                                    <p><input type="text" value="${building.buildingName}" required="true" /></p>
-                                    <p><input type="text" value="${building.buildingType}" required="true" /></p>
+                                    <p>${building.buildingID}</p>
+                                    <p>${building.landID}</p>
+                                    <p>${building.buildingName}</p>
+                                    <p>${building.buildingType}</p>
                                 </div>
                                 <div class="buildingDetailRight">
                                     <p>Floors number:</p>
@@ -84,10 +84,10 @@
                                     <p>Shops number:</p>                  
                                 </div>
                                 <div class="buildDetailRight">
-                                    <p><input type="number" value="${building.floors}" /></p>
-                                    <p><input type="number" value="${building.rooms}" /></p>
-                                    <p><input type="text" value="${building.houses}" /></p>
-                                    <p><input type="text" value="${building.shops}" /></p>                  
+                                    <p>${building.floors}</p>
+                                    <p>${building.rooms}</p>
+                                    <p>${building.houses}</p>
+                                    <p>${building.shops}</p>                  
                                 </div>
                             </div>
                             <div id="progress-bar-container">
