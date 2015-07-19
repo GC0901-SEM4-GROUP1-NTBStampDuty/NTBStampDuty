@@ -105,7 +105,7 @@ public class UserManager {
         boolean status = false;
         try{
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("Insert into [tblUser] values(?, ?, 0)");
+            PreparedStatement ps = conn.getConnection().prepareStatement("Insert into [tblUser] values(?, ?, ?)");
             ps.setString(1, un);
             ps.setString(2, pw);
             ps.setInt(3, role);
