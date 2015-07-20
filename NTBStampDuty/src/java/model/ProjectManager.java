@@ -74,7 +74,7 @@ public class ProjectManager {
         try {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
-                     "select tblProjects.proj_id, proj_name,tblProjects.building_id as buildingid, building_name, created_date, finish_date, period, complete_percent\n"
+                    "select tblProjects.proj_id, proj_name,tblProjects.building_id as buildingid, building_name, created_date, finish_date, period, complete_percent\n"
                     + "from tblProjects\n"
                     + "inner join tblBuildingDetails\n"
                     + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
@@ -124,15 +124,27 @@ public class ProjectManager {
     public void editProject(int projectId, String projectName, int buildingID, int completePercent, String createdDate, String finishedDate, int period) {
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("Update tblProjects Set proj_name=?,building_id=?,complete_percent=?,created_date=CONVERT(datetime, ?, 103),finish_date=CONVERT(datetime, ?, 103),period=? where proj_id=? ");
-            ps.setString(1, projectName);
-            ps.setInt(2, buildingID);
-            ps.setInt(3, completePercent);
-            ps.setString(4, createdDate);
-            ps.setString(5, finishedDate);
-            ps.setInt(6, period);
-            ps.setInt(7, projectId);
+//            PreparedStatement ps = conn.getConnection().prepareStatement("Update tblProjects Set proj_name=?,building_id=?,complete_percent=?,created_date=CONVERT(datetime, ?, 103),finish_date=CONVERT(datetime, ?, 103),period=? where proj_id=? ");
+//            ps.setString(1, projectName);
+//            ps.setInt(2, buildingID);
+//            ps.setInt(3, completePercent);
+//            ps.setString(4, createdDate);
+//            ps.setString(5, finishedDate);
+//            ps.setInt(6, period);
+//            ps.setInt(7, projectId);
+//            ps.executeUpdate();
+            PreparedStatement ps = conn.getConnection().prepareStatement("update tblPeriod\n"
+                    + "set complete_percent = ?\n"
+                    + "where proj_id = ?");
+            ps.setInt(1, completePercent);
+            ps.setInt(2, projectId);
             ps.executeUpdate();
+            PreparedStatement ps2 = conn.getConnection().prepareStatement("update tblProjects\n"
+                    + "set period = ?\n"
+                    + "where proj_id = ?");
+            ps2.setInt(1, period);
+            ps2.setInt(2, projectId);
+            ps2.executeQuery();
         } catch (Exception e) {
             e.printStackTrace();
         }

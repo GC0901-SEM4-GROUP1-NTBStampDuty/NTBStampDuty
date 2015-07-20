@@ -105,6 +105,13 @@ public class editProject extends HttpServlet {
         String createdDate = request.getParameter("createdDate");
         String finishedDate = request.getParameter("finishDate");
         int period = Integer.parseInt(request.getParameter("period"));
+        if (period < 3) {
+            if (completePercent == 100) {
+                period = period + 1;
+                completePercent = 0;
+            }
+        } else if (period == 3) {
+        }
         pm.editProject(editId, projName, buildingID, completePercent, createdDate, finishedDate, period);
         int page = 1;
         int recordsPerPage = 12;

@@ -59,7 +59,7 @@
                                 <input type="hidden" value="${project.projectID}" name="editID"/>
                                 <p>${project.projectID}</p>
                                 <p><input type="text" value="${project.projectName}" name="projName"  maxlength="30" required="true"/></p> 
-                                <p><input type="text" value="${project.period}" name="period" required="true"/></p>
+                                <p><input type="text" readonly="true" value="${project.period}" name="period" required="true"/></p>
                                 <p><input type="text" value="${project.createdDate}" name="createdDate" maxlength="10" required="true"/></p>
                                 <p><input type="text" value="${project.finishDate}" name="finishDate"  maxlength="10" required="true"/></p>
                                 <p><input type="number" value="${project.completePercent}" name="completePercent"  maxlength="4" required="true"/></p>
