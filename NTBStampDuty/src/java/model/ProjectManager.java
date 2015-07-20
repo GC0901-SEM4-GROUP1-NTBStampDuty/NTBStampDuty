@@ -34,7 +34,7 @@ public class ProjectManager {
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_project AS\n"
                     + "(select proj_id, proj_name,tblProjects.building_id as buildingid, building_name, created_date, finish_date, period, ROW_NUMBER() OVER (ORDER BY proj_id ASC) AS [row_number]\n"
-                    + "from tblProjects\n"
+                    + "from tblProjects \n"
                     + "inner join tblBuildingDetails\n"
                     + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
                     + "where available_status = 1"

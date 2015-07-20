@@ -81,9 +81,11 @@
                     <div class="project_container" >
                         <c:forEach items="${projectList}" var="pro">
                             <div id="project" align="center" onclick="getProjectID(${pro.projectID})">
+                                <a style="font-weight: bold; font-size: 12.4px">${pro.projectName}</a>
                                 <a><img id="pro_img" src="images/ic_none_image.png"/></a><br/>
-                                <a style="font-weight: bold">${pro.projectName}</a><br/>
-                                <a>${pro.buildingName}</a><br/>
+                                <a style="font-weight: bold">${pro.buildingName}</a><br/>
+                                <a>Created ${pro.createdDate}</a><br/>
+                                <a>Period ${pro.period}</a>
                                 <a>
                                     <div align="left" id="progress-bar-container">
                                         <div align="center" class="percent">${pro.completePercent}%</div>
@@ -137,7 +139,7 @@
                         <div><a>Create Date:</a> <input name="createData"  disabled="disabled" class="create_data"/></div> 
                         <div><a>Period 1 Deadline:</a> <input type="date" name="completePercent" class="complete_percent"/></div> 
                         <div><a>Finish Date:</a> <input type="date" name="finishDate" class="finish_data"/></div>
-                        <div><a>Period 2 Deadline:</a> <input type="date" name="period" id="building_period" class="building_period"/></div>                     
+                        <div><a>Period 2 Deadline:</a> <input type="date" accept=""name="period" id="building_period" class="building_period"/></div>                     
                         <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Add"/>

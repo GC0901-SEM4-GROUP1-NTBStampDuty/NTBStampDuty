@@ -45,3 +45,22 @@
 
 
 .ui-widget .deleteLand div:nth-child(2) {margin-bottom: 0px;}
+
+.addNewLand div:first-child {width: 570px;}
+.addNewLand div:nth-child(2) {margin-bottom: 20px;}
+.addNewLand div:nth-child(3) {margin-left: 0px; margin-bottom: 2px;}
+.addNewLand div:nth-child(4) {margin-left: 60px;margin-bottom: 2px;}
+.addNewLand div:nth-child(6) { margin-left: 0}/*
+.addNewLand div:nth-child(7) {}
+.addNewLand div:nth-child(8) {margin-left: 100px;}
+.addNewLand div:nth-child(9) {float: left; margin-left: 55px;}*/
+
+.ui-widget div .plus_navigation{width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 3px;}
+.ui-widget div .land_size {margin-left: 35px; margin-top: 1px;}
+.ui-widget div .land_address {margin-left: 10px; width: 470px;}
+.ui-widget div .land_status {margin-left: 20px;}
+.ui-widget div .build_type {margin-left: 3px;width: 170px;}
+.ui-widget div .land_price {margin-left: 33px;}
+/*.ui-widget div .land_total {margin-left: 29px}
+.ui-widget div .total_price {margin-left: 28px}
+.ui-widget div .land_image {margin-left: 54px; width: 470px;}*/

@@ -140,11 +140,11 @@
                                 <option value="${type.id}">${type.typeName}</option>
                             </c:forEach>
                         </select></div> 
-                    <div><a>Price:</a> <input id="landPrice" type="number" name="price" class="land_type" /></div> 
+                    <div><a>Price:</a> <input id="landPrice" type="number" name="price" class="land_price" /></div> 
                     <!--<div><a>Image:</a> <input type="text" name="img" class="land_price" /></div>-->
-                    <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          
+<!--                    <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          -->
                     <!--<div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>-->
-                    <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+<!--                    <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>-->
                     <div></div>
                     <div class="edit_menu">
                         <div class="btn_edit">

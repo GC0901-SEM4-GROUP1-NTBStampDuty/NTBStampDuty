@@ -18,6 +18,7 @@ import model.Building;
 import model.BuildingManager;
 import model.Land;
 import model.LandManager;
+import model.PeriodManager;
 import model.Project;
 import model.ProjectManager;
 import model.User;
@@ -71,7 +72,7 @@ public class projectDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int page = 1;
-        int recordsPerPage = 12;
+        int recordsPerPage = 10;
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
@@ -79,6 +80,10 @@ public class projectDetail extends HttpServlet {
         projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        PeriodManager pem = new PeriodManager();
+        for(int i=0; i<projectList.size(); i++){
+            projectList.get(i).setCompletePercent(pem.getPeriod(projectList.get(i).getProjectID()).getPercent());
+        }
         BuildingManager buildingManager = new BuildingManager();
         buildingList = buildingManager.getBuildingToAdd();
         request.setAttribute("buildingList", buildingList);
@@ -101,7 +106,7 @@ public class projectDetail extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int page = 1;
-        int recordsPerPage = 12;
+        int recordsPerPage = 10;
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
@@ -109,6 +114,10 @@ public class projectDetail extends HttpServlet {
         projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        PeriodManager pem = new PeriodManager();
+        for(int i=0; i<projectList.size(); i++){
+            projectList.get(i).setCompletePercent(pem.getPeriod(projectList.get(i).getProjectID()).getPercent());
+        }
         BuildingManager buildingManager = new BuildingManager();
         buildingList = buildingManager.getBuildingToAdd();
         request.setAttribute("buildingList", buildingList);
