@@ -23,8 +23,8 @@
                 <form class="signup_auth" action="signup" method="post">
                     <input id="signup_input" type="text" name="username" placeholder="Username" required="true"  maxlength="15"/><br/>
                     <input id="signup_input" type="password" name="password" placeholder="Password" required="true" maxlength="20"/><br/>
-                    <select id="signup_input" name="role" placeholder="Role">
-                        <option value="1">1</option>
+                    <input id="signup_input" type="repassword" name=repassword" placeholder="Retype Password" required="true" maxlength="20"/><br/>
+                    <select id="signup_input" name="role" disabled="true" placeholder="Role">
                         <option value="2">2</option>
                     </select><br/>
 
