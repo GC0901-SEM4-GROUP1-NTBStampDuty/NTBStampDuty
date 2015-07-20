@@ -6,10 +6,9 @@ p {height: 21px;}
 #main_body .detail_bar .table_container .table_project tr {border: 0px solid white; pointer-events: none}
 #main_body .detail_bar .table_container .project_container {color: #191919; margin-top: 32px; position: absolute; padding: 28px 13px; width: 1113px;}
 
-
 #main_body .detail_bar .table_container .project_container .editForm {margin-bottom: 0; }
-#main_body .detail_bar .table_container .project_container .saveEdit {right: 10px; bottom: -40px; background-image: linear-gradient(to top, #F1F1F1, #FFF); border-width: 1px; border-style: solid; border-color: #D2D2D2 #C9C8C8 #C3C3C2; box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15); position: absolute; 
-                                                                       color: #3E3E3E; border-radius: 6px; background-color: #EAE9E9; background-repeat: no-repeat; border: 1px solid rgba(0, 0, 0, 0.15); font-size: 12px; width: 70px; height: 30px; margin: 15px 12px; z-index: 10;}
+#main_body .detail_bar .table_container .project_container .saveEdit {background-image: linear-gradient(to top, #F1F1F1, #FFF); border-width: 1px; border-style: solid; border-color: #D2D2D2 #C9C8C8 #C3C3C2; box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+          color: #3E3E3E; border-radius: 3px; background-color: #EAE9E9; background-repeat: no-repeat; border: 1px solid rgba(0, 0, 0, 0.15); font-size: 12px; width: 70px; height: 30px;bottom: -79px;right: 50px;position: absolute;z-index: 50;}
 #main_body .detail_bar .table_container .project_container .projectImage {float: left; }
 #main_body .detail_bar .table_container .project_container .projectImage img {margin-left: 145px; margin-bottom: 10px; }
 
@@ -29,7 +28,7 @@ p {height: 21px;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar {width: 80%; height: 29px; border:1px solid gray; border-radius: 20px; overflow: hidden; margin-left: 94px;margin-top: 18px;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .percent {position: absolute; width: 81%; padding-top: 4px;font-weight: bold;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .period1 {position: relative; float: left; width: 33%; height: 30px;}
-#main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .period2 {position: relative; float: left; width: 34%; height: 30px; outline: 1px solid #C7C9CC;}
+#main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .period2 {position: relative; float: left; width: 34%; height: 30px; outline: 1px solid #C7C9BF;}
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .period3 {position: relative; float: left;  width: 33%;height: 30px;}
 
 #main_body .detail_bar .table_container .project_container #progress-bar-container .progress-bar .warning_yellow{position: absolute; width: 23px; height: 22px; left: 48%; top: 4px;z-index: 10; visibility: hidden;}

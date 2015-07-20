@@ -17,9 +17,23 @@
         function setWarning(period, status) {
             if (status == 1) {
                 $(".period" + period + ' .warning_yellow').css("visibility", "visible");
+                blink(1000, ".period" + period + ' .warning_yellow');
             } else if (status == -1) {
                 $(".period" + period + ' .warning_red').css("visibility", "visible");
+                blink(1000, ".period" + period + ' .warning_red');
             }
+        }
+
+        function blink(interval, img) {
+            var timer = window.setInterval(function () {
+                $(img).css("opacity", "0.1");
+                window.setTimeout(function () {
+                    $(img).css("opacity", "1");
+                }, 300);
+            }, interval);
+            window.setTimeout(function () {
+                clearInterval(timer);
+            }, 1000000);
         }
     </script>
 </head>

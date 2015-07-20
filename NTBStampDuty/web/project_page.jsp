@@ -134,10 +134,10 @@
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png"/>
                         </div>
-                        <div><a>Complete:</a> <input name="completePercent" class="complete_percent"/></div> 
                         <div><a>Create Date:</a> <input name="createData"  disabled="disabled" class="create_data"/></div> 
-                        <div><a>Period:</a> <input name="period" id="building_period" class="building_period"/></div>
+                        <div><a>Period 1 Deadline:</a> <input type="date" name="completePercent" class="complete_percent"/></div> 
                         <div><a>Finish Date:</a> <input type="date" name="finishDate" class="finish_data"/></div>
+                        <div><a>Period 2 Deadline:</a> <input type="date" name="period" id="building_period" class="building_period"/></div>                     
                         <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Add"/>

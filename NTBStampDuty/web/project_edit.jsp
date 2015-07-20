@@ -90,11 +90,11 @@
                                     <p>${building.shops}</p>                  
                                 </div>
                             </div>
-                            <div id="progress-bar-container">
+<!--                            <div id="progress-bar-container">
                                 <div align="center" class="percent">${project.completePercent}%</div>
                                 <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
                                 </div>
-                            </div>
+                            </div>-->
                             <p><input type="submit" class="saveEdit" value="Save"/></p>
                         </form>
                     </div>          
