@@ -173,21 +173,11 @@ insert into tblRoomDetails values(1, 1, '50', '1', '1500')
 insert into tblRoomDetails values(2, 2, '50', '1', '4000')
 insert into tblRoomDetails values(2, 3, '50', '1', '1500')
 
-create table tblPayment
-(
-payment_id int primary key identity,
-payment_time int,
-paid int
-)
-
-select*from tblPayment
-
 create table tblContract
 (
 con_id int primary key identity,
 username nvarchar(50) references tblUser(username),
 room_id int references tblRoomDetails(room_id),
-payment_id int references tblPayment(payment_id),
 created_date Datetime,
 deposit int,
 total_payment int,
@@ -196,7 +186,16 @@ total_due int,
 invoice_status int
 )
 
-insert into tblContract values('customer', 2, null,'2015-07-21',200000000, 1000000000, 200000000, 800000000,0)
+create table tblPayment
+(
+contract_id int references tblContract(con_id),
+payment_time int,
+paid int
+)
+
+select*from tblPayment
+
+insert into tblContract values('customer', 2, '2015-07-21',200000000, 1000000000, 200000000, 800000000,0)
 
 create table tblStampDuty
 (
