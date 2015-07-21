@@ -168,6 +168,8 @@ insert into tblRoomDetails values(1, 1, '50', '2', '1500')
 insert into tblRoomDetails values(1, 3, '50', '1', '7500')
 insert into tblRoomDetails values(1, 2, '50', '1', '4000')
 insert into tblRoomDetails values(1, 1, '50', '1', '1500')
+insert into tblRoomDetails values(2, 2, '50', '1', '4000')
+insert into tblRoomDetails values(2, 3, '50', '1', '1500')
 
 create table tblPaymentType
 (
@@ -194,3 +196,17 @@ create table tblStampDuty
 (
 stamp_price int primary key
 )
+WITH limt_room AS
+(select room_id, tblRoomDetails.building_id as building_id, [type_id], room_size, [floor], room_price, ROW_NUMBER() OVER (ORDER BY tblRoomDetails.room_id ASC) AS [row_number]
+from tblRoomDetails
+inner join tblBuildingDetails
+on tblRoomDetails.building_id = tblBuildingDetails.building_id
+)
+select room_id, building_id, [type_id], room_size, [floor], room_price FROM limt_room WHERE [row_number]>0 AND [row_number]<=15 AND building_id=2
+
+WITH limt_room AS
+(select room_id, tblRoomDetails.building_id as building_id, [type_id], room_size, [floor], room_price, ROW_NUMBER() OVER (ORDER BY tblRoomDetails.room_id ASC) AS [row_number]
+from tblRoomDetails
+inner join tblBuildingDetails
+on tblRoomDetails.building_id = tblBuildingDetails.building_id)
+select room_id, building_id, [type_id], room_size, [floor], room_price FROM limt_room WHERE [row_number]>0 AND [row_number]<=15  AND building_id=1 AND [type_id]=1

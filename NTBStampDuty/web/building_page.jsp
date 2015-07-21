@@ -28,6 +28,8 @@
                     $.each(data, function (index, building) {
                         $('.land_name').val(building.landID);
                         $('.build_type').val(building.buildingTypeID);
+                        var a = document.getElementById("housesLink");
+                        a.href = "/NTBStampDuty/getRoomDetail?"+id+"-1";
                         document.getElementById("buildID").value = id;
                         document.getElementById("buildingName").value = building.buildingName;
                         document.getElementById("floors").value = building.floors;
@@ -142,9 +144,9 @@
                         </select></div> 
                     <div><a>Price:</a> <input id="landPrice" type="number" name="price" class="land_price" /></div> 
                     <!--<div><a>Image:</a> <input type="text" name="img" class="land_price" /></div>-->
-<!--                    <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          -->
+                    <!--                    <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          -->
                     <!--<div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>-->
-<!--                    <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>-->
+                    <!--                    <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>-->
                     <div></div>
                     <div class="edit_menu">
                         <div class="btn_edit">
@@ -168,9 +170,12 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div><a>Floors: </a> <input id="floors" class="floors" name="floors"/><img class="next_navigation" src="images/ic_show.png"/></div> 
-                        <div><a>Houses: </a> <input id="houses" class="houses" name="houses"/><img class="next_navigation" src="images/ic_show.png"/></div>  
-                        <div><a>Rooms: </a> <input id="rooms" class="rooms" name="rooms"/><img class="next_navigation" src="images/ic_show.png"/></div>
+                        <div><a>Floors: </a> <input id="floors" class="floors" name="floors"/><img class="next_navigation" style="visibility: hidden" src="images/ic_show.png"/></div> 
+                        <div><a>Houses: </a> <input id="houses" class="houses" name="houses"/>
+
+                            <a class="next_navigation" id="housesLink">Click ${building.buildingID}</a>
+                        </div>  
+                        <div><a>Offices: </a> <input id="rooms" class="rooms" name="rooms"/><img class="next_navigation" src="images/ic_show.png"/></div>
                         <div><a>Shops: </a> <input id="shops" class="shops" name="shops"/><img class="next_navigation" src="images/ic_show.png"/></div>  
                         <div><a>Image:</a> <input type="file" name="buildImage" class="build_image" accept="image/gif, image/jpeg, image/png"/></div>
                         <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
