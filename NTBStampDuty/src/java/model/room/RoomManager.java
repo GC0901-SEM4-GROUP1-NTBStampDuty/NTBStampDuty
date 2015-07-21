@@ -45,13 +45,13 @@ public class RoomManager {
                 room.setBuildingId(rs.getInt("building_id"));
                 int type = rs.getInt("type_id");
                 switch (type) {
-                    case 0:
+                    case 1:
                         room.setRoomType("House");
                         break;
-                    case 1:
+                    case 2:
                         room.setRoomType("Shop");
                         break;
-                    case 2:
+                    case 3:
                         room.setRoomType("Office");
                         break;
                     default:

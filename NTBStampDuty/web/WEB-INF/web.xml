@@ -48,6 +48,10 @@
         <servlet-name>getRoomDetail</servlet-name>
         <servlet-class>controller.room.getRoomDetail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getContractDetail</servlet-name>
+        <servlet-class>controller.contract.getContractDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>searchBuilding</servlet-name>
         <url-pattern>/searchBuilding</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>getRoomDetail</servlet-name>
         <url-pattern>/getRoomDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getContractDetail</servlet-name>
+        <url-pattern>/getContractDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

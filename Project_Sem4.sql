@@ -149,6 +149,8 @@ insert into tblRoomType values('House')
 insert into tblRoomType values('Shop')
 insert into tblRoomType values('Office')
 
+select*from tblRoomType
+
 create table tblRoomDetails
 (
 room_id int primary key identity,
@@ -171,42 +173,32 @@ insert into tblRoomDetails values(1, 1, '50', '1', '1500')
 insert into tblRoomDetails values(2, 2, '50', '1', '4000')
 insert into tblRoomDetails values(2, 3, '50', '1', '1500')
 
-create table tblPaymentType
+create table tblPayment
 (
 payment_id int primary key identity,
-payment_name nvarchar(50),
 payment_time int,
-interest int
+paid int
 )
+
+select*from tblPayment
 
 create table tblContract
 (
 con_id int primary key identity,
 username nvarchar(50) references tblUser(username),
 room_id int references tblRoomDetails(room_id),
-payment_id int references tblPaymentType(payment_id),
+payment_id int references tblPayment(payment_id),
 created_date Datetime,
+deposit int,
 total_payment int,
 total_paid int,
 total_due int,
 invoice_status int
 )
 
+insert into tblContract values('customer', 2, null,'2015-07-21',200000000, 1000000000, 200000000, 800000000,0)
+
 create table tblStampDuty
 (
 stamp_price int primary key
 )
-WITH limt_room AS
-(select room_id, tblRoomDetails.building_id as building_id, [type_id], room_size, [floor], room_price, ROW_NUMBER() OVER (ORDER BY tblRoomDetails.room_id ASC) AS [row_number]
-from tblRoomDetails
-inner join tblBuildingDetails
-on tblRoomDetails.building_id = tblBuildingDetails.building_id
-)
-select room_id, building_id, [type_id], room_size, [floor], room_price FROM limt_room WHERE [row_number]>0 AND [row_number]<=15 AND building_id=2
-
-WITH limt_room AS
-(select room_id, tblRoomDetails.building_id as building_id, [type_id], room_size, [floor], room_price, ROW_NUMBER() OVER (ORDER BY tblRoomDetails.room_id ASC) AS [row_number]
-from tblRoomDetails
-inner join tblBuildingDetails
-on tblRoomDetails.building_id = tblBuildingDetails.building_id)
-select room_id, building_id, [type_id], room_size, [floor], room_price FROM limt_room WHERE [row_number]>0 AND [row_number]<=15  AND building_id=1 AND [type_id]=1
