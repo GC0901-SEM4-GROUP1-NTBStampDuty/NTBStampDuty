@@ -30,7 +30,6 @@ public class ContractManager {
                 c.setContractId(rs.getInt("con_id"));
                 c.setUsername(rs.getString("username"));
                 c.setRoomId(rs.getInt("room_id"));
-                c.setPaymentId(rs.getInt("payment_id"));
                 DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 Date createDate = rs.getDate("created_date");
                 c.setCreatedDate(dateFormat.format(createDate));

@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>
-    <title>Project Details</title>
+    <title>Contract Details</title>
     <link href="css/project_detail_styple.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
     <script>
@@ -66,7 +66,7 @@
                     </div>
                     <table class="table_project" id="table">
                         <tr>
-                            <th style="width: 100%" > Project Details</th>
+                            <th style="width: 100%" > Contract Details</th>
                         </tr> 
                         <div class="project_container" >
                             <div class="projectImage">
