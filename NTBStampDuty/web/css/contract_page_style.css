@@ -17,3 +17,18 @@
 #main_body .detail_bar .table_container .row_contract a:nth-child(5) {left: 69%;}
 #main_body .detail_bar .table_container .row_contract a:nth-child(6) {left: 86%;}
 
+.ui-widget div input{ width: 170px; }
+.ui-widget div:first-child { width: 570px; }
+.addNewContract div:nth-child(2) { width: 570px; margin-bottom: 20px;}
+.ui-widget div:nth-child(4) { margin-left: 41px;}
+.ui-widget div:nth-child(6) { margin-left: 41px;}
+
+.ui-widget div .plus_navigation {width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 5px;}
+.ui-widget div .customer {margin-left: 10px;}
+.ui-widget div .roomId {margin-left: 16px;}
+.ui-widget div .date {margin-left: 41px;}
+.ui-widget div .deposit {margin-left: 21px;}
+.ui-widget div .payment {margin-left: 5px;}
+.ui-widget div .due {margin-left: 69px;}
+.ui-widget div input:focus {outline: 1px solid #CF2525; border: 1px solid #CF2525;}
+.ui-widget .edit_menu input:focus {outline: 0px; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}

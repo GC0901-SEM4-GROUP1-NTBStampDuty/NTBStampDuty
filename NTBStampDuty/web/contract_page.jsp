@@ -29,7 +29,7 @@
         <div class="header">
             <div class="edit_menu">
                 <div class="btn_new">
-                    <input type="submit" value="New" onclick="submitter('addNewLand')"/>
+                    <input type="submit" value="New" onclick="submitter('addNewContract')"/>
                 </div>
                 <!--                <form class="btn_edit">
                                     <input type="submit" value="Edit" />
@@ -88,17 +88,27 @@
                         </tr>
                     </c:forEach>
                 </table>
-                <div class="addNewLand" title="Add New Land" style="display:none">
-                    <form action="addLand" method="POST">
+                <div class="addNewContract" title="Add New Contract" style="display:none">
+                    <form action="addContract" method="POST">
                         <!--<div><a>Land Name:</a> <input name="landName" id="landName" class="land_name"/></div>-->
-                        <div><a>Land Size:</a> <input type="text" name="size" class="land_size" /></div>
-                        <div><a>Land Address:</a> <input type="text" name="address" class="land_address" /></div>                                                      
-                        <div><a>Building Types:</a>  <select name="buildingTypes" id="buildingTypes" class="build_type">
-                                <c:forEach items="${typeList}" var="type">
-                                    <option value="${type.id}">${type.typeName}</option>
+                        <div><a>Customer:</a> <select style="width: 170px" name="customer" id="customerAddNew" class="customer">
+                                <c:forEach items="${landList}" var="land">
+                                    <option value="${land.landID}">${land.address}</option>
                                 </c:forEach>
-                            </select></div> 
-                        <div><a>Price:</a> <input type="number" name="price" class="land_price" /></div> 
+                            </select>
+                            <img class="plus_navigation" src="images/ic_plus.png" onclick="submitter('addNewLand')"/>
+                        </div>
+                        <div><a>Room ID:</a> <select style="width: 170px" name="roomId" id="roomAddNew" class="roomId">
+                                <c:forEach items="${landList}" var="land">
+                                    <option value="${land.landID}">${land.address}</option>
+                                </c:forEach>
+                            </select>
+                            <img class="plus_navigation" src="images/ic_plus.png" onclick="submitter('addNewLand')"/>
+                        </div>
+                        <div><a>Date:</a> <input type="number" name="date" class="date" /></div>
+                        <div><a>Total Payment:</a> <input type="number" name="payment" class="payment" /></div> 
+                        <div><a>Deposit:</a> <input type="number" name="deposit" class="deposit" /></div>
+                        <div><a>Due:</a> <input type="number" name="due" class="due" /></div>
                         <div></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
@@ -112,10 +122,10 @@
                 <%--For displaying Next link --%>
                 <c:choose>
                     <c:when test="${currentPage < noOfPages}">
-                        <a class="btn_next_forcus" href="userDretail?page=${currentPage + 1}"></a>
+                        <a class="btn_next_forcus" href="contractDretail?page=${currentPage + 1}"></a>
                     </c:when>
                     <c:otherwise>
-                        <a class="btn_next" href="userDetail?page=${currentPage + 1}"></a>
+                        <a class="btn_next" href="contractDretail?page=${currentPage + 1}"></a>
                     </c:otherwise>
                 </c:choose>
 
@@ -129,7 +139,7 @@
                                     <td class="on_select_page">${i}</td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td><a href="userDetail?page=${i}">${i}</a></td>
+                                    <td><a href="contractDretail?page=${i}">${i}</a></td>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
@@ -139,10 +149,10 @@
                 <%--For displaying Previous link except for the 1st page --%>
                 <c:choose>
                     <c:when test="${currentPage != 1}">
-                        <a class="btn_previous_forcus" href="userDetail?page=${currentPage - 1}"></a>
+                        <a class="btn_previous_forcus" href="contractDretail?page=${currentPage - 1}"></a>
                     </c:when>
                     <c:otherwise>
-                        <a class="btn_previous" href="userDetail?page=${currentPage - 1}"></a>
+                        <a class="btn_previous" href="contractDretail?page=${currentPage - 1}"></a>
                     </c:otherwise>
                 </c:choose>
             </div>
