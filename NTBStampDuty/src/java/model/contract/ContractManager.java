@@ -96,4 +96,67 @@ public class ContractManager {
         }
         return contract;
     }
+    
+    public List<Contract> getAllContractByMonthAndYear(int month, int year) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblContract");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                if (rs.getDate("created_date").getMonth() + 1 == month && rs.getDate("created_date").getYear() + 1900 == year) {
+                    Contract c = new Contract();
+                    c.setContractId(rs.getInt("con_id"));
+                    c.setUsername(rs.getString("username"));
+                    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                    Date createDate = rs.getDate("created_date");
+                    c.setCreatedDate(dateFormat.format(createDate));
+                    listContract.add(c);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listContract;
+    }
+    
+    public List<Contract> getNewestContract() {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblContract order by created_date desc");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Contract c = new Contract();
+                c.setContractId(rs.getInt("con_id"));
+                c.setUsername(rs.getString("username"));
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                Date createDate = rs.getDate("created_date");
+                c.setCreatedDate(dateFormat.format(createDate));
+                listContract.add(c);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listContract;
+    }
+    
+    public List<Contract> getContractByStatus(int status) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblContract where invoice_status = ?");
+            ps.setInt(1, status);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Contract c = new Contract();
+                c.setContractId(rs.getInt("con_id"));
+                c.setUsername(rs.getString("username"));
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                Date createDate = rs.getDate("created_date");
+                c.setCreatedDate(dateFormat.format(createDate));
+                listContract.add(c);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listContract;
+    }
 }
