@@ -142,6 +142,11 @@
     right: 24px;
 }
 
+.ui-dialog .add_new_contract{
+    top: 241px;
+    right: 24px;
+}
+
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited {

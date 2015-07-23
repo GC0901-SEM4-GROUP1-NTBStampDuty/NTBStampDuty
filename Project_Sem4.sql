@@ -185,19 +185,27 @@ total_paid int,
 total_due int,
 invoice_status int
 )
+select*from tblContract
+
+insert into tblContract values('customer', 2, '2015-07-21',200000000, 1000000000, 200000000, 800000000,0)
 
 create table tblPayment
 (
 contract_id int references tblContract(con_id),
-payment_time int,
+payment_time Datetime,
 paid int
 )
 
 select*from tblPayment
 
-insert into tblContract values('customer', 2, '2015-07-21',200000000, 1000000000, 200000000, 800000000,0)
+insert into tblPayment values(1,'2015-07-22',200000000)
 
 create table tblStampDuty
 (
 stamp_price int primary key
 )
+
+select*from tblPayment
+inner join tblContract
+on tblPayment.contract_id = tblContract.con_id
+where tblContract.username = 'customer'

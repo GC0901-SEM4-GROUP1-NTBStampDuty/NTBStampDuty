@@ -7,9 +7,8 @@ package controller.contract;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,14 +16,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.contract.Contract;
 import model.contract.ContractManager;
-import model.payment.Payment;
-import model.payment.PaymentManager;
 
 /**
  *
  * @author SonNguyen
  */
-public class getContractDetail extends HttpServlet {
+public class contractDetail extends HttpServlet {
+
+    private List<Contract> contractList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +42,10 @@ public class getContractDetail extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet getContractDetail</title>");
+            out.println("<title>Servlet getContract</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet getContractDetail at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet getContract at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,24 +63,19 @@ public class getContractDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int roomId = Integer.parseInt(request.getParameter("roomId"));
-        ContractManager cm = new ContractManager();
-        Contract contract = cm.getContractByRoom(roomId);
-        PaymentManager pm = new PaymentManager();
-        List<Payment> listPayment = pm.getPaymentByContract(contract.getContractId());
-        Locale vn = new Locale("vi", "VN");
-        NumberFormat defaultFormat = NumberFormat.getCurrencyInstance(vn);
-	String payment = defaultFormat.format(contract.getTotalPayment());
-        String paid = defaultFormat.format(contract.getTotalPaid());
-        String due = defaultFormat.format(contract.getTotalDue());
-        payment = payment.substring(0, payment.length()-1);
-        paid = paid.substring(0, paid.length()-1);
-        due = due.substring(0, due.length()-1);
-        request.setAttribute("contract", contract);
-        request.setAttribute("paid", paid);
-        request.setAttribute("due", due);
-        request.setAttribute("payment", payment);
-        RequestDispatcher rd = request.getRequestDispatcher("contract_detail.jsp");
+        int page = 1;
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        ContractManager manager = new ContractManager();
+        contractList = manager.getAllContractByDate((page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        request.setAttribute("contractList", contractList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher rd = request.getRequestDispatcher("contract_page.jsp");
         rd.forward(request, response);
     }
 
@@ -96,7 +90,20 @@ public class getContractDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int page = 1;
+        int recordsPerPage = 15;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        ContractManager manager = new ContractManager();
+        contractList = manager.getAllContractByDate((page - 1) * recordsPerPage, recordsPerPage * page);
+        int noOfRecords = manager.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        request.setAttribute("contractList", contractList);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher rd = request.getRequestDispatcher("contract_page.jsp");
+        rd.forward(request, response);
     }
 
     /**

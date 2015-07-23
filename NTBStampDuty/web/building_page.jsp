@@ -11,7 +11,7 @@
 
 <head>
     <title>Building Details</title>
-    <link href="css/build_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/build_page_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
     <script src = "javascript/jquery.js" type="text/javascript"></script>
     <script>

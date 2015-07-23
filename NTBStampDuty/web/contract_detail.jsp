@@ -10,8 +10,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>
-    <title>Project Details</title>
-    <link href="css/project_detail_styple.css" rel="stylesheet" type="text/css"/>
+    <title>Contract Details</title>
+    <link href="css/contract_detail_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
     <script>
         function setWarning(period, status) {
@@ -64,16 +64,16 @@
                 <div class="table_container">
                     <div class="row_user">
                     </div>
-                    <table class="table_project" id="table">
+                    <table class="table_contract" id="table">
                         <tr>
-                            <th style="width: 100%" > Project Details</th>
+                            <th style="width: 100%" > Contract Details</th>
                         </tr> 
-                        <div class="project_container" >
+                        <div class="contract_container" >
                             <div class="projectImage">
                                 <img src="images/ic_none_image.png" width="170px" height="230px"/>
                             </div>
                             <div class="projectDetail">
-                                <p>Contract ID:</p>                   
+                                Contract ID:                   
                                 <p>Customer:</p>
                                 <p>Room ID:</p>
                                 <p>Created Date:</p>
@@ -82,39 +82,13 @@
                                 <p>Total Due:</p>
                             </div>
                             <div class="proDetail">
-                                <p>${contract.contractId}</p>
+                                ${contract.contractId}
                                 <p>${contract.username}</p>
                                 <p>${contract.roomId}</p>
                                 <p>${contract.createdDate}</p>
-                                <p>${contract.totalPayment}</p>
-                                <p>${contract.totalPaid}</p>
-                                <p>${contract.totalDue}</p>
-                            </div>
-                            <div class="buildingDetail">
-                                <div class="buildingDetailLeft">
-                                    <p>Building Id:</p>
-                                    <p>Land Id:</p>
-                                    <p>Building Name:</p>
-                                    <p>Building Type:</p>
-                                </div>
-                                <div class="buildDetailLeft">
-                                    <p>${building.buildingID}</p>
-                                    <p>${building.landID}</p>
-                                    <p>${building.buildingName}</p>
-                                    <p>${building.buildingType}</p>
-                                </div>
-                                <div class="buildingDetailRight">
-                                    <p>Floors number:</p>
-                                    <p>Rooms number:</p>
-                                    <p>Houses number:</p>
-                                    <p>Shops number:</p>                  
-                                </div>
-                                <div class="buildDetailRight">
-                                    <p>${building.floors}</p>
-                                    <p>${building.rooms}</p>
-                                    <p>${building.houses}</p>
-                                    <p>${building.shops}</p>                  
-                                </div>
+                                <p>${payment} VNĐ</p>
+                                <p>${paid} VNĐ</p>
+                                <p>${due} VNĐ</p>
                             </div>
 
                             <div id="progress-bar-container">
@@ -123,7 +97,9 @@
                                 <a class="date_period2">${period.period2}</a>
                                 <a class="date_period3">${period.period3}</a>
                                 <div class="progress-bar">
-                                    <div align="center" class="percent">${total_percent}%</div>
+                                    <!--<div align="center" class="percent">${contract.totalPaid/contract.totalPayment*100}%</div>-->
+                                    <div class="deposit">   
+                                    </div>
                                     <div class="period1">
                                         <img class="warning_yellow" src="images/ic_warning_yellow.png">
                                         <img class="warning_red" src="images/ic_warning_red.png">   
@@ -131,13 +107,12 @@
                                     <div class="period2">
                                         <img class="warning_yellow" src="images/ic_warning_yellow.png">
                                         <img class="warning_red" src="images/ic_warning_red.png">
-
                                     </div>
                                     <div class="period3">
                                         <img class="warning_yellow" src="images/ic_warning_yellow.png">
                                         <img class="warning_red" src="images/ic_warning_red.png">
                                     </div>
-                                    <div style="width:${total_percent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
+                                    <div style="width:${contract.totalPaid/contract.totalPayment*100}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
                                     </div>
                                 </div>
                             </div>
