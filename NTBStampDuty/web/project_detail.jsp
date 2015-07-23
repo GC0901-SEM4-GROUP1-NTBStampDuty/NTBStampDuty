@@ -11,7 +11,7 @@
 
 <head>
     <title>Project Details</title>
-    <link href="css/project_detail_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/project_detail_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
     <script>
         function setWarning(period, status) {

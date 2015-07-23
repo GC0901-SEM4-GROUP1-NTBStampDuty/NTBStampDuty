@@ -11,7 +11,7 @@
 
 <head>
     <title>Land Details</title>
-    <link href="css/user_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/user_page_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script>
         function submitter(btn) {
@@ -61,10 +61,10 @@
                 </div>
                 <table class="table_user" id="table">
                     <tr>
-                        <th style="width: 6%">No.</th>
-                        <th style="width: 22%">Role</th>
-                        <th style="width: 22%">Username</th>
-                        <th style="width: 22%">Full Name</th>
+                        <th style="width: 9%">No.</th>
+                        <th style="width: 21%">Role</th>
+                        <th style="width: 21%">Username</th>
+                        <th style="width: 21%">Full Name</th>
                         <th style="width: 14%">Phone Number</th>
                         <th style="width: 14%">Detail</th>
                     </tr>

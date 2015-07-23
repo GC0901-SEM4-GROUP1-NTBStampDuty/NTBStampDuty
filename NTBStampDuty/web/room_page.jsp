@@ -11,7 +11,7 @@
 
 <head>
     <title>Land Details</title>
-    <link href="css/room_page_syple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/room_page_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script>
         function submitter(btn) {

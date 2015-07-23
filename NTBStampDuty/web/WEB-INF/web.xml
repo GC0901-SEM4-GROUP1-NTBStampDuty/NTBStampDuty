@@ -52,6 +52,10 @@
         <servlet-name>getContractDetail</servlet-name>
         <servlet-class>controller.contract.getContractDetail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>contractDetail</servlet-name>
+        <servlet-class>controller.contract.contractDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>searchBuilding</servlet-name>
         <url-pattern>/searchBuilding</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>getContractDetail</servlet-name>
         <url-pattern>/getContractDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>contractDetail</servlet-name>
+        <url-pattern>/contractDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

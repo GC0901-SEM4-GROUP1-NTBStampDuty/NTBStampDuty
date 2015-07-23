@@ -11,7 +11,7 @@
 
 <head>
     <title>Project list</title>
-    <link href="css/project_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/project_page_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script>
         function submitter(btn) {

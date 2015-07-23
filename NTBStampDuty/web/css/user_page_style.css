@@ -10,9 +10,9 @@
 #main_body .detail_bar .table_container .table_user td:last-child input {border: 0; background: transparent; color: transparent; width: 150px; height: 30px; cursor: pointer;}
 
 #main_body .detail_bar .table_container .row_user a {position: absolute; height: 547px; top: 0px;border-right: 1px solid #D3D3D3; margin-left: -1px;}
-#main_body .detail_bar .table_container .row_user a:first-child {left: 6%;}
-#main_body .detail_bar .table_container .row_user a:nth-child(2) {left: 28%;}
-#main_body .detail_bar .table_container .row_user a:nth-child(3) {left: 50%;}
+#main_body .detail_bar .table_container .row_user a:first-child {left: 9%;}
+#main_body .detail_bar .table_container .row_user a:nth-child(2) {left: 30%;}
+#main_body .detail_bar .table_container .row_user a:nth-child(3) {left: 51%;}
 #main_body .detail_bar .table_container .row_user a:nth-child(4) {left: 72%;}
 #main_body .detail_bar .table_container .row_user a:nth-child(5) {left: 86%;}
 

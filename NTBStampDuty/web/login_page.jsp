@@ -10,8 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login NTB</title>
-        <link href="css/general_stype.css" rel="stylesheet" type="text/css"/>
-        <link href="css/login_stype.css" rel="stylesheet" type="text/css"/>
+        <link href="css/general_style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/login_style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body class="login">
         <div class="login_splash">
