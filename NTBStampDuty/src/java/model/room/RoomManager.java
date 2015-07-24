@@ -16,15 +16,16 @@ import model.GetConnection;
  * @author SonNguyen
  */
 public class RoomManager {
+
     public List<Room> listRoom = new ArrayList<>();
-    
+    public List<Room> roomListContract = new ArrayList<>();
     private int noOfRecords;
-    
+
     public int getNoOfRecords() {
         return noOfRecords;
     }
-    
-    public List<Room> getRoomByIdType(int buildingId, int typeId, int startIndex, int endIndex){
+
+    public List<Room> getRoomByIdType(int buildingId, int typeId, int startIndex, int endIndex) {
         try {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
@@ -73,5 +74,48 @@ public class RoomManager {
             e.printStackTrace();
         }
         return listRoom;
-    }    
+    }
+
+    public List<Room> getRoomByBuildingID(int buildingId) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement(
+                    "Select r.room_id,r.building_id,r.[type_id],room_size,r.[floor],r.room_price\n"
+                    + "from tblRoomDetails r \n"
+                    + "inner join tblBuildingDetails b \n"
+                    + "on r.building_id = b.building_id \n"
+                    + "Where b.building_id = ? And r.sellStatus=0 \n"
+            );
+            ps.setInt(1, buildingId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Room room = new Room();
+                room.setRoomId(rs.getInt("room_id"));
+                room.setBuildingId(rs.getInt("building_id"));
+                int type = rs.getInt("type_id");
+                switch (type) {
+                    case 1:
+                        room.setRoomType("House");
+                        break;
+                    case 2:
+                        room.setRoomType("Shop");
+                        break;
+                    case 3:
+                        room.setRoomType("Office");
+                        break;
+                    default:
+                        room.setRoomType("House");
+                        break;
+                }
+                room.setRoomSize(rs.getInt("room_size"));
+                room.setRoomFloor(rs.getInt("floor"));
+                room.setRoomPrice(rs.getInt("room_price"));
+                roomListContract.add(room);
+            }
+            rs.close();            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return roomListContract;
+    }
 }

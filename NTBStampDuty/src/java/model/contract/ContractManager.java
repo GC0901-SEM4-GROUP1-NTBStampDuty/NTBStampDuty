@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import model.GetConnection;
+import model.room.Room;
 
 /**
  *
@@ -20,7 +21,7 @@ import model.GetConnection;
  */
 public class ContractManager {
 
-    public List<Contract> listContract;
+    public List<Contract> listContract; 
     public Contract contract;
     private int noOfRecords;
 
@@ -96,7 +97,7 @@ public class ContractManager {
         }
         return contract;
     }
-    
+
     public List<Contract> getAllContractByMonthAndYear(int month, int year) {
         try {
             GetConnection conn = new GetConnection();
@@ -118,7 +119,7 @@ public class ContractManager {
         }
         return listContract;
     }
-    
+
     public List<Contract> getNewestContract() {
         try {
             GetConnection conn = new GetConnection();
@@ -138,7 +139,7 @@ public class ContractManager {
         }
         return listContract;
     }
-    
+
     public List<Contract> getContractByStatus(int status) {
         try {
             GetConnection conn = new GetConnection();
@@ -159,4 +160,6 @@ public class ContractManager {
         }
         return listContract;
     }
+
+    
 }

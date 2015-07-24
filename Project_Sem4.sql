@@ -158,36 +158,41 @@ building_id int references tblBuildingDetails(building_id),
 [type_id] int references tblRoomType([type_id]),
 room_size int,
 [floor] int,
-room_price int
+room_price int,
+sellStatus int
 )
+Go
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(1, 2, '50', '1', '4000',1)
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(1, 2, '50', '1', '10000',0)
+insert into tblRoomDetails values(1, 1, '50', '2', '1500',0)
+insert into tblRoomDetails values(1, 3, '50', '1', '7500',0)
+insert into tblRoomDetails values(1, 2, '50', '1', '4000',0)
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(2, 2, '50', '1', '4000',0)
+insert into tblRoomDetails values(2, 3, '50', '1', '1500',0)
+
+GO
 select*from tblRoomDetails
 
-insert into tblRoomDetails values(1, 1, '50', '1', '1500')
-insert into tblRoomDetails values(1, 2, '50', '1', '4000')
-insert into tblRoomDetails values(1, 1, '50', '1', '1500')
-insert into tblRoomDetails values(1, 2, '50', '1', '10000')
-insert into tblRoomDetails values(1, 1, '50', '2', '1500')
-insert into tblRoomDetails values(1, 3, '50', '1', '7500')
-insert into tblRoomDetails values(1, 2, '50', '1', '4000')
-insert into tblRoomDetails values(1, 1, '50', '1', '1500')
-insert into tblRoomDetails values(2, 2, '50', '1', '4000')
-insert into tblRoomDetails values(2, 3, '50', '1', '1500')
-
+Go
 create table tblContract
 (
 con_id int primary key identity,
 username nvarchar(50) references tblUser(username),
 room_id int references tblRoomDetails(room_id),
 created_date Datetime,
+payment_period int,
 deposit int,
 total_payment int,
 total_paid int,
 total_due int,
 invoice_status int
 )
-select*from tblContract
 
-insert into tblContract values('customer', 2, '2015-07-21',200000000, 1000000000, 200000000, 800000000,0)
+select*from tblContract
+insert into tblContract values('customer', 2, '2015-07-21',1,200000000, 1000000000, 200000000, 800000000,0)
 
 create table tblPayment
 (
