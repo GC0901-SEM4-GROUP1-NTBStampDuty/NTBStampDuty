@@ -19,16 +19,16 @@ create table tblUserDetail
 (
 	username nvarchar(50) primary key references tblUser(username),
 	fullname nvarchar(50),
-	age int,
-	gender int,
+	gender nvarchar(10),
 	phone nvarchar(15),
 	day_of_birth datetime,
-	[address] nvarchar(50)
+	[address] nvarchar(50),
+	email nvarchar(50)
 )
 
-insert into tblUserDetail values('admin','Tao La Admin',100,0,0696969,null,'19/23 Giang Van Minh')
-insert into tblUserDetail values('employee','Tao La Employee',20,0,01234567,null,'123 Giang Vo')
-insert into tblUserDetail values('customer','Tao La Customer',10,1,0869968,null,'321 Mam non Hoa Sen')
+insert into tblUserDetail values('admin','Tao La Admin','Male',0696969,null,'19/23 Giang Van Minh','abc@xyz')
+insert into tblUserDetail values('employee','Tao La Employee','Female',01234567,null,'123 Giang Vo','asd@123')
+insert into tblUserDetail values('customer','Tao La Customer','Male',0869968,null,'321 Mam non Hoa Sen','awe@asd')
 
 create table tblBuildingType
 (

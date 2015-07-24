@@ -7,6 +7,11 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -73,9 +78,20 @@ public class signup extends HttpServlet {
             throws ServletException, IOException {
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
-        int role = Integer.valueOf(request.getParameter("role"));
+        int role = Integer.parseInt(request.getParameter("role"));
+        String fulln = request.getParameter("fullname");
+        String gend = request.getParameter("gender");
+        String phone = request.getParameter("phone");
+        String birthdate = request.getParameter("dateofbirth");
+        try {
+            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(birthdate);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        String add = request.getParameter("address");
+        String email = request.getParameter("email");
         UserManager um = new UserManager();
-        if (um.addUser(user, pass, role)){
+        if (um.addUser(user, pass, role, fulln, gend, phone, birthdate, add, email)){
             request.setAttribute("message", user);
             request.getRequestDispatcher("login_page.jsp").forward(request, response);
         }else{
