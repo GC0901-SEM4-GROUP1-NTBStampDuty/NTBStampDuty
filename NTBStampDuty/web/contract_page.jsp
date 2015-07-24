@@ -105,6 +105,12 @@
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png" onclick="submitter('addNewLand')"/>
                         </div>
+                        <div><a>Project Name: </a> <select style="width: 170px" name="projectId" id="roomAddNew" class="roomId">
+                                <c:forEach items="${proList}" var="pro">
+                                    <option value="${pro.projectID}">${pro.projectName}</option>
+                                </c:forEach>
+                            </select>                            
+                        </div>
                         <div><a>Date:</a> <input type="number" name="date" class="date" /></div>
                         <div><a>Total Payment:</a> <input type="number" name="payment" class="payment" /></div> 
                         <div><a>Deposit:</a> <input type="number" name="deposit" class="deposit" /></div>

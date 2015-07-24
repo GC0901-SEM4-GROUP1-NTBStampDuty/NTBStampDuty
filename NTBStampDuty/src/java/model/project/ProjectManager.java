@@ -307,4 +307,29 @@ public class ProjectManager {
             e.printStackTrace();
         }
     }
+
+    public List<Project> getProjectToAddContract() {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement(
+                    "select * from tblProjects"
+            );
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Project project = new Project();
+                project.setProjectID(rs.getInt("proj_id"));
+                project.setProjectName(rs.getString("proj_name"));                
+                projectList.add(project);
+            }
+            rs.close();
+            ps = conn.getConnection().prepareStatement("select count(*) from tblProjects");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                this.noOfRecords = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return projectList;
+    }
 }

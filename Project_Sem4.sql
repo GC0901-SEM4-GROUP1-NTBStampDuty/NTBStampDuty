@@ -19,16 +19,16 @@ create table tblUserDetail
 (
 	username nvarchar(50) primary key references tblUser(username),
 	fullname nvarchar(50),
-	age int,
-	gender int,
+	gender nvarchar(10),
 	phone nvarchar(15),
 	day_of_birth datetime,
-	[address] nvarchar(50)
+	[address] nvarchar(50),
+	email nvarchar(50)
 )
 
-insert into tblUserDetail values('admin','Tao La Admin',100,0,0696969,null,'19/23 Giang Van Minh')
-insert into tblUserDetail values('employee','Tao La Employee',20,0,01234567,null,'123 Giang Vo')
-insert into tblUserDetail values('customer','Tao La Customer',10,1,0869968,null,'321 Mam non Hoa Sen')
+insert into tblUserDetail values('admin','Tao La Admin','Male',0696969,null,'19/23 Giang Van Minh','abc@xyz')
+insert into tblUserDetail values('employee','Tao La Employee','Female',01234567,null,'123 Giang Vo','asd@123')
+insert into tblUserDetail values('customer','Tao La Customer','Male',0869968,null,'321 Mam non Hoa Sen','awe@asd')
 
 create table tblBuildingType
 (
@@ -149,6 +149,7 @@ insert into tblRoomType values('House')
 insert into tblRoomType values('Shop')
 insert into tblRoomType values('Office')
 
+
 select*from tblRoomType
 
 create table tblRoomDetails
@@ -158,36 +159,42 @@ building_id int references tblBuildingDetails(building_id),
 [type_id] int references tblRoomType([type_id]),
 room_size int,
 [floor] int,
-room_price int
+room_price int,
+sellStatus int
 )
+Go
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(1, 2, '50', '1', '4000',1)
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(1, 2, '50', '1', '10000',0)
+insert into tblRoomDetails values(1, 1, '50', '2', '1500',0)
+insert into tblRoomDetails values(1, 3, '50', '1', '7500',0)
+insert into tblRoomDetails values(1, 2, '50', '1', '4000',0)
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(2, 2, '50', '1', '4000',0)
+insert into tblRoomDetails values(2, 3, '50', '1', '1500',0)
+
+GO
 select*from tblRoomDetails
 
-insert into tblRoomDetails values(1, 1, '50', '1', '1500')
-insert into tblRoomDetails values(1, 2, '50', '1', '4000')
-insert into tblRoomDetails values(1, 1, '50', '1', '1500')
-insert into tblRoomDetails values(1, 2, '50', '1', '10000')
-insert into tblRoomDetails values(1, 1, '50', '2', '1500')
-insert into tblRoomDetails values(1, 3, '50', '1', '7500')
-insert into tblRoomDetails values(1, 2, '50', '1', '4000')
-insert into tblRoomDetails values(1, 1, '50', '1', '1500')
-insert into tblRoomDetails values(2, 2, '50', '1', '4000')
-insert into tblRoomDetails values(2, 3, '50', '1', '1500')
-
+Go
 create table tblContract
 (
 con_id int primary key identity,
 username nvarchar(50) references tblUser(username),
 room_id int references tblRoomDetails(room_id),
 created_date Datetime,
+payment_period int,
 deposit int,
 total_payment int,
 total_paid int,
 total_due int,
 invoice_status int
 )
-select*from tblContract
 
-insert into tblContract values('customer', 2, '2015-07-21',200000000, 1000000000, 200000000, 800000000,0)
+
+select*from tblContract
+insert into tblContract values('customer', 2, '2015-07-21',1,200000000, 1000000000, 200000000, 800000000,0)
 
 create table tblPayment
 (

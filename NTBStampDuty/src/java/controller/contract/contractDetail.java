@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.contract.Contract;
 import model.contract.ContractManager;
+import model.project.Project;
+import model.project.ProjectManager;
 
 /**
  *
@@ -72,6 +74,9 @@ public class contractDetail extends HttpServlet {
         contractList = manager.getAllContractByDate((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        ProjectManager pm = new ProjectManager();
+        List<Project> proList = pm.getProjectToAddContract();
+        request.setAttribute("proList", proList);
         request.setAttribute("contractList", contractList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
@@ -99,6 +104,9 @@ public class contractDetail extends HttpServlet {
         contractList = manager.getAllContractByDate((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = manager.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        ProjectManager pm = new ProjectManager();
+        List<Project> proList = pm.getProjectToAddContract();
+        request.setAttribute("proList", proList);
         request.setAttribute("contractList", contractList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
