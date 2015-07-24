@@ -194,6 +194,7 @@ invoice_status int
 
 
 select*from tblContract
+
 insert into tblContract values('customer', 2, '2015-07-21',1,200000000, 1000000000, 200000000, 800000000,0)
 
 create table tblPayment

@@ -42,7 +42,7 @@ public class RoomManager {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Room room = new Room();
-                room.setRoomId(String.valueOf(rs.getInt("room_id")));
+                room.setRoomId(rs.getInt("room_id"));
                 room.setBuildingId(rs.getInt("building_id"));
                 int type = rs.getInt("type_id");
                 switch (type) {
@@ -80,18 +80,18 @@ public class RoomManager {
         try {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
-                    "Select r.room_id,r.building_id,r.[type_id],room_size,r.[floor],r.room_price\n"
+                    "Select r.room_id,r.building_id,r.[type_id],room_size,r.[floor],r.room_price \n"
                     + "from tblRoomDetails r \n"
                     + "inner join tblBuildingDetails b \n"
-                    + "on r.building_id = b.building_id JOIN tblProjects p\n"
-                    + "on b.building_id = p.building_id"
-                    + "Where p.proj_id = ? And r.sellStatus=0 \n"
+                    + "on r.building_id = b.building_id JOIN tblProjects p \n"
+                    + "on b.building_id = p.building_id\n"
+                    + "Where p.proj_id = ? And r.sellStatus=0 "
             );
             ps.setInt(1, projectId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Room room = new Room();
-                room.setRoomId(rs.getInt("floor") + "-" + rs.getInt("room_id"));
+                room.setRoomId(rs.getInt("room_id"));
                 room.setBuildingId(rs.getInt("building_id"));
                 int type = rs.getInt("type_id");
                 switch (type) {
@@ -110,6 +110,27 @@ public class RoomManager {
                 }
                 room.setRoomSize(rs.getInt("room_size"));
                 room.setRoomFloor(rs.getInt("floor"));
+                room.setRoomPrice(rs.getInt("room_price"));
+                roomListContract.add(room);
+            }
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return roomListContract;
+    }
+
+    public List<Room> getRoomPrice(int roomId) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement(
+                    "Select * from tblRoomDetails where room_id = ? "
+            );
+            ps.setInt(1, roomId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Room room = new Room();
+                room.setRoomId(rs.getInt("room_id"));                
                 room.setRoomPrice(rs.getInt("room_price"));
                 roomListContract.add(room);
             }

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.building.Building;
 import model.building.BuildingManager;
-import model.CompareDate;
+import model.period.CompareDate;
 import model.period.Period;
 import model.period.PeriodManager;
 import model.project.Project;

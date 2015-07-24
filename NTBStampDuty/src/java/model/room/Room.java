@@ -10,20 +10,20 @@ package model.room;
  * @author SonNguyen
  */
 public class Room {
-    private String roomId;
+    private int roomId;
     private int buildingId;
     private String roomType;
     private int roomSize;
     private int roomFloor;
     private int roomPrice;
 
-    public String getRoomId() {
+    public int getRoomId() {
         return roomId;
     }
 
-    public void setRoomId(String roomId) {
+    public void setRoomId(int roomId) {
         this.roomId = roomId;
-    }   
+    }
 
     public int getBuildingId() {
         return buildingId;

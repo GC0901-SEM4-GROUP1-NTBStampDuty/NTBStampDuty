@@ -14,10 +14,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.user.UserManager;
 import model.contract.Contract;
 import model.contract.ContractManager;
 import model.project.Project;
 import model.project.ProjectManager;
+import model.user.User;
 
 /**
  *
@@ -76,6 +78,9 @@ public class contractDetail extends HttpServlet {
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         ProjectManager pm = new ProjectManager();
         List<Project> proList = pm.getProjectToAddContract();
+        UserManager um = new UserManager();
+        List<User> userList = um.getUserToAddContract();
+        request.setAttribute("userList", userList);
         request.setAttribute("proList", proList);
         request.setAttribute("contractList", contractList);
         request.setAttribute("noOfPages", noOfPages);
