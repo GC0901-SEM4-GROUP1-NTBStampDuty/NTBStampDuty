@@ -90,7 +90,7 @@ public class getContractDetail extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
+     * @throws ServletException if a servlet-sp necific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
@@ -106,7 +106,7 @@ public class getContractDetail extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Short description";  
     }// </editor-fold>
 
 }
