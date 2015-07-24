@@ -11,15 +11,29 @@
 
 <head>
     <title>Project Details</title>
-    <link href="css/project_detail_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/project_detail_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
     <script>
         function setWarning(period, status) {
             if (status == 1) {
                 $(".period" + period + ' .warning_yellow').css("visibility", "visible");
+                blink(1000, ".period" + period + ' .warning_yellow');
             } else if (status == -1) {
                 $(".period" + period + ' .warning_red').css("visibility", "visible");
+                blink(1000, ".period" + period + ' .warning_red');
             }
+        }
+
+        function blink(interval, img) {
+            var timer = window.setInterval(function () {
+                $(img).css("opacity", "0.1");
+                window.setTimeout(function () {
+                    $(img).css("opacity", "1");
+                }, 300);
+            }, interval);
+            window.setTimeout(function () {
+                clearInterval(timer);
+            }, 1000000);
         }
     </script>
 </head>
@@ -61,17 +75,17 @@
                             <div class="projectDetail">
                                 <p>Project ID:</p>                   
                                 <p>Project Name:</p>     
+                                <p>Period: </p>
                                 <p>Created Date:</p>
                                 <p>Finish Date:</p>
-                                <p>Period: </p>
                                 <p>Complete Percent:</p>
                             </div>
                             <div class="proDetail">
                                 <p>${project.projectID}</p>
                                 <p>${project.projectName}</p>
+                                <p>${project.period}</p>
                                 <p>${project.createdDate}</p>
                                 <p>${project.finishDate}</p>
-                                <p>${project.period}</p>
                                 <p>${project.completePercent}</p>
                             </div>
                             <div class="buildingDetail">

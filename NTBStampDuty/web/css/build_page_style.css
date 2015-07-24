@@ -1,0 +1,66 @@
+#main_body .detail_bar .table_container .table_build {position: absolute; color: #191919; border-collapse: collapse; border-spacing: 0px; width: 100%;}
+#main_body .detail_bar .table_container .table_build th {padding: 8px; border-bottom: 1px solid #D3D3D3; color: #777777; font: 14px "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif; pointer-events: none}
+#main_body .detail_bar .table_container .table_build th:last-child {border-right: 0px;}
+#main_body .detail_bar .table_container .table_build tr {border: 0px solid white;}
+#main_body .detail_bar .table_container .table_build tr:first-child {pointer-events: none}
+#main_body .detail_bar .table_container .table_build td {line-height: 31px; text-align: center; font-size: 15px;}
+#main_body .detail_bar .table_container .table_build td:nth-child(2) {text-align: left; padding-left: 10px}
+#main_body .detail_bar .table_container .table_build td:last-child {border-right: 0px; background: url("../images/ic_detail.png") no-repeat center; cursor: pointer;}
+#main_body .detail_bar .table_container .table_build td:last-child input {border: 0; background: transparent; color: transparent; width: 150px; height: 30px; cursor: pointer;}
+
+#main_body .detail_bar .table_container .row_build a {position: absolute; height: 547px; top: 0px;border-right: 1px solid #D3D3D3; margin-left: -1px;}
+#main_body .detail_bar .table_container .row_build a:first-child {left: 8%;}
+#main_body .detail_bar .table_container .row_build a:nth-child(2) {left: 38%;}
+#main_body .detail_bar .table_container .row_build a:nth-child(3) {left: 52%;}
+#main_body .detail_bar .table_container .row_build a:nth-child(4) {left: 62%;}
+#main_body .detail_bar .table_container .row_build a:nth-child(5) {left: 76%;}
+#main_body .detail_bar .table_container .row_build a:nth-child(6) {left: 86%;}
+
+
+.ui-widget div input {width: 170px;}
+.ui-widget div:first-child {width: 570px;}
+.ui-widget div:nth-child(2) {margin-bottom: 20px;}
+.ui-widget div:nth-child(3) {margin-left: 24px;  margin-bottom: 20px;}
+.ui-widget div:nth-child(4) {}
+.ui-widget div:nth-child(5) {margin-left: 31px;}
+.ui-widget div:nth-child(6) {}
+.ui-widget div:nth-child(7) {margin-left: 28px; margin-bottom: 20px}
+.ui-widget div:nth-child(8) {}
+.ui-widget div:nth-child(9) {float: left; margin-left: 72px;}
+.ui-widget div:nth-child(10) {float: left;}
+
+.ui-widget div .plus_navigation{width: 21px; height: 21px; vertical-align: middle; margin-top: -4px; margin-left: 1px;}
+.ui-widget div .next_navigation{width: 22px; height: 21px; vertical-align: middle; margin-top: -3px; margin-left: 0px; background:url("../images/ic_show.png");}
+.ui-widget div .build_name {margin-left: 14px; margin-top: 1px;}
+.ui-widget div .land_name {margin-left: 34px; width: 170px;}
+.ui-widget div .build_type {margin-left: 8px; width: 170px;}
+.ui-widget div .floors {margin-left: 27px;}
+.ui-widget div .houses {margin-left: 46px;}
+.ui-widget div .rooms {margin-left: 22px}
+.ui-widget div .shops {margin-left: 53px}
+.ui-widget div .build_image {margin-left:26px; width: 490px;}
+.ui-widget div .date_contracted {margin-left: 4px;}
+.ui-widget div input:focus {outline: 1px solid #CF2525; border: 1px solid #CF2525;}
+.ui-widget .edit_menu input:focus {outline: 0px; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);}
+
+
+.ui-widget .deleteLand div:nth-child(2) {margin-bottom: 0px;}
+
+.addNewLand div:first-child {width: 570px;}
+.addNewLand div:nth-child(2) {margin-bottom: 20px;}
+.addNewLand div:nth-child(3) {margin-left: 0px; margin-bottom: 2px;}
+.addNewLand div:nth-child(4) {margin-left: 60px;margin-bottom: 2px;}
+.addNewLand div:nth-child(6) { margin-left: 0}/*
+.addNewLand div:nth-child(7) {}
+.addNewLand div:nth-child(8) {margin-left: 100px;}
+.addNewLand div:nth-child(9) {float: left; margin-left: 55px;}*/
+
+.ui-widget div .plus_navigation{width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 5px;}
+.ui-widget div .land_size {margin-left: 35px; margin-top: 1px;}
+.ui-widget div .land_address {margin-left: 10px; width: 470px;}
+.ui-widget div .land_status {margin-left: 20px;}
+.ui-widget div .build_type {margin-left: 8px;width: 170px;}
+.ui-widget div .land_price {margin-left: 33px;}
+/*.ui-widget div .land_total {margin-left: 29px}
+.ui-widget div .total_price {margin-left: 28px}
+.ui-widget div .land_image {margin-left: 54px; width: 470px;}*/

@@ -22,7 +22,7 @@
                 <a href="/NTBStampDuty/landDetail">LAND DETAILS</a>
             </li>
             <li>
-                <a href="#">ROOM DETAILS</a>
+                <a href="/NTBStampDuty/contractDetail">CONTRACT DETAILS</a>
             </li>
             <li>
                 <a href="/NTBStampDuty/userDetail">ACCOUNT DETAILS</a>

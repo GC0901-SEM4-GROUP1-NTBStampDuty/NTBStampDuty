@@ -1,0 +1,18 @@
+#main_body .detail_bar .table_container .table_user {position: absolute; color: #191919; border-collapse: collapse; border-spacing: 0px; width: 100%;}
+#main_body .detail_bar .table_container .table_user th {padding: 8px; border-bottom: 1px solid #D3D3D3; color: #777777; font: 14px "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif; pointer-events: none}
+#main_body .detail_bar .table_container .table_user th:last-child {border-right: 0px;}
+#main_body .detail_bar .table_container .table_user tr {border: 0px solid white;}
+#main_body .detail_bar .table_container .table_user tr:first-child {pointer-events: none}
+#main_body .detail_bar .table_container .table_user td {line-height: 31px; text-align: center; font-size: 15px;}
+#main_body .detail_bar .table_container .table_user td:nth-child(3) {text-align: left; padding-left: 10px}
+#main_body .detail_bar .table_container .table_user td:nth-child(4) {text-align: left; padding-left: 10px}
+#main_body .detail_bar .table_container .table_user td:last-child {border-right: 0px; background: url("../images/ic_detail.png") no-repeat center; cursor: pointer;}
+#main_body .detail_bar .table_container .table_user td:last-child input {border: 0; background: transparent; color: transparent; width: 150px; height: 30px; cursor: pointer;}
+
+#main_body .detail_bar .table_container .row_user a {position: absolute; height: 547px; top: 0px;border-right: 1px solid #D3D3D3; margin-left: -1px;}
+#main_body .detail_bar .table_container .row_user a:first-child {left: 9%;}
+#main_body .detail_bar .table_container .row_user a:nth-child(2) {left: 30%;}
+#main_body .detail_bar .table_container .row_user a:nth-child(3) {left: 51%;}
+#main_body .detail_bar .table_container .row_user a:nth-child(4) {left: 72%;}
+#main_body .detail_bar .table_container .row_user a:nth-child(5) {left: 86%;}
+

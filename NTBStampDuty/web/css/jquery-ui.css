@@ -69,7 +69,7 @@
 ----------------------------------*/
 .ui-widget {
     color: #828282;
-    padding-top: 5px;
+    /* padding-top: 5px; */
     font-size: 14px;
     font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
 }
@@ -122,22 +122,28 @@
 }
 
 .ui-dialog .land_detail, .ui-dialog .add_new_land {
-    top: 474px;
+    top: 204px;
     right: 24px;
 }
 
 .ui-dialog .building_detail, .add_new_building {
     top: 477px;
     right: 24px;
+    position: absolute;
 }
 
 .ui-dialog .add_new_project{
-    top: 256px;
+    top: 258px;
     right: 24px;
 }
 
 .ui-dialog .delete_land {
     top: 87px;
+    right: 24px;
+}
+
+.ui-dialog .add_new_contract{
+    top: 241px;
     right: 24px;
 }
 

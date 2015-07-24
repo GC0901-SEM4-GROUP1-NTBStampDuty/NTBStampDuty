@@ -42,6 +42,7 @@ insert into tblBuildingType values(3, 'Shopping')
 
 select * from tblBuildingType
 create table tblLand
+
 (
 land_id int IDENTITY(1,1) primary key,
 size int,
@@ -105,6 +106,7 @@ available_status int,
 insert into tblProjects values('Project1', 1, '2015-07-19', '2016-07-19', 1, 1)
 insert into tblProjects values('Project2', 2, '2015-05-30', '2015-06-30', 1, 1)
 insert into tblProjects values('Project3', 3, '2015-05-30', '2015-06-30', 1, 1)
+
 Select * from tblProjects
 
 Create table tblPeriod(
@@ -115,7 +117,7 @@ period_3 datetime,
 complete_percent int
 )
 Update tblPeriod
-Set period_1 = '2015-08-19'
+Set complete_percent = 31
 where proj_id = 1
 
 Insert into tblPeriod values (1,'2015-11-19','2016-03-19','2015-06-19',60)
@@ -147,6 +149,8 @@ insert into tblRoomType values('House')
 insert into tblRoomType values('Shop')
 insert into tblRoomType values('Office')
 
+select*from tblRoomType
+
 create table tblRoomDetails
 (
 room_id int primary key identity,
@@ -166,29 +170,42 @@ insert into tblRoomDetails values(1, 1, '50', '2', '1500')
 insert into tblRoomDetails values(1, 3, '50', '1', '7500')
 insert into tblRoomDetails values(1, 2, '50', '1', '4000')
 insert into tblRoomDetails values(1, 1, '50', '1', '1500')
-
-create table tblPaymentType
-(
-payment_id int primary key identity,
-payment_name nvarchar(50),
-payment_time int,
-interest int
-)
+insert into tblRoomDetails values(2, 2, '50', '1', '4000')
+insert into tblRoomDetails values(2, 3, '50', '1', '1500')
 
 create table tblContract
 (
 con_id int primary key identity,
 username nvarchar(50) references tblUser(username),
 room_id int references tblRoomDetails(room_id),
-payment_id int references tblPaymentType(payment_id),
 created_date Datetime,
+deposit int,
 total_payment int,
 total_paid int,
 total_due int,
 invoice_status int
 )
+select*from tblContract
+
+insert into tblContract values('customer', 2, '2015-07-21',200000000, 1000000000, 200000000, 800000000,0)
+
+create table tblPayment
+(
+contract_id int references tblContract(con_id),
+payment_time Datetime,
+paid int
+)
+
+select*from tblPayment
+
+insert into tblPayment values(1,'2015-07-22',200000000)
 
 create table tblStampDuty
 (
 stamp_price int primary key
 )
+
+select*from tblPayment
+inner join tblContract
+on tblPayment.contract_id = tblContract.con_id
+where tblContract.username = 'customer'

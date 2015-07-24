@@ -6,6 +6,8 @@ onload = function () {
         $("#bar ul li:nth-child(2)").css("background", "#cecfd0");
     } else if (path.match('landDetail') || path.match('searchLand')) {
         $("#bar ul li:nth-child(3)").css("background", "#cecfd0");
+    } else if (path.match('contractDetail') || path.match('searchContract')) {
+        $("#bar ul li:nth-child(4)").css("background", "#cecfd0");
     } else if (path.match('userDetail') || path.match('searchUser')) {
         $("#bar ul li:nth-child(5)").css("background", "#cecfd0");
     }
@@ -43,7 +45,6 @@ onload = function () {
 
     $('.txt_search').focus(
             function () {
-                $
                 $('.search_menu form').css("outline", "1px solid #CF2525");
                 $('.search_menu form').css("border", "1px solid #CF2525");
             });

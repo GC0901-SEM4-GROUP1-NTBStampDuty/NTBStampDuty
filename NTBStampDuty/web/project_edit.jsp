@@ -11,7 +11,7 @@
 
 <head>
     <title>Project Details</title>
-    <link href="css/project_detail_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/project_detail_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
 </head>
 <tag:MainTag>
@@ -59,7 +59,7 @@
                                 <input type="hidden" value="${project.projectID}" name="editID"/>
                                 <p>${project.projectID}</p>
                                 <p><input type="text" value="${project.projectName}" name="projName"  maxlength="30" required="true"/></p> 
-                                <p><input type="text" value="${project.period}" name="period" required="true"/></p>
+                                <p><input type="text" readonly="true" value="${project.period}" name="period" required="true"/></p>
                                 <p><input type="text" value="${project.createdDate}" name="createdDate" maxlength="10" required="true"/></p>
                                 <p><input type="text" value="${project.finishDate}" name="finishDate"  maxlength="10" required="true"/></p>
                                 <p><input type="number" value="${project.completePercent}" name="completePercent"  maxlength="4" required="true"/></p>
@@ -72,10 +72,10 @@
                                     <p>Building Type:</p>
                                 </div>
                                 <div class="buildDetailLeft">
-                                    <p><input type="number" value="${building.buildingID}" required="true" /></p>
-                                    <p><input type="number" value="${building.landID}" required="true" /></p>
-                                    <p><input type="text" value="${building.buildingName}" required="true" /></p>
-                                    <p><input type="text" value="${building.buildingType}" required="true" /></p>
+                                    <p>${building.buildingID}</p>
+                                    <p>${building.landID}</p>
+                                    <p>${building.buildingName}</p>
+                                    <p>${building.buildingType}</p>
                                 </div>
                                 <div class="buildingDetailRight">
                                     <p>Floors number:</p>
@@ -84,17 +84,17 @@
                                     <p>Shops number:</p>                  
                                 </div>
                                 <div class="buildDetailRight">
-                                    <p><input type="number" value="${building.floors}" /></p>
-                                    <p><input type="number" value="${building.rooms}" /></p>
-                                    <p><input type="text" value="${building.houses}" /></p>
-                                    <p><input type="text" value="${building.shops}" /></p>                  
+                                    <p>${building.floors}</p>
+                                    <p>${building.rooms}</p>
+                                    <p>${building.houses}</p>
+                                    <p>${building.shops}</p>                  
                                 </div>
                             </div>
-                            <div id="progress-bar-container">
+<!--                            <div id="progress-bar-container">
                                 <div align="center" class="percent">${project.completePercent}%</div>
                                 <div style="width:${project.completePercent}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
                                 </div>
-                            </div>
+                            </div>-->
                             <p><input type="submit" class="saveEdit" value="Save"/></p>
                         </form>
                     </div>          

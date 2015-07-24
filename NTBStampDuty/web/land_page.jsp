@@ -11,7 +11,7 @@
 
 <head>
     <title>Land Details</title>
-    <link href="css/land_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/land_page_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script src = "javascript/jquery.js" type="text/javascript"></script>
     <script>
@@ -99,8 +99,8 @@
                         <th style="width: 6%">Size</th>
                         <th style="width: 32%">Address</th>
                         <th style="width: 14%">Building Types</th>
-                        <th style="width: 14%">Price</th>
                         <th style="width: 14%">Built Status</th>
+                        <th style="width: 14%">Price</th>
                         <th style="width: 14%">Detail</th>
                     </tr>
                     <c:forEach items="${landList}" var="land">
@@ -108,10 +108,9 @@
                             <td>${land.landID}</td>
                             <td>${land.size}</td>
                             <td>${land.address}</td>
-                            <td>${land.price}</td>
                             <td>${land.buildingTypes}</td>
-                            <td>${land.img}</td>
                             <td>${land.available_status}</td>
+                            <td>${land.price}</td>
                             <td><input type="submit" value="Show detail" onclick="getLandDetails(${land.landID});
                                     getName(this)"/>
                             </td>
@@ -128,11 +127,7 @@
                                     <option value="${type.id}">${type.typeName}</option>
                                 </c:forEach>
                             </select></div> 
-                        <div><a>Price:</a> <input id="price" name="land_price" class="land_type" value="${land.price}"/></div> 
-                        <div><a>Image:</a> <input id="img" name="land_img" class="land_price" value="${land.img}"/></div>
-                        <div><a>Available Status:</a> <input id="status" name="land_stt" class="land_plan" value="${land.available_status}"/></div>                          
-                        <div><a>Image:</a> <input  class="land_image" value=""/></div>
-                        <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div><a>Price:</a> <input id="price" type="number" name="land_price" class="land_price" value="${land.price}"/></div>
                         <div><input type="hidden" name="landID" id="landID" /></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
@@ -146,12 +141,12 @@
                         <!--<div><a>Land Name:</a> <input name="landName" id="landName" class="land_name"/></div>-->
                         <div><a>Land Size:</a> <input type="text" name="size" class="land_size" /></div>
                         <div><a>Land Address:</a> <input type="text" name="address" class="land_address" /></div>                                                      
-                        <div><a>Building Types:</a> <input type="text" name="buildingTypes" class="land_status" /></div> 
-                        <div><a>Price:</a> <input type="number" name="price" class="land_type" /></div> 
-                        <div><a>Image:</a> <input type="text" name="img" class="land_price" /></div>
-                        <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          
-                        <div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>
-                        <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div><a>Building Types:</a>  <select name="buildingTypes" id="buildingTypes" class="build_type">
+                                <c:forEach items="${typeList}" var="type">
+                                    <option value="${type.id}">${type.typeName}</option>
+                                </c:forEach>
+                            </select></div> 
+                        <div><a>Price:</a> <input type="number" name="price" class="land_price" /></div> 
                         <div></div>
                         <div class="edit_menu">
                             <div class="btn_edit">

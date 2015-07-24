@@ -11,7 +11,7 @@
 
 <head>
     <title>Building Details</title>
-    <link href="css/build_page_styple.css" rel="stylesheet" type="text/css"/>
+    <link href="css/build_page_style.css" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
     <script src = "javascript/jquery.js" type="text/javascript"></script>
     <script>
@@ -28,6 +28,12 @@
                     $.each(data, function (index, building) {
                         $('.land_name').val(building.landID);
                         $('.build_type').val(building.buildingTypeID);
+                        var house = document.getElementById("housesLink");
+                        house.href = "/NTBStampDuty/getRoomDetail?"+id+"-1";
+                        var shop = document.getElementById("shopsLink");
+                        shop.href = "/NTBStampDuty/getRoomDetail?"+id+"-2";
+                        var office = document.getElementById("officesLink");
+                        office.href = "/NTBStampDuty/getRoomDetail?"+id+"-3";
                         document.getElementById("buildID").value = id;
                         document.getElementById("buildingName").value = building.buildingName;
                         document.getElementById("floors").value = building.floors;
@@ -44,7 +50,7 @@
             var land = new Object();
             land.size = $('#landSize').val();
             land.landAddress = $('#landAddress').val();
-            land.buildingType = $('#buildingType').val();
+            land.buildingType = $('#buildingTypes').val();
             land.landPrice = $('#landPrice').val();
             $.ajax({
                 url: "addLandAjax",
@@ -135,12 +141,16 @@
                     <!--<div><a>Land Name:</a> <input name="landName" id="landName" class="land_name"/></div>-->
                     <div><a>Land Size:</a> <input id="landSize" type="text" name="size" class="land_size" /></div>
                     <div><a>Land Address:</a> <input id="landAddress" type="text" name="address" class="land_address" /></div>                                                      
-                    <div><a>Building Types:</a> <input id="buildingType" type="text" name="buildingTypes" class="land_status" /></div> 
-                    <div><a>Price:</a> <input id="landPrice" type="number" name="price" class="land_type" /></div> 
+                    <div><a>Building Types:</a> </a> <select name="typeColumn" id="buildingTypes" class="build_type">
+                            <c:forEach items="${typeList}" var="type">
+                                <option value="${type.id}">${type.typeName}</option>
+                            </c:forEach>
+                        </select></div> 
+                    <div><a>Price:</a> <input id="landPrice" type="number" name="price" class="land_price" /></div> 
                     <!--<div><a>Image:</a> <input type="text" name="img" class="land_price" /></div>-->
-                    <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          
+                    <!--                    <div><a>Total Price:</a> <input name="land_total" disabled="true" class="land_total"/></div>                          -->
                     <!--<div><a>Image:</a> <input name="land_image" class="land_image" value=""/></div>-->
-                    <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                    <!--                    <div><img src="images/ic_none_image.png" width="145px" height="180px"/></div>-->
                     <div></div>
                     <div class="edit_menu">
                         <div class="btn_edit">
@@ -164,10 +174,16 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div><a>Floors: </a> <input id="floors" class="floors" name="floors"/><img class="next_navigation" src="images/ic_show.png"/></div> 
-                        <div><a>Houses: </a> <input id="houses" class="houses" name="houses"/><img class="next_navigation" src="images/ic_show.png"/></div>  
-                        <div><a>Rooms: </a> <input id="rooms" class="rooms" name="rooms"/><img class="next_navigation" src="images/ic_show.png"/></div>
-                        <div><a>Shops: </a> <input id="shops" class="shops" name="shops"/><img class="next_navigation" src="images/ic_show.png"/></div>  
+                        <div><a>Floors: </a> <input id="floors" class="floors" name="floors"/><img class="next_navigation" style="visibility: hidden" src="images/ic_show.png"/></div> 
+                        <div><a>Houses: </a> <input id="houses" class="houses" name="houses"/>
+                            <a id="housesLink"><img class="next_navigation" src="images/ic_show.png"/></a>    
+                        </div>  
+                        <div><a>Offices: </a> <input id="rooms" class="rooms" name="rooms"/>
+                            <a id="officesLink"><img class="next_navigation" src="images/ic_show.png"/></a>    
+                        </div>
+                        <div><a>Shops: </a> <input id="shops" class="shops" name="shops"/>
+                            <a id="shopsLink"><img class="next_navigation" src="images/ic_show.png"/></a>    
+                        </div>  
                         <div><a>Image:</a> <input type="file" name="buildImage" class="build_image" accept="image/gif, image/jpeg, image/png"/></div>
                         <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
                         <div><input type="hidden" name="buildingID" id="buildID" /></div>

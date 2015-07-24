@@ -76,7 +76,7 @@ public class login extends HttpServlet {
         UserManager um = new UserManager();
         if (um.checkUser(user, pass)){
             request.setAttribute("message", user);
-            request.getRequestDispatcher("project_detail.jsp").forward(request, response);
+            request.getRequestDispatcher("projectDetail").forward(request, response);
         }else{
             request.getRequestDispatcher("login_page.jsp").forward(request, response);
         }
