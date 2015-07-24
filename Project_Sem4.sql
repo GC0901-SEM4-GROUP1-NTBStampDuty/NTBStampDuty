@@ -149,6 +149,7 @@ insert into tblRoomType values('House')
 insert into tblRoomType values('Shop')
 insert into tblRoomType values('Office')
 
+
 select*from tblRoomType
 
 create table tblRoomDetails
@@ -190,6 +191,7 @@ total_paid int,
 total_due int,
 invoice_status int
 )
+
 
 select*from tblContract
 insert into tblContract values('customer', 2, '2015-07-21',1,200000000, 1000000000, 200000000, 800000000,0)
