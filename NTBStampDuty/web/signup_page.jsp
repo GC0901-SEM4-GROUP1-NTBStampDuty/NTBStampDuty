@@ -23,11 +23,18 @@
                 <form class="signup_auth" action="signup" method="post">
                     <input id="signup_input" type="text" name="username" placeholder="Username" required="true"  maxlength="15"/><br/>
                     <input id="signup_input" type="password" name="password" placeholder="Password" required="true" maxlength="20"/><br/>
-                    <input id="signup_input" type="repassword" name=repassword" placeholder="Retype Password" required="true" maxlength="20"/><br/>
-                    <select id="signup_input" name="role" disabled="true" placeholder="Role">
+                    <select id="signup_input" name="role" >
                         <option value="2">2</option>
                     </select><br/>
-
+                    <input id="signup_input" type="text" name="fullname" placeholder="Fullname" required="true"  maxlength="50"/><br/>
+                    <select id="signup_input" name="gender" placeholder="Gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select><br/>
+                    <input id="signup_input" type="text" name="phone" placeholder="Phone" required="true"  maxlength="15"/><br/>
+                    <input id="signup_input" type="date" name="dateofbirth" placeholder="Birth Date" required="true"/><br/>
+                    <input id="signup_input" type="text" name="address" placeholder="Address" required="true"  maxlength="15"/><br/>
+                    <input id="signup_input" type="text" name="email" placeholder="Email" required="true"  maxlength="50"/><br/>
                     <input id="signup_submit" type="submit" value="Register"/>
                 </form>
             </div>

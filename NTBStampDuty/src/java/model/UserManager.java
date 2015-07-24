@@ -101,16 +101,24 @@ public class UserManager {
         return status;
     }
     
-    public static boolean addUser(String un, String pw, int role) {
+    public static boolean addUser(String un, String pw, int role, String fm, String gd, String phone, String dob, String ad, String em) {
         boolean status = false;
         try{
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement("Insert into [tblUser] values(?, ?, ?)");
             ps.setString(1, un);
             ps.setString(2, pw);
-            ps.setInt(3, role);
-            ResultSet rs = ps.executeQuery();
-            status = rs.next();
+            ps.setInt(3, role);           
+            ps.executeUpdate();
+            PreparedStatement psm = conn.getConnection().prepareStatement("Insert into [tblUserDetail] values(?, ?, ?, ?, ?, ?, ?)");
+            psm.setString(1, un);
+            psm.setString(2, fm);
+            psm.setString(3, gd);
+            psm.setString(4, phone);
+            psm.setString(5, dob);
+            psm.setString(6, ad);
+            psm.setString(7, em);
+            psm.executeQuery();
         } catch (Exception e){
             e.printStackTrace();
         }
