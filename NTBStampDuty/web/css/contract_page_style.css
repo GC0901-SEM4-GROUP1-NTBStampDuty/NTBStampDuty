@@ -24,9 +24,13 @@
 .ui-widget div:nth-child(6) { margin-left: 41px;}
 
 .ui-widget div .plus_navigation {width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 5px;}
-.ui-widget div .customer {margin-left: 10px;}
-.ui-widget div .roomId {margin-left: 16px;}
-.ui-widget div .date {margin-left: 41px;}
+.ui-widget div .customer {margin-left: 32;}
+.ui-widget div .roomId {margin-left: 37px;}
+
+select#projectID {
+    margin-left: 10px;
+}
+.ui-widget div .date {margin-left: 15px;}
 .ui-widget div .deposit {margin-left: 21px;}
 .ui-widget div .payment {margin-left: 5px;}
 .ui-widget div .due {margin-left: 69px;}

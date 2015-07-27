@@ -43,7 +43,7 @@
                 }
             });
         }
-        
+
         function getRoomPrice() {
             var roomList = document.getElementById("roomIDToAddContract");
             var roomID = roomList.options[roomList.selectedIndex].value
@@ -51,7 +51,7 @@
                 url: "getRoomPriceAjax",
                 type: 'POST',
                 data: {"roomId": roomID},
-                success: function (data) {                    
+                success: function (data) {
                     $.each(data, function (index, roomItem) {
                         document.getElementById("totalPayment").value = roomItem.roomPrice;
                     });
@@ -60,6 +60,12 @@
             });
         }
         
+        function submitterAddNew(btn) {
+            $("#roomIDToAddContract").chosen();
+            $("#customerAddNew").chosen();
+            $("#projectID").chosen();
+            $('.' + btn).dialog({modal: true, show: 'fade', hide: 'drop'});
+        }
     </script>
 </head>
 <tag:MainTag>
@@ -129,24 +135,24 @@
                 <div class="addNewContract" title="Add New Contract" style="display:none">
                     <form action="addContract" method="POST">
                         <!--<div><a>Land Name:</a> <input name="landName" id="landName" class="land_name"/></div>-->
-                        <div><a>Customer:</a> <select style="width: 170px" name="customer" id="customerAddNew" class="customer">
-                                <c:forEach items="${userList}" var="user">
-                                    <option value="${user.username}">${user.username}</option>
+                        <div><a>Project name:</a> <select style="width: 170px" onchange="getRoom()" id="projectID" class="roomId">
+                                <option value="" disabled="true" selected="true">Choose a project</option>
+                                <c:forEach items="${proList}" var="pro">
+                                    <option value="${pro.projectID}">${pro.projectName}</option>
                                 </c:forEach>
                             </select>
-                            <img class="plus_navigation" src="images/ic_plus.png" onclick="submitter('addNewLand')"/>
                         </div>
                         <div><a>Room ID:</a> <select style="width: 170px" onchange="getRoomPrice()" name="roomId" id="roomIDToAddContract" class="roomId">
 
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png" onclick="submitter('addNewLand')"/>
                         </div>
-                        <div><a>Project Name: </a> <select style="width: 170px" onchange="getRoom()" id="projectID" class="roomId">
-                                <option value="" disabled="true" selected="true">Choose a project</option>
-                                <c:forEach items="${proList}" var="pro">
-                                    <option value="${pro.projectID}">${pro.projectName}</option>
+                        <div><a>Customer: </a> <select style="width: 170px" name="customer" id="customerAddNew" class="customer">
+                                <c:forEach items="${userList}" var="user">
+                                    <option value="${user.username}">${user.username}</option>
                                 </c:forEach>
-                            </select>                            
+                            </select>
+                            <img class="plus_navigation" src="images/ic_plus.png" onclick="submitter('addNewLand')"/>
                         </div>
                         <div><a>Date:</a> <input type="date" name="date" class="date" /></div>
                         <div><a>Total Payment:</a> <input type="number" name="payment" class="payment" id="totalPayment" /></div> 
