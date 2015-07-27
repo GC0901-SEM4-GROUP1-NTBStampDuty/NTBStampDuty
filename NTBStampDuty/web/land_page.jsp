@@ -66,9 +66,9 @@
                 <!--                <form class="btn_edit">
                                     <input type="submit" value="Edit" />
                                 </form>-->
-                <div class="btn_delete">
+<!--                <div class="btn_delete">
                     <input type="submit" value="Delete"  onclick="submitter('deleteLand')"/>
-                </div>
+                </div>-->
             </div>
             <div class="search_menu">
                 <form class="form_search" action="searchLand" method="post">

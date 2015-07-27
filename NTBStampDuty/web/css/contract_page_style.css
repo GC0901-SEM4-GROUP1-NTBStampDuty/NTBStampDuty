@@ -19,19 +19,19 @@
 
 .ui-widget div input{ width: 170px; }
 .ui-widget div:first-child { width: 570px; }
-.addNewContract div:nth-child(2) { width: 570px; margin-bottom: 20px;}
-.ui-widget div:nth-child(4) { margin-left: 41px;}
-.ui-widget div:nth-child(6) { margin-left: 41px;}
+.addNewContract div:nth-child(2) { /* width: 570px; */ margin-bottom: 20px;}
+.ui-widget div:nth-child(4) { margin-left: 31px;}
+.ui-widget div:nth-child(6) { margin-left: 61px;}
 
 .ui-widget div .plus_navigation {width: 21px; height: 21px; vertical-align: middle; margin-top: -5px; margin-left: 5px;}
-.ui-widget div .customer {margin-left: 32;}
-.ui-widget div .roomId {margin-left: 37px;}
+.ui-widget div .customer {margin-left: 34px;}
+.ui-widget div .roomId {margin-left: 40px;}
 
 select#projectID {
-    margin-left: 10px;
+    margin-left: 13px;
 }
-.ui-widget div .date {margin-left: 15px;}
-.ui-widget div .deposit {margin-left: 21px;}
+.ui-widget div .date {margin-left: 28px;}
+.ui-widget div .deposit {margin-left: 10px;}
 .ui-widget div .payment {margin-left: 5px;}
 .ui-widget div .due {margin-left: 69px;}
 .ui-widget div input:focus {outline: 1px solid #CF2525; border: 1px solid #CF2525;}

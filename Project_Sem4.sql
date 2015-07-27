@@ -207,6 +207,7 @@ paid int
 select*from tblPayment
 
 insert into tblPayment values(1,'2015-07-22',200000000)
+insert into tblPayment values(1,'2015-12-30',300000000)
 
 create table tblStampDuty
 (

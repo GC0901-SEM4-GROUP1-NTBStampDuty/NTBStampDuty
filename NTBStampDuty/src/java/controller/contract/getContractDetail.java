@@ -77,6 +77,7 @@ public class getContractDetail extends HttpServlet {
         payment = payment.substring(0, payment.length()-1);
         paid = paid.substring(0, paid.length()-1);
         due = due.substring(0, due.length()-1);
+        request.setAttribute("listPayment", listPayment);
         request.setAttribute("contract", contract);
         request.setAttribute("paid", paid);
         request.setAttribute("due", due);

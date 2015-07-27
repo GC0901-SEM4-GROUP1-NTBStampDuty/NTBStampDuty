@@ -143,7 +143,6 @@
                             </select>
                         </div>
                         <div><a>Room ID:</a> <select style="width: 170px" onchange="getRoomPrice()" name="roomId" id="roomIDToAddContract" class="roomId">
-
                             </select>
                             <img class="plus_navigation" src="images/ic_plus.png" onclick="submitter('addNewLand')"/>
                         </div>
@@ -157,7 +156,6 @@
                         <div><a>Date:</a> <input type="date" name="date" class="date" /></div>
                         <div><a>Total Payment:</a> <input type="number" name="payment" class="payment" id="totalPayment" /></div> 
                         <div><a>Deposit:</a> <input type="number" name="deposit" class="deposit" /></div>
-                        <div><a>Due:</a> <input type="number" name="due" class="due" /></div>
                         <div></div>
                         <div class="edit_menu">
                             <div class="btn_edit">
