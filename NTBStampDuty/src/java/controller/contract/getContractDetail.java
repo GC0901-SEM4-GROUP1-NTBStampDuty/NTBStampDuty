@@ -69,11 +69,12 @@ public class getContractDetail extends HttpServlet {
         Contract contract = cm.getContractByRoom(roomId);
         PaymentManager pm = new PaymentManager();
         List<Payment> listPayment = pm.getPaymentByContract(contract.getContractId());
+        int totalPaid = pm.getTotalPaidByContract(contract.getContractId());
         Locale vn = new Locale("vi", "VN");
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance(vn);
 	String payment = defaultFormat.format(contract.getTotalPayment());
-        String paid = defaultFormat.format(contract.getTotalPaid());
-        String due = defaultFormat.format(contract.getTotalDue());
+        String paid = defaultFormat.format(totalPaid);
+        String due = defaultFormat.format(contract.getTotalPayment() - totalPaid);
         payment = payment.substring(0, payment.length()-1);
         paid = paid.substring(0, paid.length()-1);
         due = due.substring(0, due.length()-1);
