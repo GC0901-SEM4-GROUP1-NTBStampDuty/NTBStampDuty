@@ -19,6 +19,7 @@ public class Contract {
     private int paymentId;
     private String createdDate;
     private Date cDate;
+    private int paymentPeriod;
     private int deposit;
     private int totalPayment;
     private int totalPaid;
@@ -71,6 +72,14 @@ public class Contract {
 
     public void setcDate(Date cDate) {
         this.cDate = cDate;
+    }
+
+    public int getPaymentPeriod() {
+        return paymentPeriod;
+    }
+
+    public void setPaymentPeriod(int paymentPeriod) {
+        this.paymentPeriod = paymentPeriod;
     }
 
     public int getDeposit() {

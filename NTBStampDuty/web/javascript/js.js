@@ -15,23 +15,29 @@ onload = function () {
     $(".period1").hover(function () {
         $(".date_start").css("visibility", "visible");
         $(".date_period1").css("visibility", "visible");
+        $(".m1").css("visibility", "visible");
     }, function () {
         $(".date_start").css("visibility", "hidden");
         $(".date_period1").css("visibility", "hidden");
+        $(".m1").css("visibility", "hidden");
     });
     $(".period2").hover(function () {
         $(".date_period1").css("visibility", "visible");
         $(".date_period2").css("visibility", "visible");
+        $(".m2").css("visibility", "visible");
     }, function () {
         $(".date_period1").css("visibility", "hidden");
         $(".date_period2").css("visibility", "hidden");
+        $(".m2 ").css("visibility", "hidden");
     });
     $(".period3").hover(function () {
         $(".date_period2").css("visibility", "visible");
         $(".date_period3").css("visibility", "visible");
+        $(".m3").css("visibility", "visible");
     }, function () {
         $(".date_period2").css("visibility", "hidden");
         $(".date_period3").css("visibility", "hidden");
+        $(".m3").css("visibility", "hidden");
     });
 
     $("#table").find('tr:nth-child(2)').addClass('selected');

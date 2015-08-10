@@ -20,17 +20,30 @@
 #main_body .detail_bar .table_container .contract_container .buildingDetailRight {float: left; width: 11%; }
 #main_body .detail_bar .table_container .contract_container .buildDetailRight {float: left; width: 39%; }
 
-#main_body .detail_bar .table_container  #progress-bar-container { width: 100%; float: left; position: relative; margin-top: 34px;}
-#main_body .detail_bar .table_container  #progress-bar-container .date_start{ position: absolute; top: 25px; left: 15px; font-weight: bold; font-size: 13px; visibility: hidden;}
+#main_body .detail_bar .table_container  #progress-bar-container { width: 100%; float: left; position: relative; margin-top: 20px;}
+#main_body .detail_bar .table_container  #progress-bar-container a { color: #191919; font-weight: bold}
+#main_body .detail_bar .table_container  #progress-bar-container .m1 {
+    margin-left: 350px;
+    visibility: hidden;
+}
+#main_body .detail_bar .table_container  #progress-bar-container .m2 {
+    margin-left: 185px;
+    visibility: hidden;
+}
+#main_body .detail_bar .table_container  #progress-bar-container .m3 {
+    margin-left: 185px;
+    visibility: hidden;
+}
+#main_body .detail_bar .table_container  #progress-bar-container .date_start{ position: absolute; top: 25px; left: 15px; font-weight: bold; font-size: 13px; visibility: hidden; color: black;}
 #main_body .detail_bar .table_container  #progress-bar-container .date_period1{ position: absolute;  top: 0; left: 31.5%; font-weight: bold; font-size: 13px; visibility: hidden;}
 #main_body .detail_bar .table_container  #progress-bar-container .date_period2{ position: absolute; top: 0; left: 59%; font-weight: bold; font-size: 13px; visibility: hidden;}
 #main_body .detail_bar .table_container  #progress-bar-container .date_period3{ position: absolute;  top: 25px; left: 89%; font-weight: bold; font-size: 13px; visibility: hidden;}
-#main_body .detail_bar .table_container  #progress-bar-container .progress-bar { width: 80%; height: 29px; border:1px solid gray; border-radius: 20px; overflow: hidden; margin-left: 110px; margin-top: 20px;}
-#main_body .detail_bar .table_container  #progress-bar-container .progress-bar .percent { position: absolute; width: 81%; padding-top: 4px;font-weight: bold;}
+#main_body .detail_bar .table_container  #progress-bar-container .progress-bar { width: 80%; height: 29px; border:1px solid gray; border-radius: 20px; overflow: hidden; margin-left: 110px;}
+#main_body .detail_bar .table_container  #progress-bar-container .progress-bar .percent { position: absolute; width: 81%; padding-top: 4px;font-weight: bold; color: #191919;}
 #main_body .detail_bar .table_container  #progress-bar-container .progress-bar .deposit { position: relative; float: left; width: 5%; height: 30px; outline: 1px solid #C7C9BF;}
-#main_body .detail_bar .table_container  #progress-bar-container .progress-bar .period1 {position: relative; float: left; width: 33%; height: 30px;}
-#main_body .detail_bar .table_container  #progress-bar-container .progress-bar .period2 {position: relative; float: left; width: 34%; height: 30px; outline: 1px solid #C7C9BF;}
-#main_body .detail_bar .table_container  #progress-bar-container .progress-bar .period3 {position: relative; float: left;  width: 33%;height: 30px;}
+#main_body .detail_bar .table_container  #progress-bar-container .progress-bar .period1 { position: relative; float: left; width: 33%; height: 30px;}
+#main_body .detail_bar .table_container  #progress-bar-container .progress-bar .period2 { position: relative; float: left; width: 34%; height: 30px; outline: 1px solid #C7C9BF;}
+#main_body .detail_bar .table_container  #progress-bar-container .progress-bar .period3 { position: relative; float: left;  width: 33%;height: 30px;}
 
 #main_body .detail_bar .table_container  #progress-bar-container .progress-bar .warning_yellow{position: absolute; width: 23px; height: 22px; left: 48%; top: 4px;z-index: 10; visibility: hidden;}
 #main_body .detail_bar .table_container  #progress-bar-container .progress-bar .warning_red{position: absolute; width: 23px; height: 22px; left: 48%; top: 4px;z-index: 10; visibility: hidden;}

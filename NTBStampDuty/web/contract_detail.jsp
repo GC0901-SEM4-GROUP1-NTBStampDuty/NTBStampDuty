@@ -119,12 +119,11 @@
                     </div>
 
                     <div id="progress-bar-container">
-                        <a class="date_start">${project.createdDate}</a>
-                        <a class="date_period1">${contract.totalPayment/3}</a>
-                        <a class="date_period2">${period.period2}</a>
-                        <a class="date_period3">${period.period3}</a>
+                        <a class="m1">${period_money}VND</a>
+                        <a class="m2">${period_money}VND</a>
+                        <a class="m3">${period_money}VND</a>
                         <div class="progress-bar">
-                            <!--<div align="center" class="percent">${contract.totalPaid/contract.totalPayment*100}%</div>-->
+                            <div align="center" class="percent">${contract.totalPaid/contract.totalPayment*100}%</div>
                             <div class="period1">
                                 <img class="warning_yellow" src="images/ic_warning_yellow.png">
                                 <img class="warning_red" src="images/ic_warning_red.png">   
@@ -135,7 +134,7 @@
                             </div>
                             <div class="period3">
                                 <img class="warning_yellow" src="images/ic_warning_yellow.png">
-                                <img class="warning_red" src="images/ic_warning_red.png">
+                                <img class="warning_red" src ="images/ic_warning_red.png">
                             </div>
                             <div style="width:${contract.totalPaid/contract.totalPayment*100}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
                             </div>

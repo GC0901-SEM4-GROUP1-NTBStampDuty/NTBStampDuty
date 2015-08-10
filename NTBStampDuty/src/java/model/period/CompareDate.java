@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class CompareDate {
 
-    public int compareDate(int period, Date date1, Date date2) {
+    public int compareDate(Date date1, Date date2) {
         int status = 0;
         int compare = date2.compareTo(date1);
         int y = date2.getYear() - date1.getYear();
@@ -46,15 +46,16 @@ public class CompareDate {
         return status;
     }
 
-    public int compareDataPercent(int flat, int percent) {
+    public int compareDataPercent(int flat, int percent, int total_percent) {
         int status = 0;
-        if (flat == 1 && percent < 100) {
+        if (flat == 1 && percent < total_percent) {
             status = 1;
-        } else if (flat == -1 && percent < 100) {
+        } else if (flat == -1 && percent < total_percent) {
             status = -1;
         }else{
             status = 0;
         }
         return status;
     }
+    
 }
