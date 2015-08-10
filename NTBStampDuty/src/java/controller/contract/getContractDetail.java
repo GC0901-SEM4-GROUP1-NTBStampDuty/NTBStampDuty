@@ -71,6 +71,7 @@ public class getContractDetail extends HttpServlet {
         Contract contract = cm.getContractByRoom(roomId);
         PaymentManager pm = new PaymentManager();
         List<Payment> listPayment = pm.getPaymentByContract(contract.getContractId());
+        int totalPaid = pm.getTotalPaidByContract(contract.getContractId());
         Locale vn = new Locale("vi", "VN");
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance(vn);
         String payment = defaultFormat.format(contract.getTotalPayment());

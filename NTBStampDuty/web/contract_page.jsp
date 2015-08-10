@@ -33,6 +33,11 @@
                 success: function (data) {
                     document.getElementById("roomIDToAddContract").innerHTML = "";
                     var roomIDToAddContractList = document.getElementById("roomIDToAddContract");
+                    var choseOption = document.createElement("option");
+                    choseOption.text = "Choose a room";
+                    choseOption.disabled = "true";
+                    choseOption.selected = "true";
+                    roomIDToAddContractList.add(choseOption);
                     $.each(data, function (index, roomItem) {
                         var room = document.createElement("option");
                         room.text = roomItem.roomFloor + "-" + roomItem.roomId;

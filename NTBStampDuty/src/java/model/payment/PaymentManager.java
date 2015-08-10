@@ -71,4 +71,19 @@ public class PaymentManager {
         }
         return listPayment;
     }
+    
+    public int getTotalPaidByContract(int contractId) {
+        int totalPaid = 0;
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select sum(paid) as total from tblPayment where contract_id = ?");
+            ps.setInt(1, contractId);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            totalPaid = rs.getInt("total");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return totalPaid;
+    }
 }
