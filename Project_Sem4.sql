@@ -95,6 +95,8 @@ insert into tblBuildingDetails values (5, 2, 'Office Buidling', 10, 0, 60, 0,'',
 
 select * from tblBuildingDetails
 
+--available status column: fail = 0, done = 1, process = 2, warning  = 3
+
 Create table tblProjects(
 proj_id int primary key identity(1,1),
 proj_name nvarchar(50),
