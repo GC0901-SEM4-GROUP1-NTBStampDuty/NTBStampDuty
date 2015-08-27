@@ -32,12 +32,12 @@ public class UserManager {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_user AS\n"
-                    + "  ( select tblUser.username, [password], [role], fullname, age, gender, phone, day_of_birth, [address], ROW_NUMBER() OVER (ORDER BY tblUser.username ASC) AS [row_number]\n"
+                    + "  ( select tblUser.username, [password], [role], fullname,age, gender, phone, day_of_birth, [address], ROW_NUMBER() OVER (ORDER BY tblUser.username ASC) AS [row_number]\n"
                     + "    from tblUser\n"
                     + "inner join tblUserDetail\n"
                     + "on tblUser.username = tblUserDetail.username \n"
                     + "  )\n"
-                    + "select  username, [password], [role], fullname, age, gender, phone, day_of_birth, [address] FROM limt_user WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
+                    + "select  username, [password], [role], fullname,age, gender, phone, day_of_birth, [address] FROM limt_user WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
             );
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -99,10 +99,10 @@ public class UserManager {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User user = new User();
-                user.setUsername(rs.getString("username"));                
+                user.setUsername(rs.getString("username"));
                 userList.add(user);
             }
-            rs.close();          
+            rs.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

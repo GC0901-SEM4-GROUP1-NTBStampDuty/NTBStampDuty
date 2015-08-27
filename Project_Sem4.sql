@@ -11,7 +11,7 @@ username nvarchar(50) primary key,
 
 insert into tblUser values('admin','admin',0)
 insert into tblUser values('employee','employee',1)
-insert into tblUser values('customer','customer', 2)
+insert into tblUser values('mainghia','123456', 2)
 
 select * from tblUser
 
@@ -19,6 +19,7 @@ create table tblUserDetail
 (
 	username nvarchar(50) primary key references tblUser(username),
 	fullname nvarchar(50),
+	age int,
 	gender nvarchar(10),
 	phone nvarchar(15),
 	day_of_birth datetime,
@@ -26,9 +27,9 @@ create table tblUserDetail
 	email nvarchar(50)
 )
 
-insert into tblUserDetail values('admin','Tao La Admin','Male',0696969,null,'19/23 Giang Van Minh','abc@xyz')
-insert into tblUserDetail values('employee','Tao La Employee','Female',01234567,null,'123 Giang Vo','asd@123')
-insert into tblUserDetail values('customer','Tao La Customer','Male',0869968,null,'321 Mam non Hoa Sen','awe@asd')
+insert into tblUserDetail values('admin','Admin',20,'Male',0696969,null,'19/23 Giang Van Minh','abc@xyz')
+insert into tblUserDetail values('employee','Employee',20,'Female',01234567,null,'123 Giang Vo','asd@123')
+insert into tblUserDetail values('mainghia','Mai Trung Nghia',20,'Male',0869968,null,'321 Mam non Hoa Sen','awe@asd')
 
 create table tblBuildingType
 (
@@ -195,7 +196,7 @@ invoice_status int
 
 select*from tblContract
 
-insert into tblContract values('customer', 2, '2015-07-21',1,200000000, 1000000000, 200000000, 800000000,0)
+insert into tblContract values('mainghia', 2, '2015-07-21',1,200000000, 1000000000, 200000000, 800000000,0)
 
 create table tblPayment
 (
@@ -206,8 +207,8 @@ paid int
 
 select*from tblPayment
 
-insert into tblPayment values(1,'2015-07-22',200000000)
-insert into tblPayment values(1,'2015-12-30',300000000)
+insert into tblPayment values(2,'2015-07-22',200000000)
+insert into tblPayment values(2,'2015-12-30',300000000)
 
 create table tblStampDuty
 (
