@@ -262,6 +262,8 @@ insert into tblContract values('mainghia', 2, '2015-07-21',1,200000000, 10000000
 insert into tblContract values('sondt', 4, '2015-05-30',1,300000000, 2000000000, 300000000, 900000000,0)
 insert into tblContract values('phucngo', 7, '2012-03-30',2,100000000, 1000000000, 10000000, 300000000,0)
 insert into tblContract values('quaylen', 9, '2014-05-30',1,200000000, 1000000000, 1800000000, 2100000000,0)
+insert into tblContract values('quaylen', 5, '2015-05-30',1,200000000, 1000000000, 1800000000, 2100000000,0)
+insert into tblContract values('quaylen', 6, '2015-05-30',1,200000000, 1000000000, 1800000000, 2100000000,1)
 
 create table tblPayment
 (

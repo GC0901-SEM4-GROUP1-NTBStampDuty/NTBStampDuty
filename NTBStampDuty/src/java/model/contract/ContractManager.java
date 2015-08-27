@@ -120,6 +120,42 @@ public class ContractManager {
         }
         return listContract;
     }
+    
+    public int getAllContractNumberByMonthAndYear(int month, int year) {
+        int i = 0;
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblContract");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                if (rs.getDate("created_date").getMonth() + 1 == month && rs.getDate("created_date").getYear() + 1900 == year) {
+                    i = i + 1;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+    
+    public int getAllContractNumberByMonthAndYearAndStatus(int month, int year, int status) {
+        int i = 0;
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select * from tblContract where invoice_status = ?");
+            ps.setInt(1, status);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                if (rs.getDate("created_date").getMonth() + 1 == month && rs.getDate("created_date").getYear() + 1900 == year) {
+                    i = i + 1;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
 
     public List<Contract> getNewestContract() {
         try {
