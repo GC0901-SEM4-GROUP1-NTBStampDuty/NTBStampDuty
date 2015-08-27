@@ -74,15 +74,15 @@ public class getContractDetail extends HttpServlet {
         int totalPaid = pm.getTotalPaidByContract(contract.getContractId());
         Locale vn = new Locale("vi", "VN");
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance(vn);
-        String payment = defaultFormat.format(contract.getTotalPayment());
-        String paid = defaultFormat.format(contract.getTotalPaid());
-        String due = defaultFormat.format(contract.getTotalDue());
+//        String payment = defaultFormat.format(contract.getTotalPayment());
+//        String paid = defaultFormat.format(contract.getTotalPaid());
+//        String due = defaultFormat.format(contract.getTotalDue());
         String period_money = defaultFormat.format(contract.getTotalPayment() / 3);
-        payment = payment.substring(0, payment.length() - 1);
-        paid = paid.substring(0, paid.length() - 1);
-        due = due.substring(0, due.length() - 1);
-        CompareDate cd = new CompareDate();
-        Date date = new Date();
+//        payment = payment.substring(0, payment.length() - 1);
+//        paid = paid.substring(0, paid.length() - 1);
+//        due = due.substring(0, due.length() - 1);
+//        CompareDate cd = new CompareDate();
+//        Date date = new Date();
 //        int total_percent = 0;
 //        int status = 0, flat = 0;
 //        switch(contract.getPaymentPeriod()){
@@ -104,6 +104,12 @@ public class getContractDetail extends HttpServlet {
 //        }
         period_money = period_money.substring(0, period_money.length() - 1);
         request.setAttribute("period_money", period_money);
+	String payment = defaultFormat.format(contract.getTotalPayment());
+        String paid = defaultFormat.format(totalPaid);
+        String due = defaultFormat.format(contract.getTotalPayment() - totalPaid);
+        payment = payment.substring(0, payment.length()-1);
+        paid = paid.substring(0, paid.length()-1);
+        due = due.substring(0, due.length()-1);
         request.setAttribute("listPayment", listPayment);
         request.setAttribute("contract", contract);
         request.setAttribute("paid", paid);
