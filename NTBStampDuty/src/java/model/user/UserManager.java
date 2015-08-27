@@ -32,12 +32,12 @@ public class UserManager {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_user AS\n"
-                    + "  ( select tblUser.username, [password], [role], fullname,age, gender, phone, day_of_birth, [address], ROW_NUMBER() OVER (ORDER BY tblUser.username ASC) AS [row_number]\n"
+                    + "  ( select tblUser.username, [password], [role], fullname, gender, phone, day_of_birth, [address], ROW_NUMBER() OVER (ORDER BY tblUser.username ASC) AS [row_number]\n"
                     + "    from tblUser\n"
                     + "inner join tblUserDetail\n"
                     + "on tblUser.username = tblUserDetail.username \n"
                     + "  )\n"
-                    + "select  username, [password], [role], fullname,age, gender, phone, day_of_birth, [address] FROM limt_user WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
+                    + "select  username, [password], [role], fullname,gender, phone, day_of_birth, [address] FROM limt_user WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
             );
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -58,21 +58,9 @@ public class UserManager {
                     default:
                         user.setRole("Customer");
                         break;
-                }
-                user.setAge(rs.getInt("age"));
+                }                
                 user.setDay_of_birth(rs.getDate("day_of_birth"));
-                int gender = rs.getInt("gender");
-                switch (gender) {
-                    case 0:
-                        user.setGender("Male");
-                        break;
-                    case 1:
-                        user.setGender("Female");
-                        break;
-                    default:
-                        user.setGender("");
-                        break;
-                }
+                user.setGender(rs.getString("gender"));
                 user.setPhone(rs.getString("phone"));
                 userList.add(user);
             }

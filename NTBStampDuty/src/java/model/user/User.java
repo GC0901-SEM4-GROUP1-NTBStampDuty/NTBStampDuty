@@ -14,8 +14,7 @@ import java.util.Date;
 public class User {
     private String username, password;
     private String role;
-    private String fullname, phone, address, gender;
-    private int age;
+    private String fullname, phone, address, gender;    
     private Date day_of_birth;
 
     public User() {
@@ -73,15 +72,7 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
+  
     public String getGender() {
         return gender;
     }
