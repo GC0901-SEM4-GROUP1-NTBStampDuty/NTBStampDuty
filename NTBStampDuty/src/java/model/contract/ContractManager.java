@@ -7,6 +7,7 @@ package model.contract;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import model.room.Room;
  */
 public class ContractManager {
 
-    public List<Contract> listContract; 
+    public List<Contract> listContract;
     public Contract contract;
     private int noOfRecords;
 
@@ -161,5 +162,23 @@ public class ContractManager {
         return listContract;
     }
 
-    
+    public void addContract(String customer, int roomId, Timestamp createDate, int period, int deposit, int totalpayment, int paid, int due, int stt) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("insert into tblContract values(?, ?, ?, ?, ?, ?,?,?,?)");
+            ps.setString(1, customer);
+            ps.setInt(2, roomId);
+            ps.setTimestamp(3, createDate);
+            ps.setInt(4, period);
+            ps.setInt(5, deposit);
+            ps.setInt(6, totalpayment);
+            ps.setInt(7, paid);
+            ps.setInt(8, due);
+            ps.setInt(9, stt);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

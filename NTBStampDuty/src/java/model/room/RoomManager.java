@@ -76,17 +76,18 @@ public class RoomManager {
         return listRoom;
     }
 
-    public List<Room> getRoomByBuildingID(int buildingId) {
+    public List<Room> getRoomByProjectID(int projectId) {
         try {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
-                    "Select r.room_id,r.building_id,r.[type_id],room_size,r.[floor],r.room_price\n"
+                    "Select r.room_id,r.building_id,r.[type_id],room_size,r.[floor],r.room_price \n"
                     + "from tblRoomDetails r \n"
                     + "inner join tblBuildingDetails b \n"
-                    + "on r.building_id = b.building_id \n"
-                    + "Where b.building_id = ? And r.sellStatus=0 \n"
+                    + "on r.building_id = b.building_id JOIN tblProjects p \n"
+                    + "on b.building_id = p.building_id\n"
+                    + "Where p.proj_id = ? And r.sellStatus=0 "
             );
-            ps.setInt(1, buildingId);
+            ps.setInt(1, projectId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Room room = new Room();
@@ -112,7 +113,28 @@ public class RoomManager {
                 room.setRoomPrice(rs.getInt("room_price"));
                 roomListContract.add(room);
             }
-            rs.close();            
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return roomListContract;
+    }
+
+    public List<Room> getRoomPrice(int roomId) {
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement(
+                    "Select * from tblRoomDetails where room_id = ? "
+            );
+            ps.setInt(1, roomId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Room room = new Room();
+                room.setRoomId(rs.getInt("room_id"));                
+                room.setRoomPrice(rs.getInt("room_price"));
+                roomListContract.add(room);
+            }
+            rs.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

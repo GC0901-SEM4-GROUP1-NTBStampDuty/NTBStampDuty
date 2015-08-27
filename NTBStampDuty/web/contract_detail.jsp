@@ -90,36 +90,56 @@
                                 <p>${paid} VNĐ</p>
                                 <p>${due} VNĐ</p>
                             </div>
-
-                            <div id="progress-bar-container">
-                                <a class="date_start">${project.createdDate}</a>
-                                <a class="date_period1">${period.period1}</a>
-                                <a class="date_period2">${period.period2}</a>
-                                <a class="date_period3">${period.period3}</a>
-                                <div class="progress-bar">
-                                    <!--<div align="center" class="percent">${contract.totalPaid/contract.totalPayment*100}%</div>-->
-                                    <div class="deposit">   
-                                    </div>
-                                    <div class="period1">
-                                        <img class="warning_yellow" src="images/ic_warning_yellow.png">
-                                        <img class="warning_red" src="images/ic_warning_red.png">   
-                                    </div>
-                                    <div class="period2">
-                                        <img class="warning_yellow" src="images/ic_warning_yellow.png">
-                                        <img class="warning_red" src="images/ic_warning_red.png">
-                                    </div>
-                                    <div class="period3">
-                                        <img class="warning_yellow" src="images/ic_warning_yellow.png">
-                                        <img class="warning_red" src="images/ic_warning_red.png">
-                                    </div>
-                                    <div style="width:${contract.totalPaid/contract.totalPayment*100}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
-                                    </div>
-                                </div>
-                            </div>
                         </div>          
                     </table>
 
+                    <div class="payment_container">
+                        <table align="center" class="table_payment" id="table" >
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%">No.</th>                   
+                                    <th style="width: 20%">Contract ID</th>
+                                    <th style="width: 30%">Date</th>
+                                    <th style="width: 30%">Paid</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="payment_value">
+                            <table align="center" class="table_payment" id="table" >
+                                <c:forEach items="${listPayment}" var="p" varStatus="row">
+                                    <tr>
+                                        <td style="width:20%">${row.count}</td>
+                                        <td style="width: 20%">${p.contractId}</td>
+                                        <td style="width: 32%">${p.paymentTime}</td>
+                                        <td style="width: 30%">${p.paid}</td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>
 
+                    <div id="progress-bar-container">
+                        <a class="m1">${period_money}VND</a>
+                        <a class="m2">${period_money}VND</a>
+                        <a class="m3">${period_money}VND</a>
+                        <div class="progress-bar">
+                            <div align="center" class="percent">${contract.totalPaid/contract.totalPayment*100}%</div>
+                            <div class="period1">
+                                <img class="warning_yellow" src="images/ic_warning_yellow.png">
+                                <img class="warning_red" src="images/ic_warning_red.png">   
+                            </div>
+                            <div class="period2">
+                                <img class="warning_yellow" src="images/ic_warning_yellow.png">
+                                <img class="warning_red" src="images/ic_warning_red.png">
+                            </div>
+                            <div class="period3">
+                                <img class="warning_yellow" src="images/ic_warning_yellow.png">
+                                <img class="warning_red" src ="images/ic_warning_red.png">
+                            </div>
+                            <div style="width:${contract.totalPaid/contract.totalPayment*100}%;background-image: linear-gradient(to top, #9ACD00, #9ACD00); height:30px;">
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="paging_size">

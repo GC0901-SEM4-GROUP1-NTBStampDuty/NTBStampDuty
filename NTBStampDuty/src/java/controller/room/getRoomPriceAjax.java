@@ -3,26 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package controller.room;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.user.UserManager;
+import model.room.Room;
+import model.room.RoomManager;
 
 /**
  *
- * @author admin
+ * @author Administrator
  */
-public class signup extends HttpServlet {
+public class getRoomPriceAjax extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,19 +33,13 @@ public class signup extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet signup</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet signup at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        int roomId = Integer.valueOf(request.getParameter("roomId"));
+        RoomManager manager = new RoomManager();
+        List<Room> roomList = manager.getRoomPrice(roomId);
+        String json = new Gson().toJson(roomList);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -76,27 +68,7 @@ public class signup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("username");
-        String pass = request.getParameter("password");
-        int role = Integer.parseInt(request.getParameter("role"));
-        String fulln = request.getParameter("fullname");
-        String gend = request.getParameter("gender");
-        String phone = request.getParameter("phone");
-        String birthdate = request.getParameter("dateofbirth");
-        try {
-            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(birthdate);
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
-        String add = request.getParameter("address");
-        String email = request.getParameter("email");
-        UserManager um = new UserManager();
-        if (um.addUser(user, pass, role, fulln, gend, phone, birthdate, add, email)){
-            request.setAttribute("message", user);
-            request.getRequestDispatcher("login_page.jsp").forward(request, response);
-        }else{
-            request.getRequestDispatcher("login_page.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

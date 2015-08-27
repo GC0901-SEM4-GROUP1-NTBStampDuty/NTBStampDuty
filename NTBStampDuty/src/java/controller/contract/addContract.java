@@ -3,26 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package controller.contract;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.contract.Contract;
+import model.contract.ContractManager;
+import model.project.Project;
+import model.project.ProjectManager;
+import model.user.User;
 import model.user.UserManager;
 
 /**
  *
- * @author admin
+ * @author Administrator
  */
-public class signup extends HttpServlet {
+public class addContract extends HttpServlet {
+
+    private List<Contract> contractList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +49,10 @@ public class signup extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet signup</title>");            
+            out.println("<title>Servlet addContract</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet signup at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet addContract at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -76,26 +84,39 @@ public class signup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("username");
-        String pass = request.getParameter("password");
-        int role = Integer.parseInt(request.getParameter("role"));
-        String fulln = request.getParameter("fullname");
-        String gend = request.getParameter("gender");
-        String phone = request.getParameter("phone");
-        String birthdate = request.getParameter("dateofbirth");
         try {
-            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(birthdate);
-        } catch (ParseException ex) {
+            String customer = request.getParameter("customer");
+            int roomId = Integer.valueOf(request.getParameter("roomId"));
+            String createdDate = request.getParameter("date");
+            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(createdDate);
+            Timestamp createDate = new Timestamp(d.getTime());
+            int payment = Integer.valueOf(request.getParameter("payment"));
+            int deposit = Integer.valueOf(request.getParameter("deposit"));
+            int due = Integer.valueOf(request.getParameter("due"));
+            ContractManager cm = new ContractManager();
+            cm.addContract(customer, roomId, createDate, 1, deposit, 1000, 0, due, 0);
+            int page = 1;
+            int recordsPerPage = 15;
+            if (request.getParameter("page") != null) {
+                page = Integer.parseInt(request.getParameter("page"));
+            }
+            ContractManager manager = new ContractManager();
+            contractList = manager.getAllContractByDate((page - 1) * recordsPerPage, recordsPerPage * page);
+            int noOfRecords = manager.getNoOfRecords();
+            int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+            ProjectManager pm = new ProjectManager();
+            List<Project> proList = pm.getProjectToAddContract();
+            UserManager um = new UserManager();
+            List<User> userList = um.getUserToAddContract();
+            request.setAttribute("userList", userList);
+            request.setAttribute("proList", proList);
+            request.setAttribute("contractList", contractList);
+            request.setAttribute("noOfPages", noOfPages);
+            request.setAttribute("currentPage", page);
+            RequestDispatcher rd = request.getRequestDispatcher("contract_page.jsp");
+            rd.forward(request, response);
+        } catch (Exception ex) {
             ex.printStackTrace();
-        }
-        String add = request.getParameter("address");
-        String email = request.getParameter("email");
-        UserManager um = new UserManager();
-        if (um.addUser(user, pass, role, fulln, gend, phone, birthdate, add, email)){
-            request.setAttribute("message", user);
-            request.getRequestDispatcher("login_page.jsp").forward(request, response);
-        }else{
-            request.getRequestDispatcher("login_page.jsp").forward(request, response);
         }
     }
 

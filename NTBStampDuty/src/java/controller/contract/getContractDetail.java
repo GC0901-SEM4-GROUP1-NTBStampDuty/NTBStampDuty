@@ -8,6 +8,7 @@ package controller.contract;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.NumberFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import javax.servlet.RequestDispatcher;
@@ -19,6 +20,7 @@ import model.contract.Contract;
 import model.contract.ContractManager;
 import model.payment.Payment;
 import model.payment.PaymentManager;
+import model.period.CompareDate;
 
 /**
  *
@@ -69,14 +71,40 @@ public class getContractDetail extends HttpServlet {
         Contract contract = cm.getContractByRoom(roomId);
         PaymentManager pm = new PaymentManager();
         List<Payment> listPayment = pm.getPaymentByContract(contract.getContractId());
+        int totalPaid = pm.getTotalPaidByContract(contract.getContractId());
         Locale vn = new Locale("vi", "VN");
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance(vn);
-	String payment = defaultFormat.format(contract.getTotalPayment());
+        String payment = defaultFormat.format(contract.getTotalPayment());
         String paid = defaultFormat.format(contract.getTotalPaid());
         String due = defaultFormat.format(contract.getTotalDue());
-        payment = payment.substring(0, payment.length()-1);
-        paid = paid.substring(0, paid.length()-1);
-        due = due.substring(0, due.length()-1);
+        String period_money = defaultFormat.format(contract.getTotalPayment() / 3);
+        payment = payment.substring(0, payment.length() - 1);
+        paid = paid.substring(0, paid.length() - 1);
+        due = due.substring(0, due.length() - 1);
+        CompareDate cd = new CompareDate();
+        Date date = new Date();
+//        int total_percent = 0;
+//        int status = 0, flat = 0;
+//        switch(contract.getPaymentPeriod()){
+//            case 1:
+//                total_percent = period.getPercent()/3;,
+//                flat = cd.compareDate(date, period.getP1());
+//                status = cd.compareDataPercent(flat, period.getPercent(), 100);
+//                break;
+//            case 2:
+//                total_percent = 34+period.getPercent()/3;
+//                flat = cd.compareDate(date, period.getP2());
+//                status = cd.compareDataPercent(flat, period.getPercent(), 100);
+//                break;
+//            case 3:
+//                total_percent = 67+period.getPercent()/3;
+//                flat = cd.compareDate(date, period.getP3());
+//                status = cd.compareDataPercent(flat, period.getPercent(), 100);
+//                break;
+//        }
+        period_money = period_money.substring(0, period_money.length() - 1);
+        request.setAttribute("period_money", period_money);
+        request.setAttribute("listPayment", listPayment);
         request.setAttribute("contract", contract);
         request.setAttribute("paid", paid);
         request.setAttribute("due", due);
@@ -90,7 +118,7 @@ public class getContractDetail extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
+     * @throws ServletException if a servlet-sp necific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override

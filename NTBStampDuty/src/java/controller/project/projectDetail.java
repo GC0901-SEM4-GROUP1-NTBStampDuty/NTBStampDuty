@@ -21,8 +21,8 @@ import model.land.LandManager;
 import model.period.PeriodManager;
 import model.project.Project;
 import model.project.ProjectManager;
-import model.User;
-import model.UserManager;
+import model.user.User;
+import model.user.UserManager;
 
 /**
  *

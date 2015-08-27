@@ -56,6 +56,14 @@
         <servlet-name>contractDetail</servlet-name>
         <servlet-class>controller.contract.contractDetail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addContract</servlet-name>
+        <servlet-class>controller.contract.addContract</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getRoomPriceAjax</servlet-name>
+        <servlet-class>controller.room.getRoomPriceAjax</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>searchBuilding</servlet-name>
         <url-pattern>/searchBuilding</url-pattern>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>contractDetail</servlet-name>
         <url-pattern>/contractDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addContract</servlet-name>
+        <url-pattern>/addContract</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getRoomPriceAjax</servlet-name>
+        <url-pattern>/getRoomPriceAjax</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

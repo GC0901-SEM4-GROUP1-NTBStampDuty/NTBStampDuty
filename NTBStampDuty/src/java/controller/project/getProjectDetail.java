@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.building.Building;
 import model.building.BuildingManager;
-import model.CompareDate;
+import model.period.CompareDate;
 import model.period.Period;
 import model.period.PeriodManager;
 import model.project.Project;
@@ -96,18 +96,18 @@ public class getProjectDetail extends HttpServlet {
         switch(proj.getPeriod()){
             case 1:
                 total_percent = period.getPercent()/3;
-                flat = cd.compareDate(proj.getPeriod(), date, period.getP1());
-                status = cd.compareDataPercent(flat, period.getPercent());
+                flat = cd.compareDate(date, period.getP1());
+                status = cd.compareDataPercent(flat, period.getPercent(), 100);
                 break;
             case 2:
                 total_percent = 34+period.getPercent()/3;
-                flat = cd.compareDate(proj.getPeriod(), date, period.getP2());
-                status = cd.compareDataPercent(flat, period.getPercent());
+                flat = cd.compareDate(date, period.getP2());
+                status = cd.compareDataPercent(flat, period.getPercent(), 100);
                 break;
             case 3:
                 total_percent = 67+period.getPercent()/3;
-                flat = cd.compareDate(proj.getPeriod(), date, period.getP3());
-                status = cd.compareDataPercent(flat, period.getPercent());
+                flat = cd.compareDate(date, period.getP3());
+                status = cd.compareDataPercent(flat, period.getPercent(), 100);
                 break;
         }
         BuildingManager bm = new BuildingManager();
