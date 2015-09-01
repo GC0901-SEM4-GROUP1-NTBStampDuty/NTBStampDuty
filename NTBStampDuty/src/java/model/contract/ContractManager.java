@@ -13,6 +13,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import model.GetConnection;
 import model.room.Room;
 
@@ -212,6 +218,36 @@ public class ContractManager {
             ps.setInt(8, due);
             ps.setInt(9, stt);
             ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void generateAndSendEmail(String email) {
+        Properties mailServerProperties;
+        Session getMailSession;
+        MimeMessage generateMailMessage;
+        try {
+            mailServerProperties = System.getProperties();
+            mailServerProperties.put("mail.smtp.port", "587");
+            mailServerProperties.put("mail.smtp.auth", "true");
+            mailServerProperties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+            getMailSession = Session.getDefaultInstance(mailServerProperties, null);
+            generateMailMessage = new MimeMessage(getMailSession);
+            generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+
+            generateMailMessage.setSubject("Inform about purchasing deadline");
+            String emailBody = "<center><h2>NTB Stamp Duty</h2>"
+                    + "<h4><i><b>8, Ton That Thuyet, Ha Noi</b></i></h4>"
+                    + "<h1>Inform about purchasing deadline</h1></center>"
+                    + "<p>This is email informing about purchasing</p>";
+            generateMailMessage.setContent(emailBody, "text/html");
+
+            Transport transport = getMailSession.getTransport("smtp");
+            transport.connect("smtp.gmail.com", "gmail", "password");
+            transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
+            transport.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
