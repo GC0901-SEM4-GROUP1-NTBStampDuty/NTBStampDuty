@@ -78,7 +78,10 @@
         <div class="header">
             <div class="edit_menu">
                 <div class="btn_new">
-                    <input type="submit" value="New" onclick="submitter('addNewContract')"/>
+                    <!--<input type="submit" value="New" onclick="submitter('addNewContract')"/>-->
+                    <form action="addContractPage">
+                        <input type="submit" value="New"/>
+                    </form>
                 </div>
                 <!--                <form class="btn_edit">
                                     <input type="submit" value="Edit" />

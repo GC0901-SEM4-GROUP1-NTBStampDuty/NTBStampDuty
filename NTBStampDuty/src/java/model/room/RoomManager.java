@@ -124,14 +124,19 @@ public class RoomManager {
         try {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
-                    "Select * from tblRoomDetails where room_id = ? "
+                    "select type_name, room_price, room_size, floor from tblRoomDetails\n"
+                    + "inner join tblRoomType\n"
+                    + "on tblRoomDetails.type_id = tblRoomType.type_id "
+                    + "where tblRoomDetails.room_id = ?"
             );
             ps.setInt(1, roomId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Room room = new Room();
-                room.setRoomId(rs.getInt("room_id"));                
+                room.setRoomType(rs.getString("type_name"));
                 room.setRoomPrice(rs.getInt("room_price"));
+                room.setRoomSize(rs.getInt("room_size"));
+                room.setRoomFloor(rs.getInt("floor"));
                 roomListContract.add(room);
             }
             rs.close();

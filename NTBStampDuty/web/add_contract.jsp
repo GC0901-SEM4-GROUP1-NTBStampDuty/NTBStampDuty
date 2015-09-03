@@ -35,6 +35,64 @@
             var myForm1 = document.forms["myForm1"];
             myForm1.submit();
         }
+
+        function getRoom() {
+            var projectList = document.getElementById("projectName");
+            var projectID = projectList.options[projectList.selectedIndex].value;
+            $.ajax({
+                url: "getProjectAjax",
+                type: 'POST',
+                data: {"projectID": projectID},
+                success: function (data) {
+                    $.each(data, function (index, item) {
+                        document.getElementById("projectPeriod").value = item.period;
+                        document.getElementById("projectCreate").value = item.createdDate;
+                        document.getElementById("projectComplete").value = item.complete_percent;
+                        document.getElementById("buildingId").value = item.buildingName;
+                        document.getElementById("buildingAddress").value = item.buildingAddress;
+                        document.getElementById("projectFinish").value = item.finishDate;
+                    });
+                }
+            });
+            $.ajax({
+                url: "getRoomAjax",
+                type: 'POST',
+                data: {"projectID": projectID},
+                success: function (data) {
+                    document.getElementById("roomId").innerHTML = "";
+                    var roomIDToAddContractList = document.getElementById("roomId");
+                    var choseOption = document.createElement("option");
+                    choseOption.text = "Choose a room";
+                    choseOption.disabled = "true";
+                    choseOption.selected = "true";
+                    roomIDToAddContractList.add(choseOption);
+                    $.each(data, function (index, roomItem) {
+                        var room = document.createElement("option");
+                        room.text = roomItem.roomFloor + "-" + roomItem.roomId;
+                        room.value = roomItem.roomId;
+                        roomIDToAddContractList.add(room);
+                    });
+                }
+            });
+        }
+
+        function getRoomDetail() {
+            var roomList = document.getElementById("roomId");
+            var roomID = roomList.options[roomList.selectedIndex].value;
+            $.ajax({
+                url: "getRoomPriceAjax",
+                type: 'POST',
+                data: {"roomId": roomID},
+                success: function (data) {
+                    $.each(data, function (index, roomItem) {
+                        document.getElementById("roomType").value = roomItem.roomType;
+                        document.getElementById("expected").value = roomItem.roomPrice;
+                        document.getElementById("roomSize").value = roomItem.roomSize;
+                        document.getElementById("roomFloor").value = roomItem.roomFloor;
+                    });
+                }
+            });
+        }
     </script>
 </head>
 <tag:MainTag>
@@ -112,17 +170,18 @@
                             <p>Completed:</p>
                         </div>
                         <div class="proInsertLeft">
-                            <p><select name="projectName" id="projectName" class="project_name">
-                                    <c:forEach items="${typeList}" var="type">
-                                        <option value="${type.id}">${type.typeName}</option>
+                            <p><select name="projectName" id="projectName" class="project_name" onclick="getRoom()">
+                                    <option value="" disabled="true" selected="true">Choose a project</option>
+                                    <c:forEach items="${proList}" var="pro">
+                                        <option value="${pro.projectID}">${pro.projectName}</option>
                                     </c:forEach>
-                                </select></p> 
+                                </select></p>
                             <p><input id="projectPeriod" name="projectPeriod" class="project_period"/></p> 
                             <p><input id="projectCreate" name="projectCreate" class="project_create"/></p> 
                             <p><input id="projectComplete" name="projectComplete" class="project_complete"/></p> 
                         </div>
                         <div class="projectRight">
-                            <p>Building Id:</p>                        
+                            <p>Building Name:</p>                        
                             <p>Building Address: </p>
                             <p>Finish Date:</p>
                             <p>Building Type:</p>
@@ -140,7 +199,7 @@
                             <p>Deposit:</p>
                         </div>
                         <div class="roomInsertLeft">
-                            <p><select name="roomId" id="roomId" class="room_id">
+                            <p><select name="roomId" id="roomId" class="room_id" onchange="getRoomDetail()">
                                     <c:forEach items="${typeList}" var="type">
                                         <option value="${type.id}">${type.typeName}</option>
                                     </c:forEach>
