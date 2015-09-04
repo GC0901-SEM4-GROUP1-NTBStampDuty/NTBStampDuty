@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.building.Building;
 import model.building.BuildingManager;
+import model.period.PeriodManager;
 import model.project.Project;
 import model.project.ProjectManager;
 
@@ -52,11 +53,17 @@ public class addProject extends HttpServlet {
             String proName = request.getParameter("proName");
             int buildingID = Integer.valueOf(request.getParameter("builidingID"));
             String finishDate = request.getParameter("finishDate");
+            String period1 = request.getParameter("period1");
+            String period2 = request.getParameter("period2");
             Date d = new SimpleDateFormat("yyyy-MM-dd").parse(finishDate);
+            Date period1Date = new SimpleDateFormat("yyyy-MM-dd").parse(period1);
+            Date period2Date = new SimpleDateFormat("yyyy-MM-dd").parse(period2);
             java.util.Date utilDate = new java.util.Date();
             Timestamp createDate = new Timestamp(utilDate.getTime());
             ProjectManager manager = new ProjectManager();
             manager.addProject(proName, buildingID, createDate, new Timestamp(d.getTime()));
+            PeriodManager periodManager = new PeriodManager();
+            periodManager.AddPeriod(new Timestamp(period1Date.getTime()), new Timestamp(period2Date.getTime()), new Timestamp(d.getTime()));
             BuildingManager buildingManager = new BuildingManager();
             projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
             buildingList = buildingManager.getBuildingToAdd();

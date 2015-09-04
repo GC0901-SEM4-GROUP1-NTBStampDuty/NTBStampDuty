@@ -8,6 +8,7 @@ package model.period;
 import model.period.Period;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,5 +48,26 @@ public class PeriodManager {
             e.printStackTrace();
         }
         return period;
+    }
+    
+    public void AddPeriod(Timestamp period1, Timestamp period2, Timestamp period3){
+        int proj_id = 0;
+        try {
+            GetConnection conn = new GetConnection();
+            PreparedStatement ps = conn.getConnection().prepareStatement("select TOP 1 proj_id from tblProjects order by proj_id desc");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                proj_id = rs.getInt("proj_id");
+            }
+            PreparedStatement ps1 = conn.getConnection().prepareStatement("Insert into tblPeriod values(?,?,?,?,?)");
+            ps1.setInt(1, proj_id);
+            ps1.setTimestamp(2, period1);
+            ps1.setTimestamp(3, period2);
+            ps1.setTimestamp(4, period3);
+            ps1.setInt(5, 0);
+            ps1.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

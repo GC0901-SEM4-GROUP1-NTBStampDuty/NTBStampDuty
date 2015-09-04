@@ -291,18 +291,14 @@ public class ProjectManager {
     public void addProject(String proName, int buildingID, Timestamp createdDate, Timestamp finishDate) {
         try {
             GetConnection conn = new GetConnection();
-            PreparedStatement ps = conn.getConnection().prepareStatement("insert into tblProjects values(?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = conn.getConnection().prepareStatement("insert into tblProjects values(?, ?, ?, ?, ?, ?)");
             ps.setString(1, proName);
             ps.setInt(2, buildingID);
-            ps.setInt(3, 0);
-            ps.setTimestamp(4, createdDate);
-            ps.setTimestamp(5, finishDate);
+            ps.setTimestamp(3, createdDate);
+            ps.setTimestamp(4, finishDate);
+            ps.setInt(5, 1);
             ps.setInt(6, 1);
-            ps.setInt(7, 1);
             ps.executeUpdate();
-            PreparedStatement ps1 = conn.getConnection().prepareStatement("update tblBuildingDetails set chosen_status = 1 where building_id = ?");
-            ps1.setInt(1, buildingID);
-            ps1.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
