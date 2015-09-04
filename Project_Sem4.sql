@@ -18,9 +18,6 @@ insert into tblUser values('sondt','123456', 2)
 insert into tblUser values('minhpham','123456', 2)
 insert into tblUser values('tienxu','123456', 2)
 insert into tblUser values('tuannguyen','123456', 2)
-insert into tblUser values('derpie','123456', 2)
-insert into tblUser values('yolo','123456', 2)
-insert into tblUser values('quaylen','123456', 2)
 
 select * from tblUser
 
@@ -38,6 +35,13 @@ create table tblUserDetail
 insert into tblUserDetail values('admin','Admin','Male',0696969,null,'19/23 Giang Van Minh','abc@xyz')
 insert into tblUserDetail values('employee','Employee','Female',01234567,null,'123 Giang Vo','asd@123')
 insert into tblUserDetail values('mainghia','Mai Trung Nghia','Male',0869968,null,'321 Mam non Hoa Sen','awe@asd')
+insert into tblUserDetail values('sonhuy','Nguyen Huy Son','Male',0811111,null,'321 Mam non Hoa Sen','awe@hotmail.com')
+insert into tblUserDetail values('phucngo','Phuc And Go','Male',0860000,null,'312 Jump Street','awe@asd.net')
+insert into tblUserDetail values('sondt','Dao Tuan Son','Male',0863333,null,'14 Le Duan','awe@gmail.com')
+insert into tblUserDetail values('minhpham','Pham Thuc Minh','Female',021263333,null,'200 Yet Kieu','awe@fpt.edu.vn')
+insert into tblUserDetail values('tienxu','Phan Tien Tung','Male',3223123,null,'101 Ly Thuong kiet','awesome@gmail.com')
+insert into tblUserDetail values('tuannguyen','Nguyen Tuan','Male',2133212,null,'123 Cat Linh','awe@asdsda.com')
+
 
 create table tblBuildingType
 (
@@ -131,15 +135,15 @@ finish_date Datetime,
 period int,
 available_status int,
 )
-insert into tblProjects values('Project1', 1, '2015-07-19', '2016-07-19', 1, 1)
-insert into tblProjects values('Project2', 2, '2014-05-30', '2015-06-30', 1, 1)
-insert into tblProjects values('Project3', 3, '2014-01-15', '2015-06-30', 1, 1)
-insert into tblProjects values('Project4', 2, '2015-07-20', '2018-01-15', 1, 1)
-insert into tblProjects values('Project5', 2, '2005-05-30', '2017-05-30', 1, 1)
-insert into tblProjects values('Project6', 3, '2015-03-30', '2021-03-30', 1, 1)
-insert into tblProjects values('Project7', 1, '2015-12-25', '2018-12-25', 1, 1)
-insert into tblProjects values('Project8', 2, '2015-04-30', '2016-10-30', 1, 1)
-insert into tblProjects values('Project9', 3, '2014-05-30', '2018-11-30', 1, 1)
+insert into tblProjects values('Project1', 1, '2014-11-19', '2016-11-19', 1, 1)
+insert into tblProjects values('Project2', 2, '2014-09-30', '2016-09-30', 1, 1)
+insert into tblProjects values('Project3', 3, '2014-05-15', '2017-05-15', 1, 1)
+insert into tblProjects values('Project4', 2, '2014-11-20', '2016-01-15', 1, 1)
+insert into tblProjects values('Project5', 2, '2005-10-30', '2015-10-30', 1, 1)
+insert into tblProjects values('Project6', 3, '2014-09-30', '2020-03-30', 1, 1)
+insert into tblProjects values('Project7', 1, '2014-12-25', '2016-12-25', 1, 1)
+insert into tblProjects values('Project8', 2, '2015-07-30', '2016-10-30', 1, 1)
+insert into tblProjects values('Project9', 3, '2014-09-30', '2018-11-30', 1, 1)
 
 Select * from tblProjects
 
@@ -154,13 +158,13 @@ Update tblPeriod
 Set complete_percent = 31
 where proj_id = 1
 
-Insert into tblPeriod values (1,'2015-11-19','2016-03-19','2016-07-19',60)
-Insert into tblPeriod values (2,'2014-09-30','2015-01-15','2015-06-30',40)
-Insert into tblPeriod values (3,'2014-05-15','2015-01-15','2015-06-30',90)
-Insert into tblPeriod values (4,'2015-11-20','2016-05-20','2018-01-15',60)
-Insert into tblPeriod values (5,'2005-10-30','2010-05-30','2017-05-30',20)
-Insert into tblPeriod values (6,'2015-09-30','2018-03-30','2021-03-30',50)
-Insert into tblPeriod values (7,'2016-12-25','2017-12-25','2018-12-25',70)
+Insert into tblPeriod values (1,'2014-11-19','2015-11-19','2016-11-19',60)
+Insert into tblPeriod values (2,'2014-09-30','2015-09-30','2016-09-30',40)
+Insert into tblPeriod values (3,'2014-05-15','2015-11-15','2017-05-15',90)
+Insert into tblPeriod values (4,'2014-11-20','2015-05-20','2016-01-15',60)
+Insert into tblPeriod values (5,'2005-10-30','2010-10-30','2015-10-30',20)
+Insert into tblPeriod values (6,'2014-03-30','2017-03-30','2020-03-30',50)
+Insert into tblPeriod values (7,'2014-12-25','2015-12-25','2016-12-25',70)
 Insert into tblPeriod values (8,'2015-07-30','2015-10-30','2016-10-30',30)
 Insert into tblPeriod values (9,'2014-09-30','2015-11-30','2018-11-30',0)
 
@@ -258,12 +262,12 @@ invoice_status int
 
 select*from tblContract
 
-insert into tblContract values('mainghia', 2, '2015-07-21',1,200000000, 1000000000, 200000000, 800000000,0)
-insert into tblContract values('sondt', 4, '2015-05-30',1,300000000, 2000000000, 300000000, 900000000,0)
-insert into tblContract values('phucngo', 7, '2012-03-30',2,100000000, 1000000000, 10000000, 300000000,0)
-insert into tblContract values('quaylen', 9, '2014-05-30',1,200000000, 1000000000, 1800000000, 2100000000,0)
-insert into tblContract values('quaylen', 5, '2015-05-30',1,200000000, 1000000000, 1800000000, 2100000000,0)
-insert into tblContract values('quaylen', 6, '2015-05-30',1,200000000, 1000000000, 1800000000, 2100000000,1)
+insert into tblContract values('mainghia', 2, '2014-09-30',1,200000000, 1000000000, 200000000, 800000000,0)
+insert into tblContract values('sondt', 4, '2014-11-20',1,300000000, 2000000000, 300000000, 900000000,0)
+insert into tblContract values('phucngo', 7, '2014-12-25',2,100000000, 1000000000, 10000000, 300000000,0)
+insert into tblContract values('sondt', 9, '2014-09-30',1,200000000, 1000000000, 1800000000, 2100000000,0)
+insert into tblContract values('minhpham', 5, '2005-10-30',1,200000000, 1000000000, 1800000000, 2100000000,0)
+insert into tblContract values('tienxu', 6, '2014-03-30',1,200000000, 1000000000, 1800000000, 2100000000,1)
 
 create table tblPayment
 (
@@ -274,10 +278,10 @@ paid int
 
 select*from tblPayment
 
-insert into tblPayment values(1,'2015-07-22',200000000)
-insert into tblPayment values(2,'2015-12-30',300000000)
-insert into tblPayment values(6,'2015-12-30',100000000)
-insert into tblPayment values(9,'2015-07-22',200000000)
+insert into tblPayment values(2,'2014-09-30',200000000)
+insert into tblPayment values(4,'2014-11-20',300000000)
+insert into tblPayment values(5,'2005-10-30',300000000)
+insert into tblPayment values(6,'2014-03-30',100000000)
 
 create table tblStampDuty
 (
@@ -288,3 +292,4 @@ select*from tblPayment
 inner join tblContract
 on tblPayment.contract_id = tblContract.con_id
 where tblContract.username = 'customer'
+
