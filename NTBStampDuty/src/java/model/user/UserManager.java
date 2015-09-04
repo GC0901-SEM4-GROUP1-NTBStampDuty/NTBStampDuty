@@ -112,7 +112,7 @@ public class UserManager {
         return status;
     }
 
-    public static boolean addUser(String un, String pw, int role, String fm, String gd, String phone, String dob, String ad, String em) {
+    public void addUser(String un, String pw, int role, String fm, String gd, String phone, String dob, String ad, String em) {
         boolean status = false;
         try {
             GetConnection conn = new GetConnection();
@@ -129,10 +129,9 @@ public class UserManager {
             psm.setString(5, dob);
             psm.setString(6, ad);
             psm.setString(7, em);
-            psm.executeQuery();
+            psm.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return status;
     }
 }

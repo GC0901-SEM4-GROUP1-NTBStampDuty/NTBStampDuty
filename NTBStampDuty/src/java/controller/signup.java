@@ -41,7 +41,7 @@ public class signup extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet signup</title>");            
+            out.println("<title>Servlet signup</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet signup at " + request.getContextPath() + "</h1>");
@@ -91,12 +91,10 @@ public class signup extends HttpServlet {
         String add = request.getParameter("address");
         String email = request.getParameter("email");
         UserManager um = new UserManager();
-        if (um.addUser(user, pass, role, fulln, gend, phone, birthdate, add, email)){
-            request.setAttribute("message", user);
-            request.getRequestDispatcher("login_page.jsp").forward(request, response);
-        }else{
-            request.getRequestDispatcher("login_page.jsp").forward(request, response);
-        }
+        um.addUser(user, pass, role, fulln, gend, phone, birthdate, add, email);
+        request.setAttribute("message", user);
+        request.getRequestDispatcher("login_page.jsp").forward(request, response);
+
     }
 
     /**

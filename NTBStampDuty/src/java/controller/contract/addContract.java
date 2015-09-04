@@ -85,16 +85,24 @@ public class addContract extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String customer = request.getParameter("customer");
+            String customer = request.getParameter("customerName");
+            String customerPhone = request.getParameter("customerPhone");
+            String customerAddress = request.getParameter("customerAddress");
+            String customerBirth = request.getParameter("customerBirth");
+            String customerGender = request.getParameter("customerGender");
+            String customerEmail = request.getParameter("customerEmail");
+            UserManager um = new UserManager();
+            um.addUser(customer, "123456", 2, customer, customerGender, customerPhone, customerBirth, customerAddress, customerEmail);
+
+            int projectPeriod = Integer.valueOf(request.getParameter("projectPeriod"));
             int roomId = Integer.valueOf(request.getParameter("roomId"));
-            String createdDate = request.getParameter("date");
-            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(createdDate);
-            Timestamp createDate = new Timestamp(d.getTime());
-            int payment = Integer.valueOf(request.getParameter("payment"));
+            java.util.Date utilDate = new java.util.Date();
+            Timestamp createDate = new Timestamp(utilDate.getTime());
+            int payment = Integer.valueOf(request.getParameter("total"));
             int deposit = Integer.valueOf(request.getParameter("deposit"));
             int due = Integer.valueOf(request.getParameter("due"));
             ContractManager cm = new ContractManager();
-            cm.addContract(customer, roomId, createDate, 1, deposit, 1000, 0, due, 0);
+            cm.addContract(customer, roomId, createDate, projectPeriod, deposit, payment, deposit, due, 1);
             int page = 1;
             int recordsPerPage = 15;
             if (request.getParameter("page") != null) {
@@ -106,9 +114,6 @@ public class addContract extends HttpServlet {
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
             ProjectManager pm = new ProjectManager();
             List<Project> proList = pm.getProjectToAddContract();
-            UserManager um = new UserManager();
-            List<User> userList = um.getUserToAddContract();
-            request.setAttribute("userList", userList);
             request.setAttribute("proList", proList);
             request.setAttribute("contractList", contractList);
             request.setAttribute("noOfPages", noOfPages);

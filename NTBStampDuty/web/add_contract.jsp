@@ -135,7 +135,7 @@
                     </tr> 
                 </table>
 
-                <form id="myForm" style="margin-bottom: 0px" action="getProjectDetail" method="post">
+                <form id="myForm" style="margin-bottom: 0px" action="addContract" method="POST">
                     <input type="hidden" name="projectID"/>
                     <div class="project_container" >
                         <div class="customerLeft">
@@ -156,9 +156,8 @@
                         <div class="cusInsertRight">
                             <p><input id="customerBirth" name="customerBirth" class="customer_birth"/></p> 
                             <p><select name="customerGender" id="customerGender" class="customer_gender">
-                                    <c:forEach items="${typeList}" var="type">
-                                        <option value="${type.id}">${type.typeName}</option>
-                                    </c:forEach>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select></p> 
                             <p><input id="customerEmail" name="customerEmail" class="customer_email"/></p> 
                         </div>
@@ -210,21 +209,22 @@
                         <div class="roomRight">
                             <p>Size:</p>                        
                             <p>Floor: </p>
-                            <p>Real Price:</p>
+                            <p>Due :</p>
                             <p>Total Price:</p>
                         </div>
                         <div class="proInsertRight">
                             <p><input id="roomSize" name="roomSize" class="room_size"/></p> 
                             <p><input id="roomFloor" name="roomFloor" class="room_floor"/></p> 
-                            <p><input id="real" name="real" class="real"/></p> 
+                            <p><input id="real" name="due" class="real"/></p> 
                             <p><input id="total" name="total" class="total"/></p> 
                         </div>
                     </div>
+                    <input type="submit" class="addContract" value="Save"/>
                 </form>
-
             </div>
             <div class="paging_size">
-                <input type="submit" class="addContract" value="Save"/>
+
+
             </div>
         </div>
     </div>
