@@ -7,10 +7,18 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.building.Building;
+import model.building.BuildingManager;
+import model.period.PeriodManager;
+import model.project.Project;
+import model.project.ProjectManager;
 import model.user.UserManager;
 
 /**
@@ -18,6 +26,9 @@ import model.user.UserManager;
  * @author admin
  */
 public class login extends HttpServlet {
+
+    private List<Project> projectList = new ArrayList<>();
+    private List<Building> buildingList = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +47,7 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");            
+            out.println("<title>Servlet login</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
@@ -74,10 +85,29 @@ public class login extends HttpServlet {
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
         UserManager um = new UserManager();
-        if (um.checkUser(user, pass)){
-            request.setAttribute("message", user);
-            request.getRequestDispatcher("projectDetail").forward(request, response);
-        }else{
+        if (um.checkUser(user, pass)) {
+            int page = 1;
+            int recordsPerPage = 10;
+            if (request.getParameter("page") != null) {
+                page = Integer.parseInt(request.getParameter("page"));
+            }
+            ProjectManager manager = new ProjectManager();
+            projectList = manager.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
+            int noOfRecords = manager.getNoOfRecords();
+            int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+            PeriodManager pem = new PeriodManager();
+            for (int i = 0; i < projectList.size(); i++) {
+                projectList.get(i).setCompletePercent(pem.getPeriod(projectList.get(i).getProjectID()).getPercent());
+            }
+            BuildingManager buildingManager = new BuildingManager();
+            buildingList = buildingManager.getBuildingToAdd();
+            request.setAttribute("buildingList", buildingList);
+            request.setAttribute("projectList", projectList);
+            request.setAttribute("noOfPages", noOfPages);
+            request.setAttribute("currentPage", page);
+            RequestDispatcher rd = request.getRequestDispatcher("project_page.jsp");
+            rd.forward(request, response);
+        } else {
             request.getRequestDispatcher("login_page.jsp").forward(request, response);
         }
     }

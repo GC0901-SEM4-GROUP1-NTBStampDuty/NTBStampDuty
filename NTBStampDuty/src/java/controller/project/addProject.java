@@ -69,6 +69,9 @@ public class addProject extends HttpServlet {
             buildingList = buildingManager.getBuildingToAdd();
             int noOfRecords = manager.getNoOfRecords();
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+            for (int i = 0; i < projectList.size(); i++) {
+                projectList.get(i).setCompletePercent(periodManager.getPeriod(projectList.get(i).getProjectID()).getPercent());
+            }
             request.setAttribute("buildingList", buildingList);
             request.setAttribute("projectList", projectList);
             request.setAttribute("noOfPages", noOfPages);

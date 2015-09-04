@@ -97,7 +97,7 @@ public class UserManager {
         return userList;
     }
 
-    public static boolean checkUser(String user, String password) {
+    public boolean checkUser(String user, String password) {
         boolean status = false;
         try {
             GetConnection conn = new GetConnection();
