@@ -40,6 +40,7 @@
                         document.getElementById("rooms").value = building.rooms;
                         document.getElementById("houses").value = building.houses;
                         document.getElementById("shops").value = building.shops;
+                        document.getElementById("image").setAttribute('src', 'data:image/jpg;base64,' + building.img);
                     });
                 }
             });
@@ -185,7 +186,7 @@
                             <a id="shopsLink"><img class="next_navigation" src="images/ic_show.png"/></a>    
                         </div>  
                         <div><a>Image:</a> <input type="file" name="buildImage" class="build_image" accept="image/gif, image/jpeg, image/png"/></div>
-                        <div style="margin-bottom: 4px;"><img src="images/ic_none_image.png" width="145px" height="180px"/></div>
+                        <div style="margin-bottom: 4px;"><img id="image" width="145px" height="180px"/></div>
                         <div><input type="hidden" name="buildingID" id="buildID" /></div>
                         <div class="edit_menu">
                             <div class="btn_edit">

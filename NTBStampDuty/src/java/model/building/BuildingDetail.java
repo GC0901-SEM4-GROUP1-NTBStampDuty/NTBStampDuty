@@ -17,10 +17,10 @@ public class BuildingDetail {
     public int rooms;
     public int houses;
     public int shops;
-    public int img;
+    public String img;
     public int chosen_status;
 
-    public BuildingDetail(int landID, int buildingTypeID, String buildingName, int floors, int rooms, int houses, int shops, int img, int chosen_status) {
+    public BuildingDetail(int landID, int buildingTypeID, String buildingName, int floors, int rooms, int houses, int shops, String img, int chosen_status) {
         this.landID = landID;
         this.buildingTypeID = buildingTypeID;
         this.buildingName = buildingName;
@@ -88,11 +88,11 @@ public class BuildingDetail {
         this.shops = shops;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 

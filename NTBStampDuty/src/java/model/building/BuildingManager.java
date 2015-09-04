@@ -213,7 +213,7 @@ public class BuildingManager {
                 int shops = rs.getInt("shops");
                 String img = rs.getString("img");
                 int chosen_status = rs.getInt("chosen_status");
-                BuildingDetail buildingDetail = new BuildingDetail(landId, buildingTypeID, buildingName, floors, rooms, houses, shops, id, chosen_status);
+                BuildingDetail buildingDetail = new BuildingDetail(landId, buildingTypeID, buildingName, floors, rooms, houses, shops, img, chosen_status);
                 buildingDetailList.add(buildingDetail);
             }
         } catch (Exception e) {
