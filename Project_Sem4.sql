@@ -132,11 +132,11 @@ period int,
 available_status int,
 )
 insert into tblProjects values('Project1', 1, '2015-07-19', '2016-07-19', 1, 1)
-insert into tblProjects values('Project2', 2, '2015-05-30', '2015-06-30', 1, 1)
-insert into tblProjects values('Project3', 3, '2015-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project2', 2, '2014-05-30', '2015-06-30', 1, 1)
+insert into tblProjects values('Project3', 3, '2014-01-15', '2015-06-30', 1, 1)
 insert into tblProjects values('Project4', 2, '2015-07-20', '2018-01-15', 1, 1)
-insert into tblProjects values('Project5', 2, '2005-05-30', '2035-05-30', 1, 1)
-insert into tblProjects values('Project6', 3, '2012-03-30', '2021-03-30', 1, 1)
+insert into tblProjects values('Project5', 2, '2005-05-30', '2017-05-30', 1, 1)
+insert into tblProjects values('Project6', 3, '2015-03-30', '2021-03-30', 1, 1)
 insert into tblProjects values('Project7', 1, '2015-12-25', '2018-12-25', 1, 1)
 insert into tblProjects values('Project8', 2, '2015-04-30', '2016-10-30', 1, 1)
 insert into tblProjects values('Project9', 3, '2014-05-30', '2018-11-30', 1, 1)
@@ -154,15 +154,15 @@ Update tblPeriod
 Set complete_percent = 31
 where proj_id = 1
 
-Insert into tblPeriod values (1,'2015-11-19','2016-03-19','2015-06-19',60)
-Insert into tblPeriod values (2,'2015-05-30','2015-06-15','2015-06-30',40)
-Insert into tblPeriod values (3,'2015-01-15','2016-01-15','2017-01-15',90)
-Insert into tblPeriod values (4,'2015-07-20','2016-05-20','2017-01-20',60)
-Insert into tblPeriod values (5,'2005-05-30','2015-05-30','2025-05-30',20)
-Insert into tblPeriod values (6,'2012-03-30','2015-03-30','2018-03-30',50)
-Insert into tblPeriod values (7,'2013-12-25','2014-12-25','2015-12-25',70)
-Insert into tblPeriod values (8,'2015-04-30','2015-10-30','2016-04-30',30)
-Insert into tblPeriod values (9,'2014-05-30','2015-11-30','2017-05-30',0)
+Insert into tblPeriod values (1,'2015-11-19','2016-03-19','2016-07-19',60)
+Insert into tblPeriod values (2,'2014-09-30','2015-01-15','2015-06-30',40)
+Insert into tblPeriod values (3,'2014-05-15','2015-01-15','2015-06-30',90)
+Insert into tblPeriod values (4,'2015-11-20','2016-05-20','2018-01-15',60)
+Insert into tblPeriod values (5,'2005-10-30','2010-05-30','2017-05-30',20)
+Insert into tblPeriod values (6,'2015-09-30','2018-03-30','2021-03-30',50)
+Insert into tblPeriod values (7,'2016-12-25','2017-12-25','2018-12-25',70)
+Insert into tblPeriod values (8,'2015-07-30','2015-10-30','2016-10-30',30)
+Insert into tblPeriod values (9,'2014-09-30','2015-11-30','2018-11-30',0)
 
 Select * from tblPeriod
 select * from tblBuildingType
