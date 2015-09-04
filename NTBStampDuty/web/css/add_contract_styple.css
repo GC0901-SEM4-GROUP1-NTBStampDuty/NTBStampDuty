@@ -1,2 +1,69 @@
-#main_body .detail_bar .table_container  .project_container div {float: left}
+#main_body .detail_bar .table_container .project_container div {float: left;/* display: inline-block; */}
+#main_body .detail_bar .table_container .project_container input, select{
+    padding: 3px 10px 4px;
+    background: none repeat scroll 0% 0% #FFF;
+    color: #2B2B2B;
+    width: 170px;
+    font-size: 1em;
+    font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
+    font-size: 14px;
+    border: 1px solid #CBCBCB;
+    }
+#main_body .detail_bar .table_container .project_container p{
+        height: 28px;
+    }
+#main_body .detail_bar .table_container .project_container .customerLeft{
+    width: 120px;
+}
+#main_body .detail_bar .table_container .project_container .cusInsertLeft{
+    width: 360px;
+}
+#main_body .detail_bar .table_container .project_container .customerRight{
+    width: 120px;
+}
+#main_body .detail_bar .table_container .project_container .cusInsertRight{
+    width: 200px;
+}
+#main_body .detail_bar .table_container .project_container .projectLeft{
+    width: 120px;
+}
+#main_body .detail_bar .table_container .project_container .proInsertLeft{
+    width: 360px;
+}
+#main_body .detail_bar .table_container .project_container .projectRight{
+    width: 120px;
+}
+#main_body .detail_bar .table_container .project_container .proInsertRight{}
+#main_body .detail_bar .table_container .project_container .roomLeft{
+    width: 120px;
+    clear: both;
+}
+#main_body .detail_bar .table_container .project_container .roomInsertLeft{
+    width: 360px;
+}
+#main_body .detail_bar .table_container .project_container .roomRight{
+    width: 120px;
+}
+#main_body .detail_bar .table_container .project_container .proInsertRight{
+    width: 200px;
+}
 
+#main_body .detail_bar .addContract{
+          background-image: linear-gradient(to top, #F1F1F1, #FFF);
+          border-width: 1px;
+          border-style: solid;
+          border-color: #D2D2D2 #C9C8C8 #C3C3C2;
+          box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+          color: #3E3E3E;
+          border-radius: 3px;
+          background-color: #EAE9E9;
+          background-repeat: no-repeat;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          font-size: 12px;
+          width: 70px;
+          height: 30px;
+          right: 50px;
+          position: absolute;
+          z-index: 50;
+          top: 14px;
+          }

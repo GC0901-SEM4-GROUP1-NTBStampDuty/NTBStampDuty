@@ -149,18 +149,17 @@
                             <p><input id="customerAddress" name="customerAddress" class="customer_address"/></p> 
                         </div>
                         <div class="customerRight">
-                            <p>Age:</p>                   
+                            <p>Birthday:</p>                   
                             <p>Gender:</p>     
                             <p>Email:</p>
                         </div>
                         <div class="cusInsertRight">
-                            <p><select name="customerAge" id="customerAge" class="customer_age">
+                            <p><input id="customerBirth" name="customerBirth" class="customer_birth"/></p> 
+                            <p><select name="customerGender" id="customerGender" class="customer_gender">
                                     <c:forEach items="${typeList}" var="type">
                                         <option value="${type.id}">${type.typeName}</option>
                                     </c:forEach>
-                                </select>
-                            </p> 
-                            <p><input id="customerGender" name="customerGender" class="customer_gender"/></p> 
+                                </select></p> 
                             <p><input id="customerEmail" name="customerEmail" class="customer_email"/></p> 
                         </div>
                         <div class="projectLeft">
@@ -225,7 +224,7 @@
 
             </div>
             <div class="paging_size">
-                <p><input type="submit" class="addContract" value="Save"/></p>
+                <input type="submit" class="addContract" value="Save"/>
             </div>
         </div>
     </div>
