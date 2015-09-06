@@ -262,12 +262,10 @@ invoice_status int
 
 select*from tblContract
 
-insert into tblContract values('mainghia', 2, '2014-09-30',1,200000000, 1000000000, 200000000, 800000000,0)
-insert into tblContract values('sondt', 4, '2014-11-20',1,300000000, 2000000000, 300000000, 900000000,0)
-insert into tblContract values('phucngo', 7, '2014-12-25',2,100000000, 1000000000, 10000000, 300000000,0)
-insert into tblContract values('sondt', 9, '2014-09-30',1,200000000, 1000000000, 1800000000, 2100000000,0)
-insert into tblContract values('minhpham', 5, '2005-10-30',1,200000000, 1000000000, 1800000000, 2100000000,0)
-insert into tblContract values('tienxu', 6, '2014-03-30',1,200000000, 1000000000, 1800000000, 2100000000,1)
+insert into tblContract values('mainghia', 2, '2014-09-30',1,2000000000, 10000000000, 400000000, 600000000,0)
+insert into tblContract values('sondt', 4, '2014-11-20',1,1000000000, 5000000000, 3000000000, 2000000000,0)
+insert into tblContract values('minhpham', 5, '2005-10-30',1,2000000000, 4000000000, 3000000000, 1000000000,0)
+insert into tblContract values('tienxu', 6, '2014-03-30',1,100000000, 5000000000, 2000000000, 3000000000,1)
 
 create table tblPayment
 (
@@ -278,10 +276,10 @@ paid int
 
 select*from tblPayment
 
-insert into tblPayment values(2,'2014-09-30',200000000)
-insert into tblPayment values(4,'2014-11-20',300000000)
-insert into tblPayment values(5,'2005-10-30',300000000)
-insert into tblPayment values(6,'2014-03-30',100000000)
+insert into tblPayment values(2,'2014-09-30',2000000000)
+insert into tblPayment values(4,'2014-11-20',2000000000)
+insert into tblPayment values(5,'2005-10-30',1000000000)
+insert into tblPayment values(6,'2014-03-30',1000000000)
 
 create table tblStampDuty
 (
