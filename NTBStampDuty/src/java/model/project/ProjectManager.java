@@ -145,7 +145,7 @@ public class ProjectManager {
                     + "where proj_id = ?");
             ps2.setInt(1, period);
             ps2.setInt(2, projectId);
-            ps2.executeQuery();
+            ps2.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }

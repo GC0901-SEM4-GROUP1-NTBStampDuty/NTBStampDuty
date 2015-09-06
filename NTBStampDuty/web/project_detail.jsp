@@ -78,7 +78,7 @@
                                 <p>Period: </p>
                                 <p>Created Date:</p>
                                 <p>Finish Date:</p>
-                                <p>Complete Percent:</p>
+                             
                             </div>
                             <div class="proDetail">
                                 <p>${project.projectID}</p>
@@ -86,7 +86,6 @@
                                 <p>${project.period}</p>
                                 <p>${project.createdDate}</p>
                                 <p>${project.finishDate}</p>
-                                <p>${project.completePercent}</p>
                             </div>
                             <div class="buildingDetail">
                                 <div class="buildingDetailLeft">
