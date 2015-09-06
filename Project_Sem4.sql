@@ -138,11 +138,11 @@ available_status int,
 insert into tblProjects values('Project1', 1, '2014-11-19', '2016-11-19', 1, 1)
 insert into tblProjects values('Project2', 2, '2014-09-30', '2016-09-30', 1, 1)
 insert into tblProjects values('Project3', 3, '2014-05-15', '2017-05-15', 1, 1)
-insert into tblProjects values('Project4', 2, '2014-11-20', '2016-01-15', 1, 1)
+insert into tblProjects values('Project4', 2, '2014-11-20', '2017-01-15', 1, 1)
 insert into tblProjects values('Project5', 2, '2005-10-30', '2015-10-30', 1, 1)
 insert into tblProjects values('Project6', 3, '2014-09-30', '2020-03-30', 1, 1)
-insert into tblProjects values('Project7', 1, '2014-12-25', '2016-12-25', 1, 1)
-insert into tblProjects values('Project8', 2, '2015-07-30', '2016-10-30', 1, 1)
+insert into tblProjects values('Project7', 1, '2014-12-25', '2017-12-25', 1, 1)
+insert into tblProjects values('Project8', 2, '2015-07-30', '2020-10-30', 1, 1)
 insert into tblProjects values('Project9', 3, '2014-09-30', '2018-11-30', 1, 1)
 
 Select * from tblProjects
@@ -158,15 +158,15 @@ Update tblPeriod
 Set complete_percent = 31
 where proj_id = 1
 
-Insert into tblPeriod values (1,'2014-11-19','2015-11-19','2016-11-19',60)
-Insert into tblPeriod values (2,'2014-09-30','2015-09-30','2016-09-30',40)
-Insert into tblPeriod values (3,'2014-05-15','2015-11-15','2017-05-15',90)
-Insert into tblPeriod values (4,'2014-11-20','2015-05-20','2016-01-15',60)
-Insert into tblPeriod values (5,'2005-10-30','2010-10-30','2015-10-30',20)
-Insert into tblPeriod values (6,'2014-03-30','2017-03-30','2020-03-30',50)
-Insert into tblPeriod values (7,'2014-12-25','2015-12-25','2016-12-25',70)
-Insert into tblPeriod values (8,'2015-07-30','2015-10-30','2016-10-30',30)
-Insert into tblPeriod values (9,'2014-09-30','2015-11-30','2018-11-30',0)
+Insert into tblPeriod values (1,'2015-05-30','2015-11-19','2016-11-19',60)
+Insert into tblPeriod values (2,'2015-03-30','2015-09-30','2016-09-30',40)
+Insert into tblPeriod values (3,'2015-05-15','2015-11-15','2017-05-15',90)
+Insert into tblPeriod values (4,'2015-05-20','2016-05-20','2017-01-15',60)
+Insert into tblPeriod values (5,'2007-10-30','2010-10-30','2015-10-30',20)
+Insert into tblPeriod values (6,'2016-03-30','2018-03-30','2020-03-30',50)
+Insert into tblPeriod values (7,'2015-12-25','2016-12-25','2017-12-25',70)
+Insert into tblPeriod values (8,'2016-07-30','2018-10-30','2020-10-30',30)
+Insert into tblPeriod values (9,'2015-09-30','2016-11-30','2018-11-30',0)
 
 Select * from tblPeriod
 select * from tblBuildingType
@@ -211,6 +211,16 @@ Go
 insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
 insert into tblRoomDetails values(1, 2, '50', '1', '4000',1)
 insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(1, 2, '50', '1', '10000',1)
+insert into tblRoomDetails values(1, 1, '50', '2', '1500',1)
+insert into tblRoomDetails values(1, 3, '50', '1', '7500',1)
+insert into tblRoomDetails values(1, 2, '50', '1', '4000',0)
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(2, 2, '50', '1', '4000',0)
+insert into tblRoomDetails values(2, 3, '50', '1', '1500',0)
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
+insert into tblRoomDetails values(1, 2, '50', '1', '4000',0)
+insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
 insert into tblRoomDetails values(1, 2, '50', '1', '10000',0)
 insert into tblRoomDetails values(1, 1, '50', '2', '1500',0)
 insert into tblRoomDetails values(1, 3, '50', '1', '7500',0)
@@ -219,17 +229,7 @@ insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
 insert into tblRoomDetails values(2, 2, '50', '1', '4000',0)
 insert into tblRoomDetails values(2, 3, '50', '1', '1500',0)
 insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
-insert into tblRoomDetails values(1, 2, '50', '1', '4000',1)
-insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
-insert into tblRoomDetails values(1, 2, '50', '1', '10000',0)
-insert into tblRoomDetails values(1, 1, '50', '2', '1500',0)
-insert into tblRoomDetails values(1, 3, '50', '1', '7500',0)
 insert into tblRoomDetails values(1, 2, '50', '1', '4000',0)
-insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
-insert into tblRoomDetails values(2, 2, '50', '1', '4000',0)
-insert into tblRoomDetails values(2, 3, '50', '1', '1500',0)
-insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
-insert into tblRoomDetails values(1, 2, '50', '1', '4000',1)
 insert into tblRoomDetails values(1, 1, '50', '1', '1500',0)
 insert into tblRoomDetails values(1, 2, '50', '1', '10000',0)
 insert into tblRoomDetails values(1, 1, '50', '2', '1500',0)
@@ -262,10 +262,10 @@ invoice_status int
 
 select*from tblContract
 
-insert into tblContract values('mainghia', 2, '2014-09-30',1,2000000000, 10000000000, 400000000, 600000000,0)
-insert into tblContract values('sondt', 4, '2014-11-20',1,1000000000, 5000000000, 3000000000, 2000000000,0)
-insert into tblContract values('minhpham', 5, '2005-10-30',1,2000000000, 4000000000, 3000000000, 1000000000,0)
-insert into tblContract values('tienxu', 6, '2014-03-30',1,100000000, 5000000000, 2000000000, 3000000000,1)
+insert into tblContract values('mainghia', 2, '2014-12-30',1,50000, 200000, 66666, 133334,0)
+insert into tblContract values('sondt', 4, '2014-11-20',1,100000, 500000, 166666, 333334,0)
+insert into tblContract values('minhpham', 5, '2015-01-30',1,150000, 750000, 250000, 500000,0)
+insert into tblContract values('tienxu', 6, '2015-03-30',1,75000, 375000, 125000, 250000,1)
 
 create table tblPayment
 (
@@ -276,10 +276,10 @@ paid int
 
 select*from tblPayment
 
-insert into tblPayment values(2,'2014-09-30',2000000000)
-insert into tblPayment values(4,'2014-11-20',2000000000)
-insert into tblPayment values(5,'2005-10-30',1000000000)
-insert into tblPayment values(6,'2014-03-30',1000000000)
+insert into tblPayment values(1,'2014-12-30',66666)
+insert into tblPayment values(2,'2014-11-20',166666)
+insert into tblPayment values(3,'2015-01-30',250000)
+insert into tblPayment values(4,'2015-03-30',125000)
 
 create table tblStampDuty
 (
