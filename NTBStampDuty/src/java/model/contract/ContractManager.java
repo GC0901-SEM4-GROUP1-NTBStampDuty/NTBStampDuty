@@ -238,10 +238,12 @@ public class ContractManager {
             generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 
             generateMailMessage.setSubject("Inform about purchasing deadline");
-            String emailBody = "<center><h2>NTB Stamp Duty</h2>"
-                    + "<h4><i><b>8, Ton That Thuyet, Ha Noi</b></i></h4>"
-                    + "<h1>Inform about purchasing deadline</h1></center>"
-                    + "<p>This is email informing about purchasing</p>";
+            String emailBody = "<center><h2>NTB Stamp Duty Important Notice</h2>"
+                    + "<h4><i><b>8 Ton That Thuyet, Cau Giay District, Ha Noi</b></i></h4>"
+                    + "<h1>Informing about payment deadline</h1></center>"
+                    + "<p>We would like to inform you that payment deadline is today. Please make the payment for due date today. Again thank you for making contract with us. If you have any problem, please contact us at ntbstampduty@fpt.com</p>"
+                    + "<p>Best Regards, <p>"
+                    + "<p>NTB Stamp Duty ™<p>";
             generateMailMessage.setContent(emailBody, "text/html");
 
             Transport transport = getMailSession.getTransport("smtp");
