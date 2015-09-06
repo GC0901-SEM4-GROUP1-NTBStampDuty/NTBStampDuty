@@ -86,9 +86,9 @@
                                 <p>${contract.username}</p>
                                 <p>${contract.roomId}</p>
                                 <p>${contract.createdDate}</p>
-                                <p>${payment} VNĐ</p>
-                                <p>${paid} VNĐ</p>
-                                <p>${due} VNĐ</p>
+                                <p>${payment} USD</p>
+                                <p>${paid} USD</p>
+                                <p>${due} USD</p>
                             </div>
                         </div>          
                     </table>
@@ -119,9 +119,9 @@
                     </div>
 
                     <div id="progress-bar-container">
-                        <a class="m1">${period_money}VND</a>
-                        <a class="m2">${period_money}VND</a>
-                        <a class="m3">${period_money}VND</a>
+                        <a class="m1">${period_money}USD</a>
+                        <a class="m2">${period_money}USD</a>
+                        <a class="m3">${period_money}USD</a>
                         <div class="progress-bar">
                             <div align="center" class="percent">${contract.totalPaid/contract.totalPayment*100}%</div>
                             <div class="period1">
