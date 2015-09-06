@@ -91,7 +91,7 @@ public class ProjectManager {
                 project.setProjectName(rs.getString("proj_name"));
                 project.setBuildingId(rs.getInt("buildingid"));
                 project.setBuildingName(rs.getString("building_name"));
-                project.setCompletePercent(rs.getInt("complete_percent"));
+                //project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
                 DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 project.setCreatedDate(dateFormat.format(createdDate));
@@ -156,13 +156,13 @@ public class ProjectManager {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_project AS\n"
-                    + "(select proj_id, proj_name,tblProjects.building_id as buildingid, building_name, complete_percent, created_date, finish_date, period, ROW_NUMBER() OVER (ORDER BY created_date desc) AS [row_number]\n"
+                    + "(select proj_id, proj_name,tblProjects.building_id as buildingid, building_name, created_date, finish_date, period, ROW_NUMBER() OVER (ORDER BY created_date desc) AS [row_number]\n"
                     + "from tblProjects\n"
                     + "inner join tblBuildingDetails\n"
                     + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
                     + "where available_status = 1"
                     + ")\n"
-                    + "select proj_id, proj_name,buildingid, building_name, complete_percent, created_date, finish_date, period FROM limt_project WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
+                    + "select proj_id, proj_name,buildingid, building_name, created_date, finish_date, period FROM limt_project WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
             );
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -171,7 +171,7 @@ public class ProjectManager {
                 project.setProjectName(rs.getString("proj_name"));
                 project.setBuildingId(rs.getInt("buildingid"));
                 project.setBuildingName(rs.getString("building_name"));
-                project.setCompletePercent(rs.getInt("complete_percent"));
+                //project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 project.setCreatedDate(dateFormat.format(createdDate));
@@ -197,13 +197,13 @@ public class ProjectManager {
             GetConnection conn = new GetConnection();
             PreparedStatement ps = conn.getConnection().prepareStatement(
                     "WITH limt_project AS\n"
-                    + "(select proj_id, proj_name,tblProjects.building_id as buildingid, building_name, complete_percent, created_date, finish_date, period, ROW_NUMBER() OVER (ORDER BY proj_name ASC) AS [row_number]\n"
+                    + "(select proj_id, proj_name,tblProjects.building_id as buildingid, building_name, created_date, finish_date, period, ROW_NUMBER() OVER (ORDER BY proj_name ASC) AS [row_number]\n"
                     + "from tblProjects\n"
                     + "inner join tblBuildingDetails\n"
                     + "on tblProjects.building_id = tblBuildingDetails.building_id\n"
                     + "where available_status = 1"
                     + ")\n"
-                    + "select proj_id, proj_name,buildingid, building_name, complete_percent, created_date, finish_date, period FROM limt_project WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
+                    + "select proj_id, proj_name,buildingid, building_name, created_date, finish_date, period FROM limt_project WHERE [row_number]>" + startIndex + " AND [row_number]<=" + endIndex
             );
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -212,7 +212,7 @@ public class ProjectManager {
                 project.setProjectName(rs.getString("proj_name"));
                 project.setBuildingId(rs.getInt("buildingid"));
                 project.setBuildingName(rs.getString("building_name"));
-                project.setCompletePercent(rs.getInt("complete_percent"));
+                //project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 project.setCreatedDate(dateFormat.format(createdDate));
@@ -267,7 +267,7 @@ public class ProjectManager {
                 project.setProjectName(rs.getString("proj_name"));
                 project.setBuildingId(rs.getInt("buildingid"));
                 project.setBuildingName(rs.getString("building_name"));
-                project.setCompletePercent(rs.getInt("complete_percent"));
+                //project.setCompletePercent(rs.getInt("complete_percent"));
                 Date createdDate = rs.getDate("created_date");
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 project.setCreatedDate(dateFormat.format(createdDate));
