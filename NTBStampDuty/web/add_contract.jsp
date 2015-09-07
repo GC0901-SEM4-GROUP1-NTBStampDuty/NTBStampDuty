@@ -138,85 +138,87 @@
                 <form id="myForm" style="margin-bottom: 0px" action="addContract" method="POST">
                     <input type="hidden" name="projectID"/>
                     <div class="project_container" >
-                        <div class="customerLeft">
-                            <p>Full Name:</p>                        
-                            <p>Phone: </p>
-                            <p>Address:</p>
-                        </div>
-                        <div class="cusInsertLeft">
-                            <p><input id="customerName" name="customerName" class="customer_name"/></p> 
-                            <p><input id="customerPhone" name="customerPhone" class="customer_phone"/></p> 
-                            <p><input id="customerAddress" name="customerAddress" class="customer_address"/></p> 
-                        </div>
-                        <div class="customerRight">
-                            <p>Birthday:</p>                   
-                            <p>Gender:</p>     
-                            <p>Email:</p>
-                        </div>
-                        <div class="cusInsertRight">
-                            <p><input id="customerBirth" name="customerBirth" class="customer_birth"/></p> 
-                            <p><select name="customerGender" id="customerGender" class="customer_gender">
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select></p> 
-                            <p><input id="customerEmail" name="customerEmail" class="customer_email"/></p> 
-                        </div>
-                        <div class="projectLeft">
-                            <p>Project Name</p>                        
-                            <p>Period: </p>
-                            <p>Created Date:</p>
-                            <p>Completed:</p>
-                        </div>
-                        <div class="proInsertLeft">
-                            <p><select name="projectName" id="projectName" class="project_name" onclick="getRoom()">
-                                    <option value="" disabled="true" selected="true">Choose a project</option>
-                                    <c:forEach items="${proList}" var="pro">
-                                        <option value="${pro.projectID}">${pro.projectName}</option>
-                                    </c:forEach>
-                                </select></p>
-                            <p><input id="projectPeriod" name="projectPeriod" class="project_period"/></p> 
-                            <p><input id="projectCreate" name="projectCreate" class="project_create"/></p> 
-                            <p><input id="projectComplete" name="projectComplete" class="project_complete"/></p> 
-                        </div>
-                        <div class="projectRight">
-                            <p>Building Name:</p>                        
-                            <p>Building Address: </p>
-                            <p>Finish Date:</p>
-                            <p>Building Type:</p>
-                        </div>
-                        <div class="proInsertRight">
-                            <p><input id="buildingId" name="BuildingId" class="building_id"/></p> 
-                            <p><input id="buildingAddress" name="buildingAddress" class="building_address"/></p> 
-                            <p><input id="projectFinish" name="projectFinish" class="project_finish"/></p> 
-                            <p><input id="buildingType" name="buildingType" class="building_type"/></p> 
-                        </div>
-                        <div class="roomLeft">
-                            <p>Room Id:</p>                        
-                            <p>Room Type: </p>
-                            <p>Expected Price:</p>
-                            <p>Deposit:</p>
-                        </div>
-                        <div class="roomInsertLeft">
-                            <p><select name="roomId" id="roomId" class="room_id" onchange="getRoomDetail()">
-                                    <c:forEach items="${typeList}" var="type">
-                                        <option value="${type.id}">${type.typeName}</option>
-                                    </c:forEach>
-                                </select></p> 
-                            <p><input id="roomType" name="roomType" class="room_type"/></p> 
-                            <p><input id="expected" name="expected" class="expected"/></p> 
-                            <p><input id="deposit" name="deposit" class="deposit"/></p> 
-                        </div>
-                        <div class="roomRight">
-                            <p>Size:</p>                        
-                            <p>Floor: </p>
-                            <p>Due :</p>
-                            <p>Total Price:</p>
-                        </div>
-                        <div class="proInsertRight">
-                            <p><input id="roomSize" name="roomSize" class="room_size"/></p> 
-                            <p><input id="roomFloor" name="roomFloor" class="room_floor"/></p> 
-                            <p><input id="real" name="due" class="real"/></p> 
-                            <p><input id="total" name="total" class="total"/></p> 
+                        <div class="container">
+                            <div class="customerLeft">
+                                <p>Full Name:</p>                        
+                                <p>Phone: </p>
+                                <p>Address:</p>
+                            </div>
+                            <div class="cusInsertLeft">
+                                <p><input id="customerName" name="customerName" class="customer_name"/></p> 
+                                <p><input id="customerPhone" name="customerPhone" class="customer_phone"/></p> 
+                                <p><input id="customerAddress" name="customerAddress" class="customer_address"/></p> 
+                            </div>
+                            <div class="customerRight">
+                                <p>Birthday:</p>                   
+                                <p>Gender:</p>     
+                                <p>Email:</p>
+                            </div>
+                            <div class="cusInsertRight">
+                                <p><input id="customerBirth" name="customerBirth" class="customer_birth"/></p> 
+                                <p><select name="customerGender" id="customerGender" class="customer_gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select></p> 
+                                <p><input id="customerEmail" name="customerEmail" class="customer_email"/></p> 
+                            </div>
+                            <div class="projectLeft">
+                                <p>Project Name</p>                        
+                                <p>Period: </p>
+                                <p>Created Date:</p>
+                                <p>Completed:</p>
+                            </div>
+                            <div class="proInsertLeft">
+                                <p><select name="projectName" id="projectName" class="project_name" onclick="getRoom()">
+                                        <option value="" disabled="true" selected="true">Choose a project</option>
+                                        <c:forEach items="${proList}" var="pro">
+                                            <option value="${pro.projectID}">${pro.projectName}</option>
+                                        </c:forEach>
+                                    </select></p>
+                                <p><input id="projectPeriod" name="projectPeriod" class="project_period"/></p> 
+                                <p><input id="projectCreate" name="projectCreate" class="project_create"/></p> 
+                                <p><input id="projectComplete" name="projectComplete" class="project_complete"/></p> 
+                            </div>
+                            <div class="projectRight">
+                                <p>Building Name:</p>                        
+                                <p>Building Address: </p>
+                                <p>Finish Date:</p>
+                                <p>Building Type:</p>
+                            </div>
+                            <div class="proInsertRight">
+                                <p><input id="buildingId" name="BuildingId" class="building_id"/></p> 
+                                <p><input id="buildingAddress" name="buildingAddress" class="building_address"/></p> 
+                                <p><input id="projectFinish" name="projectFinish" class="project_finish"/></p> 
+                                <p><input id="buildingType" name="buildingType" class="building_type"/></p> 
+                            </div>
+                            <div class="roomLeft">
+                                <p>Room Id:</p>                        
+                                <p>Room Type: </p>
+                                <p>Expected Price:</p>
+                                <p>Deposit:</p>
+                            </div>
+                            <div class="roomInsertLeft">
+                                <p><select name="roomId" id="roomId" class="room_id" onchange="getRoomDetail()">
+                                        <c:forEach items="${typeList}" var="type">
+                                            <option value="${type.id}">${type.typeName}</option>
+                                        </c:forEach>
+                                    </select></p> 
+                                <p><input id="roomType" name="roomType" class="room_type"/></p> 
+                                <p><input id="expected" name="expected" class="expected"/></p> 
+                                <p><input id="deposit" name="deposit" class="deposit"/></p> 
+                            </div>
+                            <div class="roomRight">
+                                <p>Size:</p>                        
+                                <p>Floor: </p>
+                                <p>Due :</p>
+                                <p>Total Price:</p>
+                            </div>
+                            <div class="proInsertRight">
+                                <p><input id="roomSize" name="roomSize" class="room_size"/></p> 
+                                <p><input id="roomFloor" name="roomFloor" class="room_floor"/></p> 
+                                <p><input id="real" name="due" class="real"/></p> 
+                                <p><input id="total" name="total" class="total"/></p> 
+                            </div>
                         </div>
                     </div>
                     <input type="submit" class="addContract" value="Save"/>

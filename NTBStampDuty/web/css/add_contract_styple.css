@@ -8,10 +8,13 @@
     font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
     font-size: 14px;
     border: 1px solid #CBCBCB;
-    }
+}
 #main_body .detail_bar .table_container .project_container p{
-        height: 28px;
-    }
+    height: 28px;
+}
+#main_body .detail_bar .table_container .project_container .container{
+    margin: 0 100px;
+}
 #main_body .detail_bar .table_container .project_container .customerLeft{
     width: 120px;
 }
@@ -49,21 +52,22 @@
 }
 
 #main_body .detail_bar .addContract{
-          background-image: linear-gradient(to top, #F1F1F1, #FFF);
-          border-width: 1px;
-          border-style: solid;
-          border-color: #D2D2D2 #C9C8C8 #C3C3C2;
-          box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
-          color: #3E3E3E;
-          border-radius: 3px;
-          background-color: #EAE9E9;
-          background-repeat: no-repeat;
-          border: 1px solid rgba(0, 0, 0, 0.15);
-          font-size: 12px;
-          width: 70px;
-          height: 30px;
-          right: 50px;
-          position: absolute;
-          z-index: 50;
-          top: 14px;
-          }
+    background-image: linear-gradient(to top, #F1F1F1, #FFF);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #D2D2D2 #C9C8C8 #C3C3C2;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+    color: #3E3E3E;
+    border-radius: 3px;
+    background-color: #EAE9E9;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 12px;
+    width: 70px;
+    height: 30px;
+    right: 50px;
+    position: absolute;
+    z-index: 50;
+    top: 560px;
+    /* float: left; */
+}

@@ -9,7 +9,7 @@
 #main_body .detail_bar .table_container .table_project td:last-child {border-right: 0px; background: url("../images/ic_detail.png") no-repeat center; cursor: pointer;}
 #main_body .detail_bar .table_container .table_project td:last-child input {border: 0; background: transparent; color: transparent; width: 150px; height: 30px; cursor: pointer;}
 
-#main_body .detail_bar .table_container  .project_container {color: #191919; margin-top: 36px; position: absolute; padding: 4px 150px;}
+#main_body .detail_bar .table_container  .project_container {color: #191919; margin-top: 36px; position: absolute; padding: 4px 45px;}
 #main_body .detail_bar .table_container  .project_container #project {float: left; background-image: linear-gradient(to top, #F1F1F1, #FFF); border-width: 1px; border-style: solid; border-color: #D2D2D2 #C9C8C8 #C3C3C2; box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15); 
                                                                       color: #3E3E3E; border-radius: 6px; background-color: #EAE9E9; background-repeat: no-repeat; border: 1px solid rgba(0, 0, 0, 0.15); font-size: 12px; width: 165px; height: 222px; margin: 10px 15px 8px 15px;padding: 3px;cursor: pointer;}
 #main_body .detail_bar .table_container  .project_container #project:hover {box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);padding: 3px;}
