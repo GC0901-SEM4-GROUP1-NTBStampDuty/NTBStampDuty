@@ -128,7 +128,7 @@
                 </table>
                 <div class="addNewProject" title="Add New Project" style="display:none">
                     <form action="addProject">
-                        <div><a>Project Name:</a> <input name="proName" id="proName" class="pro_name"/></div>
+                        <div><a>Project Name:</a> <input name="proName" id="proName" class="pro_name" required="true" maxlength="50"/></div>
                         <div><a>Building:</a> <select name="builidingID" id="buildingID" class="building_id">
                                 <c:forEach items="${buildingList}" var="building">
                                     <option value="${building.buildingID}">${building.buildingName}</option>
@@ -137,9 +137,9 @@
                             <img class="plus_navigation" src="images/ic_plus.png"/>
                         </div>
                         <div><a>Create Date:</a> <input name="createData"  disabled="disabled" class="create_data"/></div> 
-                        <div><a>Period 1 Deadline:</a> <input type="date" name="period1" class="complete_percent"/></div> 
-                        <div><a>Finish Date:</a> <input type="date" name="finishDate" class="finish_data"/></div>
-                        <div><a>Period 2 Deadline:</a> <input type="date" accept=""name="period2" id="building_period" class="building_period"/></div>                     
+                        <div><a>Period 1 Deadline:</a> <input type="date" name="period1" class="complete_percent" required="true"/></div> 
+                        <div><a>Finish Date:</a> <input type="date" name="finishDate" class="finish_data" required="true"/></div>
+                        <div><a>Period 2 Deadline:</a> <input type="date" accept=""name="period2" id="building_period" required="true" class="building_period"/></div>                     
                         <div class="edit_menu">
                             <div class="btn_edit">
                                 <input type="submit" value="Add"/>

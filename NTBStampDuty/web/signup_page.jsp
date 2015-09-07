@@ -23,9 +23,9 @@
                 <form class="signup_auth" action="signup" method="post">
                     <input id="signup_input" type="text" name="username" placeholder="Username" required="true"  maxlength="15"/><br/>
                     <input id="signup_input" type="password" name="password" placeholder="Password" required="true" maxlength="20"/><br/>
-                    <select id="signup_input" name="role" >
+<!--                    <select id="signup_input" name="role" >
                         <option value="2">2</option>
-                    </select><br/>
+                    </select><br/>-->
                     <input id="signup_input" type="text" name="fullname" placeholder="Fullname" required="true"  maxlength="50"/><br/>
                     <select id="signup_input" name="gender" placeholder="Gender">
                         <option value="male">Male</option>

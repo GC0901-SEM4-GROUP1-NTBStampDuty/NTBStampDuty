@@ -78,7 +78,8 @@ public class signup extends HttpServlet {
             throws ServletException, IOException {
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
-        int role = Integer.parseInt(request.getParameter("role"));
+//        int role = Integer.parseInt(request.getParameter("role"));
+        int role = 2;
         String fulln = request.getParameter("fullname");
         String gend = request.getParameter("gender");
         String phone = request.getParameter("phone");

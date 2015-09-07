@@ -102,7 +102,7 @@
                 <div class="btn_new">
                     <input type="submit" value="New" onclick="submitter('addNewProject')"/>
                 </div>
-                <div class="filter_menu">
+                <div class="filter_menu" hidden="true">
                     <form class="form_filter" id="myForm1" action="projectFilter" method="post">
                         <select name="FilterColumn" id="filterColumn" onchange="getFilter()">
                             <option value="0">Select an option</option>
@@ -113,7 +113,7 @@
                 </div>
             </div>
 
-            <div class="search_menu">
+            <div class="search_menu" hidden="true">
                 <form class="form_search" action="" method="post">
                     <select name="searchColumn" id="searchColumn">
                         <option value="ProjectName">Project Name</option>
@@ -145,9 +145,9 @@
                                 <p>Address:</p>
                             </div>
                             <div class="cusInsertLeft">
-                                <p><input id="customerName" name="customerName" class="customer_name"/></p> 
-                                <p><input id="customerPhone" name="customerPhone" class="customer_phone"/></p> 
-                                <p><input id="customerAddress" name="customerAddress" class="customer_address"/></p> 
+                                <p><input id="customerName" name="customerName" class="customer_name" required="true" maxlength="50" min="5"/></p> 
+                                <p><input id="customerPhone" name="customerPhone" class="customer_phone" required="true" maxlength="50"/></p> 
+                                <p><input id="customerAddress" name="customerAddress" class="customer_address" required="true" maxlength="100"/></p> 
                             </div>
                             <div class="customerRight">
                                 <p>Birthday:</p>                   
@@ -155,12 +155,12 @@
                                 <p>Email:</p>
                             </div>
                             <div class="cusInsertRight">
-                                <p><input id="customerBirth" name="customerBirth" class="customer_birth"/></p> 
+                                <p><input id="customerBirth" name="customerBirth" class="customer_birth" required="true" maxlength="20"/></p> 
                                 <p><select name="customerGender" id="customerGender" class="customer_gender">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select></p> 
-                                <p><input id="customerEmail" name="customerEmail" class="customer_email"/></p> 
+                                <p><input id="customerEmail" name="customerEmail" class="customer_email" required="true" maxlength="100"/></p> 
                             </div>
                             <div class="projectLeft">
                                 <p>Project Name</p>                        
@@ -205,7 +205,7 @@
                                     </select></p> 
                                 <p><input id="roomType" name="roomType" class="room_type"/></p> 
                                 <p><input id="expected" name="expected" class="expected"/></p> 
-                                <p><input id="deposit" name="deposit" class="deposit"/></p> 
+                                <p><input id="deposit" name="deposit" class="deposit" type="number"/></p> 
                             </div>
                             <div class="roomRight">
                                 <p>Size:</p>                        
@@ -216,8 +216,8 @@
                             <div class="proInsertRight">
                                 <p><input id="roomSize" name="roomSize" class="room_size"/></p> 
                                 <p><input id="roomFloor" name="roomFloor" class="room_floor"/></p> 
-                                <p><input id="real" name="due" class="real"/></p> 
-                                <p><input id="total" name="total" class="total"/></p> 
+                                <p><input id="real" name="due" class="real" type="number"/></p> 
+                                <p><input id="total" name="total" class="total" type="number"/></p> 
                             </div>
                         </div>
                     </div>

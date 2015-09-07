@@ -21,8 +21,8 @@
             <div class="login_auth_dialog">
                 <h3>Sign in with your credentials</h3>
                 <form class="login_auth" action="login" method="post">
-                    <input id="login_input" type="text" name="username" placeholder="Username"  maxlength="15"/><br/>
-                    <input id="login_input" type="password" name="password" placeholder="Password"  maxlength="20"/><br/>
+                    <input id="login_input" type="text" name="username" placeholder="Username"  maxlength="15" required="true"/><br/>
+                    <input id="login_input" type="password" name="password" placeholder="Password"  maxlength="20" required="true"/><br/>
                     <a href="signup_page.jsp" class="login_signup">Register an account</a>
                     <div class="login_remember_form">
                         <input id="login_remember" name="remember" value="checked" type="checkbox"><span> Remember me</span>
