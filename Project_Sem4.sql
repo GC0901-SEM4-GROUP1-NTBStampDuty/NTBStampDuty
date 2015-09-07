@@ -154,9 +154,6 @@ period_2 datetime,
 period_3 datetime,
 complete_percent int
 )
-Update tblPeriod
-Set complete_percent = 31
-where proj_id = 1
 
 Insert into tblPeriod values (1,'2015-05-30','2015-11-19','2016-11-19',60)
 Insert into tblPeriod values (2,'2015-03-30','2015-09-30','2016-09-30',40)

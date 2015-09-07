@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.building.Building;
 import model.building.BuildingManager;
+import model.period.PeriodManager;
 import model.project.Project;
 import model.project.ProjectManager;
 
@@ -121,6 +122,10 @@ public class editProject extends HttpServlet {
         projectList = pm.getAllProject((page - 1) * recordsPerPage, recordsPerPage * page);
         int noOfRecords = pm.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        PeriodManager pem = new PeriodManager();
+        for (int i = 0; i < projectList.size(); i++) {
+            projectList.get(i).setCompletePercent(pem.getPeriod(projectList.get(i).getProjectID()).getPercent());
+        }
         request.setAttribute("projectList", projectList);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
